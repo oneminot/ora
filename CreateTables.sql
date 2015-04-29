@@ -13,8 +13,7 @@ create table Courses
   DepartmentID number(5) not null,
   CourseNumber number(5) not null,
   CourseName nvarchar2(40) not null, 
-  CourseDescription nvarchar2(4000) not null,
+  CourseDescription nvarchar2(2000) not null,
   constraint CourseNumber_Unique 
     unique (DepartmentID, CourseNumber)
 );
-
