@@ -46,16 +46,29 @@ CREATE TABLE "events"
   EndDate     DATE      NOT NULL,
   StartTime   DATE      NOT NULL,
   EndTime     DATE      NOT NULL,
-  IsMonday    NUMBER(1) NOT NULL,
-  IsTuesday   NUMBER(1) NOT NULL,
-  IsWednesday NUMBER(1) NOT NULL,
-  IsThursday  NUMBER(1) NOT NULL,
-  IsFriday    NUMBER(1) NOT NULL,
-  IsSaturday  NUMBER(1) NOT NULL,
-  IsSunday    NUMBER(1) NOT NULL,
+  IsMonday    CHAR(1) NOT NULL,
+  IsTuesday   CHAR(1) NOT NULL,
+  IsWednesday CHAR(1) NOT NULL,
+  IsThursday  CHAR(1) NOT NULL,
+  IsFriday    CHAR(1) NOT NULL,
+  IsSaturday  CHAR(1) NOT NULL,
+  IsSunday    CHAR(1) NOT NULL,
   CONSTRAINT StartDate_Unique
   UNIQUE (StartDate, EndDate, ClassID),
   CONSTRAINT ClassID_FK
   FOREIGN KEY (ClassID)
   REFERENCES "classes" (ClassID)
+);
+
+CREATE TABLE "assignments"
+(
+  AssignmentID               NUMBER(5) PRIMARY KEY,
+  CourseID                   NUMBER(5)     NOT NULL,
+  AssignmentNumber           NUMBER(5)     NOT NULL,
+  AssignmentName             NVARCHAR2(40) NOT NULL,
+  AssignmentDueDate          DATE          NOT NULL,
+  AssignmentHeader           NVARCHAR2(40) NOT NULL,
+  AssignmentChapterReference NVARCHAR2(40) NOT NULL,
+  AssignmentDetail           NCLOB         NOT NULL,
+  AssignmentIsActive         CHAR(1)       NOT NULL
 );
