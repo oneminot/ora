@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="1847923439">
+    <data-source source="LOCAL" name="Oracle - @loree.minotstateu.edu" uuid="ba799de8-d784-4660-9415-60ed85034724">
+      <driver-ref>oracle</driver-ref>
+      <auto-commit>false</auto-commit>
+      <jdbc-driver>oracle.jdbc.OracleDriver</jdbc-driver>
+      <jdbc-url>jdbc:oracle:thin:@//loree.minotstateu.edu:1521</jdbc-url>
+      <libraries />
+    </data-source>
+  </component>
+</project>
