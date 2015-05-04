@@ -1,22 +1,22 @@
-drop table courses;
-drop table departments;
+DROP TABLE "courses";
+DROP TABLE "departments";
 
-create table departments
+CREATE TABLE "departments"
 (
-  DepartmentID number(5) primary key,
-  DepartmentIdentifier nvarchar2(5) not null,
-  DepartmentName nvarchar2(40) not null,
-  constraint DepartmentIdentifer_Unique 
-    unique (DepartmentIdentifier)
+  DepartmentID         NUMBER(5) PRIMARY KEY,
+  DepartmentIdentifier NVARCHAR2(5)  NOT NULL,
+  DepartmentName       NVARCHAR2(40) NOT NULL,
+  CONSTRAINT DepartmentIdentifer_Unique
+  UNIQUE (DepartmentIdentifier)
 );
-  
-create table courses
+
+CREATE TABLE "courses"
 (
-  ID number(5) primary key,
-  DepartmentID number(5) not null,
-  CourseNumber number(5) not null,
-  CourseName nvarchar2(40) not null, 
-  CourseDescription nvarchar2(2000) not null,
-  constraint CourseNumber_Unique 
-    unique (DepartmentID, CourseNumber)
+  ID                NUMBER(5) PRIMARY KEY,
+  DepartmentID      NUMBER(5)       NOT NULL,
+  CourseNumber      NUMBER(5)       NOT NULL,
+  CourseName        NVARCHAR2(40)   NOT NULL,
+  CourseDescription NVARCHAR2(2000) NOT NULL,
+  CONSTRAINT CourseNumber_Unique
+  UNIQUE (DepartmentID, CourseNumber)
 );
