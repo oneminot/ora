@@ -1,5 +1,7 @@
--- DROP TABLE "courses";
--- DROP TABLE "departments";
+DROP TABLE "courses";
+DROP TABLE "departments";
+DROP TABLE "classes";
+DROP TABLE "events";
 
 CREATE TABLE "departments"
 (
