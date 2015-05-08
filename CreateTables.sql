@@ -114,3 +114,11 @@ CREATE TABLE "authorarticles"
   REFERENCES "authors" (AuthorID)
 );
 
+CREATE TABLE AdministrationUser (
+  AdministrationUserID           NUMBER(100) PRIMARY KEY NOT NULL,
+  AdministrationUserName         NVARCHAR2(255)          NOT NULL,
+  AdministrationUserSalt         NVARCHAR2(2000)         NOT NULL,
+  AdministrationUserPassword     NVARCHAR2(2000)         NOT NULL,
+  AdministrationUserAttemptCount NUMBER(100)             NOT NULL,
+  AdministrationUserLastAttempt  TIMESTAMP               NOT NULL
+);
