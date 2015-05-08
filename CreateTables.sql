@@ -2,6 +2,9 @@ DROP TABLE "courses";
 DROP TABLE "departments";
 DROP TABLE "classes";
 DROP TABLE "events";
+DROP TABLE "assignments";
+DROP TABLE "authorarticles"
+
 
 CREATE TABLE "departments"
 (
@@ -14,14 +17,14 @@ CREATE TABLE "departments"
 
 CREATE TABLE "courses"
 (
-  CourseID NUMBER(5) PRIMARY KEY,
+  CourseID     NUMBER(5) PRIMARY KEY,
   DepartmentID      NUMBER(5)       NOT NULL,
-  CourseNumber      NUMBER(5)       NOT NULL,
+  CourseNumber NVARCHAR2(6) NOT NULL,
   CourseName        NVARCHAR2(40)   NOT NULL,
   CourseDescription NVARCHAR2(2000) NOT NULL,
   CONSTRAINT CourseNumber_Unique
   UNIQUE (DepartmentID, CourseNumber),
-  CONSTRAINT DepartmentID_FK
+  CONSTRAINT Departments_Courses_FK
   FOREIGN KEY (DepartmentID)
   REFERENCES "departments" (DepartmentID)
 );
@@ -29,11 +32,11 @@ CREATE TABLE "courses"
 CREATE TABLE "classes"
 (
   ClassID     NUMBER(5) PRIMARY KEY,
-  ClassNumber VARCHAR2(6) NOT NULL,
-  CourseID    NUMBER(5)   NOT NULL,
+  ClassNumber NVARCHAR2(6) NOT NULL,
+  CourseID    NUMBER(5)    NOT NULL,
   CONSTRAINT ClassNumber_Unique
   UNIQUE (ClassNumber, CourseID),
-  CONSTRAINT CourseID_FK
+  CONSTRAINT Courses_Classes_FK
   FOREIGN KEY (CourseID)
   REFERENCES "courses" (CourseID)
 );
@@ -55,7 +58,7 @@ CREATE TABLE "events"
   IsSunday    CHAR(1) NOT NULL,
   CONSTRAINT StartDate_Unique
   UNIQUE (StartDate, EndDate, ClassID),
-  CONSTRAINT ClassID_FK
+  CONSTRAINT Classes_Events_FK
   FOREIGN KEY (ClassID)
   REFERENCES "classes" (ClassID)
 );
@@ -64,7 +67,7 @@ CREATE TABLE "assignments"
 (
   AssignmentID               NUMBER(5) PRIMARY KEY,
   CourseID                   NUMBER(5)     NOT NULL,
-  AssignmentNumber           NUMBER(5)     NOT NULL,
+  AssignmentNumber NVARCHAR2(5) NOT NULL,
   AssignmentName             NVARCHAR2(40) NOT NULL,
   AssignmentDueDate          DATE          NOT NULL,
   AssignmentHeader           NVARCHAR2(40) NOT NULL,
@@ -72,3 +75,42 @@ CREATE TABLE "assignments"
   AssignmentDetail           NCLOB         NOT NULL,
   AssignmentIsActive         CHAR(1)       NOT NULL
 );
+
+CREATE TABLE articles (
+  ArticleID            NUMBER(5) PRIMARY KEY,
+  ArticleTitle         NVARCHAR2(80) NOT NULL,
+  RelativeFileLocation NVARCHAR2(80) NOT NULL,
+  PublicationID        NUMBER(5)     NOT NULL,
+  PageReference        NVARCHAR2(40),
+  CONSTRAINT Article_Unique
+  UNIQUE (ArticleTitle, RelativeFileLocation, PublicationID, PageReference)
+);
+
+CREATE TABLE "authors"
+(
+  AuthorID   NUMBER(5) PRIMARY KEY,
+  AuthorName NVARCHAR2(40) NOT NULL,
+  CONSTRAINT AuthorName_Unique
+  UNIQUE (AuthorName)
+);
+
+CREATE TABLE "publications"
+(
+  PublicationID       NUMBER(5) PRIMARY KEY,
+  PublicationTitle    NVARCHAR2(80) NOT NULL,
+  PublicationLocation NVARCHAR2(80) NOT NULL,
+  PublicationYear     VARCHAR2(4)
+);
+
+CREATE TABLE "authorarticles"
+(
+  AuthorArticleID NUMBER(5) PRIMARY KEY,
+  AuthorID        NUMBER(5) NOT NULL,
+  ArticleID       NUMBER(5) NOT NULL,
+  CONSTRAINT AuthorID_ArticleID_Unique
+  UNIQUE (AuthorID, ArticleID),
+  CONSTRAINT Authors_AuthorArticles_FK
+  FOREIGN KEY (AuthorID)
+  REFERENCES "authors" (AuthorID)
+);
+

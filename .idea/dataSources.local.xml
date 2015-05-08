@@ -3,7 +3,6 @@
   <component name="dataSourceStorageLocal">
     <data-source name="Oracle - @loree.minotstateu.edu" uuid="979324d8-7a6e-466b-8ee3-06e5e77392c4">
       <secret-storage>master_key</secret-storage>
-      <first-sync>true</first-sync>
       <user-name>khada</user-name>
       <schema-pattern>*.KHADA *.SYS *.SYSTEM</schema-pattern>
       <default-schemas>*.KHADA *.SYS *.SYSTEM</default-schemas>
