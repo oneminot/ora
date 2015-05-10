@@ -3,7 +3,7 @@ DROP TABLE "departments";
 DROP TABLE "classes";
 DROP TABLE "events";
 DROP TABLE "assignments";
-DROP TABLE "authorarticles"
+DROP TABLE "authorarticles";
 
 
 CREATE TABLE "departments"
@@ -76,7 +76,7 @@ CREATE TABLE "assignments"
   AssignmentIsActive         CHAR(1)       NOT NULL
 );
 
-CREATE TABLE articles (
+CREATE TABLE "articles" (
   ArticleID            NUMBER(5) PRIMARY KEY,
   ArticleTitle         NVARCHAR2(80) NOT NULL,
   RelativeFileLocation NVARCHAR2(80) NOT NULL,
