@@ -1,17 +1,16 @@
-ALTER TABLE KHADA."events" DROP CONSTRAINT CLASSES_EVENTS_FK;
-ALTER TABLE KHADA."authorarticles" DROP CONSTRAINT AUTHORS_AUTHORARTICLES_FK;
-ALTER TABLE KHADA."courses" DROP CONSTRAINT DEPARTMENTS_COURSES_FK;
-ALTER TABLE KHADA."classes" DROP CONSTRAINT COURSES_CLASSES_FK;
-DROP TABLE KHADA."events";
-DROP TABLE KHADA."authorarticles";
-DROP TABLE KHADA."courses";
-DROP TABLE KHADA."classes";
-DROP TABLE KHADA."departments";
-DROP TABLE KHADA."authors";
-DROP TABLE KHADA."publications";
-DROP TABLE KHADA."assignments";
-DROP TABLE KHADA."articles";
-DROP TABLE KHADA."administrationusers";
+Motivation for table structure
+
+    Table names are always plural where possible.
+    For example, we will use persons over person as a table name.
+
+    The primary key in each of the tables below is an integer.
+    We will need some kind of a trigger to increment this integer when we insert a new row.
+
+    Prefer unicode over ascii.
+    Unless and until there is a legitimate reason why something must be in ascii, prefer unicode.
+    This simplifies our code.
+
+
 
 CREATE TABLE "departments"
 (
@@ -24,9 +23,9 @@ CREATE TABLE "departments"
 
 CREATE TABLE "courses"
 (
-  CourseID     NUMBER(5) PRIMARY KEY,
+  CourseID          NUMBER(5) PRIMARY KEY,
   DepartmentID      NUMBER(5)       NOT NULL,
-  CourseNumber NVARCHAR2(6) NOT NULL,
+  CourseNumber      NVARCHAR2(6)    NOT NULL,
   CourseName        NVARCHAR2(40)   NOT NULL,
   CourseDescription NVARCHAR2(2000) NOT NULL,
   CONSTRAINT CourseNumber_Unique
@@ -56,13 +55,13 @@ CREATE TABLE "events"
   EndDate     DATE      NOT NULL,
   StartTime   DATE      NOT NULL,
   EndTime     DATE      NOT NULL,
-  IsMonday    CHAR(1) NOT NULL,
-  IsTuesday   CHAR(1) NOT NULL,
-  IsWednesday CHAR(1) NOT NULL,
-  IsThursday  CHAR(1) NOT NULL,
-  IsFriday    CHAR(1) NOT NULL,
-  IsSaturday  CHAR(1) NOT NULL,
-  IsSunday    CHAR(1) NOT NULL,
+  IsMonday    CHAR(1)   NOT NULL,
+  IsTuesday   CHAR(1)   NOT NULL,
+  IsWednesday CHAR(1)   NOT NULL,
+  IsThursday  CHAR(1)   NOT NULL,
+  IsFriday    CHAR(1)   NOT NULL,
+  IsSaturday  CHAR(1)   NOT NULL,
+  IsSunday    CHAR(1)   NOT NULL,
   CONSTRAINT StartDate_Unique
   UNIQUE (StartDate, EndDate, ClassID),
   CONSTRAINT Classes_Events_FK
@@ -74,7 +73,7 @@ CREATE TABLE "assignments"
 (
   AssignmentID               NUMBER(5) PRIMARY KEY,
   CourseID                   NUMBER(5)     NOT NULL,
-  AssignmentNumber NVARCHAR2(5) NOT NULL,
+  AssignmentNumber           NVARCHAR2(5)  NOT NULL,
   AssignmentName             NVARCHAR2(40) NOT NULL,
   AssignmentDueDate          DATE          NOT NULL,
   AssignmentHeader           NVARCHAR2(40) NOT NULL,
