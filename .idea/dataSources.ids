@@ -100,6 +100,12 @@
       <foreign-key name="CLASSES_EVENTS_FK" columns="CLASSID" ref-table="classes" ref-schema="KHADA" ref-catalog="" ref-columns="CLASSID" update-rule="0" delete-rule="1" deferrability="2"/>
       <index name="STARTDATE_UNIQUE" unique="true" columns="STARTDATE,ENDDATE,CLASSID"/>
     </table>
+    <table name="kushaltestperson" schema="KHADA" catalog="" type="TABLE">
+      <column name="C1" sqlType="NUMBER" precision="0" scale="-127" nullable="false" jdbcType="3" version="true"/>
+      <column name="C2" sqlType="NVARCHAR2" precision="10" scale="0" nullable="true" jdbcType="1111"/>
+      <primary-key name="SYS_C0052734" columns="C1"/>
+    </table>
+    <table name="kushaltestperson_sequence" schema="KHADA" catalog="" type="SEQUENCE"/>
     <table name="kushaltesttable" schema="KHADA" catalog="" type="TABLE">
       <column name="KUSHALTESTTABLETEXT" sqlType="NVARCHAR2" precision="50" scale="0" nullable="false" jdbcType="1111"/>
       <index name="SYS_C0052590" unique="true" columns="KUSHALTESTTABLETEXT"/>
