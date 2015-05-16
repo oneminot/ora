@@ -22,6 +22,21 @@ CREATE TABLE "departments"
   UNIQUE (DepartmentIdentifier)
 );
 
+CREATE SEQUENCE "departments_sequence"
+START WITH 1
+INCREMENT BY 1;
+
+CREATE OR REPLACE TRIGGER "departments_sequence_trigger"
+BEFORE INSERT
+ON "departments"
+REFERENCING NEW AS NEW
+FOR EACH ROW
+  BEGIN
+    SELECT "departments_sequence".nextval
+    INTO :NEW.DepartmentID
+    FROM DUAL;
+  END;
+
 CREATE TABLE "courses"
 (
   CourseID     NUMBER(5) PRIMARY KEY,

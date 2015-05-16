@@ -5,6 +5,9 @@
 --   --   UNIQUE (KushalTestTableID)
 -- );
 
+SELECT banner
+FROM v$version;
+
 DROP TABLE "kushaltestperson";
 DROP SEQUENCE "kushaltestperson_sequence";
 
