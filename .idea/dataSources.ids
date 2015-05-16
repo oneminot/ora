@@ -9,13 +9,22 @@
     <schema name="KHADA" catalog=""/>
     <schema name="SYS" catalog=""/>
     <schema name="SYSTEM" catalog=""/>
+    <table name="administrationusers" schema="KHADA" catalog="" type="TABLE">
+      <column name="ADMINISTRATIONUSERID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
+      <column name="ADMINISTRATIONUSERNAME" sqlType="NVARCHAR2" precision="255" scale="0" nullable="false" jdbcType="1111"/>
+      <column name="ADMINISTRATIONUSERSALT" sqlType="NVARCHAR2" precision="2000" scale="0" nullable="false" jdbcType="1111"/>
+      <column name="ADMINISTRATIONUSERPASSWORD" sqlType="NVARCHAR2" precision="2000" scale="0" nullable="false" jdbcType="1111"/>
+      <column name="ADMINISTRATIONUSERATTEMPTCOUNT" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
+      <column name="ADMINISTRATIONUSERLASTATTEMPT" sqlType="TIMESTAMP(6)" precision="11" scale="6" nullable="false" jdbcType="93"/>
+      <primary-key name="SYS_C0052706" columns="ADMINISTRATIONUSERID"/>
+    </table>
     <table name="articles" schema="KHADA" catalog="" type="TABLE">
       <column name="ARTICLEID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
       <column name="ARTICLETITLE" sqlType="NVARCHAR2" precision="80" scale="0" nullable="false" jdbcType="1111"/>
       <column name="RELATIVEFILELOCATION" sqlType="NVARCHAR2" precision="80" scale="0" nullable="false" jdbcType="1111"/>
       <column name="PUBLICATIONID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
       <column name="PAGEREFERENCE" sqlType="NVARCHAR2" precision="40" scale="0" nullable="true" jdbcType="1111"/>
-      <primary-key name="SYS_C0052032" columns="ARTICLEID"/>
+      <primary-key name="SYS_C0052687" columns="ARTICLEID"/>
       <index name="ARTICLE_UNIQUE" unique="true" columns="ARTICLETITLE,RELATIVEFILELOCATION,PUBLICATIONID,PAGEREFERENCE"/>
     </table>
     <table name="assignments" schema="KHADA" catalog="" type="TABLE">
@@ -28,20 +37,20 @@
       <column name="ASSIGNMENTCHAPTERREFERENCE" sqlType="NVARCHAR2" precision="40" scale="0" nullable="false" jdbcType="1111"/>
       <column name="ASSIGNMENTDETAIL" sqlType="NCLOB" precision="4000" scale="0" nullable="false" jdbcType="1111"/>
       <column name="ASSIGNMENTISACTIVE" sqlType="CHAR" precision="1" scale="0" nullable="false" jdbcType="1"/>
-      <primary-key name="SYS_C0052084" columns="ASSIGNMENTID"/>
+      <primary-key name="SYS_C0052683" columns="ASSIGNMENTID"/>
     </table>
     <table name="authorarticles" schema="KHADA" catalog="" type="TABLE">
       <column name="AUTHORARTICLEID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
       <column name="AUTHORID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
       <column name="ARTICLEID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
-      <primary-key name="SYS_C0052093" columns="AUTHORARTICLEID"/>
+      <primary-key name="SYS_C0052697" columns="AUTHORARTICLEID"/>
       <foreign-key name="AUTHORS_AUTHORARTICLES_FK" columns="AUTHORID" ref-table="authors" ref-schema="KHADA" ref-catalog="" ref-columns="AUTHORID" update-rule="0" delete-rule="1" deferrability="2"/>
       <index name="AUTHORID_ARTICLEID_UNIQUE" unique="true" columns="AUTHORID,ARTICLEID"/>
     </table>
     <table name="authors" schema="KHADA" catalog="" type="TABLE">
       <column name="AUTHORID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
       <column name="AUTHORNAME" sqlType="NVARCHAR2" precision="40" scale="0" nullable="false" jdbcType="1111"/>
-      <primary-key name="SYS_C0052086" columns="AUTHORID"/>
+      <primary-key name="SYS_C0052690" columns="AUTHORID"/>
       <exported-key name="AUTHORS_AUTHORARTICLES_FK" table="authorarticles" schema="KHADA" catalog="" columns="AUTHORID"/>
       <index name="AUTHORNAME_UNIQUE" unique="true" columns="AUTHORNAME"/>
     </table>
@@ -49,7 +58,7 @@
       <column name="CLASSID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
       <column name="CLASSNUMBER" sqlType="NVARCHAR2" precision="6" scale="0" nullable="false" jdbcType="1111"/>
       <column name="COURSEID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
-      <primary-key name="SYS_C0052058" columns="CLASSID"/>
+      <primary-key name="SYS_C0052657" columns="CLASSID"/>
       <foreign-key name="COURSES_CLASSES_FK" columns="COURSEID" ref-table="courses" ref-schema="KHADA" ref-catalog="" ref-columns="COURSEID" update-rule="0" delete-rule="1" deferrability="2"/>
       <exported-key name="CLASSES_EVENTS_FK" table="events" schema="KHADA" catalog="" columns="CLASSID"/>
       <index name="CLASSNUMBER_UNIQUE" unique="true" columns="CLASSNUMBER,COURSEID"/>
@@ -60,7 +69,7 @@
       <column name="COURSENUMBER" sqlType="NVARCHAR2" precision="6" scale="0" nullable="false" jdbcType="1111"/>
       <column name="COURSENAME" sqlType="NVARCHAR2" precision="40" scale="0" nullable="false" jdbcType="1111"/>
       <column name="COURSEDESCRIPTION" sqlType="NVARCHAR2" precision="2000" scale="0" nullable="false" jdbcType="1111"/>
-      <primary-key name="SYS_C0052053" columns="COURSEID"/>
+      <primary-key name="SYS_C0052528" columns="COURSEID"/>
       <foreign-key name="DEPARTMENTS_COURSES_FK" columns="DEPARTMENTID" ref-table="departments" ref-schema="KHADA" ref-catalog="" ref-columns="DEPARTMENTID" update-rule="0" delete-rule="1" deferrability="2"/>
       <exported-key name="COURSES_CLASSES_FK" table="classes" schema="KHADA" catalog="" columns="COURSEID"/>
       <index name="COURSENUMBER_UNIQUE" unique="true" columns="DEPARTMENTID,COURSENUMBER"/>
@@ -69,7 +78,7 @@
       <column name="DEPARTMENTID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
       <column name="DEPARTMENTIDENTIFIER" sqlType="NVARCHAR2" precision="5" scale="0" nullable="false" jdbcType="1111"/>
       <column name="DEPARTMENTNAME" sqlType="NVARCHAR2" precision="40" scale="0" nullable="false" jdbcType="1111"/>
-      <primary-key name="SYS_C0052047" columns="DEPARTMENTID"/>
+      <primary-key name="SYS_C0052522" columns="DEPARTMENTID"/>
       <exported-key name="DEPARTMENTS_COURSES_FK" table="courses" schema="KHADA" catalog="" columns="DEPARTMENTID"/>
       <index name="DEPARTMENTIDENTIFER_UNIQUE" unique="true" columns="DEPARTMENTIDENTIFIER"/>
     </table>
@@ -87,16 +96,20 @@
       <column name="ISFRIDAY" sqlType="CHAR" precision="1" scale="0" nullable="false" jdbcType="1"/>
       <column name="ISSATURDAY" sqlType="CHAR" precision="1" scale="0" nullable="false" jdbcType="1"/>
       <column name="ISSUNDAY" sqlType="CHAR" precision="1" scale="0" nullable="false" jdbcType="1"/>
-      <primary-key name="SYS_C0052073" columns="EVENTID"/>
+      <primary-key name="SYS_C0052672" columns="EVENTID"/>
       <foreign-key name="CLASSES_EVENTS_FK" columns="CLASSID" ref-table="classes" ref-schema="KHADA" ref-catalog="" ref-columns="CLASSID" update-rule="0" delete-rule="1" deferrability="2"/>
       <index name="STARTDATE_UNIQUE" unique="true" columns="STARTDATE,ENDDATE,CLASSID"/>
+    </table>
+    <table name="kushaltesttable" schema="KHADA" catalog="" type="TABLE">
+      <column name="KUSHALTESTTABLETEXT" sqlType="NVARCHAR2" precision="50" scale="0" nullable="false" jdbcType="1111"/>
+      <index name="SYS_C0052590" unique="true" columns="KUSHALTESTTABLETEXT"/>
     </table>
     <table name="publications" schema="KHADA" catalog="" type="TABLE">
       <column name="PUBLICATIONID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
       <column name="PUBLICATIONTITLE" sqlType="NVARCHAR2" precision="80" scale="0" nullable="false" jdbcType="1111"/>
       <column name="PUBLICATIONLOCATION" sqlType="NVARCHAR2" precision="80" scale="0" nullable="false" jdbcType="1111"/>
       <column name="PUBLICATIONYEAR" sqlType="VARCHAR2" precision="4" scale="0" nullable="true" jdbcType="12"/>
-      <primary-key name="SYS_C0052090" columns="PUBLICATIONID"/>
+      <primary-key name="SYS_C0052694" columns="PUBLICATIONID"/>
     </table>
     <table name="ALL_ALL_TABLES" schema="SYS" catalog="" type="VIEW">
       <column name="OWNER" sqlType="VARCHAR2" precision="30" scale="0" nullable="true" jdbcType="12"/>
@@ -17396,10 +17409,8 @@
       </prototype>
     </procedure>
     <procedure name="INITIALIZE" schema="SYS" catalog="" type="1" package="DBMS_CRYPTO_TOOLKIT" remarks="UGFja2FnZWQgcHJvY2VkdXJl"/>
-    <procedure name="KEYEDHASH" schema="SYS" catalog="" type="1" package="DBMS_CRYPTO_TOOLKIT" remarks="UGFja2FnZWQgcHJvY2VkdXJl">
+    <procedure name="KEYEDHASH" schema="SYS" catalog="" type="2" package="DBMS_CRYPTO_TOOLKIT" remarks="UGFja2FnZWQgZnVuY3Rpb24=">
       <prototype>
-        <parameter name="PERSONA" sqlType="PL/SQL RECORD" precision="0" scale="0" nullable="true" jdbcType="1111" type="1" index="0"/>
-        <parameter name="PERSONA" sqlType="PL/SQL RECORD" precision="0" scale="0" nullable="true" jdbcType="1111" type="1" index="0"/>
         <parameter name="PERSONA" sqlType="PL/SQL RECORD" precision="0" scale="0" nullable="true" jdbcType="1111" type="1" index="1"/>
         <parameter name="PERSONA" sqlType="PL/SQL RECORD" precision="0" scale="0" nullable="true" jdbcType="1111" type="1" index="1"/>
         <parameter name="INPUT" sqlType="RAW" precision="32767" scale="0" nullable="true" jdbcType="-3" type="1" index="2"/>
@@ -17412,7 +17423,9 @@
         <parameter name="HASH_STATE" sqlType="BINARY_INTEGER" precision="0" scale="0" nullable="true" jdbcType="1111" type="1" index="4"/>
         <parameter name="HASH_STATE" sqlType="BINARY_INTEGER" precision="0" scale="0" nullable="true" jdbcType="1111" type="1" index="4"/>
         <parameter name="HASH_STATE" sqlType="BINARY_INTEGER" precision="0" scale="0" nullable="true" jdbcType="1111" type="1" index="4"/>
+        <parameter name="PERSONA" sqlType="PL/SQL RECORD" precision="0" scale="0" nullable="true" jdbcType="1111" type="5" index="0"/>
         <parameter name="" sqlType="RAW" precision="32767" scale="0" nullable="true" jdbcType="-3" type="5" index="0"/>
+        <parameter name="PERSONA" sqlType="PL/SQL RECORD" precision="0" scale="0" nullable="true" jdbcType="1111" type="5" index="0"/>
         <parameter name="" sqlType="RAW" precision="32767" scale="0" nullable="true" jdbcType="-3" type="5" index="0"/>
       </prototype>
     </procedure>
