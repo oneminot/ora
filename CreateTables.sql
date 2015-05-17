@@ -69,7 +69,7 @@ CREATE TABLE "syllabi"
   (
     ID               NUMBER(5),
     Course_ID        NUMBER(5) NOT NULL,
-    SyllabusIsActive CHAR(1) NOT NULL,
+    IsActive CHAR(1) NOT NULL,
     CONSTRAINT syllabusid_pk PRIMARY KEY (ID)
   );
 CREATE TABLE "articles"
