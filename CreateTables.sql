@@ -67,20 +67,20 @@ CREATE TABLE "assignments"
   );
 CREATE TABLE "syllabi"
   (
-    ID               NUMBER(5),
-    Course_ID        NUMBER(5) NOT NULL,
-    IsActive CHAR(1) NOT NULL,
-    CONSTRAINT syllabusid_pk PRIMARY KEY (ID)
+    ID        NUMBER(5),
+    Course_ID NUMBER(5) NOT NULL,
+    IsActive  CHAR(1) NOT NULL,
+    CONSTRAINT pk_syllabi PRIMARY KEY (ID)
   );
 CREATE TABLE "articles"
   (
-    ArticleID            NUMBER(5),
-    ArticleTitle         VARCHAR2(80) NOT NULL,
+    ID                   NUMBER(5),
+    Title                VARCHAR2(80) NOT NULL,
     RelativeFileLocation VARCHAR2(80) NOT NULL,
     PublicationID        NUMBER(5) NOT NULL,
     PageReference        VARCHAR2(40),
-    CONSTRAINT articleid_pk PRIMARY KEY (ArticleID),
-    CONSTRAINT articles_unique UNIQUE (ArticleTitle, RelativeFileLocation, PublicationID, PageReference)
+    CONSTRAINT articleid_pk PRIMARY KEY (ID),
+    CONSTRAINT articles_unique UNIQUE (Title, RelativeFileLocation, PublicationID, PageReference)
   );
 CREATE TABLE "authors"
   (
