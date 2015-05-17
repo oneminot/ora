@@ -4,11 +4,11 @@ CREATE TABLE "departments"
   DepartmentIdentifier VARCHAR2(5)  NOT NULL,
   DepartmentName       VARCHAR2(40) NOT NULL,
   CONSTRAINT departmentid_pk PRIMARY KEY (DepartmentID),
-  CONSTRAINT departmentidentifier_unique
+  CONSTRAINT unq_departmentidentifier
   UNIQUE (DepartmentIdentifier)
 );
 
-CREATE SEQUENCE "departments_sequence"
+CREATE SEQUENCE "seq_departments"
 START WITH 1
 INCREMENT BY 1;
 
@@ -121,7 +121,7 @@ CREATE TABLE "publications"
 
 CREATE TABLE "authorarticles"
 (
-  AuthorArticleID NUMBER(5) PRIMARY KEY,
+  AuthorArticleID NUMBER(5),
   AuthorID        NUMBER(5) NOT NULL,
   ArticleID       NUMBER(5) NOT NULL,
   CONSTRAINT authorarticleid_pk PRIMARY KEY (AuthorArticleID),
