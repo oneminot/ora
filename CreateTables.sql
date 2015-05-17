@@ -21,7 +21,7 @@ CREATE TABLE "semesters"
     ID   NUMBER(5),
     Name VARCHAR2(40) NOT NULL,
     YEAR VARCHAR2(4) NOT NULL,
-    CONSTRAINT pk_semesters PRIMARY KEY (Id),
+    CONSTRAINT pk_semesters PRIMARY KEY (ID),
     CONSTRAINT unq_semesters UNIQUE (Name, YEAR)
   );
 CREATE TABLE "classes"
