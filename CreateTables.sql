@@ -14,7 +14,7 @@ INCREMENT BY 1;
 
 CREATE TABLE "courses"
 (
-  CourseID NUMBER(5),
+  CourseID     NUMBER(5),
   DepartmentID      NUMBER(5)       NOT NULL,
   CourseNumber NVARCHAR2(6) NOT NULL,
   CourseName        NVARCHAR2(40)   NOT NULL,
@@ -42,7 +42,7 @@ CREATE TABLE "classes"
 
 CREATE TABLE "events"
 (
-  EventID NUMBER(5),
+  EventID     NUMBER(5),
   ClassID     NUMBER(5) NOT NULL,
   StartDate   DATE      NOT NULL,
   EndDate     DATE      NOT NULL,
@@ -67,14 +67,27 @@ CREATE TABLE "assignments"
 (
   AssignmentID       NUMBER(5),
   CourseID                   NUMBER(5)     NOT NULL,
-  AssignmentNumber NVARCHAR2(5) NOT NULL,
+  AssignmentNumber   NVARCHAR2(5) NOT NULL,
   AssignmentName             NVARCHAR2(40) NOT NULL,
   AssignmentDueDate          DATE          NOT NULL,
   AssignmentHeader           NVARCHAR2(40) NOT NULL,
   AssignmentChapterReference NVARCHAR2(40) NOT NULL,
   AssignmentDetail           NCLOB         NOT NULL,
-  AssignmentIsActive CHAR(1) NOT NULL,
+  AssignmentIsActive CHAR(1)      NOT NULL,
   CONSTRAINT assignmentid_pk PRIMARY KEY (AssignmentID)
+);
+
+CREATE TABLE "syllabi"
+(
+  SyllabusID                 NUMBER(5),
+  CourseID                   NUMBER(5)     NOT NULL,
+  AssignmentName             NVARCHAR2(40) NOT NULL,
+  AssignmentDueDate          DATE          NOT NULL,
+  AssignmentHeader           NVARCHAR2(40) NOT NULL,
+  AssignmentChapterReference NVARCHAR2(40) NOT NULL,
+  AssignmentDetail           NCLOB         NOT NULL,
+  SyllabusIsActive           CHAR(1)       NOT NULL,
+  CONSTRAINT syllabusid_pk PRIMARY KEY (SyllabusID)
 );
 
 CREATE TABLE "articles" (
@@ -120,11 +133,11 @@ CREATE TABLE "authorarticles"
 );
 
 CREATE TABLE "administrationusers" (
-  AdministrationUserID          NUMBER(5) NOT NULL,
-  AdministrationUserName         NVARCHAR2(255)        NOT NULL,
-  AdministrationUserSalt         NVARCHAR2(2000)       NOT NULL,
-  AdministrationUserPassword     NVARCHAR2(2000)       NOT NULL,
-  AdministrationUserAttemptCount NUMBER(5)             NOT NULL,
-  AdministrationUserLastAttempt TIMESTAMP NOT NULL,
+  AdministrationUserID           NUMBER(5)       NOT NULL,
+  AdministrationUserName         NVARCHAR2(255)  NOT NULL,
+  AdministrationUserSalt         NVARCHAR2(2000) NOT NULL,
+  AdministrationUserPassword     NVARCHAR2(2000) NOT NULL,
+  AdministrationUserAttemptCount NUMBER(5)       NOT NULL,
+  AdministrationUserLastAttempt  TIMESTAMP       NOT NULL,
   CONSTRAINT administrationuserid_pk PRIMARY KEY (AdministrationUserID)
 );
