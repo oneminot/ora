@@ -19,7 +19,7 @@ CREATE TABLE "departments"
   DepartmentIdentifier NVARCHAR2(5)  NOT NULL,
   DepartmentName       NVARCHAR2(40) NOT NULL,
   CONSTRAINT departmentid_pk PRIMARY KEY (DepartmentID),
-  CONSTRAINT DepartmentIdentifer_Unique
+  CONSTRAINT departmentidentifier_unique
   UNIQUE (DepartmentIdentifier)
 );
 
@@ -27,16 +27,16 @@ CREATE SEQUENCE "departments_sequence"
 START WITH 1
 INCREMENT BY 1;
 
-CREATE OR REPLACE TRIGGER "departments_sequence_trigger"
-BEFORE INSERT
-ON "departments"
-REFERENCING NEW AS NEW
-FOR EACH ROW
-  BEGIN
-    SELECT "departments_sequence".nextval
-    INTO :NEW.DepartmentID
-    FROM DUAL;
-  END;
+-- CREATE OR REPLACE TRIGGER "departments_sequence_trigger"
+-- BEFORE INSERT
+-- ON "departments"
+-- REFERENCING NEW AS NEW
+-- FOR EACH ROW
+--   BEGIN
+--     SELECT "departments_sequence".nextval
+--     INTO :NEW.DepartmentID
+--     FROM DUAL;
+--   END;
 
 CREATE TABLE "courses"
 (
@@ -45,9 +45,9 @@ CREATE TABLE "courses"
   CourseNumber NVARCHAR2(6) NOT NULL,
   CourseName        NVARCHAR2(40)   NOT NULL,
   CourseDescription NVARCHAR2(2000) NOT NULL,
-  CONSTRAINT CourseNumber_Unique
+  CONSTRAINT coursenumber_unique
   UNIQUE (DepartmentID, CourseNumber),
-  CONSTRAINT Departments_Courses_FK
+  CONSTRAINT departments_courses_fk
   FOREIGN KEY (DepartmentID)
   REFERENCES "departments" (DepartmentID)
 );
@@ -57,9 +57,9 @@ CREATE TABLE "classes"
   ClassID     NUMBER(5) PRIMARY KEY,
   ClassNumber NVARCHAR2(6) NOT NULL,
   CourseID    NUMBER(5)    NOT NULL,
-  CONSTRAINT ClassNumber_Unique
+  CONSTRAINT classnumber_unique
   UNIQUE (ClassNumber, CourseID),
-  CONSTRAINT Courses_Classes_FK
+  CONSTRAINT courses_classes_fk
   FOREIGN KEY (CourseID)
   REFERENCES "courses" (CourseID)
 );
@@ -79,9 +79,9 @@ CREATE TABLE "events"
   IsFriday    CHAR(1) NOT NULL,
   IsSaturday  CHAR(1) NOT NULL,
   IsSunday    CHAR(1) NOT NULL,
-  CONSTRAINT StartDate_Unique
+  CONSTRAINT startdate_unique
   UNIQUE (StartDate, EndDate, ClassID),
-  CONSTRAINT Classes_Events_FK
+  CONSTRAINT classes_events_fk
   FOREIGN KEY (ClassID)
   REFERENCES "classes" (ClassID)
 );
@@ -105,7 +105,7 @@ CREATE TABLE "articles" (
   RelativeFileLocation NVARCHAR2(80) NOT NULL,
   PublicationID        NUMBER(5)     NOT NULL,
   PageReference        NVARCHAR2(40),
-  CONSTRAINT Article_Unique
+  CONSTRAINT articles_unique
   UNIQUE (ArticleTitle, RelativeFileLocation, PublicationID, PageReference)
 );
 
@@ -113,7 +113,7 @@ CREATE TABLE "authors"
 (
   AuthorID   NUMBER(5) PRIMARY KEY,
   AuthorName NVARCHAR2(40) NOT NULL,
-  CONSTRAINT AuthorName_Unique
+  CONSTRAINT authorarticles_unique
   UNIQUE (AuthorName)
 );
 
@@ -130,9 +130,9 @@ CREATE TABLE "authorarticles"
   AuthorArticleID NUMBER(5) PRIMARY KEY,
   AuthorID        NUMBER(5) NOT NULL,
   ArticleID       NUMBER(5) NOT NULL,
-  CONSTRAINT AuthorID_ArticleID_Unique
+  CONSTRAINT authorid_articleid_unique
   UNIQUE (AuthorID, ArticleID),
-  CONSTRAINT Authors_AuthorArticles_FK
+  CONSTRAINT authors_authorarticles_fk
   FOREIGN KEY (AuthorID)
   REFERENCES "authors" (AuthorID)
 );
