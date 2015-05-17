@@ -1,33 +1,24 @@
--- CREATE TABLE "kushaltesttable"
--- (
---   KushalTestTableText NVARCHAR2(50) UNIQUE NOT NULL
---   --   CONSTRAINT KushalTestTableID_Unique
---   --   UNIQUE (KushalTestTableID)
--- );
+ALTER TABLE "testperson" DROP CONSTRAINT testperson_pk;
+DROP SEQUENCE "testperson_sequence";
+DROP TABLE "testperson";
 
-SELECT banner
-FROM v$version;
-
-DROP TABLE "kushaltestperson";
-DROP SEQUENCE "kushaltestperson_sequence";
-
-
-CREATE TABLE "kushaltestperson" (
-  c1 NUMBER PRIMARY KEY,
-  c2 NVARCHAR2(10)
+CREATE TABLE "testperson" (
+  c1 NUMBER        NOT NULL,
+  c2 NVARCHAR2(10) NOT NULL,
+  CONSTRAINT testperson_pk PRIMARY KEY (c1)
 );
 
-CREATE SEQUENCE "kushaltestperson_sequence"
+CREATE SEQUENCE "testperson_sequence"
 START WITH 1
 INCREMENT BY 1;
 
-CREATE OR REPLACE TRIGGER "kushaltestperson_trigger"
+CREATE OR REPLACE TRIGGER "testperson_trigger"
 BEFORE INSERT
-ON "kushaltestperson"
+ON "testperson"
 REFERENCING NEW AS NEW
 FOR EACH ROW
   BEGIN
-    SELECT "kushaltestperson_sequence".nextval
+    SELECT "testperson_sequence".nextval
     INTO :NEW.c1
     FROM DUAL;
   END;

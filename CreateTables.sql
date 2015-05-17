@@ -15,9 +15,10 @@
 
 CREATE TABLE "departments"
 (
-  DepartmentID         NUMBER(5) PRIMARY KEY,
+  DepartmentID NUMBER(5),
   DepartmentIdentifier NVARCHAR2(5)  NOT NULL,
   DepartmentName       NVARCHAR2(40) NOT NULL,
+  CONSTRAINT departmentid_pk PRIMARY KEY (DepartmentID),
   CONSTRAINT DepartmentIdentifer_Unique
   UNIQUE (DepartmentIdentifier)
 );
