@@ -65,54 +65,55 @@ CREATE TABLE "assignments"
     CONSTRAINT pk_assignments PRIMARY KEY (ID),
     CONSTRAINT fk_assignments_courses FOREIGN KEY (Course_ID) REFERENCES "courses" (ID)
   );
-CREATE TABLE "syllabi"
+CREATE TABLE "syllabusheaders"
   (
     ID        NUMBER(5),
     Course_ID NUMBER(5) NOT NULL,
     IsActive  CHAR(1) NOT NULL,
-    CONSTRAINT pk_syllabi PRIMARY KEY (ID)
+    CONSTRAINT pk_syllabi PRIMARY KEY (ID),
+    CONSTRAINT fk_syllabusheaders_courses FOREIGN KEY (Course_ID) REFERENCES "courses" (ID)
+  );
+CREATE TABLE "publications"
+  (
+    ID       NUMBER(5),
+    Title    VARCHAR2(80) NOT NULL,
+    Location VARCHAR2(80) NOT NULL,
+    YEAR     VARCHAR2(4),
+    CONSTRAINT pk_publications PRIMARY KEY (ID)
   );
 CREATE TABLE "articles"
   (
     ID                   NUMBER(5),
     Title                VARCHAR2(80) NOT NULL,
     RelativeFileLocation VARCHAR2(80) NOT NULL,
-    PublicationID        NUMBER(5) NOT NULL,
+    Publication_ID       NUMBER(5) NOT NULL,
     PageReference        VARCHAR2(40),
-    CONSTRAINT articleid_pk PRIMARY KEY (ID),
-    CONSTRAINT articles_unique UNIQUE (Title, RelativeFileLocation, PublicationID, PageReference)
+    CONSTRAINT pk_articles PRIMARY KEY (ID),
+    CONSTRAINT unq_articles UNIQUE (Title, RelativeFileLocation, Publication_ID, PageReference),
+    CONSTRAINT fk_articles_publications FOREIGN KEY (Publication_ID) REFERENCES "publications" (ID)
   );
 CREATE TABLE "authors"
   (
-    AuthorID   NUMBER(5),
-    AuthorName VARCHAR2(40) NOT NULL,
-    CONSTRAINT authorid_pk PRIMARY KEY (AuthorID),
-    CONSTRAINT authorname_unique UNIQUE (AuthorName)
-  );
-CREATE TABLE "publications"
-  (
-    PublicationID       NUMBER(5),
-    PublicationTitle    VARCHAR2(80) NOT NULL,
-    PublicationLocation VARCHAR2(80) NOT NULL,
-    PublicationYear     VARCHAR2(4),
-    CONSTRAINT publicationid_pk PRIMARY KEY (PublicationID)
+    ID   NUMBER(5),
+    Name VARCHAR2(40) NOT NULL,
+    CONSTRAINT pk_authors PRIMARY KEY (ID),
+    CONSTRAINT unq_authors UNIQUE (Name)
   );
 CREATE TABLE "authorarticles"
   (
-    AuthorArticleID NUMBER(5),
-    AuthorID        NUMBER(5) NOT NULL,
-    ArticleID       NUMBER(5) NOT NULL,
-    CONSTRAINT authorarticleid_pk PRIMARY KEY (AuthorArticleID),
-    CONSTRAINT authorarticles_unique UNIQUE (AuthorID, ArticleID),
-    CONSTRAINT authors_authorarticles_fk FOREIGN KEY (AuthorID) REFERENCES "authors" (AuthorID)
+    Author_ID  NUMBER(5) NOT NULL,
+    Article_ID NUMBER(5) NOT NULL,
+    CONSTRAINT pk_authorarticles PRIMARY KEY (Author_ID, Article_ID),
+    CONSTRAINT fk_authorarticles_authors FOREIGN KEY (Author_ID) REFERENCES "authors" (ID),
+    CONSTRAINT fk_authorarticles_articles FOREIGN KEY (Article_ID) REFERENCES "articles" (ID)
   );
 CREATE TABLE "administrationusers"
   (
-    AdministrationUserID           NUMBER(5) NOT NULL,
-    AdministrationUserName         VARCHAR2(255) NOT NULL,
-    AdministrationUserSalt         VARCHAR2(2000) NOT NULL,
-    AdministrationUserPassword     VARCHAR2(2000) NOT NULL,
-    AdministrationUserAttemptCount NUMBER(5) NOT NULL,
-    AdministrationUserLastAttempt  TIMESTAMP NOT NULL,
-    CONSTRAINT administrationuserid_pk PRIMARY KEY (AdministrationUserID)
+    ID           NUMBER(5) NOT NULL,
+    Name         VARCHAR2(255) NOT NULL,
+    Salt         VARCHAR2(2000) NOT NULL,
+    Password     VARCHAR2(2000) NOT NULL,
+    AttemptCount NUMBER(5) NOT NULL,
+    LastAttempt  TIMESTAMP NOT NULL,
+    CONSTRAINT pk_administrationusers PRIMARY KEY (ID)
   );
