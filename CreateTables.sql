@@ -92,7 +92,7 @@ CREATE TABLE "assignmentcategory"
     CONSTRAINT pk_assignmentcategory PRIMARY KEY (ID),
     CONSTRAINT unq_assignmentcategory UNIQUE (Category, Weight)
   );
-CREATE TABLE "syllabusheaders"
+CREATE TABLE "syllabusinfo"
   (
     ID            NUMBER(5),
     Course_ID     NUMBER(5) NOT NULL,
