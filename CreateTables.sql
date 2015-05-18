@@ -20,9 +20,9 @@ CREATE TABLE "semesters"
   (
     ID   NUMBER(5),
     Name VARCHAR2(40) NOT NULL,
-    Year VARCHAR2(4) NOT NULL,
+    YEAR VARCHAR2(4) NOT NULL,
     CONSTRAINT pk_semesters PRIMARY KEY (ID),
-    CONSTRAINT unq_semesters UNIQUE (Name, Year)
+    CONSTRAINT unq_semesters UNIQUE (Name, YEAR)
   );
 CREATE TABLE "classes"
   (
@@ -94,11 +94,11 @@ CREATE TABLE "assignmentcategory"
   );
 CREATE TABLE "syllabusheaders"
   (
-    ID                 NUMBER(5),
-    Course_ID          NUMBER(5) NOT NULL,
-    OfficeHour_ID      NUMBER(5) NOT NULL,
-    Textbook           VARCHAR2(2000) NOT NULL,
-    CourseObjective    VARCHAR2(2000) NOT NULL,
+    ID            NUMBER(5),
+    Course_ID     NUMBER(5) NOT NULL,
+    OfficeHour_ID NUMBER(5) NOT NULL,
+    Textbook      VARCHAR2(2000) NOT NULL,
+    CourseObjective CLOB NOT NULL,
     PrerequisiteCourse VARCHAR2(2000) NOT NULL,
     AssignmentCategory CLOB NOT NULL,
     Grading_ID           NUMBER(5) NOT NULL,
