@@ -20,9 +20,9 @@ CREATE TABLE "semesters"
   (
     ID   NUMBER(5),
     Name VARCHAR2(40) NOT NULL,
-    YEAR VARCHAR2(4) NOT NULL,
+    Year VARCHAR2(4) NOT NULL,
     CONSTRAINT pk_semesters PRIMARY KEY (ID),
-    CONSTRAINT unq_semesters UNIQUE (Name, YEAR)
+    CONSTRAINT unq_semesters UNIQUE (Name, Year)
   );
 CREATE TABLE "classes"
   (
@@ -101,15 +101,14 @@ CREATE TABLE "syllabusinfo"
     CourseObjective CLOB NOT NULL,
     PrerequisiteCourse VARCHAR2(2000) NOT NULL,
     AssignmentCategory CLOB NOT NULL,
-    Grading_ID           NUMBER(5) NOT NULL,
     ComputerLabs         VARCHAR2(2000) NOT NULL,
     SoftwareRequirements VARCHAR2(2000) NOT NULL,
     HomeworkInfo         VARCHAR2(2000) NOT NULL,
     IsActive             CHAR(1) NOT NULL,
     CONSTRAINT pk_syllabi PRIMARY KEY (ID),
+    CONSTRAINT unq_syllabusinfo UNIQUE (Course_ID),
     CONSTRAINT fk_syllabusheaders_courses FOREIGN KEY (Course_ID) REFERENCES "courses" (ID),
-    CONSTRAINT fk_syllabusheaders_courses2 FOREIGN KEY (OfficeHour_ID) REFERENCES "courses" (ID),
-    CONSTRAINT fk_syllabusheaders_gradescales FOREIGN KEY (Grading_ID) REFERENCES "gradescales" (ID)
+    CONSTRAINT fk_syllabusheaders_courses2 FOREIGN KEY (OfficeHour_ID) REFERENCES "courses" (ID)
   );
 CREATE TABLE "publications"
   (
