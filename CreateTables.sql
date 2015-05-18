@@ -111,7 +111,7 @@ CREATE TABLE syllabus_info
 );
 CREATE TABLE syllabus_assign_categories
 (
-  Syllabus_ID              NUMBER(5),
+  Syllabus_ID NUMBER(5),
   AssignmentCategories_ID NUMBER(5),
   CONSTRAINT pk_syllabus_assign_categories PRIMARY KEY (Syllabus_ID, AssignmentCategories_ID)
 );
