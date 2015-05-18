@@ -5,6 +5,9 @@ CREATE TABLE departments
   CONSTRAINT pk_departments PRIMARY KEY (ID),
   CONSTRAINT unq_departments UNIQUE (Name)
 );
+CREATE SEQUENCE seq_departments
+START WITH 1
+INCREMENT BY 1;
 CREATE TABLE courses
 (
   ID          NUMBER(5),
@@ -16,6 +19,9 @@ CREATE TABLE courses
   CONSTRAINT unq_courses UNIQUE (Dept_ID, Num),
   CONSTRAINT fk_courses_departments FOREIGN KEY (Dept_ID) REFERENCES departments (ID)
 );
+CREATE SEQUENCE seq_courses
+START WITH 1
+INCREMENT BY 1;
 CREATE TABLE semesters
 (
   ID   NUMBER(5),
@@ -24,6 +30,9 @@ CREATE TABLE semesters
   CONSTRAINT pk_semesters PRIMARY KEY (ID),
   CONSTRAINT unq_semesters UNIQUE (Name, Year)
 );
+CREATE SEQUENCE seq_semesters
+START WITH 1
+INCREMENT BY 1;
 CREATE TABLE classes
 (
   ID          NUMBER(5),
@@ -34,6 +43,9 @@ CREATE TABLE classes
   CONSTRAINT unq_classes UNIQUE (Num, Course_ID),
   CONSTRAINT fk_classes_courses FOREIGN KEY (Course_ID) REFERENCES courses (ID)
 );
+CREATE SEQUENCE seq_classes
+START WITH 1
+INCREMENT BY 1;
 CREATE TABLE events
 (
   ID        NUMBER(5),
@@ -46,6 +58,9 @@ CREATE TABLE events
   CONSTRAINT unq_events UNIQUE (StartDate, EndDate, Class_ID),
   CONSTRAINT fk_events_classes FOREIGN KEY (Class_ID) REFERENCES classes (ID)
 );
+CREATE SEQUENCE seq_events
+START WITH 1
+INCREMENT BY 1;
 CREATE TABLE repeat_events
 (
   ID            NUMBER(5),
@@ -55,12 +70,18 @@ CREATE TABLE repeat_events
   CONSTRAINT pk_repeat_events PRIMARY KEY (ID),
   CONSTRAINT fk_repeat_events_events FOREIGN KEY (Event_ID) REFERENCES events (ID)
 );
+CREATE SEQUENCE seq_repeat_events
+START WITH 1
+INCREMENT BY 1;
 CREATE TABLE repeat_days
 (
   RepeatEvent_ID  NUMBER(5),
   DayNumberOfWeek NUMBER(1),
   CONSTRAINT pk_repeat_days PRIMARY KEY (RepeatEvent_ID, DayNumberOfWeek)
 );
+CREATE SEQUENCE seq_repeat_days
+START WITH 1
+INCREMENT BY 1;
 CREATE TABLE assignments
 (
   ID               NUMBER(5),
@@ -75,6 +96,9 @@ CREATE TABLE assignments
   CONSTRAINT pk_assignments PRIMARY KEY (ID),
   CONSTRAINT fk_assignments_courses FOREIGN KEY (Course_ID) REFERENCES courses (ID)
 );
+CREATE SEQUENCE seq_assignments
+START WITH 1
+INCREMENT BY 1;
 CREATE TABLE grade_scales
 (
   ID     NUMBER(5),
@@ -84,6 +108,9 @@ CREATE TABLE grade_scales
   CONSTRAINT pk_grade_scales PRIMARY KEY (ID),
   CONSTRAINT unq_grade_scales UNIQUE (Low, High, Letter)
 );
+CREATE SEQUENCE seq_grade_scales
+START WITH 1
+INCREMENT BY 1;
 CREATE TABLE assignment_categories
 (
   ID       NUMBER(5),
@@ -92,6 +119,9 @@ CREATE TABLE assignment_categories
   CONSTRAINT pk_assignment_categories PRIMARY KEY (ID),
   CONSTRAINT unq_assignment_categories UNIQUE (Category, Weight)
 );
+CREATE SEQUENCE seq_assignment_categories
+START WITH 1
+INCREMENT BY 1;
 CREATE TABLE syllabus_info
 (
   ID                   NUMBER(5),
@@ -109,6 +139,9 @@ CREATE TABLE syllabus_info
   CONSTRAINT fk_syllabusinfo_courses FOREIGN KEY (Course_ID) REFERENCES courses (ID),
   CONSTRAINT fk_syllabusinfo_courses2 FOREIGN KEY (OfficeHour_ID) REFERENCES courses (ID)
 );
+CREATE SEQUENCE seq_syllabus_info
+START WITH 1
+INCREMENT BY 1;
 CREATE TABLE syllabus_assign_categories
 (
   Syllabus_ID              NUMBER(5),
@@ -123,6 +156,9 @@ CREATE TABLE publishers
   YEAR     VARCHAR2(4),
   CONSTRAINT pk_publishers PRIMARY KEY (ID)
 );
+CREATE SEQUENCE seq_publishers
+START WITH 1
+INCREMENT BY 1;
 CREATE TABLE articles
 (
   ID                   NUMBER(5),
@@ -134,6 +170,9 @@ CREATE TABLE articles
   CONSTRAINT unq_articles UNIQUE (Title, RelativeFileLocation, Publisher_ID, PageReference),
   CONSTRAINT fk_articles_publisher FOREIGN KEY (Publisher_ID) REFERENCES publishers (ID)
 );
+CREATE SEQUENCE seq_articles
+START WITH 1
+INCREMENT BY 1;
 CREATE TABLE authors
 (
   ID   NUMBER(5),
@@ -141,6 +180,9 @@ CREATE TABLE authors
   CONSTRAINT pk_authors PRIMARY KEY (ID),
   CONSTRAINT unq_authors UNIQUE (Name)
 );
+CREATE SEQUENCE seq_authors
+START WITH 1
+INCREMENT BY 1;
 CREATE TABLE author_articles
 (
   Author_ID  NUMBER(5) NOT NULL,
@@ -149,6 +191,9 @@ CREATE TABLE author_articles
   CONSTRAINT fk_author_articles_authors FOREIGN KEY (Author_ID) REFERENCES authors (ID),
   CONSTRAINT fk_author_articles_articles FOREIGN KEY (Article_ID) REFERENCES articles (ID)
 );
+CREATE SEQUENCE seq_author_articles
+START WITH 1
+INCREMENT BY 1;
 CREATE TABLE users
 (
   ID           NUMBER(5)      NOT NULL,
@@ -158,3 +203,6 @@ CREATE TABLE users
   LastAttempt  TIMESTAMP      NOT NULL,
   CONSTRAINT pk_users PRIMARY KEY (ID)
 );
+CREATE SEQUENCE seq_users
+START WITH 1
+INCREMENT BY 1;
