@@ -106,14 +106,14 @@ CREATE TABLE syllabus_info
   IsActive             CHAR(1)        NOT NULL,
   CONSTRAINT pk_syllabus_info PRIMARY KEY (ID),
   CONSTRAINT unq_syllabus_info UNIQUE (Course_ID),
-  CONSTRAINT fk_syllabusinfo_courses FOREIGN KEY (Course_ID) REFERENCES courses (ID),
-  CONSTRAINT fk_syllabusinfo_courses2 FOREIGN KEY (OfficeHour_ID) REFERENCES courses (ID)
+  CONSTRAINT fk_syllabus_info_courses FOREIGN KEY (Course_ID) REFERENCES courses (ID),
+  CONSTRAINT fk_syllabus_info_courses2 FOREIGN KEY (OfficeHour_ID) REFERENCES courses (ID)
 );
 CREATE TABLE syllabus_assign_categories
 (
   Syllabus_ID              NUMBER(5),
-  assignment_categories_ID NUMBER(5),
-  CONSTRAINT pk_syllabus_assign_categories PRIMARY KEY (Syllabus_ID, assignment_categories_ID)
+  AssignmentCategories_ID NUMBER(5),
+  CONSTRAINT pk_syllabus_assign_categories PRIMARY KEY (Syllabus_ID, AssignmentCategories_ID)
 );
 CREATE TABLE publishers
 (
