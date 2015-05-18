@@ -149,12 +149,12 @@ CREATE TABLE authorarticles
     CONSTRAINT fk_authorarticles_authors FOREIGN KEY (Author_ID) REFERENCES "authors" (ID),
     CONSTRAINT fk_authorarticles_articles FOREIGN KEY (Article_ID) REFERENCES "articles" (ID)
   );
-CREATE TABLE administrationusers
+CREATE TABLE users
   (
     ID           NUMBER(5) NOT NULL,
     Name         VARCHAR2(255) NOT NULL,
     Password     VARCHAR2(2000) NOT NULL,
     AttemptCount NUMBER(5) NOT NULL,
     LastAttempt  TIMESTAMP NOT NULL,
-    CONSTRAINT pk_administrationusers PRIMARY KEY (ID)
+    CONSTRAINT pk_users PRIMARY KEY (ID)
   );
