@@ -1,11 +1,11 @@
-CREATE TABLE "departments"
+CREATE TABLE departments
   (
     ID   NUMBER(5),
     Name VARCHAR2(4) NOT NULL,
     CONSTRAINT pk_departments PRIMARY KEY (ID),
     CONSTRAINT unq_departments UNIQUE (Name)
   );
-CREATE TABLE "courses"
+CREATE TABLE courses
   (
     ID          NUMBER(5),
     Dept_ID     NUMBER(5) NOT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE "courses"
     CONSTRAINT unq_courses UNIQUE (Dept_ID, Num),
     CONSTRAINT fk_courses_departments FOREIGN KEY (Dept_ID) REFERENCES "departments" (ID)
   );
-CREATE TABLE "semesters"
+CREATE TABLE semesters
   (
     ID   NUMBER(5),
     Name VARCHAR2(40) NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE "semesters"
     CONSTRAINT pk_semesters PRIMARY KEY (ID),
     CONSTRAINT unq_semesters UNIQUE (Name, Year)
   );
-CREATE TABLE "classes"
+CREATE TABLE classes
   (
     ID          NUMBER(5),
     Num         VARCHAR2(6) NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE "classes"
     CONSTRAINT unq_classes UNIQUE (Num, Course_ID),
     CONSTRAINT fk_classes_courses FOREIGN KEY (Course_ID) REFERENCES "courses" (ID)
   );
-CREATE TABLE "events"
+CREATE TABLE events
   (
     ID        NUMBER(5),
     Class_ID  NUMBER(5) NOT NULL,
@@ -46,7 +46,7 @@ CREATE TABLE "events"
     CONSTRAINT unq_events UNIQUE (StartDate, EndDate, Class_ID),
     CONSTRAINT fk_events_classes FOREIGN KEY (Class_ID) REFERENCES "classes" (ID)
   );
-CREATE TABLE "repeatevents"
+CREATE TABLE repeatevents
   (
     ID            NUMBER(5),
     Event_ID      NUMBER(5) NOT NULL,
@@ -55,13 +55,13 @@ CREATE TABLE "repeatevents"
     CONSTRAINT pk_repeatevents PRIMARY KEY (ID),
     CONSTRAINT fk_repeatevents_events FOREIGN KEY (Event_ID) REFERENCES "events" (ID)
   );
-CREATE TABLE "repeatday"
+CREATE TABLE repeatday
   (
     RepeatEvent_ID  NUMBER (5),
     DayNumberOfWeek NUMBER(1),
     CONSTRAINT pk_repeatday PRIMARY KEY (RepeatEvent_ID, DayNumberOfWeek)
   );
-CREATE TABLE "assignments"
+CREATE TABLE assignments
   (
     ID               NUMBER(5),
     Course_ID        NUMBER(5) NOT NULL,
@@ -75,7 +75,7 @@ CREATE TABLE "assignments"
     CONSTRAINT pk_assignments PRIMARY KEY (ID),
     CONSTRAINT fk_assignments_courses FOREIGN KEY (Course_ID) REFERENCES "courses" (ID)
   );
-CREATE TABLE "gradescales"
+CREATE TABLE gradescales
   (
     ID     NUMBER(5),
     Low    NUMBER(3) NOT NULL,
@@ -84,7 +84,7 @@ CREATE TABLE "gradescales"
     CONSTRAINT pk_gradescales PRIMARY KEY (ID),
     CONSTRAINT unq_gradescales UNIQUE (Low, High, Letter)
   );
-CREATE TABLE "assignmentcategory"
+CREATE TABLE assignmentcategory
   (
     ID       NUMBER(5),
     Category VARCHAR(40) NOT NULL,
@@ -92,7 +92,7 @@ CREATE TABLE "assignmentcategory"
     CONSTRAINT pk_assignmentcategory PRIMARY KEY (ID),
     CONSTRAINT unq_assignmentcategory UNIQUE (Category, Weight)
   );
-CREATE TABLE "syllabusinfo"
+CREATE TABLE syllabusinfo
   (
     ID            NUMBER(5),
     Course_ID     NUMBER(5) NOT NULL,
@@ -109,13 +109,13 @@ CREATE TABLE "syllabusinfo"
     CONSTRAINT fk_syllabusheaders_courses FOREIGN KEY (Course_ID) REFERENCES "courses" (ID),
     CONSTRAINT fk_syllabusheaders_courses2 FOREIGN KEY (OfficeHour_ID) REFERENCES "courses" (ID)
   );
-  create table "syllabusassignmentcategory"
+  create table syllabusassignmentcategory
   (
   Syllabus_ID number(5),
   AssignmentCategory_ID number(5),
   constraint pk_syllabusassignmentcategory primary key (Syllabus_ID, AssignmentCategory_ID)
   );
-CREATE TABLE "publications"
+CREATE TABLE publications
   (
     ID       NUMBER(5),
     Title    VARCHAR2(80) NOT NULL,
@@ -123,7 +123,7 @@ CREATE TABLE "publications"
     YEAR     VARCHAR2(4),
     CONSTRAINT pk_publications PRIMARY KEY (ID)
   );
-CREATE TABLE "articles"
+CREATE TABLE articles
   (
     ID                   NUMBER(5),
     Title                VARCHAR2(80) NOT NULL,
@@ -134,14 +134,14 @@ CREATE TABLE "articles"
     CONSTRAINT unq_articles UNIQUE (Title, RelativeFileLocation, Publication_ID, PageReference),
     CONSTRAINT fk_articles_publications FOREIGN KEY (Publication_ID) REFERENCES "publications" (ID)
   );
-CREATE TABLE "authors"
+CREATE TABLE authors
   (
     ID   NUMBER(5),
     Name VARCHAR2(40) NOT NULL,
     CONSTRAINT pk_authors PRIMARY KEY (ID),
     CONSTRAINT unq_authors UNIQUE (Name)
   );
-CREATE TABLE "authorarticles"
+CREATE TABLE authorarticles
   (
     Author_ID  NUMBER(5) NOT NULL,
     Article_ID NUMBER(5) NOT NULL,
@@ -149,7 +149,7 @@ CREATE TABLE "authorarticles"
     CONSTRAINT fk_authorarticles_authors FOREIGN KEY (Author_ID) REFERENCES "authors" (ID),
     CONSTRAINT fk_authorarticles_articles FOREIGN KEY (Article_ID) REFERENCES "articles" (ID)
   );
-CREATE TABLE "administrationusers"
+CREATE TABLE administrationusers
   (
     ID           NUMBER(5) NOT NULL,
     Name         VARCHAR2(255) NOT NULL,
