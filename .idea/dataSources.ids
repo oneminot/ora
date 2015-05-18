@@ -169,6 +169,14 @@
       <foreign-key name="FK_SYLLABUS_INFO_COURSES2" columns="OFFICEHOUR_ID" ref-table="COURSES" ref-schema="KHADA" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
       <index name="UNQ_SYLLABUS_INFO" unique="true" columns="COURSE_ID"/>
     </table>
+    <table name="TESTPERSONS" schema="KHADA" catalog="" type="TABLE">
+      <column name="ID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
+      <column name="NAME" sqlType="VARCHAR2" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="PASSWORD" sqlType="VARCHAR2" precision="2000" scale="0" nullable="false" jdbcType="12"/>
+      <column name="ATTEMPTCOUNT" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
+      <column name="LASTATTEMPT" sqlType="TIMESTAMP(6)" precision="11" scale="6" nullable="false" jdbcType="93"/>
+      <primary-key name="PK_TESTPERSONS" columns="ID"/>
+    </table>
     <table name="USERS" schema="KHADA" catalog="" type="TABLE">
       <column name="ID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
       <column name="NAME" sqlType="VARCHAR2" precision="255" scale="0" nullable="false" jdbcType="12"/>
@@ -176,15 +184,6 @@
       <column name="ATTEMPTCOUNT" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
       <column name="LASTATTEMPT" sqlType="TIMESTAMP(6)" precision="11" scale="6" nullable="false" jdbcType="93"/>
       <primary-key name="PK_USERS" columns="ID"/>
-    </table>
-    <table name="testperson_sequence" schema="KHADA" catalog="" type="SEQUENCE"/>
-    <table name="testpersons" schema="KHADA" catalog="" type="TABLE">
-      <column name="ID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3" version="true"/>
-      <column name="NAME" sqlType="VARCHAR2" precision="255" scale="0" nullable="false" jdbcType="12"/>
-      <column name="PASSWORD" sqlType="VARCHAR2" precision="2000" scale="0" nullable="false" jdbcType="12"/>
-      <column name="ATTEMPTCOUNT" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
-      <column name="LASTATTEMPT" sqlType="TIMESTAMP(6)" precision="11" scale="6" nullable="false" jdbcType="93"/>
-      <primary-key name="PK_TESTPERSONS" columns="ID"/>
     </table>
     <table name="ALL_ALL_TABLES" schema="SYS" catalog="" type="VIEW">
       <column name="OWNER" sqlType="VARCHAR2" precision="30" scale="0" nullable="true" jdbcType="12"/>
