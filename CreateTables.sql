@@ -84,6 +84,14 @@ CREATE TABLE "gradescales"
     CONSTRAINT pk_gradescales PRIMARY KEY (ID),
     CONSTRAINT unq_gradescales UNIQUE (Low, High, Letter)
   );
+CREATE TABLE "assignmentcategory"
+  (
+    ID       NUMBER(5),
+    Category VARCHAR(40) NOT NULL,
+    Weight   NUMBER(3) NOT NULL,
+    CONSTRAINT pk_assignmentcategory PRIMARY KEY (ID),
+    CONSTRAINT unq_assignmentcategory UNIQUE (Category, Weight)
+  );
 CREATE TABLE "syllabusheaders"
   (
     ID                 NUMBER(5),
