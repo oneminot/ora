@@ -9,8 +9,183 @@
     <schema name="KHADA" catalog=""/>
     <schema name="SYS" catalog=""/>
     <schema name="SYSTEM" catalog=""/>
-    <table name="kushaltestperson_sequence" schema="KHADA" catalog="" type="SEQUENCE"/>
+    <table name="ARTICLES" schema="KHADA" catalog="" type="TABLE">
+      <column name="ID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
+      <column name="TITLE" sqlType="VARCHAR2" precision="80" scale="0" nullable="false" jdbcType="12"/>
+      <column name="RELATIVEFILELOCATION" sqlType="VARCHAR2" precision="80" scale="0" nullable="false" jdbcType="12"/>
+      <column name="PUBLISHER_ID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
+      <column name="PAGEREFERENCE" sqlType="VARCHAR2" precision="40" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PK_ARTICLES" columns="ID"/>
+      <foreign-key name="FK_ARTICLES_PUBLISHER" columns="PUBLISHER_ID" ref-table="PUBLISHERS" ref-schema="KHADA" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
+      <exported-key name="FK_AUTHOR_ARTICLES_ARTICLES" table="AUTHOR_ARTICLES" schema="KHADA" catalog="" columns="ARTICLE_ID"/>
+      <index name="UNQ_ARTICLES" unique="true" columns="TITLE,RELATIVEFILELOCATION,PUBLISHER_ID,PAGEREFERENCE"/>
+    </table>
+    <table name="ASSIGNMENTS" schema="KHADA" catalog="" type="TABLE">
+      <column name="ID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
+      <column name="COURSE_ID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
+      <column name="NUM" sqlType="VARCHAR2" precision="5" scale="0" nullable="false" jdbcType="12"/>
+      <column name="NAME" sqlType="VARCHAR2" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="DUEDATE" sqlType="DATE" precision="7" scale="0" nullable="false" jdbcType="93"/>
+      <column name="HEADER" sqlType="VARCHAR2" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="CHAPTERREFERENCE" sqlType="VARCHAR2" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="DETAIL" sqlType="CLOB" precision="4000" scale="0" nullable="false" jdbcType="2005"/>
+      <column name="ISACTIVE" sqlType="CHAR" precision="1" scale="0" nullable="false" jdbcType="1"/>
+      <primary-key name="PK_ASSIGNMENTS" columns="ID"/>
+      <foreign-key name="FK_ASSIGNMENTS_COURSES" columns="COURSE_ID" ref-table="COURSES" ref-schema="KHADA" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
+    </table>
+    <table name="ASSIGNMENT_CATEGORIES" schema="KHADA" catalog="" type="TABLE">
+      <column name="ID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
+      <column name="CATEGORY" sqlType="VARCHAR2" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="WEIGHT" sqlType="NUMBER" precision="3" scale="0" nullable="false" jdbcType="3"/>
+      <primary-key name="PK_ASSIGNMENT_CATEGORIES" columns="ID"/>
+      <index name="UNQ_ASSIGNMENT_CATEGORIES" unique="true" columns="CATEGORY,WEIGHT"/>
+    </table>
+    <table name="AUTHORS" schema="KHADA" catalog="" type="TABLE">
+      <column name="ID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
+      <column name="NAME" sqlType="VARCHAR2" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PK_AUTHORS" columns="ID"/>
+      <exported-key name="FK_AUTHOR_ARTICLES_AUTHORS" table="AUTHOR_ARTICLES" schema="KHADA" catalog="" columns="AUTHOR_ID"/>
+      <index name="UNQ_AUTHORS" unique="true" columns="NAME"/>
+    </table>
+    <table name="AUTHOR_ARTICLES" schema="KHADA" catalog="" type="TABLE">
+      <column name="AUTHOR_ID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
+      <column name="ARTICLE_ID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
+      <primary-key name="PK_AUTHOR_ARTICLES" columns="AUTHOR_ID,ARTICLE_ID"/>
+      <foreign-key name="FK_AUTHOR_ARTICLES_ARTICLES" columns="ARTICLE_ID" ref-table="ARTICLES" ref-schema="KHADA" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
+      <foreign-key name="FK_AUTHOR_ARTICLES_AUTHORS" columns="AUTHOR_ID" ref-table="AUTHORS" ref-schema="KHADA" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
+    </table>
+    <table name="CLASSES" schema="KHADA" catalog="" type="TABLE">
+      <column name="ID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
+      <column name="NUM" sqlType="VARCHAR2" precision="6" scale="0" nullable="false" jdbcType="12"/>
+      <column name="COURSE_ID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
+      <column name="SEMESTER_ID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
+      <primary-key name="PK_CLASSES" columns="ID"/>
+      <foreign-key name="FK_CLASSES_COURSES" columns="COURSE_ID" ref-table="COURSES" ref-schema="KHADA" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
+      <exported-key name="FK_EVENTS_CLASSES" table="EVENTS" schema="KHADA" catalog="" columns="CLASS_ID"/>
+      <index name="UNQ_CLASSES" unique="true" columns="NUM,COURSE_ID"/>
+    </table>
+    <table name="COURSES" schema="KHADA" catalog="" type="TABLE">
+      <column name="ID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
+      <column name="DEPT_ID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
+      <column name="NUM" sqlType="VARCHAR2" precision="6" scale="0" nullable="false" jdbcType="12"/>
+      <column name="NAME" sqlType="VARCHAR2" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="DESCRIPTION" sqlType="VARCHAR2" precision="2000" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PK_COURSES" columns="ID"/>
+      <foreign-key name="FK_COURSES_DEPARTMENTS" columns="DEPT_ID" ref-table="DEPARTMENTS" ref-schema="KHADA" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
+      <exported-key name="FK_ASSIGNMENTS_COURSES" table="ASSIGNMENTS" schema="KHADA" catalog="" columns="COURSE_ID"/>
+      <exported-key name="FK_CLASSES_COURSES" table="CLASSES" schema="KHADA" catalog="" columns="COURSE_ID"/>
+      <exported-key name="FK_SYLLABUS_INFO_COURSES" table="SYLLABUS_INFO" schema="KHADA" catalog="" columns="COURSE_ID"/>
+      <exported-key name="FK_SYLLABUS_INFO_COURSES2" table="SYLLABUS_INFO" schema="KHADA" catalog="" columns="OFFICEHOUR_ID"/>
+      <index name="UNQ_COURSES" unique="true" columns="DEPT_ID,NUM"/>
+    </table>
+    <table name="DEPARTMENTS" schema="KHADA" catalog="" type="TABLE">
+      <column name="ID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
+      <column name="NAME" sqlType="VARCHAR2" precision="4" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PK_DEPARTMENTS" columns="ID"/>
+      <exported-key name="FK_COURSES_DEPARTMENTS" table="COURSES" schema="KHADA" catalog="" columns="DEPT_ID"/>
+      <index name="UNQ_DEPARTMENTS" unique="true" columns="NAME"/>
+    </table>
+    <table name="EVENTS" schema="KHADA" catalog="" type="TABLE">
+      <column name="ID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
+      <column name="CLASS_ID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
+      <column name="STARTDATE" sqlType="DATE" precision="7" scale="0" nullable="false" jdbcType="93"/>
+      <column name="ENDDATE" sqlType="DATE" precision="7" scale="0" nullable="false" jdbcType="93"/>
+      <column name="STARTTIME" sqlType="DATE" precision="7" scale="0" nullable="false" jdbcType="93"/>
+      <column name="ENDTIME" sqlType="DATE" precision="7" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PK_EVENTS" columns="ID"/>
+      <foreign-key name="FK_EVENTS_CLASSES" columns="CLASS_ID" ref-table="CLASSES" ref-schema="KHADA" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
+      <exported-key name="FK_REPEAT_EVENTS_EVENTS" table="REPEAT_EVENTS" schema="KHADA" catalog="" columns="EVENT_ID"/>
+      <index name="UNQ_EVENTS" unique="true" columns="STARTDATE,ENDDATE,CLASS_ID"/>
+    </table>
+    <table name="GRADE_SCALES" schema="KHADA" catalog="" type="TABLE">
+      <column name="ID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
+      <column name="LOW" sqlType="NUMBER" precision="3" scale="0" nullable="false" jdbcType="3"/>
+      <column name="HIGH" sqlType="NUMBER" precision="3" scale="0" nullable="false" jdbcType="3"/>
+      <column name="LETTER" sqlType="CHAR" precision="1" scale="0" nullable="false" jdbcType="1"/>
+      <primary-key name="PK_GRADE_SCALES" columns="ID"/>
+      <index name="UNQ_GRADE_SCALES" unique="true" columns="LOW,HIGH,LETTER"/>
+    </table>
+    <table name="PUBLISHERS" schema="KHADA" catalog="" type="TABLE">
+      <column name="ID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
+      <column name="TITLE" sqlType="VARCHAR2" precision="80" scale="0" nullable="false" jdbcType="12"/>
+      <column name="LOCATION" sqlType="VARCHAR2" precision="80" scale="0" nullable="false" jdbcType="12"/>
+      <column name="YEAR" sqlType="VARCHAR2" precision="4" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PK_PUBLISHERS" columns="ID"/>
+      <exported-key name="FK_ARTICLES_PUBLISHER" table="ARTICLES" schema="KHADA" catalog="" columns="PUBLISHER_ID"/>
+    </table>
+    <table name="REPEAT_DAYS" schema="KHADA" catalog="" type="TABLE">
+      <column name="REPEATEVENT_ID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
+      <column name="DAYNUMBEROFWEEK" sqlType="NUMBER" precision="1" scale="0" nullable="false" jdbcType="3"/>
+      <primary-key name="PK_REPEAT_DAYS" columns="REPEATEVENT_ID,DAYNUMBEROFWEEK"/>
+    </table>
+    <table name="REPEAT_EVENTS" schema="KHADA" catalog="" type="TABLE">
+      <column name="ID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
+      <column name="EVENT_ID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
+      <column name="STARTDATETIME" sqlType="DATE" precision="7" scale="0" nullable="false" jdbcType="93"/>
+      <column name="ENDDATETIME" sqlType="DATE" precision="7" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PK_REPEAT_EVENTS" columns="ID"/>
+      <foreign-key name="FK_REPEAT_EVENTS_EVENTS" columns="EVENT_ID" ref-table="EVENTS" ref-schema="KHADA" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
+    </table>
+    <table name="SEMESTERS" schema="KHADA" catalog="" type="TABLE">
+      <column name="ID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
+      <column name="NAME" sqlType="VARCHAR2" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="YEAR" sqlType="VARCHAR2" precision="4" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PK_SEMESTERS" columns="ID"/>
+      <index name="UNQ_SEMESTERS" unique="true" columns="NAME,YEAR"/>
+    </table>
+    <table name="SEQ_ARTICLES" schema="KHADA" catalog="" type="SEQUENCE"/>
+    <table name="SEQ_ASSIGNMENTS" schema="KHADA" catalog="" type="SEQUENCE"/>
+    <table name="SEQ_ASSIGNMENT_CATEGORIES" schema="KHADA" catalog="" type="SEQUENCE"/>
+    <table name="SEQ_AUTHORS" schema="KHADA" catalog="" type="SEQUENCE"/>
+    <table name="SEQ_CLASSES" schema="KHADA" catalog="" type="SEQUENCE"/>
+    <table name="SEQ_COURSES" schema="KHADA" catalog="" type="SEQUENCE"/>
+    <table name="SEQ_DEPARTMENTS" schema="KHADA" catalog="" type="SEQUENCE"/>
+    <table name="SEQ_EVENTS" schema="KHADA" catalog="" type="SEQUENCE"/>
+    <table name="SEQ_GRADE_SCALES" schema="KHADA" catalog="" type="SEQUENCE"/>
+    <table name="SEQ_PUBLISHERS" schema="KHADA" catalog="" type="SEQUENCE"/>
+    <table name="SEQ_REPEAT_DAYS" schema="KHADA" catalog="" type="SEQUENCE"/>
+    <table name="SEQ_REPEAT_EVENTS" schema="KHADA" catalog="" type="SEQUENCE"/>
+    <table name="SEQ_SEMESTERS" schema="KHADA" catalog="" type="SEQUENCE"/>
+    <table name="SEQ_SYLLABUS_INFO" schema="KHADA" catalog="" type="SEQUENCE"/>
+    <table name="SEQ_USERS" schema="KHADA" catalog="" type="SEQUENCE"/>
+    <table name="SYLLABUS_ASSIGN_CATEGORIES" schema="KHADA" catalog="" type="TABLE">
+      <column name="SYLLABUS_ID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
+      <column name="ASSIGNMENTCATEGORIES_ID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
+      <primary-key name="PK_SYLLABUS_ASSIGN_CATEGORIES" columns="SYLLABUS_ID,ASSIGNMENTCATEGORIES_ID"/>
+    </table>
+    <table name="SYLLABUS_INFO" schema="KHADA" catalog="" type="TABLE">
+      <column name="ID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
+      <column name="COURSE_ID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
+      <column name="OFFICEHOUR_ID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
+      <column name="TEXTBOOK" sqlType="VARCHAR2" precision="2000" scale="0" nullable="false" jdbcType="12"/>
+      <column name="COURSEOBJECTIVE" sqlType="CLOB" precision="4000" scale="0" nullable="false" jdbcType="2005"/>
+      <column name="PREREQUISITECOURSE" sqlType="VARCHAR2" precision="2000" scale="0" nullable="false" jdbcType="12"/>
+      <column name="COMPUTERLABS" sqlType="VARCHAR2" precision="2000" scale="0" nullable="false" jdbcType="12"/>
+      <column name="SOFTWAREREQUIREMENTS" sqlType="VARCHAR2" precision="2000" scale="0" nullable="false" jdbcType="12"/>
+      <column name="HOMEWORKINFO" sqlType="VARCHAR2" precision="2000" scale="0" nullable="false" jdbcType="12"/>
+      <column name="ISACTIVE" sqlType="CHAR" precision="1" scale="0" nullable="false" jdbcType="1"/>
+      <primary-key name="PK_SYLLABUS_INFO" columns="ID"/>
+      <foreign-key name="FK_SYLLABUS_INFO_COURSES" columns="COURSE_ID" ref-table="COURSES" ref-schema="KHADA" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
+      <foreign-key name="FK_SYLLABUS_INFO_COURSES2" columns="OFFICEHOUR_ID" ref-table="COURSES" ref-schema="KHADA" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
+      <index name="UNQ_SYLLABUS_INFO" unique="true" columns="COURSE_ID"/>
+    </table>
+    <table name="USERS" schema="KHADA" catalog="" type="TABLE">
+      <column name="ID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
+      <column name="NAME" sqlType="VARCHAR2" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="PASSWORD" sqlType="VARCHAR2" precision="2000" scale="0" nullable="false" jdbcType="12"/>
+      <column name="ATTEMPTCOUNT" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
+      <column name="LASTATTEMPT" sqlType="TIMESTAMP(6)" precision="11" scale="6" nullable="false" jdbcType="93"/>
+      <primary-key name="PK_USERS" columns="ID"/>
+    </table>
     <table name="testperson_sequence" schema="KHADA" catalog="" type="SEQUENCE"/>
+    <table name="testpersons" schema="KHADA" catalog="" type="TABLE">
+      <column name="ID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3" version="true"/>
+      <column name="NAME" sqlType="VARCHAR2" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="PASSWORD" sqlType="VARCHAR2" precision="2000" scale="0" nullable="false" jdbcType="12"/>
+      <column name="ATTEMPTCOUNT" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
+      <column name="LASTATTEMPT" sqlType="TIMESTAMP(6)" precision="11" scale="6" nullable="false" jdbcType="93"/>
+      <primary-key name="PK_TESTPERSONS" columns="ID"/>
+    </table>
     <table name="ALL_ALL_TABLES" schema="SYS" catalog="" type="VIEW">
       <column name="OWNER" sqlType="VARCHAR2" precision="30" scale="0" nullable="true" jdbcType="12"/>
       <column name="TABLE_NAME" sqlType="VARCHAR2" precision="30" scale="0" nullable="true" jdbcType="12"/>
