@@ -67,9 +67,18 @@ CREATE TABLE "assignments"
   );
 CREATE TABLE "syllabusheaders"
   (
-    ID        NUMBER(5),
-    Course_ID NUMBER(5) NOT NULL,
-    IsActive  CHAR(1) NOT NULL,
+    ID            NUMBER(5),
+    Course_ID     NUMBER(5) NOT NULL,
+    OfficeHour_ID NUMBER(5) NOT NULL,
+    Textbook varchar2(2000) not null,
+    CourseObjective varchar2(2000) not null,
+    PrerequisiteCourse varchar2(2000) not null,
+    Assignments nclob not null,
+    Grading nclob not null,
+    ComputerLabs varchar2(2000) not null,
+    SoftwareRequirements varchar2(2000) not null,
+    HomeworkSubmissionInformation varchar2(2000) not null,
+    IsActive      CHAR(1) NOT NULL,
     CONSTRAINT pk_syllabi PRIMARY KEY (ID),
     CONSTRAINT fk_syllabusheaders_courses FOREIGN KEY (Course_ID) REFERENCES "courses" (ID)
   );
@@ -111,7 +120,6 @@ CREATE TABLE "administrationusers"
   (
     ID           NUMBER(5) NOT NULL,
     Name         VARCHAR2(255) NOT NULL,
-    Salt         VARCHAR2(2000) NOT NULL,
     Password     VARCHAR2(2000) NOT NULL,
     AttemptCount NUMBER(5) NOT NULL,
     LastAttempt  TIMESTAMP NOT NULL,
