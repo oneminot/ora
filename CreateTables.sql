@@ -46,20 +46,20 @@ CREATE TABLE events
     CONSTRAINT unq_events UNIQUE (StartDate, EndDate, Class_ID),
     CONSTRAINT fk_events_classes FOREIGN KEY (Class_ID) REFERENCES "classes" (ID)
   );
-CREATE TABLE repeatevents
+CREATE TABLE repeat_events
   (
     ID            NUMBER(5),
     Event_ID      NUMBER(5) NOT NULL,
     StartDateTime DATE NOT NULL,
     EndDateTime   DATE NOT NULL,
-    CONSTRAINT pk_repeatevents PRIMARY KEY (ID),
-    CONSTRAINT fk_repeatevents_events FOREIGN KEY (Event_ID) REFERENCES "events" (ID)
+    CONSTRAINT pk_repeat_events PRIMARY KEY (ID),
+    CONSTRAINT fk_repeat_events_events FOREIGN KEY (Event_ID) REFERENCES "events" (ID)
   );
-CREATE TABLE repeatday
+CREATE TABLE repeat_days
   (
     RepeatEvent_ID  NUMBER (5),
     DayNumberOfWeek NUMBER(1),
-    CONSTRAINT pk_repeatday PRIMARY KEY (RepeatEvent_ID, DayNumberOfWeek)
+    CONSTRAINT pk_repeat_days PRIMARY KEY (RepeatEvent_ID, DayNumberOfWeek)
   );
 CREATE TABLE assignments
   (
@@ -75,24 +75,24 @@ CREATE TABLE assignments
     CONSTRAINT pk_assignments PRIMARY KEY (ID),
     CONSTRAINT fk_assignments_courses FOREIGN KEY (Course_ID) REFERENCES "courses" (ID)
   );
-CREATE TABLE gradescales
+CREATE TABLE grade_scales
   (
     ID     NUMBER(5),
     Low    NUMBER(3) NOT NULL,
     High   NUMBER(3) NOT NULL,
     Letter CHAR(1) NOT NULL,
-    CONSTRAINT pk_gradescales PRIMARY KEY (ID),
-    CONSTRAINT unq_gradescales UNIQUE (Low, High, Letter)
+    CONSTRAINT pk_grade_scales PRIMARY KEY (ID),
+    CONSTRAINT unq_grade_scales UNIQUE (Low, High, Letter)
   );
-CREATE TABLE assignmentcategory
+CREATE TABLE assignment_categories
   (
     ID       NUMBER(5),
     Category VARCHAR(40) NOT NULL,
     Weight   NUMBER(3) NOT NULL,
-    CONSTRAINT pk_assignmentcategory PRIMARY KEY (ID),
-    CONSTRAINT unq_assignmentcategory UNIQUE (Category, Weight)
+    CONSTRAINT pk_assignment_categories PRIMARY KEY (ID),
+    CONSTRAINT unq_assignment_categories UNIQUE (Category, Weight)
   );
-CREATE TABLE syllabusinfo
+CREATE TABLE syllabus_info
   (
     ID            NUMBER(5),
     Course_ID     NUMBER(5) NOT NULL,
@@ -104,16 +104,16 @@ CREATE TABLE syllabusinfo
     SoftwareRequirements VARCHAR2(2000) NOT NULL,
     HomeworkInfo         VARCHAR2(2000) NOT NULL,
     IsActive             CHAR(1) NOT NULL,
-    CONSTRAINT pk_syllabusinfo PRIMARY KEY (ID),
-    CONSTRAINT unq_syllabusinfo UNIQUE (Course_ID),
+    CONSTRAINT pk_syllabus_info PRIMARY KEY (ID),
+    CONSTRAINT unq_syllabus_info UNIQUE (Course_ID),
     CONSTRAINT fk_syllabusheaders_courses FOREIGN KEY (Course_ID) REFERENCES "courses" (ID),
     CONSTRAINT fk_syllabusheaders_courses2 FOREIGN KEY (OfficeHour_ID) REFERENCES "courses" (ID)
   );
-  create table syllabusassignmentcategory
+  create table syllabus_assignment_categories
   (
   Syllabus_ID number(5),
-  AssignmentCategory_ID number(5),
-  constraint pk_syllabusassignmentcategory primary key (Syllabus_ID, AssignmentCategory_ID)
+  assignment_categories_ID number(5),
+  constraint pk_syllabus_assignment_categories primary key (Syllabus_ID, assignment_categories_ID)
   );
 CREATE TABLE publications
   (
@@ -141,13 +141,13 @@ CREATE TABLE authors
     CONSTRAINT pk_authors PRIMARY KEY (ID),
     CONSTRAINT unq_authors UNIQUE (Name)
   );
-CREATE TABLE authorarticles
+CREATE TABLE author_articles
   (
     Author_ID  NUMBER(5) NOT NULL,
     Article_ID NUMBER(5) NOT NULL,
-    CONSTRAINT pk_authorarticles PRIMARY KEY (Author_ID, Article_ID),
-    CONSTRAINT fk_authorarticles_authors FOREIGN KEY (Author_ID) REFERENCES "authors" (ID),
-    CONSTRAINT fk_authorarticles_articles FOREIGN KEY (Article_ID) REFERENCES "articles" (ID)
+    CONSTRAINT pk_author_articles PRIMARY KEY (Author_ID, Article_ID),
+    CONSTRAINT fk_author_articles_authors FOREIGN KEY (Author_ID) REFERENCES "authors" (ID),
+    CONSTRAINT fk_author_articles_articles FOREIGN KEY (Article_ID) REFERENCES "articles" (ID)
   );
 CREATE TABLE users
   (
