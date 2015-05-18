@@ -70,7 +70,7 @@ CREATE TABLE "assignments"
     DueDate          DATE NOT NULL,
     Header           VARCHAR2(40) NOT NULL,
     ChapterReference VARCHAR2(40) NOT NULL,
-    Detail NCLOB NOT NULL,
+    Detail CLOB NOT NULL,
     IsActive CHAR(1) NOT NULL,
     CONSTRAINT pk_assignments PRIMARY KEY (ID),
     CONSTRAINT fk_assignments_courses FOREIGN KEY (Course_ID) REFERENCES "courses" (ID)
