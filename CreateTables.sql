@@ -1,9 +1,9 @@
 CREATE TABLE "departments"
   (
-    ID         NUMBER(5),
-    Identifier VARCHAR2(5) NOT NULL,
+    ID   NUMBER(5),
+    Name VARCHAR2(4) NOT NULL,
     CONSTRAINT pk_departments PRIMARY KEY (ID),
-    CONSTRAINT unq_departments UNIQUE (Identifier)
+    CONSTRAINT unq_departments UNIQUE (Name)
   );
 CREATE TABLE "courses"
   (
@@ -36,20 +36,30 @@ CREATE TABLE "classes"
   );
 CREATE TABLE "events"
   (
-    ID          NUMBER(5),
-    Class_ID    NUMBER(5) NOT NULL,
-    StartDate   DATE NOT NULL,
-    EndDate     DATE NOT NULL,
-    StartTime   DATE NOT NULL,
-    EndTime     DATE NOT NULL,
-    IsMonday    CHAR(1) NOT NULL,
-    IsTuesday   CHAR(1) NOT NULL,
-    IsWednesday CHAR(1) NOT NULL,
-    IsThursday  CHAR(1) NOT NULL,
-    IsFriday    CHAR(1) NOT NULL,
+    ID        NUMBER(5),
+    Class_ID  NUMBER(5) NOT NULL,
+    StartDate DATE NOT NULL,
+    EndDate   DATE NOT NULL,
+    StartTime DATE NOT NULL,
+    EndTime   DATE NOT NULL,
     CONSTRAINT pk_events PRIMARY KEY (ID),
     CONSTRAINT unq_events UNIQUE (StartDate, EndDate, Class_ID),
     CONSTRAINT fk_events_classes FOREIGN KEY (Class_ID) REFERENCES "classes" (ID)
+  );
+CREATE TABLE "repeatevents"
+  (
+    ID            NUMBER(5),
+    Event_ID      NUMBER(5) NOT NULL,
+    StartDateTime DATE NOT NULL,
+    EndDateTime   DATE NOT NULL,
+    CONSTRAINT pk_repeatevents PRIMARY KEY (ID),
+    CONSTRAINT fk_repeatevents_events FOREIGN KEY (Event_ID) REFERENCES "events" (ID)
+  );
+CREATE TABLE "repeatday"
+  (
+    RepeatEvent_ID  NUMBER (5),
+    DayNumberOfWeek NUMBER(1),
+    CONSTRAINT pk_repeatday PRIMARY KEY (RepeatEvent_ID, DayNumberOfWeek)
   );
 CREATE TABLE "assignments"
   (
@@ -65,22 +75,33 @@ CREATE TABLE "assignments"
     CONSTRAINT pk_assignments PRIMARY KEY (ID),
     CONSTRAINT fk_assignments_courses FOREIGN KEY (Course_ID) REFERENCES "courses" (ID)
   );
+CREATE TABLE "gradescales"
+  (
+    ID     NUMBER(5),
+    Low    NUMBER(3) NOT NULL,
+    High   NUMBER(3) NOT NULL,
+    Letter CHAR(1) NOT NULL,
+    CONSTRAINT pk_gradescales PRIMARY KEY (ID),
+    CONSTRAINT unq_gradescales UNIQUE (Low, High, Letter)
+  );
 CREATE TABLE "syllabusheaders"
   (
-    ID            NUMBER(5),
-    Course_ID     NUMBER(5) NOT NULL,
-    OfficeHour_ID NUMBER(5) NOT NULL,
-    Textbook varchar2(2000) not null,
-    CourseObjective varchar2(2000) not null,
-    PrerequisiteCourse varchar2(2000) not null,
-    Assignments nclob not null,
-    Grading nclob not null,
-    ComputerLabs varchar2(2000) not null,
-    SoftwareRequirements varchar2(2000) not null,
-    HomeworkSubmissionInformation varchar2(2000) not null,
-    IsActive      CHAR(1) NOT NULL,
+    ID                 NUMBER(5),
+    Course_ID          NUMBER(5) NOT NULL,
+    OfficeHour_ID      NUMBER(5) NOT NULL,
+    Textbook           VARCHAR2(2000) NOT NULL,
+    CourseObjective    VARCHAR2(2000) NOT NULL,
+    PrerequisiteCourse VARCHAR2(2000) NOT NULL,
+    AssignmentCategory CLOB NOT NULL,
+    Grading_ID           NUMBER(5) NOT NULL,
+    ComputerLabs         VARCHAR2(2000) NOT NULL,
+    SoftwareRequirements VARCHAR2(2000) NOT NULL,
+    HomeworkInfo         VARCHAR2(2000) NOT NULL,
+    IsActive             CHAR(1) NOT NULL,
     CONSTRAINT pk_syllabi PRIMARY KEY (ID),
-    CONSTRAINT fk_syllabusheaders_courses FOREIGN KEY (Course_ID) REFERENCES "courses" (ID)
+    CONSTRAINT fk_syllabusheaders_courses FOREIGN KEY (Course_ID) REFERENCES "courses" (ID),
+    CONSTRAINT fk_syllabusheaders_courses2 FOREIGN KEY (OfficeHour_ID) REFERENCES "courses" (ID),
+    CONSTRAINT fk_syllabusheaders_gradescales FOREIGN KEY (Grading_ID) REFERENCES "gradescales" (ID)
   );
 CREATE TABLE "publications"
   (
