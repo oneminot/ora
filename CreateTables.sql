@@ -100,15 +100,20 @@ CREATE TABLE "syllabusinfo"
     Textbook      VARCHAR2(2000) NOT NULL,
     CourseObjective CLOB NOT NULL,
     PrerequisiteCourse VARCHAR2(2000) NOT NULL,
-    AssignmentCategory CLOB NOT NULL,
     ComputerLabs         VARCHAR2(2000) NOT NULL,
     SoftwareRequirements VARCHAR2(2000) NOT NULL,
     HomeworkInfo         VARCHAR2(2000) NOT NULL,
     IsActive             CHAR(1) NOT NULL,
-    CONSTRAINT pk_syllabi PRIMARY KEY (ID),
+    CONSTRAINT pk_syllabusinfo PRIMARY KEY (ID),
     CONSTRAINT unq_syllabusinfo UNIQUE (Course_ID),
     CONSTRAINT fk_syllabusheaders_courses FOREIGN KEY (Course_ID) REFERENCES "courses" (ID),
     CONSTRAINT fk_syllabusheaders_courses2 FOREIGN KEY (OfficeHour_ID) REFERENCES "courses" (ID)
+  );
+  create table "syllabusassignmentcategory"
+  (
+  Syllabus_ID number(5),
+  AssignmentCategory_ID number(5),
+  constraint pk_syllabusassignmentcategory primary key (Syllabus_ID, AssignmentCategory_ID)
   );
 CREATE TABLE "publications"
   (
