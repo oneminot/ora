@@ -147,6 +147,7 @@
     <table name="SEQ_REPEAT_EVENTS" schema="KHADA" catalog="" type="SEQUENCE"/>
     <table name="SEQ_SEMESTERS" schema="KHADA" catalog="" type="SEQUENCE"/>
     <table name="SEQ_SYLLABUS_INFO" schema="KHADA" catalog="" type="SEQUENCE"/>
+    <table name="SEQ_TEST_PERSONS" schema="KHADA" catalog="" type="SEQUENCE"/>
     <table name="SEQ_USERS" schema="KHADA" catalog="" type="SEQUENCE"/>
     <table name="SYLLABUS_ASSIGN_CATEGORIES" schema="KHADA" catalog="" type="TABLE">
       <column name="SYLLABUS_ID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
@@ -169,15 +170,14 @@
       <foreign-key name="FK_SYLLABUS_INFO_COURSES2" columns="OFFICEHOUR_ID" ref-table="COURSES" ref-schema="KHADA" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
       <index name="UNQ_SYLLABUS_INFO" unique="true" columns="COURSE_ID"/>
     </table>
-    <table name="TESTPERSONS" schema="KHADA" catalog="" type="TABLE">
-      <column name="ID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
+    <table name="TEST_PERSONS" schema="KHADA" catalog="" type="TABLE">
+      <column name="ID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3" version="true"/>
       <column name="NAME" sqlType="VARCHAR2" precision="255" scale="0" nullable="false" jdbcType="12"/>
       <column name="PASSWORD" sqlType="VARCHAR2" precision="2000" scale="0" nullable="false" jdbcType="12"/>
       <column name="ATTEMPTCOUNT" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
       <column name="LASTATTEMPT" sqlType="TIMESTAMP(6)" precision="11" scale="6" nullable="false" jdbcType="93"/>
-      <primary-key name="PK_TESTPERSONS" columns="ID"/>
+      <primary-key name="PK_TEST_PERSONS" columns="ID"/>
     </table>
-    <table name="TESTPERSON_SEQUENCE" schema="KHADA" catalog="" type="SEQUENCE"/>
     <table name="USERS" schema="KHADA" catalog="" type="TABLE">
       <column name="ID" sqlType="NUMBER" precision="5" scale="0" nullable="false" jdbcType="3"/>
       <column name="NAME" sqlType="VARCHAR2" precision="255" scale="0" nullable="false" jdbcType="12"/>
