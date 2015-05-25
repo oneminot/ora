@@ -27,40 +27,49 @@
 --     FROM DUAL;
 --   END;
 --
--- INSERT INTO test_persons (ID, Name, Password, AttemptCount, LastAttempt)
--- VALUES (NULL, 'Kushal', 'aphromoo', 1, systimestamp);
+INSERT INTO test_persons (ID, Name, Password, AttemptCount, LastAttempt)
+VALUES (SEQ_TEST_PERSONS.nextval, 'Kushal', 'aphromoo', 1, systimestamp);
 --
 -- SELECT *
 -- FROM test_persons
 -- WHERE ROWNUM <= 3
--- ORDER BY LastAttempt DESC;
-
-CREATE OR REPLACE PROCEDURE proc_test_persons_insert
-  (Name_In IN VARCHAR2(255), Password_In IN VARCHAR2(2000))
-IS
-  time_since_last_attempt TIMESTAMP;
-  CURSOR temp_timestamp IS SELECT LASTATTEMPT
-                           FROM test_persons
-                           WHERE ROWNUM <= 1
-                           ORDER BY LastAttempt DESC;
-  temp_number_of_attempts NUMBER(5);
-  CURSOR temp_number_of_attempts IS SELECT ATTEMPTCOUNT
-                                    FROM TEST_PERSONS
-                                    WHERE ROWNUM <= 1
-                                    ORDER BY LASTATTEMPT DESC;
-  BEGIN
-    OPEN temp_timestamp;
-    OPEN temp_number_of_attempts;
-    IF systimestamp - temp_timestamp > 6000
-    THEN
-      temp_number_of_attempts := temp_number_of_attempts + 1;
-    END IF;
-    INSERT INTO test_persons (ID, Name, Password, AttemptCount, LastAttempt)
-    VALUES (NULL, Name_In, Password_In, temp_number_of_attempts, systimestamp);
-    COMMIT;
-    CLOSE temp_timestamp;
-    CLOSE temp_number_of_attempts;
-    EXCEPTION
-    WHEN OTHERS THEN
-    raise_application_error(-20001, 'Oracle Server | Could not add new user. - ' || SQLCODE || ' -ERROR- ' || SQLERRM);
-  END;
+-- -- ORDER BY LastAttempt DESC;
+--
+-- CREATE OR REPLACE PROCEDURE proc_test_persons_insert_2() IS
+--   BEGIN
+--     SELECT * FROM TEST_PERSONS;
+--     COMMIT;
+--     EXCEPTION
+--     WHEN OTHERS THEN
+--     raise_application_error(-20001, 'Oracle Server | Could not add new user. - ' || SQLCODE || ' -ERROR- ' || SQLERRM);
+--   END;
+--
+-- CREATE OR REPLACE PROCEDURE proc_test_persons_insert
+--   (Name_In IN VARCHAR2(255), Password_In IN VARCHAR2(2000))
+-- IS
+--   time_since_last_attempt TIMESTAMP;
+--   CURSOR temp_timestamp IS SELECT LASTATTEMPT
+--                            FROM test_persons
+--                            WHERE ROWNUM <= 1
+--                            ORDER BY LastAttempt DESC;
+--   temp_number_of_attempts NUMBER(5);
+--   CURSOR temp_number_of_attempts IS SELECT ATTEMPTCOUNT
+--                                     FROM TEST_PERSONS
+--                                     WHERE ROWNUM <= 1
+--                                     ORDER BY LASTATTEMPT DESC;
+--   BEGIN
+--     OPEN temp_timestamp;
+--     OPEN temp_number_of_attempts;
+--     IF systimestamp - temp_timestamp > 6000
+--     THEN
+--       temp_number_of_attempts := temp_number_of_attempts + 1;
+--     END IF;
+--     INSERT INTO test_persons (ID, Name, Password, AttemptCount, LastAttempt)
+--     VALUES (NULL, Name_In, Password_In, temp_number_of_attempts, systimestamp);
+--     COMMIT;
+--     CLOSE temp_timestamp;
+--     CLOSE temp_number_of_attempts;
+--     EXCEPTION
+--     WHEN OTHERS THEN
+--     raise_application_error(-20001, 'Oracle Server | Could not add new user. - ' || SQLCODE || ' -ERROR- ' || SQLERRM);
+--   END;

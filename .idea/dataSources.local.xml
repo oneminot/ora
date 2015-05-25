@@ -7,5 +7,11 @@
       <schema-pattern>*.KHADA *.SYS *.SYSTEM</schema-pattern>
       <default-schemas>*.KHADA *.SYS *.SYSTEM</default-schemas>
     </data-source>
+    <data-source name="PostgreSQL - ccmkxjmg@babar.elephantsql.com" uuid="bbd7a782-758d-42d5-9252-7a4860007f92">
+      <secret-storage>master_key</secret-storage>
+      <user-name>ccmkxjmg</user-name>
+      <schema-pattern>ccmkxjmg.pg_catalog ccmkxjmg.public</schema-pattern>
+      <default-schemas>ccmkxjmg.pg_catalog ccmkxjmg.public</default-schemas>
+    </data-source>
   </component>
 </project>
