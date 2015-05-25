@@ -10,7 +10,7 @@ CREATE TABLE courses
   ID          NUMBER(5),
   Dept_ID     NUMBER(5)      NOT NULL,
   Num         VARCHAR2(6)    NOT NULL,
-  Name        VARCHAR2(40)   NOT NULL,
+  Name VARCHAR2(80) NOT NULL,
   Description VARCHAR2(2000) NOT NULL,
   CONSTRAINT pk_courses PRIMARY KEY (ID),
   CONSTRAINT unq_courses UNIQUE (Dept_ID, Num),
