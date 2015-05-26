@@ -39,7 +39,7 @@ CREATE TABLE classes
   ID          NUMBER(5),
   Num         VARCHAR2(6) NOT NULL,
   Course_ID   NUMBER(5)   NOT NULL,
-  Semester_ID NUMBER(5)   NOT NULL,
+  Semester_Year_ID NUMBER(5) NOT NULL,
   CONSTRAINT pk_classes PRIMARY KEY (ID),
   CONSTRAINT unq_classes UNIQUE (Num, Course_ID),
   CONSTRAINT fk_classes_courses FOREIGN KEY (Course_ID) REFERENCES courses (ID)
