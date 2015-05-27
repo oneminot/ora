@@ -53,5 +53,3 @@ Topics for projects can be based on the interests of the students, chosen from i
 INSERT INTO SEMESTERS (ID, NAME) VALUES (SEQ_SEMESTERS.nextval, 'Fall');
 INSERT INTO SEMESTERS (ID, NAME) VALUES (SEQ_SEMESTERS.nextval, 'Spring');
 INSERT INTO SEMESTERS (ID, NAME) VALUES (SEQ_SEMESTERS.nextval, 'Summer');
-
--- INSERT INTO YEARS (ID, YEAR) VALUES (seq_year);

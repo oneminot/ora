@@ -27,7 +27,7 @@ CREATE TABLE semesters_years (
   Semester_ID NUMBER(5),
   Year VARCHAR2(4),
   CONSTRAINT pk_semesters_years PRIMARY KEY (ID),
-  CONSTRAINT unq_semesters_years UNIQUE (Semester_ID, Year_ID)
+  CONSTRAINT unq_semesters_years UNIQUE (Semester_ID, Year)
 );
 CREATE TABLE classes
 (

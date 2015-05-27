@@ -27,8 +27,8 @@
 --     FROM DUAL;
 --   END;
 --
-INSERT INTO test_persons (ID, Name, Password, AttemptCount, LastAttempt)
-VALUES (SEQ_TEST_PERSONS.nextval, 'Kushal', 'aphromoo', 1, systimestamp);
+-- INSERT INTO test_persons (ID, Name, Password, AttemptCount, LastAttempt)
+-- VALUES (SEQ_TEST_PERSONS.nextval, 'Kushal', 'aphromoo', 1, systimestamp);
 --
 -- SELECT *
 -- FROM test_persons
