@@ -49,5 +49,4 @@ INSERT INTO COURSES
 Topics for projects can be based on the interests of the students, chosen from ideas submitted by CS faculty, or coordinated with needs of other departments or from organizations outside the university. Students should be involved in the project selection, but the instructor has final authority on what is considered a suitable project. There will be greater expectations for teams of two or more students.');
 
 
-
 -- INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_ID) VALUES ();

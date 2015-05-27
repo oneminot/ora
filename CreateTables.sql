@@ -23,23 +23,23 @@ CREATE TABLE semesters
   CONSTRAINT pk_semesters PRIMARY KEY (ID)
 );
 CREATE TABLE years (
-  ID NUMBER(5),
-  Year VARCHAR2(4)  NOT NULL,
+  ID   NUMBER(5),
+  Year VARCHAR2(4) NOT NULL,
   CONSTRAINT pk_years PRIMARY KEY (ID)
 );
 CREATE TABLE semesters_years (
-  ID NUMBER(5),
-  Semester_ID Number(5),
-  Year_ID Number(5),
+  ID          NUMBER(5),
+  Semester_ID NUMBER(5),
+  Year_ID     NUMBER(5),
   CONSTRAINT pk_semesters_years PRIMARY KEY (ID),
   CONSTRAINT unq_semesters_years UNIQUE (Semester_ID, Year_ID)
 );
 CREATE TABLE classes
 (
-  ID          NUMBER(5),
-  Num         VARCHAR2(6) NOT NULL,
-  Course_ID   NUMBER(5)   NOT NULL,
-  Semester_Year_ID NUMBER(5) NOT NULL,
+  ID               NUMBER(5),
+  Num              VARCHAR2(6) NOT NULL,
+  Course_ID        NUMBER(5)   NOT NULL,
+  Semester_Year_ID NUMBER(5)   NOT NULL,
   CONSTRAINT pk_classes PRIMARY KEY (ID),
   CONSTRAINT unq_classes UNIQUE (Num, Course_ID),
   CONSTRAINT fk_classes_courses FOREIGN KEY (Course_ID) REFERENCES courses (ID)
@@ -97,17 +97,25 @@ CREATE TABLE grade_scales
 CREATE TABLE assignment_categories
 (
   ID       NUMBER(5),
-  Category VARCHAR(40) NOT NULL,
-  Weight   NUMBER(3)   NOT NULL,
+  Category VARCHAR2(40) NOT NULL,
+  Weight   NUMBER(3)    NOT NULL,
   CONSTRAINT pk_assignment_categories PRIMARY KEY (ID),
   CONSTRAINT unq_assignment_categories UNIQUE (Category, Weight)
+);
+CREATE TABLE Textbook (
+  ID     NUMBER(5),
+  Title  VARCHAR2(80) NOT NULL,
+  Author VARCHAR2(80) NOT NULL,
+  ISBN   VARCHAR2(13) NOT NULL,
+  CONSTRAINT pk_textbook PRIMARY KEY (ID),
+  CONSTRAINT unq_textbook_isbn UNIQUE (ISBN)
 );
 CREATE TABLE syllabus_info
 (
   ID                   NUMBER(5),
   Course_ID            NUMBER(5)      NOT NULL,
   OfficeHour_ID        NUMBER(5)      NOT NULL,
-  Textbook             VARCHAR2(2000) NOT NULL,
+  Textbook_ID NUMBER(5) NOT NULL,
   CourseObjective      CLOB           NOT NULL,
   PrerequisiteCourse   VARCHAR2(2000) NOT NULL,
   ComputerLabs         VARCHAR2(2000) NOT NULL,
