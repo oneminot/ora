@@ -22,15 +22,10 @@ CREATE TABLE semesters
   Name VARCHAR2(40) NOT NULL,
   CONSTRAINT pk_semesters PRIMARY KEY (ID)
 );
-CREATE TABLE years (
-  ID   NUMBER(5),
-  Year VARCHAR2(4) NOT NULL,
-  CONSTRAINT pk_years PRIMARY KEY (ID)
-);
 CREATE TABLE semesters_years (
   ID          NUMBER(5),
   Semester_ID NUMBER(5),
-  Year_ID     NUMBER(5),
+  Year VARCHAR2(4),
   CONSTRAINT pk_semesters_years PRIMARY KEY (ID),
   CONSTRAINT unq_semesters_years UNIQUE (Semester_ID, Year_ID)
 );
