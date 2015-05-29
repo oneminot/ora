@@ -19,6 +19,11 @@ INSERT INTO COURSES
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '221', 'Web and Internet Programming',
                                               'Introduction to web and internet programming. Topics covered will be web application development using HTML, CSS, PHP, JavaScript, AJAX, JQuery, JSON, XML, SQL, and web application and server security. ASP .NET website development using C# may also be introduced if time allows during the semester.');
+
+INSERT INTO COURSES
+(ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '260', 'UNIX Environment',
+                                              'UNIX');
+
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '321', 'Windows Programming',
                                               'Introduction to Windows programming in Visual C# .NET Windows Forms and WPF development, icons, controls, dialogs, threads, sockets, DLL''s');
@@ -48,6 +53,571 @@ INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '460', 'Capstone Project Development', 'The Capstone Project is a substantial, semester-long endeavor allowing students to apply and or enhance the knowledge they have gained within the Computer Science curriculum. Each project is to be completed by an individual or group of students.
 Topics for projects can be based on the interests of the students, chosen from ideas submitted by CS faculty, or coordinated with needs of other departments or from organizations outside the university. Students should be involved in the project selection, but the instructor has final authority on what is considered a suitable project. There will be greater expectations for teams of two or more students.');
 
-
+INSERT INTO COURSES
+(ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 2, '208', 'Discrete Mathematics',
+                                              'Discrete Math');
 
 -- INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_ID) VALUES ();
+
+INSERT INTO SEMESTERS (ID, NAME) VALUES (SEQ_SEMESTERS.nextval, 'Fall');
+INSERT INTO SEMESTERS (ID, NAME) VALUES (SEQ_SEMESTERS.nextval, 'Spring');
+INSERT INTO SEMESTERS (ID, NAME) VALUES (SEQ_SEMESTERS.nextval, 'Summer');
+
+INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 1, '2010');
+INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 2, '2011');
+INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 1, '2011');
+INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 2, '2012');
+INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 1, '2013');
+INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 2, '2014');
+INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 1, '2014');
+INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 2, '2015');
+INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 3, '2015');
+
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '19567', (SELECT ID
+                                                                                                  FROM COURSES
+                                                                                                  WHERE
+                                                                                                    DEPT_ID = (SELECT ID
+                                                                                                               FROM
+                                                                                                                 DEPARTMENTS
+                                                                                                               WHERE
+                                                                                                                 NAME =
+                                                                                                                 'CSCI'
+                                                                                                                 AND
+                                                                                                                 ROWNUM
+                                                                                                                 = 1)
+                                                                                                    AND NUM = '160' AND
+                                                                                                    ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 1 AND year = '2010' AND
+                                                                          ROWNUM = 1));
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '20627', (SELECT ID
+                                                                                                  FROM COURSES
+                                                                                                  WHERE
+                                                                                                    DEPT_ID = (SELECT ID
+                                                                                                               FROM
+                                                                                                                 DEPARTMENTS
+                                                                                                               WHERE
+                                                                                                                 NAME =
+                                                                                                                 'CSCI'
+                                                                                                                 AND
+                                                                                                                 ROWNUM
+                                                                                                                 = 1)
+                                                                                                    AND NUM = '111' AND
+                                                                                                    ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 1 AND year = '2010' AND
+                                                                          ROWNUM = 1));
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '20012', (SELECT ID
+                                                                                                  FROM COURSES
+                                                                                                  WHERE
+                                                                                                    DEPT_ID = (SELECT ID
+                                                                                                               FROM
+                                                                                                                 DEPARTMENTS
+                                                                                                               WHERE
+                                                                                                                 NAME =
+                                                                                                                 'CSCI'
+                                                                                                                 AND
+                                                                                                                 ROWNUM
+                                                                                                                 = 1)
+                                                                                                    AND NUM = '111' AND
+                                                                                                    ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 1 AND year = '2010' AND
+                                                                          ROWNUM = 1));
+
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '6132', (SELECT ID
+                                                                                                 FROM COURSES
+                                                                                                 WHERE
+                                                                                                   DEPT_ID = (SELECT ID
+                                                                                                              FROM
+                                                                                                                DEPARTMENTS
+                                                                                                              WHERE
+                                                                                                                NAME =
+                                                                                                                'CSCI'
+                                                                                                                AND
+                                                                                                                ROWNUM =
+                                                                                                                1) AND
+                                                                                                   NUM = '458' AND
+                                                                                                   ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 2 AND year = '2011' AND
+                                                                          ROWNUM = 1));
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '19667', (SELECT ID
+                                                                                                  FROM COURSES
+                                                                                                  WHERE
+                                                                                                    DEPT_ID = (SELECT ID
+                                                                                                               FROM
+                                                                                                                 DEPARTMENTS
+                                                                                                               WHERE
+                                                                                                                 NAME =
+                                                                                                                 'CSCI'
+                                                                                                                 AND
+                                                                                                                 ROWNUM
+                                                                                                                 = 1)
+                                                                                                    AND NUM = '440' AND
+                                                                                                    ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 2 AND year = '2011' AND
+                                                                          ROWNUM = 1));
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '3645', (SELECT ID
+                                                                                                 FROM COURSES
+                                                                                                 WHERE
+                                                                                                   DEPT_ID = (SELECT ID
+                                                                                                              FROM
+                                                                                                                DEPARTMENTS
+                                                                                                              WHERE
+                                                                                                                NAME =
+                                                                                                                'CSCI'
+                                                                                                                AND
+                                                                                                                ROWNUM =
+                                                                                                                1) AND
+                                                                                                   NUM = '370' AND
+                                                                                                   ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 2 AND year = '2011' AND
+                                                                          ROWNUM = 1));
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '19670', (SELECT ID
+                                                                                                  FROM COURSES
+                                                                                                  WHERE
+                                                                                                    DEPT_ID = (SELECT ID
+                                                                                                               FROM
+                                                                                                                 DEPARTMENTS
+                                                                                                               WHERE
+                                                                                                                 NAME =
+                                                                                                                 'CSCI'
+                                                                                                                 AND
+                                                                                                                 ROWNUM
+                                                                                                                 = 1)
+                                                                                                    AND NUM = '160' AND
+                                                                                                    ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 2 AND year = '2011' AND
+                                                                          ROWNUM = 1));
+
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '6630', (SELECT ID
+                                                                                                 FROM COURSES
+                                                                                                 WHERE
+                                                                                                   DEPT_ID = (SELECT ID
+                                                                                                              FROM
+                                                                                                                DEPARTMENTS
+                                                                                                              WHERE
+                                                                                                                NAME =
+                                                                                                                'CSCI'
+                                                                                                                AND
+                                                                                                                ROWNUM =
+                                                                                                                1) AND
+                                                                                                   NUM = '160' AND
+                                                                                                   ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 1 AND year = '2011' AND
+                                                                          ROWNUM = 1));
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '7055', (SELECT ID
+                                                                                                 FROM COURSES
+                                                                                                 WHERE
+                                                                                                   DEPT_ID = (SELECT ID
+                                                                                                              FROM
+                                                                                                                DEPARTMENTS
+                                                                                                              WHERE
+                                                                                                                NAME =
+                                                                                                                'CSCI'
+                                                                                                                AND
+                                                                                                                ROWNUM =
+                                                                                                                1) AND
+                                                                                                   NUM = '111' AND
+                                                                                                   ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 1 AND year = '2011' AND
+                                                                          ROWNUM = 1));
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '6863', (SELECT ID
+                                                                                                 FROM COURSES
+                                                                                                 WHERE
+                                                                                                   DEPT_ID = (SELECT ID
+                                                                                                              FROM
+                                                                                                                DEPARTMENTS
+                                                                                                              WHERE
+                                                                                                                NAME =
+                                                                                                                'CSCI'
+                                                                                                                AND
+                                                                                                                ROWNUM =
+                                                                                                                1) AND
+                                                                                                   NUM = '111' AND
+                                                                                                   ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 1 AND year = '2011' AND
+                                                                          ROWNUM = 1));
+
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4668', (SELECT ID
+                                                                                                 FROM COURSES
+                                                                                                 WHERE
+                                                                                                   DEPT_ID = (SELECT ID
+                                                                                                              FROM
+                                                                                                                DEPARTMENTS
+                                                                                                              WHERE
+                                                                                                                NAME =
+                                                                                                                'CSCI'
+                                                                                                                AND
+                                                                                                                ROWNUM =
+                                                                                                                1) AND
+                                                                                                   NUM = '160' AND
+                                                                                                   ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 2 AND year = '2012' AND
+                                                                          ROWNUM = 1));
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4458', (SELECT ID
+                                                                                                 FROM COURSES
+                                                                                                 WHERE
+                                                                                                   DEPT_ID = (SELECT ID
+                                                                                                              FROM
+                                                                                                                DEPARTMENTS
+                                                                                                              WHERE
+                                                                                                                NAME =
+                                                                                                                'CSCI'
+                                                                                                                AND
+                                                                                                                ROWNUM =
+                                                                                                                1) AND
+                                                                                                   NUM = '370' AND
+                                                                                                   ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 2 AND year = '2012' AND
+                                                                          ROWNUM = 1));
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4457', (SELECT ID
+                                                                                                 FROM COURSES
+                                                                                                 WHERE
+                                                                                                   DEPT_ID = (SELECT ID
+                                                                                                              FROM
+                                                                                                                DEPARTMENTS
+                                                                                                              WHERE
+                                                                                                                NAME =
+                                                                                                                'CSCI'
+                                                                                                                AND
+                                                                                                                ROWNUM =
+                                                                                                                1) AND
+                                                                                                   NUM = '161' AND
+                                                                                                   ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 2 AND year = '2012' AND
+                                                                          ROWNUM = 1));
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4876', (SELECT ID
+                                                                                                 FROM COURSES
+                                                                                                 WHERE
+                                                                                                   DEPT_ID = (SELECT ID
+                                                                                                              FROM
+                                                                                                                DEPARTMENTS
+                                                                                                              WHERE
+                                                                                                                NAME =
+                                                                                                                'CSCI'
+                                                                                                                AND
+                                                                                                                ROWNUM =
+                                                                                                                1) AND
+                                                                                                   NUM = '160' AND
+                                                                                                   ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 2 AND year = '2012' AND
+                                                                          ROWNUM = 1));
+
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '13416', (SELECT ID
+                                                                                                  FROM COURSES
+                                                                                                  WHERE
+                                                                                                    DEPT_ID = (SELECT ID
+                                                                                                               FROM
+                                                                                                                 DEPARTMENTS
+                                                                                                               WHERE
+                                                                                                                 NAME =
+                                                                                                                 'CSCI'
+                                                                                                                 AND
+                                                                                                                 ROWNUM
+                                                                                                                 = 1)
+                                                                                                    AND NUM = '356' AND
+                                                                                                    ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 1 AND year = '2013' AND
+                                                                          ROWNUM = 1));
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '13414', (SELECT ID
+                                                                                                  FROM COURSES
+                                                                                                  WHERE
+                                                                                                    DEPT_ID = (SELECT ID
+                                                                                                               FROM
+                                                                                                                 DEPARTMENTS
+                                                                                                               WHERE
+                                                                                                                 NAME =
+                                                                                                                 'CSCI'
+                                                                                                                 AND
+                                                                                                                 ROWNUM
+                                                                                                                 = 1)
+                                                                                                    AND NUM = '340' AND
+                                                                                                    ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 1 AND year = '2013' AND
+                                                                          ROWNUM = 1));
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '13412', (SELECT ID
+                                                                                                  FROM COURSES
+                                                                                                  WHERE
+                                                                                                    DEPT_ID = (SELECT ID
+                                                                                                               FROM
+                                                                                                                 DEPARTMENTS
+                                                                                                               WHERE
+                                                                                                                 NAME =
+                                                                                                                 'CSCI'
+                                                                                                                 AND
+                                                                                                                 ROWNUM
+                                                                                                                 = 1)
+                                                                                                    AND NUM = '260' AND
+                                                                                                    ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 1 AND year = '2013' AND
+                                                                          ROWNUM = 1));
+
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '5286', (SELECT ID
+                                                                                                 FROM COURSES
+                                                                                                 WHERE
+                                                                                                   DEPT_ID = (SELECT ID
+                                                                                                              FROM
+                                                                                                                DEPARTMENTS
+                                                                                                              WHERE
+                                                                                                                NAME =
+                                                                                                                'CSCI'
+                                                                                                                AND
+                                                                                                                ROWNUM =
+                                                                                                                1) AND
+                                                                                                   NUM = '460' AND
+                                                                                                   ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 2 AND year = '2014' AND
+                                                                          ROWNUM = 1));
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '5518', (SELECT ID
+                                                                                                 FROM COURSES
+                                                                                                 WHERE
+                                                                                                   DEPT_ID = (SELECT ID
+                                                                                                              FROM
+                                                                                                                DEPARTMENTS
+                                                                                                              WHERE
+                                                                                                                NAME =
+                                                                                                                'CSCI'
+                                                                                                                AND
+                                                                                                                ROWNUM =
+                                                                                                                1) AND
+                                                                                                   NUM = '440' AND
+                                                                                                   ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 2 AND year = '2014' AND
+                                                                          ROWNUM = 1));
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '5285', (SELECT ID
+                                                                                                 FROM COURSES
+                                                                                                 WHERE
+                                                                                                   DEPT_ID = (SELECT ID
+                                                                                                              FROM
+                                                                                                                DEPARTMENTS
+                                                                                                              WHERE
+                                                                                                                NAME =
+                                                                                                                'CSCI'
+                                                                                                                AND
+                                                                                                                ROWNUM =
+                                                                                                                1) AND
+                                                                                                   NUM = '370' AND
+                                                                                                   ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 2 AND year = '2014' AND
+                                                                          ROWNUM = 1));
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '5132', (SELECT ID
+                                                                                                 FROM COURSES
+                                                                                                 WHERE
+                                                                                                   DEPT_ID = (SELECT ID
+                                                                                                              FROM
+                                                                                                                DEPARTMENTS
+                                                                                                              WHERE
+                                                                                                                NAME =
+                                                                                                                'CSCI'
+                                                                                                                AND
+                                                                                                                ROWNUM =
+                                                                                                                1) AND
+                                                                                                   NUM = '321' AND
+                                                                                                   ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 2 AND year = '2014' AND
+                                                                          ROWNUM = 1));
+
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '12104', (SELECT ID
+                                                                                                  FROM COURSES
+                                                                                                  WHERE
+                                                                                                    DEPT_ID = (SELECT ID
+                                                                                                               FROM
+                                                                                                                 DEPARTMENTS
+                                                                                                               WHERE
+                                                                                                                 NAME =
+                                                                                                                 'CSCI'
+                                                                                                                 AND
+                                                                                                                 ROWNUM
+                                                                                                                 = 1)
+                                                                                                    AND NUM = '356' AND
+                                                                                                    ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 1 AND year = '2014' AND
+                                                                          ROWNUM = 1));
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '12102', (SELECT ID
+                                                                                                  FROM COURSES
+                                                                                                  WHERE
+                                                                                                    DEPT_ID = (SELECT ID
+                                                                                                               FROM
+                                                                                                                 DEPARTMENTS
+                                                                                                               WHERE
+                                                                                                                 NAME =
+                                                                                                                 'CSCI'
+                                                                                                                 AND
+                                                                                                                 ROWNUM
+                                                                                                                 = 1)
+                                                                                                    AND NUM = '340' AND
+                                                                                                    ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 1 AND year = '2014' AND
+                                                                          ROWNUM = 1));
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '12317', (SELECT ID
+                                                                                                  FROM COURSES
+                                                                                                  WHERE
+                                                                                                    DEPT_ID = (SELECT ID
+                                                                                                               FROM
+                                                                                                                 DEPARTMENTS
+                                                                                                               WHERE
+                                                                                                                 NAME =
+                                                                                                                 'CSCI'
+                                                                                                                 AND
+                                                                                                                 ROWNUM
+                                                                                                                 = 1)
+                                                                                                    AND NUM = '221' AND
+                                                                                                    ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 1 AND year = '2014' AND
+                                                                          ROWNUM = 1));
+
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4295', (SELECT ID
+                                                                                                 FROM COURSES
+                                                                                                 WHERE
+                                                                                                   DEPT_ID = (SELECT ID
+                                                                                                              FROM
+                                                                                                                DEPARTMENTS
+                                                                                                              WHERE
+                                                                                                                NAME =
+                                                                                                                'CSCI'
+                                                                                                                AND
+                                                                                                                ROWNUM =
+                                                                                                                1) AND
+                                                                                                   NUM = '460' AND
+                                                                                                   ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 2 AND year = '2015' AND
+                                                                          ROWNUM = 1));
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4431', (SELECT ID
+                                                                                                 FROM COURSES
+                                                                                                 WHERE
+                                                                                                   DEPT_ID = (SELECT ID
+                                                                                                              FROM
+                                                                                                                DEPARTMENTS
+                                                                                                              WHERE
+                                                                                                                NAME =
+                                                                                                                'CSCI'
+                                                                                                                AND
+                                                                                                                ROWNUM =
+                                                                                                                1) AND
+                                                                                                   NUM = '440' AND
+                                                                                                   ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 2 AND year = '2015' AND
+                                                                          ROWNUM = 1));
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4294', (SELECT ID
+                                                                                                 FROM COURSES
+                                                                                                 WHERE
+                                                                                                   DEPT_ID = (SELECT ID
+                                                                                                              FROM
+                                                                                                                DEPARTMENTS
+                                                                                                              WHERE
+                                                                                                                NAME =
+                                                                                                                'CSCI'
+                                                                                                                AND
+                                                                                                                ROWNUM =
+                                                                                                                1) AND
+                                                                                                   NUM = '370' AND
+                                                                                                   ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 2 AND year = '2015' AND
+                                                                          ROWNUM = 1));
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '26115', (SELECT ID
+                                                                                                  FROM COURSES
+                                                                                                  WHERE
+                                                                                                    DEPT_ID = (SELECT ID
+                                                                                                               FROM
+                                                                                                                 DEPARTMENTS
+                                                                                                               WHERE
+                                                                                                                 NAME =
+                                                                                                                 'CSCI'
+                                                                                                                 AND
+                                                                                                                 ROWNUM
+                                                                                                                 = 1)
+                                                                                                    AND NUM = '356' AND
+                                                                                                    ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 2 AND year = '2015' AND
+                                                                          ROWNUM = 1));
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4154', (SELECT ID
+                                                                                                 FROM COURSES
+                                                                                                 WHERE
+                                                                                                   DEPT_ID = (SELECT ID
+                                                                                                              FROM
+                                                                                                                DEPARTMENTS
+                                                                                                              WHERE
+                                                                                                                NAME =
+                                                                                                                'CSCI'
+                                                                                                                AND
+                                                                                                                ROWNUM =
+                                                                                                                1) AND
+                                                                                                   NUM = '321' AND
+                                                                                                   ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 2 AND year = '2015' AND
+                                                                          ROWNUM = 1));
+
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '10930', (SELECT ID
+                                                                                                  FROM COURSES
+                                                                                                  WHERE
+                                                                                                    DEPT_ID = (SELECT ID
+                                                                                                               FROM
+                                                                                                                 DEPARTMENTS
+                                                                                                               WHERE
+                                                                                                                 NAME =
+                                                                                                                 'MATH'
+                                                                                                                 AND
+                                                                                                                 ROWNUM
+                                                                                                                 = 1)
+                                                                                                    AND NUM = '208' AND
+                                                                                                    ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 3 AND year = '2015' AND
+                                                                          ROWNUM = 1));
