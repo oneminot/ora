@@ -195,3 +195,75 @@ CREATE TABLE users
 
 [2015-05-29 15:15:09] Summary: 19 of 19 statements executed in 3154 ms (5663 chars in file)
 
+[2015-05-29 15:17:09] Run C:\Users\CS\Documents\kus\ora\CreateSequences.sql
+[2015-05-29 15:17:09] Connecting to Oracle - @loree.minotstateu.edu...
+CREATE SEQUENCE seq_departments
+START WITH 1
+INCREMENT BY 1 NOCACHE
+[2015-05-29 15:17:09] 0 row(s) affected in 26 ms
+CREATE SEQUENCE seq_courses
+START WITH 1
+INCREMENT BY 1 NOCACHE
+[2015-05-29 15:17:09] 0 row(s) affected in 23 ms
+CREATE SEQUENCE seq_semesters
+START WITH 1
+INCREMENT BY 1 NOCACHE
+[2015-05-29 15:17:09] 0 row(s) affected in 14 ms
+CREATE SEQUENCE seq_semesters_years
+START WITH 1
+INCREMENT BY 1 NOCACHE
+[2015-05-29 15:17:09] 0 row(s) affected in 14 ms
+CREATE SEQUENCE seq_classes
+START WITH 1
+INCREMENT BY 1 NOCACHE
+[2015-05-29 15:17:10] 0 row(s) affected in 14 ms
+CREATE SEQUENCE seq_events
+START WITH 1
+INCREMENT BY 1 NOCACHE
+[2015-05-29 15:17:10] 0 row(s) affected in 14 ms
+CREATE SEQUENCE seq_repeat_events
+START WITH 1
+INCREMENT BY 1 NOCACHE
+[2015-05-29 15:17:10] 0 row(s) affected in 14 ms
+CREATE SEQUENCE seq_repeat_days
+START WITH 1
+INCREMENT BY 1 NOCACHE
+[2015-05-29 15:17:10] 0 row(s) affected in 15 ms
+CREATE SEQUENCE seq_assignments
+START WITH 1
+INCREMENT BY 1 NOCACHE
+[2015-05-29 15:17:10] 0 row(s) affected in 17 ms
+CREATE SEQUENCE seq_grade_scales
+START WITH 1
+INCREMENT BY 1 NOCACHE
+[2015-05-29 15:17:10] 0 row(s) affected in 13 ms
+CREATE SEQUENCE seq_assignment_categories
+START WITH 1
+INCREMENT BY 1 NOCACHE
+[2015-05-29 15:17:10] 0 row(s) affected in 15 ms
+CREATE SEQUENCE seq_textbook
+START WITH 1
+INCREMENT BY 1 NOCACHE
+[2015-05-29 15:17:10] 0 row(s) affected in 17 ms
+CREATE SEQUENCE seq_syllabus_info
+START WITH 1
+INCREMENT BY 1 NOCACHE
+[2015-05-29 15:17:10] 0 row(s) affected in 12 ms
+CREATE SEQUENCE seq_publishers
+START WITH 1
+INCREMENT BY 1 NOCACHE
+[2015-05-29 15:17:10] 0 row(s) affected in 16 ms
+CREATE SEQUENCE seq_articles
+START WITH 1
+INCREMENT BY 1 NOCACHE
+[2015-05-29 15:17:10] 0 row(s) affected in 14 ms
+CREATE SEQUENCE seq_authors
+START WITH 1
+INCREMENT BY 1 NOCACHE
+[2015-05-29 15:17:10] 0 row(s) affected in 16 ms
+CREATE SEQUENCE seq_users
+START WITH 1
+INCREMENT BY 1 NOCACHE
+[2015-05-29 15:17:10] 0 row(s) affected in 14 ms
+
+[2015-05-29 15:17:10] Summary: 17 of 17 statements executed in 394 ms (1126 chars in file)
