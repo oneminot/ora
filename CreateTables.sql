@@ -10,7 +10,7 @@ CREATE TABLE courses
   ID          NUMBER(5),
   Dept_ID     NUMBER(5)      NOT NULL,
   Num         VARCHAR2(6)    NOT NULL,
-  Name VARCHAR2(80) NOT NULL,
+  Name        VARCHAR2(80)   NOT NULL,
   Description VARCHAR2(2000) NOT NULL,
   CONSTRAINT pk_courses PRIMARY KEY (ID),
   CONSTRAINT unq_courses UNIQUE (Dept_ID, Num),
@@ -25,7 +25,7 @@ CREATE TABLE semesters
 CREATE TABLE semesters_years (
   ID          NUMBER(5),
   Semester_ID NUMBER(5),
-  Year VARCHAR2(4),
+  Year        VARCHAR2(4),
   CONSTRAINT pk_semesters_years PRIMARY KEY (ID),
   CONSTRAINT unq_semesters_years UNIQUE (Semester_ID, Year)
 );
@@ -110,7 +110,7 @@ CREATE TABLE syllabus_info
   ID                   NUMBER(5),
   Course_ID            NUMBER(5)      NOT NULL,
   OfficeHour_ID        NUMBER(5)      NOT NULL,
-  Textbook_ID NUMBER(5) NOT NULL,
+  Textbook_ID          NUMBER(5)      NOT NULL,
   CourseObjective      CLOB           NOT NULL,
   PrerequisiteCourse   VARCHAR2(2000) NOT NULL,
   ComputerLabs         VARCHAR2(2000) NOT NULL,
@@ -124,7 +124,7 @@ CREATE TABLE syllabus_info
 );
 CREATE TABLE syllabus_assign_categories
 (
-  Syllabus_ID NUMBER(5),
+  Syllabus_ID             NUMBER(5),
   AssignmentCategories_ID NUMBER(5),
   CONSTRAINT pk_syllabus_assign_categories PRIMARY KEY (Syllabus_ID, AssignmentCategories_ID)
 );
