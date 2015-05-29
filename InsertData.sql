@@ -641,3 +641,7 @@ INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'G.R. Lazo');
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'A.M. Denton');
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'S.F. Kianin');
 
+INSERT INTO PUBLISHERS (ID, TITLE, LOCATION, YEAR)  VALUES (SEQ_PUBLISHERS.nextval, '2009 IEEE GLOBECOM', 'Honolulu, HI', '1999');
+INSERT INTO PUBLISHERS (ID, TITLE, LOCATION, YEAR)  VALUES (SEQ_PUBLISHERS.nextval, 'Electro/Information Technology (EIT), 2012 IEEE Int''l Conference', 'Indianapolis, IN', '2012');
+INSERT INTO PUBLISHERS (ID, TITLE, LOCATION, YEAR)  VALUES (SEQ_PUBLISHERS.nextval, 'Functional & Integrative Geonomics Springer-Verlag, 2013, pp. 11-17', 'New York City, NY', '2013');
+

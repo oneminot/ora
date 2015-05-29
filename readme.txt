@@ -1620,3 +1620,703 @@ INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'S.F. Kianin')
 [2015-05-29 17:36:44] 1 row(s) affected in 15 ms
 
 [2015-05-29 17:36:44] Summary: 75 of 75 statements executed, 54 failed in 1534 ms (68952 chars in file)
+
+[2015-05-29 17:43:11] Run C:\Users\CS\Documents\kus\ora\InsertData.sql
+[2015-05-29 17:43:11] Connecting to Oracle - @loree.minotstateu.edu...
+INSERT INTO DEPARTMENTS
+(ID, NAME) VALUES (SEQ_DEPARTMENTS.nextval, 'CSCI')
+[2015-05-29 17:43:11] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_DEPARTMENTS) violated
+INSERT INTO DEPARTMENTS
+(ID, NAME) VALUES (SEQ_DEPARTMENTS.nextval, 'MATH')
+[2015-05-29 17:43:11] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_DEPARTMENTS) violated
+INSERT INTO COURSES
+(ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '111', 'Introduction to Web Languages',
+                                              'Basic tools and principles of programming with focus on development of web applications using the PHP programming language. This course will cover the following topics: HTML, CSS, PHP, file handling, database management, logic, repetition, UNIX commands, and software design')
+[2015-05-29 17:43:11] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
+INSERT INTO COURSES
+(ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '160', 'Computer Science I',
+                                              'Basic tools and principles of programming with focus on developing software using the C++ programming language. This course will cover the following topics: Data Types, Assignments, Selection, Repetition, Functions and Procedures, Arrays and Pointers')
+[2015-05-29 17:43:11] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
+INSERT INTO COURSES
+(ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '161', 'Computer Science II',
+                                              'Basic tools and principles of programming with focus on developing software using the C++ programming language. This course will cover the following topics: Classes, Inheritance, Polymorphism, Operator overloading Templates Hierarchy, Exceptions and object oriented programming in the microsoft foundation classes')
+[2015-05-29 17:43:11] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
+INSERT INTO COURSES
+(ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '221', 'Web and Internet Programming',
+                                              'Introduction to web and internet programming. Topics covered will be web application development using HTML, CSS, PHP, JavaScript, AJAX, JQuery, JSON, XML, SQL, and web application and server security. ASP .NET website development using C# may also be introduced if time allows during the semester.')
+[2015-05-29 17:43:11] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
+INSERT INTO COURSES
+(ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '260', 'UNIX Environment',
+                                              'UNIX')
+[2015-05-29 17:43:11] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
+INSERT INTO COURSES
+(ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '321', 'Windows Programming',
+                                              'Introduction to Windows programming in Visual C# .NET Windows Forms and WPF development, icons, controls, dialogs, threads, sockets, DLL''s')
+[2015-05-29 17:43:11] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
+INSERT INTO COURSES
+(ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '340', 'Local Area Networks',
+                                              'Introduction to basic networking including the layered OSI and TCP models, IPv4, IPv6 addressing, CIDR addressing, Network Address Translation, routing algorithms, common network protocols such as the IEEE 802.1x protocols, IP, TCP, UDP, FTP, HTTP, SMTP, etc. Additionally, an introduction to network security and network organization concepts will be covered such as local area networks (LANs), wide area networks (WANs), and ad hoc networking.')
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
+INSERT INTO COURSES
+(ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '356', 'Database Management',
+                                              'Introduction of database management systems including relational, hierarchical, and network models. Usage of tools and procedures for designing relational database models for provided datasets. Implementation of database models into a database management system (DBMS). Managing data using the SQL and PL/SQL languages. Concepts covered will include normalization, set theory, DBMS indexing, creating and deleting tables, inserting data into tables, and retrieving data from databases using select, nested select, joins, database security and other advanced SQL techniques.')
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
+INSERT INTO COURSES
+(ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '370', 'Computer Organization and Architecture',
+                                              'Introduction to the internal organization of computers and computer architectures. This course will cover the following topics: representation of data, Boolean algebra and digital logic, assembly, memory organization and architecture, I/O and storage, system software, network organization and architecture, data structures')
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
+INSERT INTO COURSES
+(ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES
+  (SEQ_COURSES.nextval, 1, '440', 'Data Communications - Wireless Networking and Communications',
+   'Introduction to advanced networking technologies and computer security. This course will cover the following topics: fundamentals of wireless transmission, communication networks, OSI model and TCP/IP, signaling techniques, wireless routing, wireless medium error detection and correction, satellite communications, cellular networks, ad hoc networks, sensor networks, IEEE 802.11, IEEE 802.16, IEEE 802.15.4 in the first 1 month of the course. The remainder of the course will focus on network/computer security and forensics including but not limited to the following topics: security concepts, threats, attacks and assets, cryptographic tools: symmetric and public-key encryption algorithms, authentication, malicious software, DoS attacks, intrusion detection, firewalls and prevention systems, buffer overflows, email security, X.509 certificates, legal and ethical issues in computer security')
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
+INSERT INTO COURSES
+(ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '458', 'Computer Security',
+                                              'This course will provide an introduction to computer and network security methods and procedures. This course will cover the following topics: security attacks, services and mechanisms, symmetric encryption, asymmetric encryption, hash functions and digital signatures, key management, Kerberos, X.509 Authentication, PHP, S/MIME, IPSec, SSL, TLS, IDS, security threats, firewalls, etc.')
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
+INSERT INTO COURSES
+(ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '460', 'Capstone Project Development', 'The Capstone Project is a substantial, semester-long endeavor allowing students to apply and or enhance the knowledge they have gained within the Computer Science curriculum. Each project is to be completed by an individual or group of students.
+Topics for projects can be based on the interests of the students, chosen from ideas submitted by CS faculty, or coordinated with needs of other departments or from organizations outside the university. Students should be involved in the project selection, but the instructor has final authority on what is considered a suitable project. There will be greater expectations for teams of two or more students.')
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
+INSERT INTO COURSES
+(ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 2, '208', 'Discrete Mathematics',
+                                              'Discrete Math')
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
+INSERT INTO SEMESTERS (ID, NAME) VALUES (SEQ_SEMESTERS.nextval, 'Fall')
+[2015-05-29 17:43:12] 1 row(s) affected in 23 ms
+INSERT INTO SEMESTERS (ID, NAME) VALUES (SEQ_SEMESTERS.nextval, 'Spring')
+[2015-05-29 17:43:12] 1 row(s) affected in 23 ms
+INSERT INTO SEMESTERS (ID, NAME) VALUES (SEQ_SEMESTERS.nextval, 'Summer')
+[2015-05-29 17:43:12] 1 row(s) affected in 20 ms
+INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 1, '2010')
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_SEMESTERS_YEARS) violated
+INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 2, '2011')
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_SEMESTERS_YEARS) violated
+INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 1, '2011')
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_SEMESTERS_YEARS) violated
+INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 2, '2012')
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_SEMESTERS_YEARS) violated
+INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 1, '2013')
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_SEMESTERS_YEARS) violated
+INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 2, '2014')
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_SEMESTERS_YEARS) violated
+INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 1, '2014')
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_SEMESTERS_YEARS) violated
+INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 2, '2015')
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_SEMESTERS_YEARS) violated
+INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 3, '2015')
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_SEMESTERS_YEARS) violated
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '19567', (SELECT ID
+                                                                                                  FROM COURSES
+                                                                                                  WHERE
+                                                                                                    DEPT_ID = (SELECT ID
+                                                                                                               FROM
+                                                                                                                 DEPARTMENTS
+                                                                                                               WHERE
+                                                                                                                 NAME =
+                                                                                                                 'CSCI'
+                                                                                                                 AND
+                                                                                                                 ROWNUM
+                                                                                                                 = 1)
+                                                                                                    AND NUM = '160' AND
+                                                                                                    ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 1 AND year = '2010' AND
+                                                                          ROWNUM = 1))
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '20627', (SELECT ID
+                                                                                                  FROM COURSES
+                                                                                                  WHERE
+                                                                                                    DEPT_ID = (SELECT ID
+                                                                                                               FROM
+                                                                                                                 DEPARTMENTS
+                                                                                                               WHERE
+                                                                                                                 NAME =
+                                                                                                                 'CSCI'
+                                                                                                                 AND
+                                                                                                                 ROWNUM
+                                                                                                                 = 1)
+                                                                                                    AND NUM = '111' AND
+                                                                                                    ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 1 AND year = '2010' AND
+                                                                          ROWNUM = 1))
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '20012', (SELECT ID
+                                                                                                  FROM COURSES
+                                                                                                  WHERE
+                                                                                                    DEPT_ID = (SELECT ID
+                                                                                                               FROM
+                                                                                                                 DEPARTMENTS
+                                                                                                               WHERE
+                                                                                                                 NAME =
+                                                                                                                 'CSCI'
+                                                                                                                 AND
+                                                                                                                 ROWNUM
+                                                                                                                 = 1)
+                                                                                                    AND NUM = '111' AND
+                                                                                                    ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 1 AND year = '2010' AND
+                                                                          ROWNUM = 1))
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '6132', (SELECT ID
+                                                                                                 FROM COURSES
+                                                                                                 WHERE
+                                                                                                   DEPT_ID = (SELECT ID
+                                                                                                              FROM
+                                                                                                                DEPARTMENTS
+                                                                                                              WHERE
+                                                                                                                NAME =
+                                                                                                                'CSCI'
+                                                                                                                AND
+                                                                                                                ROWNUM =
+                                                                                                                1) AND
+                                                                                                   NUM = '458' AND
+                                                                                                   ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 2 AND year = '2011' AND
+                                                                          ROWNUM = 1))
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '19667', (SELECT ID
+                                                                                                  FROM COURSES
+                                                                                                  WHERE
+                                                                                                    DEPT_ID = (SELECT ID
+                                                                                                               FROM
+                                                                                                                 DEPARTMENTS
+                                                                                                               WHERE
+                                                                                                                 NAME =
+                                                                                                                 'CSCI'
+                                                                                                                 AND
+                                                                                                                 ROWNUM
+                                                                                                                 = 1)
+                                                                                                    AND NUM = '440' AND
+                                                                                                    ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 2 AND year = '2011' AND
+                                                                          ROWNUM = 1))
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '3645', (SELECT ID
+                                                                                                 FROM COURSES
+                                                                                                 WHERE
+                                                                                                   DEPT_ID = (SELECT ID
+                                                                                                              FROM
+                                                                                                                DEPARTMENTS
+                                                                                                              WHERE
+                                                                                                                NAME =
+                                                                                                                'CSCI'
+                                                                                                                AND
+                                                                                                                ROWNUM =
+                                                                                                                1) AND
+                                                                                                   NUM = '370' AND
+                                                                                                   ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 2 AND year = '2011' AND
+                                                                          ROWNUM = 1))
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '19670', (SELECT ID
+                                                                                                  FROM COURSES
+                                                                                                  WHERE
+                                                                                                    DEPT_ID = (SELECT ID
+                                                                                                               FROM
+                                                                                                                 DEPARTMENTS
+                                                                                                               WHERE
+                                                                                                                 NAME =
+                                                                                                                 'CSCI'
+                                                                                                                 AND
+                                                                                                                 ROWNUM
+                                                                                                                 = 1)
+                                                                                                    AND NUM = '160' AND
+                                                                                                    ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 2 AND year = '2011' AND
+                                                                          ROWNUM = 1))
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '6630', (SELECT ID
+                                                                                                 FROM COURSES
+                                                                                                 WHERE
+                                                                                                   DEPT_ID = (SELECT ID
+                                                                                                              FROM
+                                                                                                                DEPARTMENTS
+                                                                                                              WHERE
+                                                                                                                NAME =
+                                                                                                                'CSCI'
+                                                                                                                AND
+                                                                                                                ROWNUM =
+                                                                                                                1) AND
+                                                                                                   NUM = '160' AND
+                                                                                                   ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 1 AND year = '2011' AND
+                                                                          ROWNUM = 1))
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '7055', (SELECT ID
+                                                                                                 FROM COURSES
+                                                                                                 WHERE
+                                                                                                   DEPT_ID = (SELECT ID
+                                                                                                              FROM
+                                                                                                                DEPARTMENTS
+                                                                                                              WHERE
+                                                                                                                NAME =
+                                                                                                                'CSCI'
+                                                                                                                AND
+                                                                                                                ROWNUM =
+                                                                                                                1) AND
+                                                                                                   NUM = '111' AND
+                                                                                                   ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 1 AND year = '2011' AND
+                                                                          ROWNUM = 1))
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '6863', (SELECT ID
+                                                                                                 FROM COURSES
+                                                                                                 WHERE
+                                                                                                   DEPT_ID = (SELECT ID
+                                                                                                              FROM
+                                                                                                                DEPARTMENTS
+                                                                                                              WHERE
+                                                                                                                NAME =
+                                                                                                                'CSCI'
+                                                                                                                AND
+                                                                                                                ROWNUM =
+                                                                                                                1) AND
+                                                                                                   NUM = '111' AND
+                                                                                                   ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 1 AND year = '2011' AND
+                                                                          ROWNUM = 1))
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4668', (SELECT ID
+                                                                                                 FROM COURSES
+                                                                                                 WHERE
+                                                                                                   DEPT_ID = (SELECT ID
+                                                                                                              FROM
+                                                                                                                DEPARTMENTS
+                                                                                                              WHERE
+                                                                                                                NAME =
+                                                                                                                'CSCI'
+                                                                                                                AND
+                                                                                                                ROWNUM =
+                                                                                                                1) AND
+                                                                                                   NUM = '160' AND
+                                                                                                   ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 2 AND year = '2012' AND
+                                                                          ROWNUM = 1))
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4458', (SELECT ID
+                                                                                                 FROM COURSES
+                                                                                                 WHERE
+                                                                                                   DEPT_ID = (SELECT ID
+                                                                                                              FROM
+                                                                                                                DEPARTMENTS
+                                                                                                              WHERE
+                                                                                                                NAME =
+                                                                                                                'CSCI'
+                                                                                                                AND
+                                                                                                                ROWNUM =
+                                                                                                                1) AND
+                                                                                                   NUM = '370' AND
+                                                                                                   ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 2 AND year = '2012' AND
+                                                                          ROWNUM = 1))
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4457', (SELECT ID
+                                                                                                 FROM COURSES
+                                                                                                 WHERE
+                                                                                                   DEPT_ID = (SELECT ID
+                                                                                                              FROM
+                                                                                                                DEPARTMENTS
+                                                                                                              WHERE
+                                                                                                                NAME =
+                                                                                                                'CSCI'
+                                                                                                                AND
+                                                                                                                ROWNUM =
+                                                                                                                1) AND
+                                                                                                   NUM = '161' AND
+                                                                                                   ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 2 AND year = '2012' AND
+                                                                          ROWNUM = 1))
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4876', (SELECT ID
+                                                                                                 FROM COURSES
+                                                                                                 WHERE
+                                                                                                   DEPT_ID = (SELECT ID
+                                                                                                              FROM
+                                                                                                                DEPARTMENTS
+                                                                                                              WHERE
+                                                                                                                NAME =
+                                                                                                                'CSCI'
+                                                                                                                AND
+                                                                                                                ROWNUM =
+                                                                                                                1) AND
+                                                                                                   NUM = '160' AND
+                                                                                                   ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 2 AND year = '2012' AND
+                                                                          ROWNUM = 1))
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '13416', (SELECT ID
+                                                                                                  FROM COURSES
+                                                                                                  WHERE
+                                                                                                    DEPT_ID = (SELECT ID
+                                                                                                               FROM
+                                                                                                                 DEPARTMENTS
+                                                                                                               WHERE
+                                                                                                                 NAME =
+                                                                                                                 'CSCI'
+                                                                                                                 AND
+                                                                                                                 ROWNUM
+                                                                                                                 = 1)
+                                                                                                    AND NUM = '356' AND
+                                                                                                    ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 1 AND year = '2013' AND
+                                                                          ROWNUM = 1))
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '13414', (SELECT ID
+                                                                                                  FROM COURSES
+                                                                                                  WHERE
+                                                                                                    DEPT_ID = (SELECT ID
+                                                                                                               FROM
+                                                                                                                 DEPARTMENTS
+                                                                                                               WHERE
+                                                                                                                 NAME =
+                                                                                                                 'CSCI'
+                                                                                                                 AND
+                                                                                                                 ROWNUM
+                                                                                                                 = 1)
+                                                                                                    AND NUM = '340' AND
+                                                                                                    ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 1 AND year = '2013' AND
+                                                                          ROWNUM = 1))
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '13412', (SELECT ID
+                                                                                                  FROM COURSES
+                                                                                                  WHERE
+                                                                                                    DEPT_ID = (SELECT ID
+                                                                                                               FROM
+                                                                                                                 DEPARTMENTS
+                                                                                                               WHERE
+                                                                                                                 NAME =
+                                                                                                                 'CSCI'
+                                                                                                                 AND
+                                                                                                                 ROWNUM
+                                                                                                                 = 1)
+                                                                                                    AND NUM = '260' AND
+                                                                                                    ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 1 AND year = '2013' AND
+                                                                          ROWNUM = 1))
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '5286', (SELECT ID
+                                                                                                 FROM COURSES
+                                                                                                 WHERE
+                                                                                                   DEPT_ID = (SELECT ID
+                                                                                                              FROM
+                                                                                                                DEPARTMENTS
+                                                                                                              WHERE
+                                                                                                                NAME =
+                                                                                                                'CSCI'
+                                                                                                                AND
+                                                                                                                ROWNUM =
+                                                                                                                1) AND
+                                                                                                   NUM = '460' AND
+                                                                                                   ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 2 AND year = '2014' AND
+                                                                          ROWNUM = 1))
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '5518', (SELECT ID
+                                                                                                 FROM COURSES
+                                                                                                 WHERE
+                                                                                                   DEPT_ID = (SELECT ID
+                                                                                                              FROM
+                                                                                                                DEPARTMENTS
+                                                                                                              WHERE
+                                                                                                                NAME =
+                                                                                                                'CSCI'
+                                                                                                                AND
+                                                                                                                ROWNUM =
+                                                                                                                1) AND
+                                                                                                   NUM = '440' AND
+                                                                                                   ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 2 AND year = '2014' AND
+                                                                          ROWNUM = 1))
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '5285', (SELECT ID
+                                                                                                 FROM COURSES
+                                                                                                 WHERE
+                                                                                                   DEPT_ID = (SELECT ID
+                                                                                                              FROM
+                                                                                                                DEPARTMENTS
+                                                                                                              WHERE
+                                                                                                                NAME =
+                                                                                                                'CSCI'
+                                                                                                                AND
+                                                                                                                ROWNUM =
+                                                                                                                1) AND
+                                                                                                   NUM = '370' AND
+                                                                                                   ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 2 AND year = '2014' AND
+                                                                          ROWNUM = 1))
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '5132', (SELECT ID
+                                                                                                 FROM COURSES
+                                                                                                 WHERE
+                                                                                                   DEPT_ID = (SELECT ID
+                                                                                                              FROM
+                                                                                                                DEPARTMENTS
+                                                                                                              WHERE
+                                                                                                                NAME =
+                                                                                                                'CSCI'
+                                                                                                                AND
+                                                                                                                ROWNUM =
+                                                                                                                1) AND
+                                                                                                   NUM = '321' AND
+                                                                                                   ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 2 AND year = '2014' AND
+                                                                          ROWNUM = 1))
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '12104', (SELECT ID
+                                                                                                  FROM COURSES
+                                                                                                  WHERE
+                                                                                                    DEPT_ID = (SELECT ID
+                                                                                                               FROM
+                                                                                                                 DEPARTMENTS
+                                                                                                               WHERE
+                                                                                                                 NAME =
+                                                                                                                 'CSCI'
+                                                                                                                 AND
+                                                                                                                 ROWNUM
+                                                                                                                 = 1)
+                                                                                                    AND NUM = '356' AND
+                                                                                                    ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 1 AND year = '2014' AND
+                                                                          ROWNUM = 1))
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '12102', (SELECT ID
+                                                                                                  FROM COURSES
+                                                                                                  WHERE
+                                                                                                    DEPT_ID = (SELECT ID
+                                                                                                               FROM
+                                                                                                                 DEPARTMENTS
+                                                                                                               WHERE
+                                                                                                                 NAME =
+                                                                                                                 'CSCI'
+                                                                                                                 AND
+                                                                                                                 ROWNUM
+                                                                                                                 = 1)
+                                                                                                    AND NUM = '340' AND
+                                                                                                    ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 1 AND year = '2014' AND
+                                                                          ROWNUM = 1))
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '12317', (SELECT ID
+                                                                                                  FROM COURSES
+                                                                                                  WHERE
+                                                                                                    DEPT_ID = (SELECT ID
+                                                                                                               FROM
+                                                                                                                 DEPARTMENTS
+                                                                                                               WHERE
+                                                                                                                 NAME =
+                                                                                                                 'CSCI'
+                                                                                                                 AND
+                                                                                                                 ROWNUM
+                                                                                                                 = 1)
+                                                                                                    AND NUM = '221' AND
+                                                                                                    ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 1 AND year = '2014' AND
+                                                                          ROWNUM = 1))
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4295', (SELECT ID
+                                                                                                 FROM COURSES
+                                                                                                 WHERE
+                                                                                                   DEPT_ID = (SELECT ID
+                                                                                                              FROM
+                                                                                                                DEPARTMENTS
+                                                                                                              WHERE
+                                                                                                                NAME =
+                                                                                                                'CSCI'
+                                                                                                                AND
+                                                                                                                ROWNUM =
+                                                                                                                1) AND
+                                                                                                   NUM = '460' AND
+                                                                                                   ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 2 AND year = '2015' AND
+                                                                          ROWNUM = 1))
+[2015-05-29 17:43:12] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4431', (SELECT ID
+                                                                                                 FROM COURSES
+                                                                                                 WHERE
+                                                                                                   DEPT_ID = (SELECT ID
+                                                                                                              FROM
+                                                                                                                DEPARTMENTS
+                                                                                                              WHERE
+                                                                                                                NAME =
+                                                                                                                'CSCI'
+                                                                                                                AND
+                                                                                                                ROWNUM =
+                                                                                                                1) AND
+                                                                                                   NUM = '440' AND
+                                                                                                   ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 2 AND year = '2015' AND
+                                                                          ROWNUM = 1))
+[2015-05-29 17:43:13] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4294', (SELECT ID
+                                                                                                 FROM COURSES
+                                                                                                 WHERE
+                                                                                                   DEPT_ID = (SELECT ID
+                                                                                                              FROM
+                                                                                                                DEPARTMENTS
+                                                                                                              WHERE
+                                                                                                                NAME =
+                                                                                                                'CSCI'
+                                                                                                                AND
+                                                                                                                ROWNUM =
+                                                                                                                1) AND
+                                                                                                   NUM = '370' AND
+                                                                                                   ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 2 AND year = '2015' AND
+                                                                          ROWNUM = 1))
+[2015-05-29 17:43:13] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '26115', (SELECT ID
+                                                                                                  FROM COURSES
+                                                                                                  WHERE
+                                                                                                    DEPT_ID = (SELECT ID
+                                                                                                               FROM
+                                                                                                                 DEPARTMENTS
+                                                                                                               WHERE
+                                                                                                                 NAME =
+                                                                                                                 'CSCI'
+                                                                                                                 AND
+                                                                                                                 ROWNUM
+                                                                                                                 = 1)
+                                                                                                    AND NUM = '356' AND
+                                                                                                    ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 2 AND year = '2015' AND
+                                                                          ROWNUM = 1))
+[2015-05-29 17:43:13] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4154', (SELECT ID
+                                                                                                 FROM COURSES
+                                                                                                 WHERE
+                                                                                                   DEPT_ID = (SELECT ID
+                                                                                                              FROM
+                                                                                                                DEPARTMENTS
+                                                                                                              WHERE
+                                                                                                                NAME =
+                                                                                                                'CSCI'
+                                                                                                                AND
+                                                                                                                ROWNUM =
+                                                                                                                1) AND
+                                                                                                   NUM = '321' AND
+                                                                                                   ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 2 AND year = '2015' AND
+                                                                          ROWNUM = 1))
+[2015-05-29 17:43:13] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '10930', (SELECT ID
+                                                                                                  FROM COURSES
+                                                                                                  WHERE
+                                                                                                    DEPT_ID = (SELECT ID
+                                                                                                               FROM
+                                                                                                                 DEPARTMENTS
+                                                                                                               WHERE
+                                                                                                                 NAME =
+                                                                                                                 'MATH'
+                                                                                                                 AND
+                                                                                                                 ROWNUM
+                                                                                                                 = 1)
+                                                                                                    AND NUM = '208' AND
+                                                                                                    ROWNUM = 1),
+                                                                   (SELECT ID
+                                                                    FROM semesters_years
+                                                                    WHERE SEMESTER_ID = 3 AND year = '2015' AND
+                                                                          ROWNUM = 1))
+[2015-05-29 17:43:13] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'P. Loree')
+[2015-05-29 17:43:13] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
+INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'K. Nygard')
+[2015-05-29 17:43:13] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
+INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'X. Du')
+[2015-05-29 17:43:13] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
+INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'K.K. Gagneja')
+[2015-05-29 17:43:13] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
+INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'F. Ranganathan')
+[2015-05-29 17:43:13] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
+INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'S. Bou Ghosn')
+[2015-05-29 17:43:13] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
+INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'K.E. Nygard')
+[2015-05-29 17:43:13] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
+INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'L.M. Alnemer')
+[2015-05-29 17:43:13] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
+INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'R.I. Seetan')
+[2015-05-29 17:43:13] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
+INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'F.M. Bassi')
+[2015-05-29 17:43:13] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
+INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'C. Chitraranjan')
+[2015-05-29 17:43:13] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
+INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'A. Helsene')
+[2015-05-29 17:43:13] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
+INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'Y.Q. Gu')
+[2015-05-29 17:43:13] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
+INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'M.C. Luo')
+[2015-05-29 17:43:13] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
+INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'M.J. Iqbqal')
+[2015-05-29 17:43:13] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
+INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'G.R. Lazo')
+[2015-05-29 17:43:13] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
+INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'A.M. Denton')
+[2015-05-29 17:43:13] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
+INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'S.F. Kianin')
+[2015-05-29 17:43:13] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
+INSERT INTO PUBLISHERS (ID, TITLE, LOCATION, YEAR)  VALUES (SEQ_PUBLISHERS.nextval, '2009 IEEE GLOBECOM', 'Honolulu, HI', '1999')
+[2015-05-29 17:43:13] 1 row(s) affected in 24 ms
+INSERT INTO PUBLISHERS (ID, TITLE, LOCATION, YEAR)  VALUES (SEQ_PUBLISHERS.nextval, 'Electro/Information Technology (EIT), 2012 IEEE Int''l Conference', 'Indianapolis, IN', '2012')
+[2015-05-29 17:43:13] 1 row(s) affected in 13 ms
+INSERT INTO PUBLISHERS (ID, TITLE, LOCATION, YEAR)  VALUES (SEQ_PUBLISHERS.nextval, 'Functional & Integrative Geonomics Springer-Verlag, 2013, pp. 11-17', 'New York City, NY', '2013')
+[2015-05-29 17:43:13] 1 row(s) affected in 15 ms
+
+[2015-05-29 17:43:13] Summary: 78 of 78 statements executed, 72 failed in 1755 ms (69444 chars in file)
