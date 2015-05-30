@@ -1,5 +1,5 @@
-[2015-05-29 20:28:09] Run C:\Users\CS\Documents\kus\ora\CreateTables.sql
-[2015-05-29 20:28:09] Connecting to Oracle - @loree.minotstateu.edu...
+[2015-05-29 20:45:56] Run C:\Users\CS\Documents\kus\ora\CreateTables.sql
+[2015-05-29 20:45:56] Connecting to Oracle - @loree.minotstateu.edu...
 CREATE TABLE departments
 (
   ID   NUMBER(5),
@@ -7,7 +7,7 @@ CREATE TABLE departments
   CONSTRAINT pk_departments PRIMARY KEY (ID),
   CONSTRAINT unq_departments UNIQUE (Name)
 )
-[2015-05-29 20:28:10] 0 row(s) affected in 133 ms
+[2015-05-29 20:45:57] 0 row(s) affected in 121 ms
 CREATE TABLE courses
 (
   ID          NUMBER(5),
@@ -19,7 +19,7 @@ CREATE TABLE courses
   CONSTRAINT unq_courses UNIQUE (Dept_ID, Num),
   CONSTRAINT fk_courses_departments FOREIGN KEY (Dept_ID) REFERENCES departments (ID)
 )
-[2015-05-29 20:28:10] 0 row(s) affected in 116 ms
+[2015-05-29 20:45:57] 0 row(s) affected in 148 ms
 CREATE TABLE semesters
 (
   ID   NUMBER(5),
@@ -27,7 +27,7 @@ CREATE TABLE semesters
   CONSTRAINT pk_semesters PRIMARY KEY (ID),
   CONSTRAINT unq_semesters UNIQUE (Name)
 )
-[2015-05-29 20:28:10] 0 row(s) affected in 122 ms
+[2015-05-29 20:45:57] 0 row(s) affected in 115 ms
 CREATE TABLE semesters_years (
   ID          NUMBER(5),
   Semester_ID NUMBER(5),
@@ -36,7 +36,7 @@ CREATE TABLE semesters_years (
   CONSTRAINT unq_semesters_years UNIQUE (Semester_ID, Year),
   CONSTRAINT fk_semesters_years_semesters FOREIGN KEY (Semester_ID) REFERENCES semesters (ID)
 )
-[2015-05-29 20:28:10] 0 row(s) affected in 118 ms
+[2015-05-29 20:45:57] 0 row(s) affected in 159 ms
 CREATE TABLE classes
 (
   ID               NUMBER(5),
@@ -47,7 +47,7 @@ CREATE TABLE classes
   CONSTRAINT unq_classes UNIQUE (Num, Course_ID),
   CONSTRAINT fk_classes_courses FOREIGN KEY (Course_ID) REFERENCES courses (ID)
 )
-[2015-05-29 20:28:10] 0 row(s) affected in 112 ms
+[2015-05-29 20:45:57] 0 row(s) affected in 99 ms
 CREATE TABLE events
 (
   ID        NUMBER(5),
@@ -60,7 +60,7 @@ CREATE TABLE events
   CONSTRAINT unq_events UNIQUE (StartDate, EndDate, Class_ID),
   CONSTRAINT fk_events_classes FOREIGN KEY (Class_ID) REFERENCES classes (ID)
 )
-[2015-05-29 20:28:10] 0 row(s) affected in 123 ms
+[2015-05-29 20:45:57] 0 row(s) affected in 141 ms
 CREATE TABLE repeat_events
 (
   ID            NUMBER(5),
@@ -70,14 +70,15 @@ CREATE TABLE repeat_events
   CONSTRAINT pk_repeat_events PRIMARY KEY (ID),
   CONSTRAINT fk_repeat_events_events FOREIGN KEY (Event_ID) REFERENCES events (ID)
 )
-[2015-05-29 20:28:10] 0 row(s) affected in 83 ms
+[2015-05-29 20:45:57] 0 row(s) affected in 91 ms
 CREATE TABLE repeat_days
 (
   RepeatEvent_ID  NUMBER(5),
   DayNumberOfWeek NUMBER(1),
-  CONSTRAINT pk_repeat_days PRIMARY KEY (RepeatEvent_ID, DayNumberOfWeek)
+  CONSTRAINT pk_repeat_days PRIMARY KEY (RepeatEvent_ID, DayNumberOfWeek),
+  CONSTRAINT fk_repeat_days_repeat_events FOREIGN KEY (RepeatEvent_ID) REFERENCES repeat_events (ID)
 )
-[2015-05-29 20:28:10] 0 row(s) affected in 105 ms
+[2015-05-29 20:45:58] 0 row(s) affected in 115 ms
 CREATE TABLE assignments
 (
   ID               NUMBER(5),
@@ -92,7 +93,7 @@ CREATE TABLE assignments
   CONSTRAINT pk_assignments PRIMARY KEY (ID),
   CONSTRAINT fk_assignments_courses FOREIGN KEY (Course_ID) REFERENCES courses (ID)
 )
-[2015-05-29 20:28:11] 0 row(s) affected in 186 ms
+[2015-05-29 20:45:58] 0 row(s) affected in 157 ms
 CREATE TABLE grade_scales
 (
   ID     NUMBER(5),
@@ -102,7 +103,7 @@ CREATE TABLE grade_scales
   CONSTRAINT pk_grade_scales PRIMARY KEY (ID),
   CONSTRAINT unq_grade_scales UNIQUE (Low, High, Letter)
 )
-[2015-05-29 20:28:11] 0 row(s) affected in 126 ms
+[2015-05-29 20:45:58] 0 row(s) affected in 116 ms
 CREATE TABLE assignment_categories
 (
   ID       NUMBER(5),
@@ -111,7 +112,7 @@ CREATE TABLE assignment_categories
   CONSTRAINT pk_assignment_categories PRIMARY KEY (ID),
   CONSTRAINT unq_assignment_categories UNIQUE (Category, Weight)
 )
-[2015-05-29 20:28:11] 0 row(s) affected in 117 ms
+[2015-05-29 20:45:58] 0 row(s) affected in 115 ms
 CREATE TABLE Textbooks (
   ID     NUMBER(5),
   Title  VARCHAR2(80) NOT NULL,
@@ -120,7 +121,7 @@ CREATE TABLE Textbooks (
   CONSTRAINT pk_textbook PRIMARY KEY (ID),
   CONSTRAINT unq_textbook_isbn UNIQUE (ISBN)
 )
-[2015-05-29 20:28:11] 0 row(s) affected in 139 ms
+[2015-05-29 20:45:58] 0 row(s) affected in 157 ms
 CREATE TABLE syllabus_info
 (
   ID                   NUMBER(5),
@@ -139,7 +140,7 @@ CREATE TABLE syllabus_info
   CONSTRAINT fk_syllabus_info_courses2 FOREIGN KEY (OfficeHour_ID) REFERENCES courses (ID),
   CONSTRAINT fk_syllabus_info_textbooks FOREIGN KEY (Textbook_ID) REFERENCES Textbooks (ID)
 )
-[2015-05-29 20:28:11] 0 row(s) affected in 167 ms
+[2015-05-29 20:45:58] 0 row(s) affected in 158 ms
 CREATE TABLE syllabus_assign_categories
 (
   Syllabus_ID             NUMBER(5),
@@ -148,7 +149,7 @@ CREATE TABLE syllabus_assign_categories
   CONSTRAINT fk_sac_syllabus_info FOREIGN KEY (Syllabus_ID) REFERENCES syllabus_info (ID),
   CONSTRAINT fk_sac_assign_cat FOREIGN KEY (AssignmentCategories_ID) REFERENCES assignment_categories (ID)
 )
-[2015-05-29 20:28:11] 0 row(s) affected in 105 ms
+[2015-05-29 20:45:58] 0 row(s) affected in 83 ms
 CREATE TABLE publishers
 (
   ID       NUMBER(5),
@@ -158,7 +159,7 @@ CREATE TABLE publishers
   CONSTRAINT pk_publishers PRIMARY KEY (ID),
   CONSTRAINT unq_publishers UNIQUE (Title, Location, Year)
 )
-[2015-05-29 20:28:11] 0 row(s) affected in 139 ms
+[2015-05-29 20:45:58] 0 row(s) affected in 134 ms
 CREATE TABLE articles
 (
   ID                   NUMBER(5),
@@ -170,7 +171,7 @@ CREATE TABLE articles
   CONSTRAINT unq_articles UNIQUE (Title, RelativeFileLocation, Publisher_ID, PageReference),
   CONSTRAINT fk_articles_publisher FOREIGN KEY (Publisher_ID) REFERENCES publishers (ID)
 )
-[2015-05-29 20:28:12] 0 row(s) affected in 124 ms
+[2015-05-29 20:45:59] 0 row(s) affected in 115 ms
 CREATE TABLE authors
 (
   ID   NUMBER(5),
@@ -178,7 +179,7 @@ CREATE TABLE authors
   CONSTRAINT pk_authors PRIMARY KEY (ID),
   CONSTRAINT unq_authors UNIQUE (Name)
 )
-[2015-05-29 20:28:12] 0 row(s) affected in 116 ms
+[2015-05-29 20:45:59] 0 row(s) affected in 116 ms
 CREATE TABLE author_articles
 (
   Author_ID  NUMBER(5) NOT NULL,
@@ -187,7 +188,7 @@ CREATE TABLE author_articles
   CONSTRAINT fk_author_articles_authors FOREIGN KEY (Author_ID) REFERENCES authors (ID),
   CONSTRAINT fk_author_articles_articles FOREIGN KEY (Article_ID) REFERENCES articles (ID)
 )
-[2015-05-29 20:28:12] 0 row(s) affected in 58 ms
+[2015-05-29 20:45:59] 0 row(s) affected in 48 ms
 CREATE TABLE users
 (
   ID           NUMBER(5)      NOT NULL,
@@ -197,6 +198,6 @@ CREATE TABLE users
   LastAttempt  TIMESTAMP      NOT NULL,
   CONSTRAINT pk_users PRIMARY KEY (ID)
 )
-[2015-05-29 20:28:12] 0 row(s) affected in 100 ms
+[2015-05-29 20:45:59] 0 row(s) affected in 90 ms
 
-[2015-05-29 20:28:12] Summary: 19 of 19 statements executed in 2388 ms (6198 chars in file)
+[2015-05-29 20:45:59] Summary: 19 of 19 statements executed in 2353 ms (6300 chars in file)

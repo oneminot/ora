@@ -66,7 +66,8 @@ CREATE TABLE repeat_days
 (
   RepeatEvent_ID  NUMBER(5),
   DayNumberOfWeek NUMBER(1),
-  CONSTRAINT pk_repeat_days PRIMARY KEY (RepeatEvent_ID, DayNumberOfWeek)
+  CONSTRAINT pk_repeat_days PRIMARY KEY (RepeatEvent_ID, DayNumberOfWeek),
+  CONSTRAINT fk_repeat_days_repeat_events FOREIGN KEY (RepeatEvent_ID) REFERENCES repeat_events (ID)
 );
 CREATE TABLE assignments
 (
