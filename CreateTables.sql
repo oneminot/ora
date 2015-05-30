@@ -98,7 +98,7 @@ CREATE TABLE assignment_categories
   CONSTRAINT pk_assignment_categories PRIMARY KEY (ID),
   CONSTRAINT unq_assignment_categories UNIQUE (Category, Weight)
 );
-CREATE TABLE Textbook (
+CREATE TABLE Textbooks (
   ID     NUMBER(5),
   Title  VARCHAR2(80) NOT NULL,
   Author VARCHAR2(80) NOT NULL,
@@ -121,7 +121,8 @@ CREATE TABLE syllabus_info
   CONSTRAINT pk_syllabus_info PRIMARY KEY (ID),
   CONSTRAINT unq_syllabus_info UNIQUE (Course_ID),
   CONSTRAINT fk_syllabus_info_courses FOREIGN KEY (Course_ID) REFERENCES courses (ID),
-  CONSTRAINT fk_syllabus_info_courses2 FOREIGN KEY (OfficeHour_ID) REFERENCES courses (ID)
+  CONSTRAINT fk_syllabus_info_courses2 FOREIGN KEY (OfficeHour_ID) REFERENCES courses (ID),
+  CONSTRAINT fk_syllabus_info_textbooks FOREIGN KEY (Textbook_ID) REFERENCES Textbooks (ID)
 );
 CREATE TABLE syllabus_assign_categories
 (
