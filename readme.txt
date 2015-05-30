@@ -1,5 +1,5 @@
-[2015-05-29 19:27:44] Run C:\Users\CS\Documents\kus\ora\CreateTables.sql
-[2015-05-29 19:27:44] Connecting to Oracle - @loree.minotstateu.edu...
+[2015-05-29 19:39:37] Run C:\Users\CS\Documents\kus\ora\CreateTables.sql
+[2015-05-29 19:39:37] Connecting to Oracle - @loree.minotstateu.edu...
 CREATE TABLE departments
 (
   ID   NUMBER(5),
@@ -7,7 +7,7 @@ CREATE TABLE departments
   CONSTRAINT pk_departments PRIMARY KEY (ID),
   CONSTRAINT unq_departments UNIQUE (Name)
 )
-[2015-05-29 19:27:44] 0 row(s) affected in 180 ms
+[2015-05-29 19:39:37] 0 row(s) affected in 140 ms
 CREATE TABLE courses
 (
   ID          NUMBER(5),
@@ -19,14 +19,15 @@ CREATE TABLE courses
   CONSTRAINT unq_courses UNIQUE (Dept_ID, Num),
   CONSTRAINT fk_courses_departments FOREIGN KEY (Dept_ID) REFERENCES departments (ID)
 )
-[2015-05-29 19:27:44] 0 row(s) affected in 113 ms
+[2015-05-29 19:39:37] 0 row(s) affected in 166 ms
 CREATE TABLE semesters
 (
   ID   NUMBER(5),
   Name VARCHAR2(40) NOT NULL,
-  CONSTRAINT pk_semesters PRIMARY KEY (ID)
+  CONSTRAINT pk_semesters PRIMARY KEY (ID),
+  CONSTRAINT unq_semesters UNIQUE (Name)
 )
-[2015-05-29 19:27:44] 0 row(s) affected in 91 ms
+[2015-05-29 19:39:37] 0 row(s) affected in 465 ms
 CREATE TABLE semesters_years (
   ID          NUMBER(5),
   Semester_ID NUMBER(5),
@@ -34,7 +35,7 @@ CREATE TABLE semesters_years (
   CONSTRAINT pk_semesters_years PRIMARY KEY (ID),
   CONSTRAINT unq_semesters_years UNIQUE (Semester_ID, Year)
 )
-[2015-05-29 19:27:44] 0 row(s) affected in 157 ms
+[2015-05-29 19:39:38] 0 row(s) affected in 158 ms
 CREATE TABLE classes
 (
   ID               NUMBER(5),
@@ -45,7 +46,7 @@ CREATE TABLE classes
   CONSTRAINT unq_classes UNIQUE (Num, Course_ID),
   CONSTRAINT fk_classes_courses FOREIGN KEY (Course_ID) REFERENCES courses (ID)
 )
-[2015-05-29 19:27:45] 0 row(s) affected in 219 ms
+[2015-05-29 19:39:38] 0 row(s) affected in 223 ms
 CREATE TABLE events
 (
   ID        NUMBER(5),
@@ -58,7 +59,7 @@ CREATE TABLE events
   CONSTRAINT unq_events UNIQUE (StartDate, EndDate, Class_ID),
   CONSTRAINT fk_events_classes FOREIGN KEY (Class_ID) REFERENCES classes (ID)
 )
-[2015-05-29 19:27:45] 0 row(s) affected in 229 ms
+[2015-05-29 19:39:38] 0 row(s) affected in 115 ms
 CREATE TABLE repeat_events
 (
   ID            NUMBER(5),
@@ -68,14 +69,14 @@ CREATE TABLE repeat_events
   CONSTRAINT pk_repeat_events PRIMARY KEY (ID),
   CONSTRAINT fk_repeat_events_events FOREIGN KEY (Event_ID) REFERENCES events (ID)
 )
-[2015-05-29 19:27:45] 0 row(s) affected in 62 ms
+[2015-05-29 19:39:38] 0 row(s) affected in 108 ms
 CREATE TABLE repeat_days
 (
   RepeatEvent_ID  NUMBER(5),
   DayNumberOfWeek NUMBER(1),
   CONSTRAINT pk_repeat_days PRIMARY KEY (RepeatEvent_ID, DayNumberOfWeek)
 )
-[2015-05-29 19:27:45] 0 row(s) affected in 127 ms
+[2015-05-29 19:39:38] 0 row(s) affected in 99 ms
 CREATE TABLE assignments
 (
   ID               NUMBER(5),
@@ -90,7 +91,7 @@ CREATE TABLE assignments
   CONSTRAINT pk_assignments PRIMARY KEY (ID),
   CONSTRAINT fk_assignments_courses FOREIGN KEY (Course_ID) REFERENCES courses (ID)
 )
-[2015-05-29 19:27:45] 0 row(s) affected in 198 ms
+[2015-05-29 19:39:38] 0 row(s) affected in 207 ms
 CREATE TABLE grade_scales
 (
   ID     NUMBER(5),
@@ -100,7 +101,7 @@ CREATE TABLE grade_scales
   CONSTRAINT pk_grade_scales PRIMARY KEY (ID),
   CONSTRAINT unq_grade_scales UNIQUE (Low, High, Letter)
 )
-[2015-05-29 19:27:45] 0 row(s) affected in 225 ms
+[2015-05-29 19:39:39] 0 row(s) affected in 216 ms
 CREATE TABLE assignment_categories
 (
   ID       NUMBER(5),
@@ -109,7 +110,7 @@ CREATE TABLE assignment_categories
   CONSTRAINT pk_assignment_categories PRIMARY KEY (ID),
   CONSTRAINT unq_assignment_categories UNIQUE (Category, Weight)
 )
-[2015-05-29 19:27:46] 0 row(s) affected in 100 ms
+[2015-05-29 19:39:39] 0 row(s) affected in 138 ms
 CREATE TABLE Textbook (
   ID     NUMBER(5),
   Title  VARCHAR2(80) NOT NULL,
@@ -118,7 +119,7 @@ CREATE TABLE Textbook (
   CONSTRAINT pk_textbook PRIMARY KEY (ID),
   CONSTRAINT unq_textbook_isbn UNIQUE (ISBN)
 )
-[2015-05-29 19:27:46] 0 row(s) affected in 168 ms
+[2015-05-29 19:39:39] 0 row(s) affected in 149 ms
 CREATE TABLE syllabus_info
 (
   ID                   NUMBER(5),
@@ -136,23 +137,24 @@ CREATE TABLE syllabus_info
   CONSTRAINT fk_syllabus_info_courses FOREIGN KEY (Course_ID) REFERENCES courses (ID),
   CONSTRAINT fk_syllabus_info_courses2 FOREIGN KEY (OfficeHour_ID) REFERENCES courses (ID)
 )
-[2015-05-29 19:27:46] 0 row(s) affected in 306 ms
+[2015-05-29 19:39:39] 0 row(s) affected in 215 ms
 CREATE TABLE syllabus_assign_categories
 (
   Syllabus_ID             NUMBER(5),
   AssignmentCategories_ID NUMBER(5),
   CONSTRAINT pk_syllabus_assign_categories PRIMARY KEY (Syllabus_ID, AssignmentCategories_ID)
 )
-[2015-05-29 19:27:46] 0 row(s) affected in 112 ms
+[2015-05-29 19:39:39] 0 row(s) affected in 106 ms
 CREATE TABLE publishers
 (
   ID       NUMBER(5),
   Title    VARCHAR2(80) NOT NULL,
   Location VARCHAR2(80) NOT NULL,
-  YEAR     VARCHAR2(4),
-  CONSTRAINT pk_publishers PRIMARY KEY (ID)
+  Year     VARCHAR2(4),
+  CONSTRAINT pk_publishers PRIMARY KEY (ID),
+  CONSTRAINT unq_publishers UNIQUE (Title, Location, Year)
 )
-[2015-05-29 19:27:46] 0 row(s) affected in 294 ms
+[2015-05-29 19:39:39] 0 row(s) affected in 169 ms
 CREATE TABLE articles
 (
   ID                   NUMBER(5),
@@ -164,7 +166,7 @@ CREATE TABLE articles
   CONSTRAINT unq_articles UNIQUE (Title, RelativeFileLocation, Publisher_ID, PageReference),
   CONSTRAINT fk_articles_publisher FOREIGN KEY (Publisher_ID) REFERENCES publishers (ID)
 )
-[2015-05-29 19:27:47] 0 row(s) affected in 270 ms
+[2015-05-29 19:39:40] 0 row(s) affected in 282 ms
 CREATE TABLE authors
 (
   ID   NUMBER(5),
@@ -172,7 +174,7 @@ CREATE TABLE authors
   CONSTRAINT pk_authors PRIMARY KEY (ID),
   CONSTRAINT unq_authors UNIQUE (Name)
 )
-[2015-05-29 19:27:47] 0 row(s) affected in 172 ms
+[2015-05-29 19:39:40] 0 row(s) affected in 247 ms
 CREATE TABLE author_articles
 (
   Author_ID  NUMBER(5) NOT NULL,
@@ -181,7 +183,7 @@ CREATE TABLE author_articles
   CONSTRAINT fk_author_articles_authors FOREIGN KEY (Author_ID) REFERENCES authors (ID),
   CONSTRAINT fk_author_articles_articles FOREIGN KEY (Article_ID) REFERENCES articles (ID)
 )
-[2015-05-29 19:27:47] 0 row(s) affected in 250 ms
+[2015-05-29 19:39:40] 0 row(s) affected in 118 ms
 CREATE TABLE users
 (
   ID           NUMBER(5)      NOT NULL,
@@ -191,12 +193,11 @@ CREATE TABLE users
   LastAttempt  TIMESTAMP      NOT NULL,
   CONSTRAINT pk_users PRIMARY KEY (ID)
 )
-[2015-05-29 19:27:47] 0 row(s) affected in 114 ms
+[2015-05-29 19:39:40] 0 row(s) affected in 97 ms
 
-[2015-05-29 19:27:47] Summary: 19 of 19 statements executed in 3555 ms (5708 chars in file)
-
-[2015-05-29 19:28:07] Run C:\Users\CS\Documents\kus\ora\CreateTables.sql
-[2015-05-29 19:28:07] Connecting to Oracle - @loree.minotstateu.edu...
+[2015-05-29 19:39:40] Summary: 19 of 19 statements executed in 3515 ms (5810 chars in file)
+[2015-05-29 19:39:52] Run C:\Users\CS\Documents\kus\ora\CreateTables.sql
+[2015-05-29 19:39:52] Connecting to Oracle - @loree.minotstateu.edu...
 CREATE TABLE departments
 (
   ID   NUMBER(5),
@@ -204,7 +205,7 @@ CREATE TABLE departments
   CONSTRAINT pk_departments PRIMARY KEY (ID),
   CONSTRAINT unq_departments UNIQUE (Name)
 )
-[2015-05-29 19:28:07] [42000][955] ORA-00955: name is already used by an existing object
+[2015-05-29 19:39:52] [42000][955] ORA-00955: name is already used by an existing object
 CREATE TABLE courses
 (
   ID          NUMBER(5),
@@ -216,14 +217,15 @@ CREATE TABLE courses
   CONSTRAINT unq_courses UNIQUE (Dept_ID, Num),
   CONSTRAINT fk_courses_departments FOREIGN KEY (Dept_ID) REFERENCES departments (ID)
 )
-[2015-05-29 19:28:07] [42000][955] ORA-00955: name is already used by an existing object
+[2015-05-29 19:39:52] [42000][955] ORA-00955: name is already used by an existing object
 CREATE TABLE semesters
 (
   ID   NUMBER(5),
   Name VARCHAR2(40) NOT NULL,
-  CONSTRAINT pk_semesters PRIMARY KEY (ID)
+  CONSTRAINT pk_semesters PRIMARY KEY (ID),
+  CONSTRAINT unq_semesters UNIQUE (Name)
 )
-[2015-05-29 19:28:07] [42000][955] ORA-00955: name is already used by an existing object
+[2015-05-29 19:39:52] [42000][955] ORA-00955: name is already used by an existing object
 CREATE TABLE semesters_years (
   ID          NUMBER(5),
   Semester_ID NUMBER(5),
@@ -231,7 +233,7 @@ CREATE TABLE semesters_years (
   CONSTRAINT pk_semesters_years PRIMARY KEY (ID),
   CONSTRAINT unq_semesters_years UNIQUE (Semester_ID, Year)
 )
-[2015-05-29 19:28:07] [42000][955] ORA-00955: name is already used by an existing object
+[2015-05-29 19:39:52] [42000][955] ORA-00955: name is already used by an existing object
 CREATE TABLE classes
 (
   ID               NUMBER(5),
@@ -242,7 +244,7 @@ CREATE TABLE classes
   CONSTRAINT unq_classes UNIQUE (Num, Course_ID),
   CONSTRAINT fk_classes_courses FOREIGN KEY (Course_ID) REFERENCES courses (ID)
 )
-[2015-05-29 19:28:07] [42000][955] ORA-00955: name is already used by an existing object
+[2015-05-29 19:39:52] [42000][955] ORA-00955: name is already used by an existing object
 CREATE TABLE events
 (
   ID        NUMBER(5),
@@ -255,7 +257,7 @@ CREATE TABLE events
   CONSTRAINT unq_events UNIQUE (StartDate, EndDate, Class_ID),
   CONSTRAINT fk_events_classes FOREIGN KEY (Class_ID) REFERENCES classes (ID)
 )
-[2015-05-29 19:28:07] [42000][955] ORA-00955: name is already used by an existing object
+[2015-05-29 19:39:52] [42000][955] ORA-00955: name is already used by an existing object
 CREATE TABLE repeat_events
 (
   ID            NUMBER(5),
@@ -265,14 +267,14 @@ CREATE TABLE repeat_events
   CONSTRAINT pk_repeat_events PRIMARY KEY (ID),
   CONSTRAINT fk_repeat_events_events FOREIGN KEY (Event_ID) REFERENCES events (ID)
 )
-[2015-05-29 19:28:07] [42000][955] ORA-00955: name is already used by an existing object
+[2015-05-29 19:39:52] [42000][955] ORA-00955: name is already used by an existing object
 CREATE TABLE repeat_days
 (
   RepeatEvent_ID  NUMBER(5),
   DayNumberOfWeek NUMBER(1),
   CONSTRAINT pk_repeat_days PRIMARY KEY (RepeatEvent_ID, DayNumberOfWeek)
 )
-[2015-05-29 19:28:07] [42000][955] ORA-00955: name is already used by an existing object
+[2015-05-29 19:39:52] [42000][955] ORA-00955: name is already used by an existing object
 CREATE TABLE assignments
 (
   ID               NUMBER(5),
@@ -287,7 +289,7 @@ CREATE TABLE assignments
   CONSTRAINT pk_assignments PRIMARY KEY (ID),
   CONSTRAINT fk_assignments_courses FOREIGN KEY (Course_ID) REFERENCES courses (ID)
 )
-[2015-05-29 19:28:07] [42000][955] ORA-00955: name is already used by an existing object
+[2015-05-29 19:39:52] [42000][955] ORA-00955: name is already used by an existing object
 CREATE TABLE grade_scales
 (
   ID     NUMBER(5),
@@ -297,7 +299,7 @@ CREATE TABLE grade_scales
   CONSTRAINT pk_grade_scales PRIMARY KEY (ID),
   CONSTRAINT unq_grade_scales UNIQUE (Low, High, Letter)
 )
-[2015-05-29 19:28:07] [42000][955] ORA-00955: name is already used by an existing object
+[2015-05-29 19:39:52] [42000][955] ORA-00955: name is already used by an existing object
 CREATE TABLE assignment_categories
 (
   ID       NUMBER(5),
@@ -306,7 +308,7 @@ CREATE TABLE assignment_categories
   CONSTRAINT pk_assignment_categories PRIMARY KEY (ID),
   CONSTRAINT unq_assignment_categories UNIQUE (Category, Weight)
 )
-[2015-05-29 19:28:07] [42000][955] ORA-00955: name is already used by an existing object
+[2015-05-29 19:39:52] [42000][955] ORA-00955: name is already used by an existing object
 CREATE TABLE Textbook (
   ID     NUMBER(5),
   Title  VARCHAR2(80) NOT NULL,
@@ -315,7 +317,7 @@ CREATE TABLE Textbook (
   CONSTRAINT pk_textbook PRIMARY KEY (ID),
   CONSTRAINT unq_textbook_isbn UNIQUE (ISBN)
 )
-[2015-05-29 19:28:07] [42000][955] ORA-00955: name is already used by an existing object
+[2015-05-29 19:39:52] [42000][955] ORA-00955: name is already used by an existing object
 CREATE TABLE syllabus_info
 (
   ID                   NUMBER(5),
@@ -333,23 +335,24 @@ CREATE TABLE syllabus_info
   CONSTRAINT fk_syllabus_info_courses FOREIGN KEY (Course_ID) REFERENCES courses (ID),
   CONSTRAINT fk_syllabus_info_courses2 FOREIGN KEY (OfficeHour_ID) REFERENCES courses (ID)
 )
-[2015-05-29 19:28:07] [42000][955] ORA-00955: name is already used by an existing object
+[2015-05-29 19:39:52] [42000][955] ORA-00955: name is already used by an existing object
 CREATE TABLE syllabus_assign_categories
 (
   Syllabus_ID             NUMBER(5),
   AssignmentCategories_ID NUMBER(5),
   CONSTRAINT pk_syllabus_assign_categories PRIMARY KEY (Syllabus_ID, AssignmentCategories_ID)
 )
-[2015-05-29 19:28:07] [42000][955] ORA-00955: name is already used by an existing object
+[2015-05-29 19:39:52] [42000][955] ORA-00955: name is already used by an existing object
 CREATE TABLE publishers
 (
   ID       NUMBER(5),
   Title    VARCHAR2(80) NOT NULL,
   Location VARCHAR2(80) NOT NULL,
-  YEAR     VARCHAR2(4),
-  CONSTRAINT pk_publishers PRIMARY KEY (ID)
+  Year     VARCHAR2(4),
+  CONSTRAINT pk_publishers PRIMARY KEY (ID),
+  CONSTRAINT unq_publishers UNIQUE (Title, Location, Year)
 )
-[2015-05-29 19:28:07] [42000][955] ORA-00955: name is already used by an existing object
+[2015-05-29 19:39:52] [42000][955] ORA-00955: name is already used by an existing object
 CREATE TABLE articles
 (
   ID                   NUMBER(5),
@@ -361,7 +364,7 @@ CREATE TABLE articles
   CONSTRAINT unq_articles UNIQUE (Title, RelativeFileLocation, Publisher_ID, PageReference),
   CONSTRAINT fk_articles_publisher FOREIGN KEY (Publisher_ID) REFERENCES publishers (ID)
 )
-[2015-05-29 19:28:07] [42000][955] ORA-00955: name is already used by an existing object
+[2015-05-29 19:39:52] [42000][955] ORA-00955: name is already used by an existing object
 CREATE TABLE authors
 (
   ID   NUMBER(5),
@@ -369,7 +372,7 @@ CREATE TABLE authors
   CONSTRAINT pk_authors PRIMARY KEY (ID),
   CONSTRAINT unq_authors UNIQUE (Name)
 )
-[2015-05-29 19:28:07] [42000][955] ORA-00955: name is already used by an existing object
+[2015-05-29 19:39:52] [42000][955] ORA-00955: name is already used by an existing object
 CREATE TABLE author_articles
 (
   Author_ID  NUMBER(5) NOT NULL,
@@ -378,7 +381,7 @@ CREATE TABLE author_articles
   CONSTRAINT fk_author_articles_authors FOREIGN KEY (Author_ID) REFERENCES authors (ID),
   CONSTRAINT fk_author_articles_articles FOREIGN KEY (Article_ID) REFERENCES articles (ID)
 )
-[2015-05-29 19:28:07] [42000][955] ORA-00955: name is already used by an existing object
+[2015-05-29 19:39:52] [42000][955] ORA-00955: name is already used by an existing object
 CREATE TABLE users
 (
   ID           NUMBER(5)      NOT NULL,
@@ -388,238 +391,238 @@ CREATE TABLE users
   LastAttempt  TIMESTAMP      NOT NULL,
   CONSTRAINT pk_users PRIMARY KEY (ID)
 )
-[2015-05-29 19:28:07] [42000][955] ORA-00955: name is already used by an existing object
+[2015-05-29 19:39:52] [42000][955] ORA-00955: name is already used by an existing object
 
-[2015-05-29 19:28:07] Summary: 19 of 19 statements executed, 19 failed in 279 ms (5708 chars in file)
-[2015-05-29 19:28:18] Run C:\Users\CS\Documents\kus\ora\CreateSequences.sql
-[2015-05-29 19:28:18] Connecting to Oracle - @loree.minotstateu.edu...
+[2015-05-29 19:39:52] Summary: 19 of 19 statements executed, 19 failed in 224 ms (5810 chars in file)
+[2015-05-29 19:40:03] Run C:\Users\CS\Documents\kus\ora\CreateSequences.sql
+[2015-05-29 19:40:03] Connecting to Oracle - @loree.minotstateu.edu...
 CREATE SEQUENCE seq_departments
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-05-29 19:28:18] 0 row(s) affected in 29 ms
+[2015-05-29 19:40:03] 0 row(s) affected in 31 ms
 CREATE SEQUENCE seq_courses
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-05-29 19:28:18] 0 row(s) affected in 12 ms
+[2015-05-29 19:40:03] 0 row(s) affected in 15 ms
 CREATE SEQUENCE seq_semesters
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-05-29 19:28:18] 0 row(s) affected in 15 ms
+[2015-05-29 19:40:03] 0 row(s) affected in 14 ms
 CREATE SEQUENCE seq_semesters_years
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-05-29 19:28:18] 0 row(s) affected in 15 ms
+[2015-05-29 19:40:03] 0 row(s) affected in 15 ms
 CREATE SEQUENCE seq_classes
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-05-29 19:28:18] 0 row(s) affected in 14 ms
+[2015-05-29 19:40:03] 0 row(s) affected in 16 ms
 CREATE SEQUENCE seq_events
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-05-29 19:28:18] 0 row(s) affected in 17 ms
+[2015-05-29 19:40:03] 0 row(s) affected in 14 ms
 CREATE SEQUENCE seq_repeat_events
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-05-29 19:28:18] 0 row(s) affected in 13 ms
+[2015-05-29 19:40:03] 0 row(s) affected in 17 ms
 CREATE SEQUENCE seq_repeat_days
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-05-29 19:28:18] 0 row(s) affected in 17 ms
+[2015-05-29 19:40:03] 0 row(s) affected in 14 ms
 CREATE SEQUENCE seq_assignments
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-05-29 19:28:18] 0 row(s) affected in 14 ms
+[2015-05-29 19:40:03] 0 row(s) affected in 16 ms
 CREATE SEQUENCE seq_grade_scales
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-05-29 19:28:18] 0 row(s) affected in 15 ms
+[2015-05-29 19:40:03] 0 row(s) affected in 22 ms
 CREATE SEQUENCE seq_assignment_categories
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-05-29 19:28:18] 0 row(s) affected in 13 ms
+[2015-05-29 19:40:03] 0 row(s) affected in 15 ms
 CREATE SEQUENCE seq_textbook
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-05-29 19:28:18] 0 row(s) affected in 16 ms
+[2015-05-29 19:40:03] 0 row(s) affected in 15 ms
 CREATE SEQUENCE seq_syllabus_info
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-05-29 19:28:18] 0 row(s) affected in 14 ms
+[2015-05-29 19:40:03] 0 row(s) affected in 16 ms
 CREATE SEQUENCE seq_publishers
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-05-29 19:28:18] 0 row(s) affected in 48 ms
+[2015-05-29 19:40:03] 0 row(s) affected in 35 ms
 CREATE SEQUENCE seq_articles
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-05-29 19:28:18] 0 row(s) affected in 14 ms
+[2015-05-29 19:40:03] 0 row(s) affected in 27 ms
 CREATE SEQUENCE seq_authors
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-05-29 19:28:18] 0 row(s) affected in 15 ms
+[2015-05-29 19:40:03] 0 row(s) affected in 22 ms
 CREATE SEQUENCE seq_users
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-05-29 19:28:19] 0 row(s) affected in 74 ms
+[2015-05-29 19:40:03] 0 row(s) affected in 16 ms
 
-[2015-05-29 19:28:19] Summary: 17 of 17 statements executed in 447 ms (1126 chars in file)
-[2015-05-29 19:28:26] Run C:\Users\CS\Documents\kus\ora\CreateSequences.sql
-[2015-05-29 19:28:26] Connecting to Oracle - @loree.minotstateu.edu...
+[2015-05-29 19:40:03] Summary: 17 of 17 statements executed in 402 ms (1126 chars in file)
+[2015-05-29 19:40:09] Run C:\Users\CS\Documents\kus\ora\CreateSequences.sql
+[2015-05-29 19:40:09] Connecting to Oracle - @loree.minotstateu.edu...
 CREATE SEQUENCE seq_departments
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-05-29 19:28:26] [42000][955] ORA-00955: name is already used by an existing object
+[2015-05-29 19:40:09] [42000][955] ORA-00955: name is already used by an existing object
 CREATE SEQUENCE seq_courses
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-05-29 19:28:26] [42000][955] ORA-00955: name is already used by an existing object
+[2015-05-29 19:40:09] [42000][955] ORA-00955: name is already used by an existing object
 CREATE SEQUENCE seq_semesters
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-05-29 19:28:26] [42000][955] ORA-00955: name is already used by an existing object
+[2015-05-29 19:40:09] [42000][955] ORA-00955: name is already used by an existing object
 CREATE SEQUENCE seq_semesters_years
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-05-29 19:28:26] [42000][955] ORA-00955: name is already used by an existing object
+[2015-05-29 19:40:09] [42000][955] ORA-00955: name is already used by an existing object
 CREATE SEQUENCE seq_classes
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-05-29 19:28:26] [42000][955] ORA-00955: name is already used by an existing object
+[2015-05-29 19:40:09] [42000][955] ORA-00955: name is already used by an existing object
 CREATE SEQUENCE seq_events
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-05-29 19:28:26] [42000][955] ORA-00955: name is already used by an existing object
+[2015-05-29 19:40:09] [42000][955] ORA-00955: name is already used by an existing object
 CREATE SEQUENCE seq_repeat_events
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-05-29 19:28:26] [42000][955] ORA-00955: name is already used by an existing object
+[2015-05-29 19:40:09] [42000][955] ORA-00955: name is already used by an existing object
 CREATE SEQUENCE seq_repeat_days
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-05-29 19:28:26] [42000][955] ORA-00955: name is already used by an existing object
+[2015-05-29 19:40:09] [42000][955] ORA-00955: name is already used by an existing object
 CREATE SEQUENCE seq_assignments
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-05-29 19:28:26] [42000][955] ORA-00955: name is already used by an existing object
+[2015-05-29 19:40:09] [42000][955] ORA-00955: name is already used by an existing object
 CREATE SEQUENCE seq_grade_scales
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-05-29 19:28:26] [42000][955] ORA-00955: name is already used by an existing object
+[2015-05-29 19:40:09] [42000][955] ORA-00955: name is already used by an existing object
 CREATE SEQUENCE seq_assignment_categories
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-05-29 19:28:26] [42000][955] ORA-00955: name is already used by an existing object
+[2015-05-29 19:40:09] [42000][955] ORA-00955: name is already used by an existing object
 CREATE SEQUENCE seq_textbook
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-05-29 19:28:26] [42000][955] ORA-00955: name is already used by an existing object
+[2015-05-29 19:40:09] [42000][955] ORA-00955: name is already used by an existing object
 CREATE SEQUENCE seq_syllabus_info
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-05-29 19:28:26] [42000][955] ORA-00955: name is already used by an existing object
+[2015-05-29 19:40:09] [42000][955] ORA-00955: name is already used by an existing object
 CREATE SEQUENCE seq_publishers
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-05-29 19:28:26] [42000][955] ORA-00955: name is already used by an existing object
+[2015-05-29 19:40:09] [42000][955] ORA-00955: name is already used by an existing object
 CREATE SEQUENCE seq_articles
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-05-29 19:28:26] [42000][955] ORA-00955: name is already used by an existing object
+[2015-05-29 19:40:09] [42000][955] ORA-00955: name is already used by an existing object
 CREATE SEQUENCE seq_authors
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-05-29 19:28:26] [42000][955] ORA-00955: name is already used by an existing object
+[2015-05-29 19:40:09] [42000][955] ORA-00955: name is already used by an existing object
 CREATE SEQUENCE seq_users
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-05-29 19:28:27] [42000][955] ORA-00955: name is already used by an existing object
+[2015-05-29 19:40:09] [42000][955] ORA-00955: name is already used by an existing object
 
-[2015-05-29 19:28:27] Summary: 17 of 17 statements executed, 17 failed in 236 ms (1126 chars in file)
-[2015-05-29 19:28:54] Run C:\Users\CS\Documents\kus\ora\InsertData.sql
-[2015-05-29 19:28:54] Connecting to Oracle - @loree.minotstateu.edu...
+[2015-05-29 19:40:09] Summary: 17 of 17 statements executed, 17 failed in 196 ms (1126 chars in file)
+[2015-05-29 19:40:21] Run C:\Users\CS\Documents\kus\ora\InsertData.sql
+[2015-05-29 19:40:21] Connecting to Oracle - @loree.minotstateu.edu...
 INSERT INTO DEPARTMENTS
 (ID, NAME) VALUES (SEQ_DEPARTMENTS.nextval, 'CSCI')
-[2015-05-29 19:28:54] 1 row(s) affected in 23 ms
+[2015-05-29 19:40:22] 1 row(s) affected in 30 ms
 INSERT INTO DEPARTMENTS
 (ID, NAME) VALUES (SEQ_DEPARTMENTS.nextval, 'MATH')
-[2015-05-29 19:28:54] 1 row(s) affected in 17 ms
+[2015-05-29 19:40:22] 1 row(s) affected in 22 ms
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '111', 'Introduction to Web Languages',
                                               'Basic tools and principles of programming with focus on development of web applications using the PHP programming language. This course will cover the following topics: HTML, CSS, PHP, file handling, database management, logic, repetition, UNIX commands, and software design')
-[2015-05-29 19:28:54] 1 row(s) affected in 28 ms
+[2015-05-29 19:40:22] 1 row(s) affected in 21 ms
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '160', 'Computer Science I',
                                               'Basic tools and principles of programming with focus on developing software using the C++ programming language. This course will cover the following topics: Data Types, Assignments, Selection, Repetition, Functions and Procedures, Arrays and Pointers')
-[2015-05-29 19:28:54] 1 row(s) affected in 25 ms
+[2015-05-29 19:40:22] 1 row(s) affected in 22 ms
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '161', 'Computer Science II',
                                               'Basic tools and principles of programming with focus on developing software using the C++ programming language. This course will cover the following topics: Classes, Inheritance, Polymorphism, Operator overloading Templates Hierarchy, Exceptions and object oriented programming in the microsoft foundation classes')
-[2015-05-29 19:28:54] 1 row(s) affected in 26 ms
+[2015-05-29 19:40:22] 1 row(s) affected in 19 ms
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '221', 'Web and Internet Programming',
                                               'Introduction to web and internet programming. Topics covered will be web application development using HTML, CSS, PHP, JavaScript, AJAX, JQuery, JSON, XML, SQL, and web application and server security. ASP .NET website development using C# may also be introduced if time allows during the semester.')
-[2015-05-29 19:28:54] 1 row(s) affected in 17 ms
+[2015-05-29 19:40:22] 1 row(s) affected in 21 ms
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '260', 'UNIX Environment',
                                               'UNIX')
-[2015-05-29 19:28:54] 1 row(s) affected in 15 ms
+[2015-05-29 19:40:22] 1 row(s) affected in 27 ms
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '321', 'Windows Programming',
                                               'Introduction to Windows programming in Visual C# .NET Windows Forms and WPF development, icons, controls, dialogs, threads, sockets, DLL''s')
-[2015-05-29 19:28:54] 1 row(s) affected in 18 ms
+[2015-05-29 19:40:22] 1 row(s) affected in 17 ms
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '340', 'Local Area Networks',
                                               'Introduction to basic networking including the layered OSI and TCP models, IPv4, IPv6 addressing, CIDR addressing, Network Address Translation, routing algorithms, common network protocols such as the IEEE 802.1x protocols, IP, TCP, UDP, FTP, HTTP, SMTP, etc. Additionally, an introduction to network security and network organization concepts will be covered such as local area networks (LANs), wide area networks (WANs), and ad hoc networking.')
-[2015-05-29 19:28:54] 1 row(s) affected in 29 ms
+[2015-05-29 19:40:22] 1 row(s) affected in 14 ms
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '356', 'Database Management',
                                               'Introduction of database management systems including relational, hierarchical, and network models. Usage of tools and procedures for designing relational database models for provided datasets. Implementation of database models into a database management system (DBMS). Managing data using the SQL and PL/SQL languages. Concepts covered will include normalization, set theory, DBMS indexing, creating and deleting tables, inserting data into tables, and retrieving data from databases using select, nested select, joins, database security and other advanced SQL techniques.')
-[2015-05-29 19:28:54] 1 row(s) affected in 21 ms
+[2015-05-29 19:40:22] 1 row(s) affected in 14 ms
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '370', 'Computer Organization and Architecture',
                                               'Introduction to the internal organization of computers and computer architectures. This course will cover the following topics: representation of data, Boolean algebra and digital logic, assembly, memory organization and architecture, I/O and storage, system software, network organization and architecture, data structures')
-[2015-05-29 19:28:54] 1 row(s) affected in 15 ms
+[2015-05-29 19:40:22] 1 row(s) affected in 16 ms
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES
   (SEQ_COURSES.nextval, 1, '440', 'Data Communications - Wireless Networking and Communications',
    'Introduction to advanced networking technologies and computer security. This course will cover the following topics: fundamentals of wireless transmission, communication networks, OSI model and TCP/IP, signaling techniques, wireless routing, wireless medium error detection and correction, satellite communications, cellular networks, ad hoc networks, sensor networks, IEEE 802.11, IEEE 802.16, IEEE 802.15.4 in the first 1 month of the course. The remainder of the course will focus on network/computer security and forensics including but not limited to the following topics: security concepts, threats, attacks and assets, cryptographic tools: symmetric and public-key encryption algorithms, authentication, malicious software, DoS attacks, intrusion detection, firewalls and prevention systems, buffer overflows, email security, X.509 certificates, legal and ethical issues in computer security')
-[2015-05-29 19:28:54] 1 row(s) affected in 15 ms
+[2015-05-29 19:40:22] 1 row(s) affected in 23 ms
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '458', 'Computer Security',
                                               'This course will provide an introduction to computer and network security methods and procedures. This course will cover the following topics: security attacks, services and mechanisms, symmetric encryption, asymmetric encryption, hash functions and digital signatures, key management, Kerberos, X.509 Authentication, PHP, S/MIME, IPSec, SSL, TLS, IDS, security threats, firewalls, etc.')
-[2015-05-29 19:28:54] 1 row(s) affected in 13 ms
+[2015-05-29 19:40:22] 1 row(s) affected in 41 ms
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '460', 'Capstone Project Development', 'The Capstone Project is a substantial, semester-long endeavor allowing students to apply and or enhance the knowledge they have gained within the Computer Science curriculum. Each project is to be completed by an individual or group of students.
 Topics for projects can be based on the interests of the students, chosen from ideas submitted by CS faculty, or coordinated with needs of other departments or from organizations outside the university. Students should be involved in the project selection, but the instructor has final authority on what is considered a suitable project. There will be greater expectations for teams of two or more students.')
-[2015-05-29 19:28:54] 1 row(s) affected in 15 ms
+[2015-05-29 19:40:22] 1 row(s) affected in 19 ms
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 2, '208', 'Discrete Mathematics',
                                               'Discrete Math')
-[2015-05-29 19:28:54] 1 row(s) affected in 16 ms
+[2015-05-29 19:40:22] 1 row(s) affected in 15 ms
 INSERT INTO SEMESTERS (ID, NAME) VALUES (SEQ_SEMESTERS.nextval, 'Fall')
-[2015-05-29 19:28:54] 1 row(s) affected in 24 ms
+[2015-05-29 19:40:22] 1 row(s) affected in 16 ms
 INSERT INTO SEMESTERS (ID, NAME) VALUES (SEQ_SEMESTERS.nextval, 'Spring')
-[2015-05-29 19:28:54] 1 row(s) affected in 15 ms
+[2015-05-29 19:40:22] 1 row(s) affected in 22 ms
 INSERT INTO SEMESTERS (ID, NAME) VALUES (SEQ_SEMESTERS.nextval, 'Summer')
-[2015-05-29 19:28:54] 1 row(s) affected in 14 ms
+[2015-05-29 19:40:22] 1 row(s) affected in 15 ms
 INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 1, '2010')
-[2015-05-29 19:28:55] 1 row(s) affected in 56 ms
+[2015-05-29 19:40:22] 1 row(s) affected in 24 ms
 INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 2, '2011')
-[2015-05-29 19:28:55] 1 row(s) affected in 13 ms
+[2015-05-29 19:40:22] 1 row(s) affected in 21 ms
 INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 1, '2011')
-[2015-05-29 19:28:55] 1 row(s) affected in 16 ms
+[2015-05-29 19:40:22] 1 row(s) affected in 13 ms
 INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 2, '2012')
-[2015-05-29 19:28:55] 1 row(s) affected in 15 ms
+[2015-05-29 19:40:22] 1 row(s) affected in 15 ms
 INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 1, '2013')
-[2015-05-29 19:28:55] 1 row(s) affected in 65 ms
+[2015-05-29 19:40:22] 1 row(s) affected in 15 ms
 INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 2, '2014')
-[2015-05-29 19:28:55] 1 row(s) affected in 21 ms
+[2015-05-29 19:40:22] 1 row(s) affected in 15 ms
 INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 1, '2014')
-[2015-05-29 19:28:55] 1 row(s) affected in 21 ms
+[2015-05-29 19:40:22] 1 row(s) affected in 15 ms
 INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 2, '2015')
-[2015-05-29 19:28:55] 1 row(s) affected in 16 ms
+[2015-05-29 19:40:22] 1 row(s) affected in 13 ms
 INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 3, '2015')
-[2015-05-29 19:28:55] 1 row(s) affected in 15 ms
+[2015-05-29 19:40:22] 1 row(s) affected in 16 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '19567', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -638,7 +641,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 1 AND year = '2010' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:28:55] 1 row(s) affected in 23 ms
+[2015-05-29 19:40:22] 1 row(s) affected in 23 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '20627', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -657,7 +660,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 1 AND year = '2010' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:28:55] 1 row(s) affected in 22 ms
+[2015-05-29 19:40:22] 1 row(s) affected in 31 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '20012', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -676,7 +679,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 1 AND year = '2010' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:28:55] 1 row(s) affected in 26 ms
+[2015-05-29 19:40:22] 1 row(s) affected in 24 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '6132', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -695,7 +698,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2011' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:28:55] 1 row(s) affected in 22 ms
+[2015-05-29 19:40:22] 1 row(s) affected in 23 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '19667', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -714,7 +717,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2011' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:28:55] 1 row(s) affected in 21 ms
+[2015-05-29 19:40:22] 1 row(s) affected in 24 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '3645', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -733,7 +736,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2011' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:28:55] 1 row(s) affected in 23 ms
+[2015-05-29 19:40:22] 1 row(s) affected in 22 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '19670', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -752,7 +755,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2011' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:28:55] 1 row(s) affected in 24 ms
+[2015-05-29 19:40:22] 1 row(s) affected in 25 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '6630', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -771,7 +774,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 1 AND year = '2011' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:28:55] 1 row(s) affected in 19 ms
+[2015-05-29 19:40:22] 1 row(s) affected in 23 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '7055', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -790,7 +793,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 1 AND year = '2011' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:28:55] 1 row(s) affected in 16 ms
+[2015-05-29 19:40:22] 1 row(s) affected in 15 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '6863', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -809,7 +812,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 1 AND year = '2011' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:28:55] 1 row(s) affected in 25 ms
+[2015-05-29 19:40:22] 1 row(s) affected in 24 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4668', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -828,7 +831,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2012' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:28:55] 1 row(s) affected in 14 ms
+[2015-05-29 19:40:22] 1 row(s) affected in 22 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4458', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -847,7 +850,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2012' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:28:55] 1 row(s) affected in 17 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 21 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4457', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -866,7 +869,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2012' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:28:55] 1 row(s) affected in 23 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 20 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4876', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -885,7 +888,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2012' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:28:55] 1 row(s) affected in 26 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 15 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '13416', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -904,7 +907,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 1 AND year = '2013' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:28:55] 1 row(s) affected in 19 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 21 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '13414', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -923,7 +926,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 1 AND year = '2013' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:28:55] 1 row(s) affected in 23 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 15 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '13412', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -942,7 +945,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 1 AND year = '2013' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:28:55] 1 row(s) affected in 25 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 14 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '5286', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -961,7 +964,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2014' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:28:55] 1 row(s) affected in 13 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 15 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '5518', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -980,7 +983,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2014' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:28:55] 1 row(s) affected in 23 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 15 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '5285', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -999,7 +1002,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2014' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:28:55] 1 row(s) affected in 13 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 24 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '5132', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -1018,7 +1021,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2014' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:28:55] 1 row(s) affected in 17 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 19 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '12104', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -1037,7 +1040,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 1 AND year = '2014' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:28:55] 1 row(s) affected in 23 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 15 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '12102', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -1056,7 +1059,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 1 AND year = '2014' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:28:55] 1 row(s) affected in 24 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 23 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '12317', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -1075,7 +1078,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 1 AND year = '2014' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:28:55] 1 row(s) affected in 22 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 24 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4295', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -1094,7 +1097,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2015' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:28:55] 1 row(s) affected in 21 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 22 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4431', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -1113,7 +1116,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2015' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:28:55] 1 row(s) affected in 22 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 24 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4294', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -1132,7 +1135,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2015' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:28:55] 1 row(s) affected in 17 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 22 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '26115', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -1151,7 +1154,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2015' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:28:55] 1 row(s) affected in 23 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 24 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4154', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -1170,7 +1173,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2015' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:28:55] 1 row(s) affected in 23 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 20 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '10930', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -1189,70 +1192,70 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 3 AND year = '2015' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:28:55] 1 row(s) affected in 23 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 16 ms
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'P. Loree')
-[2015-05-29 19:28:55] 1 row(s) affected in 23 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 22 ms
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'K. Nygard')
-[2015-05-29 19:28:55] 1 row(s) affected in 14 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 14 ms
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'X. Du')
-[2015-05-29 19:28:55] 1 row(s) affected in 15 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 24 ms
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'K.K. Gagneja')
-[2015-05-29 19:28:56] 1 row(s) affected in 14 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 13 ms
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'F. Ranganathan')
-[2015-05-29 19:28:56] 1 row(s) affected in 17 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 18 ms
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'S.B. Ghosn')
-[2015-05-29 19:28:56] 1 row(s) affected in 13 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 13 ms
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'L.M. Alnemer')
-[2015-05-29 19:28:56] 1 row(s) affected in 20 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 17 ms
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'R.I. Seetan')
-[2015-05-29 19:28:56] 1 row(s) affected in 20 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 12 ms
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'F.M. Bassi')
-[2015-05-29 19:28:56] 1 row(s) affected in 15 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 16 ms
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'C. Chitraranjan')
-[2015-05-29 19:28:56] 1 row(s) affected in 15 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 15 ms
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'A. Helsene')
-[2015-05-29 19:28:56] 1 row(s) affected in 24 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 14 ms
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'Y.Q. Gu')
-[2015-05-29 19:28:56] 1 row(s) affected in 14 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 15 ms
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'M.C. Luo')
-[2015-05-29 19:28:56] 1 row(s) affected in 13 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 15 ms
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'M.J. Iqbqal')
-[2015-05-29 19:28:56] 1 row(s) affected in 14 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 16 ms
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'G.R. Lazo')
-[2015-05-29 19:28:56] 1 row(s) affected in 21 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 13 ms
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'A.M. Denton')
-[2015-05-29 19:28:56] 1 row(s) affected in 13 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 14 ms
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'S.F. Kianin')
-[2015-05-29 19:28:56] 1 row(s) affected in 16 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 18 ms
 INSERT INTO PUBLISHERS (ID, TITLE, LOCATION, YEAR)
 VALUES (SEQ_PUBLISHERS.nextval, '2009 IEEE GLOBECOM', 'Honolulu, HI', '1999')
-[2015-05-29 19:28:56] 1 row(s) affected in 24 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 24 ms
 INSERT INTO PUBLISHERS (ID, TITLE, LOCATION, YEAR) VALUES
   (SEQ_PUBLISHERS.nextval, 'Electro/Information Technology (EIT), 2012 IEEE Int''l Conference', 'Indianapolis, IN',
    '2012')
-[2015-05-29 19:28:56] 1 row(s) affected in 13 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 12 ms
 INSERT INTO PUBLISHERS (ID, TITLE, LOCATION, YEAR)
 VALUES (SEQ_PUBLISHERS.nextval, 'Functional & Integrative Geonomics', 'New York City, NY', '2013')
-[2015-05-29 19:28:56] 1 row(s) affected in 14 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 15 ms
 INSERT INTO ARTICLES (ID, TITLE, RELATIVEFILELOCATION, PUBLISHER_ID, PAGEREFERENCE) VALUES
   (SEQ_ARTICLES.nextval, 'Efficient Post-Deployment Key Establishment Scheme for Heterogeneous Sensor Networks',
    'PID969207.pdf', (SELECT ID
                      FROM PUBLISHERS
                      WHERE TITLE = '2009 IEEE GLOBECOM' AND ROWNUM = 1), NULL)
-[2015-05-29 19:28:56] 1 row(s) affected in 18 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 15 ms
 INSERT INTO ARTICLES (ID, TITLE, RELATIVEFILELOCATION, PUBLISHER_ID, PAGEREFERENCE) VALUES
   (SEQ_ARTICLES.nextval, 'Limiting transmit power of antennas in Heterogeneous Sensor Networks', 'PID969207.pdf',
    (SELECT ID
     FROM PUBLISHERS
     WHERE TITLE = 'Electro/Information Technology (EIT), 2012 IEEE Int''l Conference' AND ROWNUM = 1), NULL)
-[2015-05-29 19:28:56] 1 row(s) affected in 18 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 17 ms
 INSERT INTO ARTICLES (ID, TITLE, RELATIVEFILELOCATION, PUBLISHER_ID, PAGEREFERENCE) VALUES
   (SEQ_ARTICLES.nextval, 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes',
    'PID06220775.pdf', (SELECT ID
                        FROM PUBLISHERS
                        WHERE TITLE = 'Functional & Integrative Geonomics' AND ROWNUM = 1),
    'Springer-Verlag, 2013, pp. 11-17')
-[2015-05-29 19:28:56] 1 row(s) affected in 17 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 21 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1261,7 +1264,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Efficient Post-Deployment Key Establishment Scheme for Heterogeneous Sensor Networks')
 )
-[2015-05-29 19:28:56] 1 row(s) affected in 21 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 15 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1270,7 +1273,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Efficient Post-Deployment Key Establishment Scheme for Heterogeneous Sensor Networks')
 )
-[2015-05-29 19:28:56] 1 row(s) affected in 5 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 5 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1279,7 +1282,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Efficient Post-Deployment Key Establishment Scheme for Heterogeneous Sensor Networks')
 )
-[2015-05-29 19:28:56] 1 row(s) affected in 8 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 8 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1288,7 +1291,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Limiting transmit power of antennas in Heterogeneous Sensor Networks')
 )
-[2015-05-29 19:28:56] 1 row(s) affected in 31 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 5 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1297,7 +1300,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Limiting transmit power of antennas in Heterogeneous Sensor Networks')
 )
-[2015-05-29 19:28:56] 1 row(s) affected in 6 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 9 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1306,7 +1309,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Limiting transmit power of antennas in Heterogeneous Sensor Networks')
 )
-[2015-05-29 19:28:56] 1 row(s) affected in 28 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 6 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1315,7 +1318,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Limiting transmit power of antennas in Heterogeneous Sensor Networks')
 )
-[2015-05-29 19:28:56] 1 row(s) affected in 29 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 6 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1324,7 +1327,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Limiting transmit power of antennas in Heterogeneous Sensor Networks')
 )
-[2015-05-29 19:28:56] 1 row(s) affected in 21 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 6 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1333,7 +1336,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
 )
-[2015-05-29 19:28:56] 1 row(s) affected in 8 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 5 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1342,7 +1345,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
 )
-[2015-05-29 19:28:56] 1 row(s) affected in 13 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 7 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1351,7 +1354,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
 )
-[2015-05-29 19:28:56] 1 row(s) affected in 19 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 9 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1360,7 +1363,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
 )
-[2015-05-29 19:28:56] 1 row(s) affected in 9 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 16 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1369,7 +1372,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
 )
-[2015-05-29 19:28:56] 1 row(s) affected in 4 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 6 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1378,7 +1381,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
 )
-[2015-05-29 19:28:56] 1 row(s) affected in 6 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 6 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1387,7 +1390,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
 )
-[2015-05-29 19:28:56] 1 row(s) affected in 9 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 8 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1396,7 +1399,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
 )
-[2015-05-29 19:28:56] 1 row(s) affected in 23 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 5 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1405,7 +1408,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
 )
-[2015-05-29 19:28:56] 1 row(s) affected in 6 ms
+[2015-05-29 19:40:23] 1 row(s) affected in 6 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1414,7 +1417,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
 )
-[2015-05-29 19:28:56] 1 row(s) affected in 7 ms
+[2015-05-29 19:40:24] 1 row(s) affected in 29 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1423,7 +1426,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
 )
-[2015-05-29 19:28:56] 1 row(s) affected in 7 ms
+[2015-05-29 19:40:24] 1 row(s) affected in 11 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1432,7 +1435,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
 )
-[2015-05-29 19:28:56] 1 row(s) affected in 18 ms
+[2015-05-29 19:40:24] 1 row(s) affected in 7 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1441,94 +1444,94 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
 )
-[2015-05-29 19:28:56] 1 row(s) affected in 13 ms
+[2015-05-29 19:40:24] 1 row(s) affected in 9 ms
 
-[2015-05-29 19:28:56] Summary: 101 of 101 statements executed in 2204 ms (75656 chars in file)
-[2015-05-29 19:29:07] Run C:\Users\CS\Documents\kus\ora\InsertData.sql
-[2015-05-29 19:29:07] Connecting to Oracle - @loree.minotstateu.edu...
+[2015-05-29 19:40:24] Summary: 101 of 101 statements executed in 2053 ms (75656 chars in file)
+[2015-05-29 19:40:32] Run C:\Users\CS\Documents\kus\ora\InsertData.sql
+[2015-05-29 19:40:32] Connecting to Oracle - @loree.minotstateu.edu...
 INSERT INTO DEPARTMENTS
 (ID, NAME) VALUES (SEQ_DEPARTMENTS.nextval, 'CSCI')
-[2015-05-29 19:29:07] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_DEPARTMENTS) violated
+[2015-05-29 19:40:32] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_DEPARTMENTS) violated
 INSERT INTO DEPARTMENTS
 (ID, NAME) VALUES (SEQ_DEPARTMENTS.nextval, 'MATH')
-[2015-05-29 19:29:07] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_DEPARTMENTS) violated
+[2015-05-29 19:40:32] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_DEPARTMENTS) violated
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '111', 'Introduction to Web Languages',
                                               'Basic tools and principles of programming with focus on development of web applications using the PHP programming language. This course will cover the following topics: HTML, CSS, PHP, file handling, database management, logic, repetition, UNIX commands, and software design')
-[2015-05-29 19:29:07] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
+[2015-05-29 19:40:32] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '160', 'Computer Science I',
                                               'Basic tools and principles of programming with focus on developing software using the C++ programming language. This course will cover the following topics: Data Types, Assignments, Selection, Repetition, Functions and Procedures, Arrays and Pointers')
-[2015-05-29 19:29:07] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
+[2015-05-29 19:40:32] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '161', 'Computer Science II',
                                               'Basic tools and principles of programming with focus on developing software using the C++ programming language. This course will cover the following topics: Classes, Inheritance, Polymorphism, Operator overloading Templates Hierarchy, Exceptions and object oriented programming in the microsoft foundation classes')
-[2015-05-29 19:29:07] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
+[2015-05-29 19:40:32] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '221', 'Web and Internet Programming',
                                               'Introduction to web and internet programming. Topics covered will be web application development using HTML, CSS, PHP, JavaScript, AJAX, JQuery, JSON, XML, SQL, and web application and server security. ASP .NET website development using C# may also be introduced if time allows during the semester.')
-[2015-05-29 19:29:07] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
+[2015-05-29 19:40:32] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '260', 'UNIX Environment',
                                               'UNIX')
-[2015-05-29 19:29:07] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '321', 'Windows Programming',
                                               'Introduction to Windows programming in Visual C# .NET Windows Forms and WPF development, icons, controls, dialogs, threads, sockets, DLL''s')
-[2015-05-29 19:29:07] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '340', 'Local Area Networks',
                                               'Introduction to basic networking including the layered OSI and TCP models, IPv4, IPv6 addressing, CIDR addressing, Network Address Translation, routing algorithms, common network protocols such as the IEEE 802.1x protocols, IP, TCP, UDP, FTP, HTTP, SMTP, etc. Additionally, an introduction to network security and network organization concepts will be covered such as local area networks (LANs), wide area networks (WANs), and ad hoc networking.')
-[2015-05-29 19:29:07] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '356', 'Database Management',
                                               'Introduction of database management systems including relational, hierarchical, and network models. Usage of tools and procedures for designing relational database models for provided datasets. Implementation of database models into a database management system (DBMS). Managing data using the SQL and PL/SQL languages. Concepts covered will include normalization, set theory, DBMS indexing, creating and deleting tables, inserting data into tables, and retrieving data from databases using select, nested select, joins, database security and other advanced SQL techniques.')
-[2015-05-29 19:29:07] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '370', 'Computer Organization and Architecture',
                                               'Introduction to the internal organization of computers and computer architectures. This course will cover the following topics: representation of data, Boolean algebra and digital logic, assembly, memory organization and architecture, I/O and storage, system software, network organization and architecture, data structures')
-[2015-05-29 19:29:07] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES
   (SEQ_COURSES.nextval, 1, '440', 'Data Communications - Wireless Networking and Communications',
    'Introduction to advanced networking technologies and computer security. This course will cover the following topics: fundamentals of wireless transmission, communication networks, OSI model and TCP/IP, signaling techniques, wireless routing, wireless medium error detection and correction, satellite communications, cellular networks, ad hoc networks, sensor networks, IEEE 802.11, IEEE 802.16, IEEE 802.15.4 in the first 1 month of the course. The remainder of the course will focus on network/computer security and forensics including but not limited to the following topics: security concepts, threats, attacks and assets, cryptographic tools: symmetric and public-key encryption algorithms, authentication, malicious software, DoS attacks, intrusion detection, firewalls and prevention systems, buffer overflows, email security, X.509 certificates, legal and ethical issues in computer security')
-[2015-05-29 19:29:07] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '458', 'Computer Security',
                                               'This course will provide an introduction to computer and network security methods and procedures. This course will cover the following topics: security attacks, services and mechanisms, symmetric encryption, asymmetric encryption, hash functions and digital signatures, key management, Kerberos, X.509 Authentication, PHP, S/MIME, IPSec, SSL, TLS, IDS, security threats, firewalls, etc.')
-[2015-05-29 19:29:07] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '460', 'Capstone Project Development', 'The Capstone Project is a substantial, semester-long endeavor allowing students to apply and or enhance the knowledge they have gained within the Computer Science curriculum. Each project is to be completed by an individual or group of students.
 Topics for projects can be based on the interests of the students, chosen from ideas submitted by CS faculty, or coordinated with needs of other departments or from organizations outside the university. Students should be involved in the project selection, but the instructor has final authority on what is considered a suitable project. There will be greater expectations for teams of two or more students.')
-[2015-05-29 19:29:07] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 2, '208', 'Discrete Mathematics',
                                               'Discrete Math')
-[2015-05-29 19:29:07] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_COURSES) violated
 INSERT INTO SEMESTERS (ID, NAME) VALUES (SEQ_SEMESTERS.nextval, 'Fall')
-[2015-05-29 19:29:07] 1 row(s) affected in 15 ms
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_SEMESTERS) violated
 INSERT INTO SEMESTERS (ID, NAME) VALUES (SEQ_SEMESTERS.nextval, 'Spring')
-[2015-05-29 19:29:07] 1 row(s) affected in 15 ms
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_SEMESTERS) violated
 INSERT INTO SEMESTERS (ID, NAME) VALUES (SEQ_SEMESTERS.nextval, 'Summer')
-[2015-05-29 19:29:07] 1 row(s) affected in 16 ms
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_SEMESTERS) violated
 INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 1, '2010')
-[2015-05-29 19:29:07] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_SEMESTERS_YEARS) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_SEMESTERS_YEARS) violated
 INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 2, '2011')
-[2015-05-29 19:29:07] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_SEMESTERS_YEARS) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_SEMESTERS_YEARS) violated
 INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 1, '2011')
-[2015-05-29 19:29:07] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_SEMESTERS_YEARS) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_SEMESTERS_YEARS) violated
 INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 2, '2012')
-[2015-05-29 19:29:07] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_SEMESTERS_YEARS) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_SEMESTERS_YEARS) violated
 INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 1, '2013')
-[2015-05-29 19:29:07] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_SEMESTERS_YEARS) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_SEMESTERS_YEARS) violated
 INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 2, '2014')
-[2015-05-29 19:29:07] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_SEMESTERS_YEARS) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_SEMESTERS_YEARS) violated
 INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 1, '2014')
-[2015-05-29 19:29:07] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_SEMESTERS_YEARS) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_SEMESTERS_YEARS) violated
 INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 2, '2015')
-[2015-05-29 19:29:07] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_SEMESTERS_YEARS) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_SEMESTERS_YEARS) violated
 INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 3, '2015')
-[2015-05-29 19:29:07] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_SEMESTERS_YEARS) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_SEMESTERS_YEARS) violated
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '19567', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -1547,7 +1550,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 1 AND year = '2010' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:29:07] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '20627', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -1566,7 +1569,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 1 AND year = '2010' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:29:07] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '20012', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -1585,7 +1588,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 1 AND year = '2010' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:29:07] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '6132', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -1604,7 +1607,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2011' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:29:07] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '19667', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -1623,7 +1626,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2011' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '3645', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -1642,7 +1645,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2011' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '19670', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -1661,7 +1664,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2011' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '6630', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -1680,7 +1683,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 1 AND year = '2011' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '7055', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -1699,7 +1702,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 1 AND year = '2011' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '6863', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -1718,7 +1721,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 1 AND year = '2011' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4668', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -1737,7 +1740,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2012' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4458', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -1756,7 +1759,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2012' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4457', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -1775,7 +1778,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2012' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4876', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -1794,7 +1797,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2012' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '13416', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -1813,7 +1816,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 1 AND year = '2013' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '13414', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -1832,7 +1835,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 1 AND year = '2013' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '13412', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -1851,7 +1854,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 1 AND year = '2013' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '5286', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -1870,7 +1873,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2014' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '5518', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -1889,7 +1892,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2014' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '5285', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -1908,7 +1911,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2014' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '5132', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -1927,7 +1930,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2014' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '12104', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -1946,7 +1949,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 1 AND year = '2014' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '12102', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -1965,7 +1968,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 1 AND year = '2014' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '12317', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -1984,7 +1987,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 1 AND year = '2014' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4295', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -2003,7 +2006,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2015' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4431', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -2022,7 +2025,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2015' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4294', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -2041,7 +2044,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2015' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '26115', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -2060,7 +2063,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2015' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4154', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -2079,7 +2082,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2015' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '10930', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -2098,70 +2101,70 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 3 AND year = '2015' AND
                                                                           ROWNUM = 1))
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_CLASSES) violated
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'P. Loree')
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'K. Nygard')
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'X. Du')
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'K.K. Gagneja')
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'F. Ranganathan')
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'S.B. Ghosn')
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'L.M. Alnemer')
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
+[2015-05-29 19:40:33] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'R.I. Seetan')
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
+[2015-05-29 19:40:34] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'F.M. Bassi')
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
+[2015-05-29 19:40:34] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'C. Chitraranjan')
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
+[2015-05-29 19:40:34] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'A. Helsene')
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
+[2015-05-29 19:40:34] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'Y.Q. Gu')
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
+[2015-05-29 19:40:34] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'M.C. Luo')
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
+[2015-05-29 19:40:34] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'M.J. Iqbqal')
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
+[2015-05-29 19:40:34] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'G.R. Lazo')
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
+[2015-05-29 19:40:34] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'A.M. Denton')
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
+[2015-05-29 19:40:34] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'S.F. Kianin')
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
+[2015-05-29 19:40:34] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_AUTHORS) violated
 INSERT INTO PUBLISHERS (ID, TITLE, LOCATION, YEAR)
 VALUES (SEQ_PUBLISHERS.nextval, '2009 IEEE GLOBECOM', 'Honolulu, HI', '1999')
-[2015-05-29 19:29:08] 1 row(s) affected in 22 ms
+[2015-05-29 19:40:34] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_PUBLISHERS) violated
 INSERT INTO PUBLISHERS (ID, TITLE, LOCATION, YEAR) VALUES
   (SEQ_PUBLISHERS.nextval, 'Electro/Information Technology (EIT), 2012 IEEE Int''l Conference', 'Indianapolis, IN',
    '2012')
-[2015-05-29 19:29:08] 1 row(s) affected in 16 ms
+[2015-05-29 19:40:34] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_PUBLISHERS) violated
 INSERT INTO PUBLISHERS (ID, TITLE, LOCATION, YEAR)
 VALUES (SEQ_PUBLISHERS.nextval, 'Functional & Integrative Geonomics', 'New York City, NY', '2013')
-[2015-05-29 19:29:08] 1 row(s) affected in 18 ms
+[2015-05-29 19:40:34] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_PUBLISHERS) violated
 INSERT INTO ARTICLES (ID, TITLE, RELATIVEFILELOCATION, PUBLISHER_ID, PAGEREFERENCE) VALUES
   (SEQ_ARTICLES.nextval, 'Efficient Post-Deployment Key Establishment Scheme for Heterogeneous Sensor Networks',
    'PID969207.pdf', (SELECT ID
                      FROM PUBLISHERS
                      WHERE TITLE = '2009 IEEE GLOBECOM' AND ROWNUM = 1), NULL)
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_ARTICLES) violated
+[2015-05-29 19:40:34] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_ARTICLES) violated
 INSERT INTO ARTICLES (ID, TITLE, RELATIVEFILELOCATION, PUBLISHER_ID, PAGEREFERENCE) VALUES
   (SEQ_ARTICLES.nextval, 'Limiting transmit power of antennas in Heterogeneous Sensor Networks', 'PID969207.pdf',
    (SELECT ID
     FROM PUBLISHERS
     WHERE TITLE = 'Electro/Information Technology (EIT), 2012 IEEE Int''l Conference' AND ROWNUM = 1), NULL)
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_ARTICLES) violated
+[2015-05-29 19:40:34] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_ARTICLES) violated
 INSERT INTO ARTICLES (ID, TITLE, RELATIVEFILELOCATION, PUBLISHER_ID, PAGEREFERENCE) VALUES
   (SEQ_ARTICLES.nextval, 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes',
    'PID06220775.pdf', (SELECT ID
                        FROM PUBLISHERS
                        WHERE TITLE = 'Functional & Integrative Geonomics' AND ROWNUM = 1),
    'Springer-Verlag, 2013, pp. 11-17')
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_ARTICLES) violated
+[2015-05-29 19:40:34] [23000][1] ORA-00001: unique constraint (KHADA.UNQ_ARTICLES) violated
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -2170,7 +2173,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Efficient Post-Deployment Key Establishment Scheme for Heterogeneous Sensor Networks')
 )
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
+[2015-05-29 19:40:34] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -2179,7 +2182,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Efficient Post-Deployment Key Establishment Scheme for Heterogeneous Sensor Networks')
 )
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
+[2015-05-29 19:40:34] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -2188,7 +2191,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Efficient Post-Deployment Key Establishment Scheme for Heterogeneous Sensor Networks')
 )
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
+[2015-05-29 19:40:34] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -2197,7 +2200,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Limiting transmit power of antennas in Heterogeneous Sensor Networks')
 )
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
+[2015-05-29 19:40:34] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -2206,7 +2209,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Limiting transmit power of antennas in Heterogeneous Sensor Networks')
 )
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
+[2015-05-29 19:40:34] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -2215,7 +2218,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Limiting transmit power of antennas in Heterogeneous Sensor Networks')
 )
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
+[2015-05-29 19:40:34] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -2224,7 +2227,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Limiting transmit power of antennas in Heterogeneous Sensor Networks')
 )
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
+[2015-05-29 19:40:34] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -2233,7 +2236,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Limiting transmit power of antennas in Heterogeneous Sensor Networks')
 )
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
+[2015-05-29 19:40:34] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -2242,7 +2245,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
 )
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
+[2015-05-29 19:40:34] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -2251,7 +2254,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
 )
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
+[2015-05-29 19:40:34] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -2260,7 +2263,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
 )
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
+[2015-05-29 19:40:34] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -2269,7 +2272,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
 )
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
+[2015-05-29 19:40:34] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -2278,7 +2281,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
 )
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
+[2015-05-29 19:40:34] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -2287,7 +2290,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
 )
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
+[2015-05-29 19:40:34] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -2296,7 +2299,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
 )
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
+[2015-05-29 19:40:34] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -2305,7 +2308,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
 )
-[2015-05-29 19:29:08] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
+[2015-05-29 19:40:34] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -2314,7 +2317,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
 )
-[2015-05-29 19:29:09] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
+[2015-05-29 19:40:34] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -2323,7 +2326,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
 )
-[2015-05-29 19:29:09] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
+[2015-05-29 19:40:34] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -2332,7 +2335,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
 )
-[2015-05-29 19:29:09] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
+[2015-05-29 19:40:34] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -2341,7 +2344,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
 )
-[2015-05-29 19:29:09] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
+[2015-05-29 19:40:34] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -2350,6 +2353,6 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
 )
-[2015-05-29 19:29:09] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
+[2015-05-29 19:40:34] [23000][1] ORA-00001: unique constraint (KHADA.PK_AUTHOR_ARTICLES) violated
 
-[2015-05-29 19:29:09] Summary: 101 of 101 statements executed, 95 failed in 1791 ms (75656 chars in file)
+[2015-05-29 19:40:34] Summary: 101 of 101 statements executed, 101 failed in 1737 ms (75656 chars in file)
