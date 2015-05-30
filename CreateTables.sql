@@ -20,7 +20,8 @@ CREATE TABLE semesters
 (
   ID   NUMBER(5),
   Name VARCHAR2(40) NOT NULL,
-  CONSTRAINT pk_semesters PRIMARY KEY (ID)
+  CONSTRAINT pk_semesters PRIMARY KEY (ID),
+  CONSTRAINT unq_semesters UNIQUE (Name)
 );
 CREATE TABLE semesters_years (
   ID          NUMBER(5),
@@ -133,8 +134,9 @@ CREATE TABLE publishers
   ID       NUMBER(5),
   Title    VARCHAR2(80) NOT NULL,
   Location VARCHAR2(80) NOT NULL,
-  YEAR     VARCHAR2(4),
-  CONSTRAINT pk_publishers PRIMARY KEY (ID)
+  Year     VARCHAR2(4),
+  CONSTRAINT pk_publishers PRIMARY KEY (ID),
+  CONSTRAINT unq_publishers UNIQUE (Title, Location, Year)
 );
 CREATE TABLE articles
 (
