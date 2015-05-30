@@ -646,4 +646,92 @@ INSERT INTO PUBLISHERS (ID, TITLE, LOCATION, YEAR)  VALUES (SEQ_PUBLISHERS.nextv
 
 INSERT INTO ARTICLES (ID, TITLE, RELATIVEFILELOCATION, PUBLISHER_ID, PAGEREFERENCE)  VALUES (SEQ_ARTICLES.nextval, 'Efficient Post-Deployment Key Establishment Scheme for Heterogeneous Sensor Networks', 'PID969207.pdf', (SELECT ID FROM PUBLISHERS WHERE TITLE = '2009 IEEE GLOBECOM' AND ROWNUM = 1), NULL);
 INSERT INTO ARTICLES (ID, TITLE, RELATIVEFILELOCATION, PUBLISHER_ID, PAGEREFERENCE)  VALUES (SEQ_ARTICLES.nextval, 'Limiting transmit power of antennas in Heterogeneous Sensor Networks', 'PID969207.pdf', (SELECT ID FROM PUBLISHERS WHERE TITLE = 'Electro/Information Technology (EIT), 2012 IEEE Int''l Conference' AND ROWNUM = 1), NULL);
-INSERT INTO ARTICLES (ID, TITLE, RELATIVEFILELOCATION, PUBLISHER_ID, PAGEREFERENCE)  VALUES (SEQ_ARTICLES.nextval, 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes', 'PID969207.pdf', (SELECT ID FROM PUBLISHERS WHERE TITLE = 'Functional & Integrative Geonomics' AND ROWNUM = 1), 'Springer-Verlag, 2013, pp. 11-17');
+INSERT INTO ARTICLES (ID, TITLE, RELATIVEFILELOCATION, PUBLISHER_ID, PAGEREFERENCE)  VALUES (SEQ_ARTICLES.nextval, 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes', 'PID06220775.pdf', (SELECT ID FROM PUBLISHERS WHERE TITLE = 'Functional & Integrative Geonomics' AND ROWNUM = 1), 'Springer-Verlag, 2013, pp. 11-17');
+
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+  (SELECT ID FROM AUTHORS WHERE NAME = 'P. Loree'),
+  (SELECT ID FROM ARTICLES where TITLE = 'Efficient Post-Deployment Key Establishment Scheme for Heterogeneous Sensor Networks')
+);
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+  (SELECT ID FROM AUTHORS WHERE NAME = 'K. Nygard'),
+  (SELECT ID FROM ARTICLES where TITLE = 'Efficient Post-Deployment Key Establishment Scheme for Heterogeneous Sensor Networks')
+);
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+  (SELECT ID FROM AUTHORS WHERE NAME = 'X. Du'),
+  (SELECT ID FROM ARTICLES where TITLE = 'Efficient Post-Deployment Key Establishment Scheme for Heterogeneous Sensor Networks')
+);
+
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+  (SELECT ID FROM AUTHORS WHERE NAME = 'K.K. Gagneja'),
+  (SELECT ID FROM ARTICLES where TITLE = 'Limiting transmit power of antennas in Heterogeneous Sensor Networks')
+);
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+  (SELECT ID FROM AUTHORS WHERE NAME = 'F. Ranganathan'),
+  (SELECT ID FROM ARTICLES where TITLE = 'Limiting transmit power of antennas in Heterogeneous Sensor Networks')
+);
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+  (SELECT ID FROM AUTHORS WHERE NAME = 'S.B. Ghosn'),
+  (SELECT ID FROM ARTICLES where TITLE = 'Limiting transmit power of antennas in Heterogeneous Sensor Networks')
+);
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+  (SELECT ID FROM AUTHORS WHERE NAME = 'P. Loree'),
+  (SELECT ID FROM ARTICLES where TITLE = 'Limiting transmit power of antennas in Heterogeneous Sensor Networks')
+);
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+  (SELECT ID FROM AUTHORS WHERE NAME = 'K. Nygard'),
+  (SELECT ID FROM ARTICLES where TITLE = 'Limiting transmit power of antennas in Heterogeneous Sensor Networks')
+);
+
+
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+  (SELECT ID FROM AUTHORS WHERE NAME = 'L.M. Alnemer'),
+  (SELECT ID FROM ARTICLES where TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
+);
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+  (SELECT ID FROM AUTHORS WHERE NAME = 'R.I. Seetan'),
+  (SELECT ID FROM ARTICLES where TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
+);
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+  (SELECT ID FROM AUTHORS WHERE NAME = 'F.M. Bassi'),
+  (SELECT ID FROM ARTICLES where TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
+);
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+  (SELECT ID FROM AUTHORS WHERE NAME = 'C. Chitraranjan'),
+  (SELECT ID FROM ARTICLES where TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
+);
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+  (SELECT ID FROM AUTHORS WHERE NAME = 'A. Helsene'),
+  (SELECT ID FROM ARTICLES where TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
+);
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+  (SELECT ID FROM AUTHORS WHERE NAME = 'P. Loree'),
+  (SELECT ID FROM ARTICLES where TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
+);
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+  (SELECT ID FROM AUTHORS WHERE NAME = 'S.B. Ghosn'),
+  (SELECT ID FROM ARTICLES where TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
+);
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+  (SELECT ID FROM AUTHORS WHERE NAME = 'Y.Q. Gu'),
+  (SELECT ID FROM ARTICLES where TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
+);
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+  (SELECT ID FROM AUTHORS WHERE NAME = 'M.C. Luo'),
+  (SELECT ID FROM ARTICLES where TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
+);
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+  (SELECT ID FROM AUTHORS WHERE NAME = 'M.J. Iqbqal'),
+  (SELECT ID FROM ARTICLES where TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
+);
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+  (SELECT ID FROM AUTHORS WHERE NAME = 'G.R. Lazo'),
+  (SELECT ID FROM ARTICLES where TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
+);
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+  (SELECT ID FROM AUTHORS WHERE NAME = 'A.M. Denton'),
+  (SELECT ID FROM ARTICLES where TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
+);
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+  (SELECT ID FROM AUTHORS WHERE NAME = 'S.F. Kianin'),
+  (SELECT ID FROM ARTICLES where TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
+);
