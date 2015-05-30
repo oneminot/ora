@@ -28,7 +28,8 @@ CREATE TABLE semesters_years (
   Semester_ID NUMBER(5),
   Year        VARCHAR2(4),
   CONSTRAINT pk_semesters_years PRIMARY KEY (ID),
-  CONSTRAINT unq_semesters_years UNIQUE (Semester_ID, Year)
+  CONSTRAINT unq_semesters_years UNIQUE (Semester_ID, Year),
+  CONSTRAINT fk_semesters_years_semesters FOREIGN KEY (Semester_ID) REFERENCES semesters (ID)
 );
 CREATE TABLE classes
 (
@@ -128,7 +129,9 @@ CREATE TABLE syllabus_assign_categories
 (
   Syllabus_ID             NUMBER(5),
   AssignmentCategories_ID NUMBER(5),
-  CONSTRAINT pk_syllabus_assign_categories PRIMARY KEY (Syllabus_ID, AssignmentCategories_ID)
+  CONSTRAINT pk_syllabus_assign_categories PRIMARY KEY (Syllabus_ID, AssignmentCategories_ID),
+  CONSTRAINT fk_sac_syllabus_info FOREIGN KEY (Syllabus_ID) REFERENCES syllabus_info (ID),
+  CONSTRAINT fk_sac_assign_cat FOREIGN KEY (AssignmentCategories_ID) REFERENCES assignment_categories (ID)
 );
 CREATE TABLE publishers
 (
