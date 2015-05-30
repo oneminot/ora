@@ -139,9 +139,9 @@ CREATE TABLE publishers
 CREATE TABLE articles
 (
   ID                   NUMBER(5),
-  Title                VARCHAR2(80) NOT NULL,
-  RelativeFileLocation VARCHAR2(80) NOT NULL,
-  Publisher_ID         NUMBER(5)    NOT NULL,
+  Title                VARCHAR2(120) NOT NULL,
+  RelativeFileLocation VARCHAR2(80)  NOT NULL,
+  Publisher_ID         NUMBER(5)     NOT NULL,
   PageReference        VARCHAR2(40),
   CONSTRAINT pk_articles PRIMARY KEY (ID),
   CONSTRAINT unq_articles UNIQUE (Title, RelativeFileLocation, Publisher_ID, PageReference),
