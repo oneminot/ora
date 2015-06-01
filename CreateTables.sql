@@ -39,7 +39,8 @@ CREATE TABLE classes
   Semester_Year_ID NUMBER(5)   NOT NULL,
   CONSTRAINT pk_classes PRIMARY KEY (ID),
   CONSTRAINT unq_classes UNIQUE (Num, Course_ID),
-  CONSTRAINT fk_classes_courses FOREIGN KEY (Course_ID) REFERENCES courses (ID)
+  CONSTRAINT fk_classes_courses FOREIGN KEY (Course_ID) REFERENCES courses (ID),
+  CONSTRAINT fk_classes_semesters_years FOREIGN KEY (Semester_Year_ID) REFERENCES semesters_years (ID)
 );
 CREATE TABLE events
 (
