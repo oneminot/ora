@@ -668,177 +668,177 @@ INSERT INTO ARTICLES (ID, TITLE, RELATIVEFILELOCATION, PUBLISHER_ID, PAGEREFEREN
                        WHERE TITLE = 'Functional & Integrative Geonomics' AND ROWNUM = 1),
    'Springer-Verlag, 2013, pp. 11-17');
 
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
    WHERE NAME = 'P. Loree'),
   (SELECT ID
    FROM ARTICLES
-   WHERE TITLE = 'Efficient Post-Deployment Key Establishment Scheme for Heterogeneous Sensor Networks')
-);
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+   WHERE TITLE = 'Efficient Post-Deployment Key Establishment Scheme for Heterogeneous Sensor Networks'),
+  seq_author_articles.nextval);
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
    WHERE NAME = 'K. Nygard'),
   (SELECT ID
    FROM ARTICLES
-   WHERE TITLE = 'Efficient Post-Deployment Key Establishment Scheme for Heterogeneous Sensor Networks')
-);
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+   WHERE TITLE = 'Efficient Post-Deployment Key Establishment Scheme for Heterogeneous Sensor Networks'),
+  seq_author_articles.nextval);
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
    WHERE NAME = 'X. Du'),
   (SELECT ID
    FROM ARTICLES
-   WHERE TITLE = 'Efficient Post-Deployment Key Establishment Scheme for Heterogeneous Sensor Networks')
-);
+   WHERE TITLE = 'Efficient Post-Deployment Key Establishment Scheme for Heterogeneous Sensor Networks'),
+  seq_author_articles.nextval);
 
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
    WHERE NAME = 'K.K. Gagneja'),
   (SELECT ID
    FROM ARTICLES
-   WHERE TITLE = 'Limiting transmit power of antennas in Heterogeneous Sensor Networks')
-);
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+   WHERE TITLE = 'Limiting transmit power of antennas in Heterogeneous Sensor Networks'),
+  seq_author_articles.nextval);
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
    WHERE NAME = 'F. Ranganathan'),
   (SELECT ID
    FROM ARTICLES
-   WHERE TITLE = 'Limiting transmit power of antennas in Heterogeneous Sensor Networks')
-);
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+   WHERE TITLE = 'Limiting transmit power of antennas in Heterogeneous Sensor Networks'),
+  SEQ_AUTHOR_ARTICLES.nextval);
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
    WHERE NAME = 'S.B. Ghosn'),
   (SELECT ID
    FROM ARTICLES
-   WHERE TITLE = 'Limiting transmit power of antennas in Heterogeneous Sensor Networks')
-);
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+   WHERE TITLE = 'Limiting transmit power of antennas in Heterogeneous Sensor Networks'),
+  seq_author_articles.nextval);
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
    WHERE NAME = 'P. Loree'),
   (SELECT ID
    FROM ARTICLES
-   WHERE TITLE = 'Limiting transmit power of antennas in Heterogeneous Sensor Networks')
-);
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+   WHERE TITLE = 'Limiting transmit power of antennas in Heterogeneous Sensor Networks'),
+  seq_author_articles.nextval);
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
    WHERE NAME = 'K. Nygard'),
   (SELECT ID
    FROM ARTICLES
-   WHERE TITLE = 'Limiting transmit power of antennas in Heterogeneous Sensor Networks')
-);
+   WHERE TITLE = 'Limiting transmit power of antennas in Heterogeneous Sensor Networks'),
+  seq_author_articles.nextval);
 
 
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
    WHERE NAME = 'L.M. Alnemer'),
   (SELECT ID
    FROM ARTICLES
-   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
-);
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
+  seq_author_articles.nextval);
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
    WHERE NAME = 'R.I. Seetan'),
   (SELECT ID
    FROM ARTICLES
-   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
-);
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
+  seq_author_articles.nextval);
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
    WHERE NAME = 'F.M. Bassi'),
   (SELECT ID
    FROM ARTICLES
-   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
-);
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
+  seq_author_articles.nextval);
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
    WHERE NAME = 'C. Chitraranjan'),
   (SELECT ID
    FROM ARTICLES
-   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
-);
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
+  seq_author_articles.nextval);
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
    WHERE NAME = 'A. Helsene'),
   (SELECT ID
    FROM ARTICLES
-   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
-);
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
+  seq_author_articles.nextval);
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
    WHERE NAME = 'P. Loree'),
   (SELECT ID
    FROM ARTICLES
-   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
-);
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
+  seq_author_articles.nextval);
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
    WHERE NAME = 'S.B. Ghosn'),
   (SELECT ID
    FROM ARTICLES
-   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
-);
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
+  seq_author_articles.nextval);
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
    WHERE NAME = 'Y.Q. Gu'),
   (SELECT ID
    FROM ARTICLES
-   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
-);
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
+  seq_author_articles.nextval);
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
    WHERE NAME = 'M.C. Luo'),
   (SELECT ID
    FROM ARTICLES
-   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
-);
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
+  seq_author_articles.nextval);
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
    WHERE NAME = 'M.J. Iqbqal'),
   (SELECT ID
    FROM ARTICLES
-   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
-);
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
+  seq_author_articles.nextval);
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
    WHERE NAME = 'G.R. Lazo'),
   (SELECT ID
    FROM ARTICLES
-   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
-);
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
+  seq_author_articles.nextval);
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
    WHERE NAME = 'A.M. Denton'),
   (SELECT ID
    FROM ARTICLES
-   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
-);
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID) VALUES (
+   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
+  seq_author_articles.nextval);
+INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
    WHERE NAME = 'S.F. Kianin'),
   (SELECT ID
    FROM ARTICLES
-   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes')
-);
+   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
+  seq_author_articles.nextval);
 
 INSERT INTO GRADE_SCALES (ID, LOW, HIGH, LETTER) VALUES (SEQ_GRADE_SCALES.nextval, 90, 100, 'A');
 INSERT INTO GRADE_SCALES (ID, LOW, HIGH, LETTER) VALUES (SEQ_GRADE_SCALES.nextval, 80, 89, 'B');
