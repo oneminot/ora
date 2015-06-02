@@ -19,6 +19,9 @@ INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.
 INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 3, '2015');
 
 INSERT INTO COURSES
+(ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '000', 'Office Hours', 'These are office hours.');
+
+INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '111', 'Introduction to Web Languages',
                                               'Basic tools and principles of programming with focus on development of web applications using the PHP programming language. This course will cover the following topics: HTML, CSS, PHP, file handling, database management, logic, repetition, UNIX commands, and software design');
 
@@ -843,5 +846,6 @@ INSERT INTO GRADE_SCALES (ID, LOW, HIGH, LETTER) VALUES (SEQ_GRADE_SCALES.nextva
 INSERT INTO GRADE_SCALES (ID, LOW, HIGH, LETTER) VALUES (SEQ_GRADE_SCALES.nextval, 60, 69, 'D');
 INSERT INTO GRADE_SCALES (ID, LOW, HIGH, LETTER) VALUES (SEQ_GRADE_SCALES.nextval, 0, 59, 'F');
 
--- INSERT INTO SYLLABUS_INFO (ID, COURSE_ID, OFFICEHOUR_ID, TEXTBOOK_ID, COURSEOBJECTIVE, PREREQUISITECOURSE, COMPUTERLABS, SOFTWAREREQUIREMENTS, HOMEWORKINFO, ISACTIVE)
--- VALUES (SEQ_SYLLABUS_INFO.nextval, );
+-- This is wrong because textbook tables should actually be independent and syllabus_info should link to them instead yeah
+
+-- INSERT INTO SYLLABUS_INFO (ID, COURSE_ID, OFFICEHOUR_ID, TEXTBOOK_ID, COURSEOBJECTIVE, PREREQUISITECOURSE, COMPUTERLABS, SOFTWAREREQUIREMENTS, HOMEWORKINFO, ISACTIVE) VALUES (SEQ_SYLLABUS_INFO.nextval, (SELECT ID FROM COURSES WHERE NUM = '' AND DEPT_ID = (SELECT ID FROM DEPARTMENTS WHERE NAME = 'CSCI') AND ROWNUM = 1), (SELECT ID from COURSES where NAME = 'Office Hours' AND ROWNUM = 1), ());
