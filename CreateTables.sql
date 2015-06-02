@@ -170,6 +170,7 @@ CREATE TABLE author_articles
 (
   Author_ID  NUMBER(5) NOT NULL,
   Article_ID NUMBER(5) NOT NULL,
+  Sequence_Number NUMBER(5) NOT NULL,
   CONSTRAINT pk_author_articles PRIMARY KEY (Author_ID, Article_ID),
   CONSTRAINT fk_author_articles_authors FOREIGN KEY (Author_ID) REFERENCES authors (ID),
   CONSTRAINT fk_author_articles_articles FOREIGN KEY (Article_ID) REFERENCES articles (ID)
