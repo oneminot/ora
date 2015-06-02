@@ -848,4 +848,18 @@ INSERT INTO GRADE_SCALES (ID, LOW, HIGH, LETTER) VALUES (SEQ_GRADE_SCALES.nextva
 
 -- This is wrong because textbook tables should actually be independent and syllabus_info should link to them instead yeah
 
--- INSERT INTO SYLLABUS_INFO (ID, COURSE_ID, OFFICEHOUR_ID, TEXTBOOK_ID, COURSEOBJECTIVE, PREREQUISITECOURSE, COMPUTERLABS, SOFTWAREREQUIREMENTS, HOMEWORKINFO, ISACTIVE) VALUES (SEQ_SYLLABUS_INFO.nextval, (SELECT ID FROM COURSES WHERE NUM = '' AND DEPT_ID = (SELECT ID FROM DEPARTMENTS WHERE NAME = 'CSCI') AND ROWNUM = 1), (SELECT ID from COURSES where NAME = 'Office Hours' AND ROWNUM = 1), ());
+INSERT INTO SYLLABUS_INFO (ID, COURSE_ID, OFFICEHOUR_ID, COURSEOBJECTIVE, PREREQUISITECOURSE, COMPUTERLABS, SOFTWAREREQUIREMENTS, HOMEWORKINFO, ISACTIVE)
+VALUES (SEQ_SYLLABUS_INFO.nextval, (SELECT ID
+                                    FROM COURSES
+                                    WHERE NUM = '321' AND DEPT_ID = (SELECT ID
+                                                                     FROM DEPARTMENTS
+                                                                     WHERE NAME = 'CSCI') AND ROWNUM = 1), (SELECT ID
+                                                                                                            FROM COURSES
+                                                                                                            WHERE NAME =
+                                                                                                                  'Office Hours'
+                                                                                                                  AND
+                                                                                                                  ROWNUM
+                                                                                                                  = 1),
+        ' Introduction to Windows programming in Visual C# .NET Windows Forms and WPF development, icons, controls, dialogs, threads, sockets, DLL''s',
+        'CSCI 161 or dept. approval', 'Model Hall 119', 'Visual Studio 2013, SFTP/SCP client (FileZilla or WinSCP)',
+        'Instructions for submitting assignments and authentication information will be provided in class.', TRUE);
