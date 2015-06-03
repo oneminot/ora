@@ -114,7 +114,7 @@ CREATE TABLE syllabus_info
   ID                   NUMBER(5),
   Course_ID            NUMBER(5)      NOT NULL,
   OfficeHour_ID        NUMBER(5)      NOT NULL,
-  CourseObjective      CLOB           NOT NULL,
+  CourseObjective VARCHAR2(2000) NOT NULL,
   PrerequisiteCourse   VARCHAR2(2000) NOT NULL,
   ComputerLabs         VARCHAR2(2000) NOT NULL,
   SoftwareRequirements VARCHAR2(2000) NOT NULL,
@@ -123,12 +123,12 @@ CREATE TABLE syllabus_info
   CONSTRAINT pk_syllabus_info PRIMARY KEY (ID),
   CONSTRAINT unq_syllabus_info UNIQUE (Course_ID),
   CONSTRAINT fk_syllabus_info_courses FOREIGN KEY (Course_ID) REFERENCES courses (ID),
-  CONSTRAINT fk_syllabus_info_courses2 FOREIGN KEY (OfficeHour_ID) REFERENCES events (ID)
+  CONSTRAINT fk_syllabus_info_courses2 FOREIGN KEY (OfficeHour_ID) REFERENCES courses (ID)
 );
 CREATE TABLE syllabus_info_textbooks (
   Textbook_ID      NUMBER(5) NOT NULL,
   Syllabus_Info_ID NUMBER(5) NOT NULL,
-  CONSTRAINT fk_syllabus_info_textbooks FOREIGN KEY (Textbook_ID) REFERENCES Textbooks (ID),
+  CONSTRAINT fk_syllabus_info_textbooks FOREIGN KEY (Textbook_ID) REFERENCES textbooks (ID),
   CONSTRAINT fk_textbooks_syllabus_info FOREIGN KEY (Syllabus_Info_ID) REFERENCES syllabus_info (ID)
 );
 CREATE TABLE syllabus_assign_categories
