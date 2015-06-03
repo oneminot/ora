@@ -1089,3 +1089,118 @@ Topics for projects can be based on the interests of the students, chosen from i
         'Instructions for submitting assignments and authentication information will be provided in class.',
         1);
 
+INSERT INTO SYLLABUS_INFO (ID, COURSE_ID, OFFICEHOUR_ID, COURSEOBJECTIVE, PREREQUISITECOURSE, ASSIGNMENTS, EXAMS, COMPUTERLABS, SOFTWAREREQUIREMENTS, HOMEWORKINFO, ISACTIVE)
+VALUES (SEQ_SYLLABUS_INFO.nextval,
+        (SELECT ID
+         FROM COURSES
+         WHERE NUM = '208'
+               AND DEPT_ID = (SELECT ID
+                              FROM DEPARTMENTS
+                              WHERE NAME = 'MATH') AND ROWNUM = 1),
+        (SELECT ID
+         FROM COURSES
+         WHERE NAME = 'Office Hours' AND ROWNUM = 1),
+        ' Introduction to discrete mathematics and its applications. This course will cover the following topics: Sets, relations and functions, combinatorics, logic, Boolean algebra, difference equations, graph theory, automata.',
+        'CSCI 103 or dept. approval',
+        'Assignments will not be graded but it is advised that students complete at least the section assignments as we progress between the exams.',
+        'Approximately every other Tuesday during the last 1 or 2 hours of class we will have an exam that covers the previous 6 to 8 hours of lectures except for the 2 to 3 hours prior to the exam. Extra credit problems from the 2 hours prior to exam may appear on the exam.',
+        ' ',
+        ' ',
+        ' ',
+        1);
+
+INSERT INTO TEXTBOOKS (ID, TITLE, AUTHOR, ISBN) VALUES
+  (
+    SEQ_TEXTBOOKS.nextval,
+    'A Web-Based Introduction to Programming, 2nd Ed.',
+    'Mike O''Kane',
+    9781594608445
+  );
+
+INSERT INTO TEXTBOOKS (ID, TITLE, AUTHOR, ISBN) VALUES
+  (
+    SEQ_TEXTBOOKS.nextval,
+    'Program Development and Design Using C++, 3rd Edition',
+    'Gary Bronson',
+    9780619216771
+  );
+
+INSERT INTO TEXTBOOKS (ID, TITLE, AUTHOR, ISBN) VALUES
+  (
+    SEQ_TEXTBOOKS.nextval,
+    'Object-Oriented Programming in C++',
+    'Richard Johnsonbaugh & Martin Kalin',
+    9780130158857
+  );
+
+INSERT INTO TEXTBOOKS (ID, TITLE, AUTHOR, ISBN) VALUES
+  (
+    SEQ_TEXTBOOKS.nextval,
+    'Unix and Linux System Administration Handbook, 4th Ed.',
+    'Evi Nemeth et al.',
+    9780131480056
+  );
+
+INSERT INTO TEXTBOOKS (ID, TITLE, AUTHOR, ISBN) VALUES
+  (
+    SEQ_TEXTBOOKS.nextval,
+    'The Unix Operating System, 3rd Ed.',
+    'Kaare Christian and Susan Richter',
+    9780471586845
+  );
+
+INSERT INTO TEXTBOOKS (ID, TITLE, AUTHOR, ISBN) VALUES
+  (
+    SEQ_TEXTBOOKS.nextval,
+    'Computer Networks',
+    'Andrew S. Tanenbaum and David J. Wetherall',
+    9780132126953
+  );
+
+INSERT INTO TEXTBOOKS (ID, TITLE, AUTHOR, ISBN) VALUES
+  (
+    SEQ_TEXTBOOKS.nextval,
+    'Fundamentals of Database Systems, 6th Ed.',
+    'Ramez Elmasri and Shamkant B. Navathe',
+    9780136086208
+  );
+
+INSERT INTO TEXTBOOKS (ID, TITLE, AUTHOR, ISBN) VALUES
+  (
+    SEQ_TEXTBOOKS.nextval,
+    'Computer Organization and Architecture, 9th Edition',
+    'Stallings',
+    9780132936330
+  );
+
+INSERT INTO TEXTBOOKS (ID, TITLE, AUTHOR, ISBN) VALUES
+  (
+    SEQ_TEXTBOOKS.nextval,
+    'Computer Networks, 5th Edition',
+    'Tanenbaum',
+    9780132126973
+  );
+
+INSERT INTO TEXTBOOKS (ID, TITLE, AUTHOR, ISBN) VALUES
+  (
+    SEQ_TEXTBOOKS.nextval,
+    'Computer Security, Principles and Practices, 2nd Edition',
+    'Stallings',
+    9780132775069
+  );
+
+INSERT INTO TEXTBOOKS (ID, TITLE, AUTHOR, ISBN) VALUES
+  (
+    SEQ_TEXTBOOKS.nextval,
+    'Network Security Essentials, 4th Edition',
+    'William Stallings',
+    9780136108054
+  );
+
+INSERT INTO TEXTBOOKS (ID, TITLE, AUTHOR, ISBN) VALUES
+  (
+    SEQ_TEXTBOOKS.nextval,
+    'Discrete Mathematics with Applications, 4th Edition',
+    'Epp',
+    9780495391326
+  );
