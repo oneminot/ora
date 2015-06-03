@@ -13,5 +13,11 @@
       <schema-pattern>ccmkxjmg.pg_catalog ccmkxjmg.public</schema-pattern>
       <default-schemas>ccmkxjmg.pg_catalog ccmkxjmg.public</default-schemas>
     </data-source>
+    <data-source name="SQL Server - @165.234.213.133" uuid="db9b8c9b-bd1d-4f31-a39c-5a88a6392973">
+      <secret-storage>master_key</secret-storage>
+      <user-name>sa</user-name>
+      <schema-pattern>kushal.*</schema-pattern>
+      <default-schemas>kushal.*</default-schemas>
+    </data-source>
   </component>
 </project>

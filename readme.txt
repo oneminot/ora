@@ -1,5 +1,5 @@
-[2015-06-01 21:04:38] Run C:\Users\minot_000\Source\Repos\ora\CreateTables.sql
-[2015-06-01 21:04:38] Connecting to Oracle - @loree.minotstateu.edu...
+[2015-06-03 14:11:21] Run C:\Users\minot_000\Source\Repos\ora\CreateTables.sql
+[2015-06-03 14:11:21] Connecting to Oracle - @loree.minotstateu.edu...
 CREATE TABLE departments
 (
   ID   NUMBER(5),
@@ -7,7 +7,7 @@ CREATE TABLE departments
   CONSTRAINT pk_departments PRIMARY KEY (ID),
   CONSTRAINT unq_departments UNIQUE (Name)
 )
-[2015-06-01 21:04:38] 0 row(s) affected in 118 ms
+[2015-06-03 14:11:21] 0 row(s) affected in 107 ms
 CREATE TABLE courses
 (
   ID          NUMBER(5),
@@ -19,7 +19,7 @@ CREATE TABLE courses
   CONSTRAINT unq_courses UNIQUE (Dept_ID, Num),
   CONSTRAINT fk_courses_departments FOREIGN KEY (Dept_ID) REFERENCES departments (ID)
 )
-[2015-06-01 21:04:38] 0 row(s) affected in 99 ms
+[2015-06-03 14:11:21] 0 row(s) affected in 98 ms
 CREATE TABLE semesters
 (
   ID   NUMBER(5),
@@ -27,7 +27,7 @@ CREATE TABLE semesters
   CONSTRAINT pk_semesters PRIMARY KEY (ID),
   CONSTRAINT unq_semesters UNIQUE (Name)
 )
-[2015-06-01 21:04:38] 0 row(s) affected in 99 ms
+[2015-06-03 14:11:21] 0 row(s) affected in 141 ms
 CREATE TABLE semesters_years (
   ID          NUMBER(5),
   Semester_ID NUMBER(5),
@@ -36,7 +36,7 @@ CREATE TABLE semesters_years (
   CONSTRAINT unq_semesters_years UNIQUE (Semester_ID, Year),
   CONSTRAINT fk_semesters_years_semesters FOREIGN KEY (Semester_ID) REFERENCES semesters (ID)
 )
-[2015-06-01 21:04:38] 0 row(s) affected in 126 ms
+[2015-06-03 14:11:22] 0 row(s) affected in 124 ms
 CREATE TABLE classes
 (
   ID               NUMBER(5),
@@ -48,7 +48,7 @@ CREATE TABLE classes
   CONSTRAINT fk_classes_courses FOREIGN KEY (Course_ID) REFERENCES courses (ID),
   CONSTRAINT fk_classes_semesters_years FOREIGN KEY (Semester_Year_ID) REFERENCES semesters_years (ID)
 )
-[2015-06-01 21:04:38] 0 row(s) affected in 125 ms
+[2015-06-03 14:11:22] 0 row(s) affected in 107 ms
 CREATE TABLE events
 (
   ID        NUMBER(5),
@@ -61,7 +61,7 @@ CREATE TABLE events
   CONSTRAINT unq_events UNIQUE (StartDate, EndDate, Class_ID),
   CONSTRAINT fk_events_classes FOREIGN KEY (Class_ID) REFERENCES classes (ID)
 )
-[2015-06-01 21:04:38] 0 row(s) affected in 158 ms
+[2015-06-03 14:11:22] 0 row(s) affected in 100 ms
 CREATE TABLE repeat_events
 (
   ID            NUMBER(5),
@@ -71,7 +71,7 @@ CREATE TABLE repeat_events
   CONSTRAINT pk_repeat_events PRIMARY KEY (ID),
   CONSTRAINT fk_repeat_events_events FOREIGN KEY (Event_ID) REFERENCES events (ID)
 )
-[2015-06-01 21:04:38] 0 row(s) affected in 92 ms
+[2015-06-03 14:11:22] 0 row(s) affected in 112 ms
 CREATE TABLE repeat_days
 (
   RepeatEvent_ID  NUMBER(5),
@@ -79,7 +79,7 @@ CREATE TABLE repeat_days
   CONSTRAINT pk_repeat_days PRIMARY KEY (RepeatEvent_ID, DayNumberOfWeek),
   CONSTRAINT fk_repeat_days_repeat_events FOREIGN KEY (RepeatEvent_ID) REFERENCES repeat_events (ID)
 )
-[2015-06-01 21:04:39] 0 row(s) affected in 90 ms
+[2015-06-03 14:11:22] 0 row(s) affected in 53 ms
 CREATE TABLE assignments
 (
   ID               NUMBER(5),
@@ -94,7 +94,7 @@ CREATE TABLE assignments
   CONSTRAINT pk_assignments PRIMARY KEY (ID),
   CONSTRAINT fk_assignments_courses FOREIGN KEY (Course_ID) REFERENCES courses (ID)
 )
-[2015-06-01 21:04:39] 0 row(s) affected in 217 ms
+[2015-06-03 14:11:22] 0 row(s) affected in 178 ms
 CREATE TABLE grade_scales
 (
   ID     NUMBER(5),
@@ -104,7 +104,7 @@ CREATE TABLE grade_scales
   CONSTRAINT pk_grade_scales PRIMARY KEY (ID),
   CONSTRAINT unq_grade_scales UNIQUE (Low, High, Letter)
 )
-[2015-06-01 21:04:39] 0 row(s) affected in 84 ms
+[2015-06-03 14:11:22] 0 row(s) affected in 86 ms
 CREATE TABLE assignment_categories
 (
   ID       NUMBER(5),
@@ -113,7 +113,7 @@ CREATE TABLE assignment_categories
   CONSTRAINT pk_assignment_categories PRIMARY KEY (ID),
   CONSTRAINT unq_assignment_categories UNIQUE (Category, Weight)
 )
-[2015-06-01 21:04:39] 0 row(s) affected in 116 ms
+[2015-06-03 14:11:22] 0 row(s) affected in 117 ms
 CREATE TABLE textbooks (
   ID     NUMBER(5),
   Title  VARCHAR2(80) NOT NULL,
@@ -122,7 +122,7 @@ CREATE TABLE textbooks (
   CONSTRAINT pk_textbook PRIMARY KEY (ID),
   CONSTRAINT unq_textbook_isbn UNIQUE (ISBN)
 )
-[2015-06-01 21:04:39] 0 row(s) affected in 142 ms
+[2015-06-03 14:11:22] 0 row(s) affected in 148 ms
 CREATE TABLE syllabus_info
 (
   ID                   NUMBER(5),
@@ -139,14 +139,14 @@ CREATE TABLE syllabus_info
   CONSTRAINT fk_syllabus_info_courses FOREIGN KEY (Course_ID) REFERENCES courses (ID),
   CONSTRAINT fk_syllabus_info_courses2 FOREIGN KEY (OfficeHour_ID) REFERENCES events (ID)
 )
-[2015-06-01 21:04:39] 0 row(s) affected in 184 ms
+[2015-06-03 14:11:23] 0 row(s) affected in 152 ms
 CREATE TABLE syllabus_info_textbooks (
   Textbook_ID      NUMBER(5) NOT NULL,
   Syllabus_Info_ID NUMBER(5) NOT NULL,
   CONSTRAINT fk_syllabus_info_textbooks FOREIGN KEY (Textbook_ID) REFERENCES Textbooks (ID),
   CONSTRAINT fk_textbooks_syllabus_info FOREIGN KEY (Syllabus_Info_ID) REFERENCES syllabus_info (ID)
 )
-[2015-06-01 21:04:39] 0 row(s) affected in 24 ms
+[2015-06-03 14:11:23] 0 row(s) affected in 47 ms
 CREATE TABLE syllabus_assign_categories
 (
   Syllabus_ID             NUMBER(5),
@@ -155,7 +155,7 @@ CREATE TABLE syllabus_assign_categories
   CONSTRAINT fk_sac_syllabus_info FOREIGN KEY (Syllabus_ID) REFERENCES syllabus_info (ID),
   CONSTRAINT fk_sac_assign_cat FOREIGN KEY (AssignmentCategories_ID) REFERENCES assignment_categories (ID)
 )
-[2015-06-01 21:04:39] 0 row(s) affected in 118 ms
+[2015-06-03 14:11:23] 0 row(s) affected in 83 ms
 CREATE TABLE publishers
 (
   ID       NUMBER(5),
@@ -165,7 +165,7 @@ CREATE TABLE publishers
   CONSTRAINT pk_publishers PRIMARY KEY (ID),
   CONSTRAINT unq_publishers UNIQUE (Title, Location, Year)
 )
-[2015-06-01 21:04:40] 0 row(s) affected in 116 ms
+[2015-06-03 14:11:23] 0 row(s) affected in 116 ms
 CREATE TABLE articles
 (
   ID                   NUMBER(5),
@@ -177,7 +177,7 @@ CREATE TABLE articles
   CONSTRAINT unq_articles UNIQUE (Title, RelativeFileLocation, Publisher_ID, PageReference),
   CONSTRAINT fk_articles_publisher FOREIGN KEY (Publisher_ID) REFERENCES publishers (ID)
 )
-[2015-06-01 21:04:40] 0 row(s) affected in 124 ms
+[2015-06-03 14:11:23] 0 row(s) affected in 132 ms
 CREATE TABLE authors
 (
   ID   NUMBER(5),
@@ -185,7 +185,7 @@ CREATE TABLE authors
   CONSTRAINT pk_authors PRIMARY KEY (ID),
   CONSTRAINT unq_authors UNIQUE (Name)
 )
-[2015-06-01 21:04:40] 0 row(s) affected in 134 ms
+[2015-06-03 14:11:23] 0 row(s) affected in 116 ms
 CREATE TABLE author_articles
 (
   Author_ID  NUMBER(5) NOT NULL,
@@ -195,7 +195,7 @@ CREATE TABLE author_articles
   CONSTRAINT fk_author_articles_authors FOREIGN KEY (Author_ID) REFERENCES authors (ID),
   CONSTRAINT fk_author_articles_articles FOREIGN KEY (Article_ID) REFERENCES articles (ID)
 )
-[2015-06-01 21:04:40] 0 row(s) affected in 50 ms
+[2015-06-03 14:11:23] 0 row(s) affected in 100 ms
 CREATE TABLE users
 (
   ID           NUMBER(5)      NOT NULL,
@@ -205,173 +205,174 @@ CREATE TABLE users
   LastAttempt  TIMESTAMP      NOT NULL,
   CONSTRAINT pk_users PRIMARY KEY (ID)
 )
-[2015-06-01 21:04:40] 0 row(s) affected in 91 ms
+[2015-06-03 14:11:23] 0 row(s) affected in 52 ms
 
-[2015-06-01 21:04:40] Summary: 20 of 20 statements executed in 2356 ms (6612 chars in file)
-[2015-06-01 21:15:57] Run C:\Users\minot_000\Source\Repos\ora\CreateSequences.sql
-[2015-06-01 21:15:57] Connecting to Oracle - @loree.minotstateu.edu...
+[2015-06-03 14:11:23] Summary: 20 of 20 statements executed in 2252 ms (6612 chars in file)
+
+[2015-06-03 14:11:33] Run C:\Users\minot_000\Source\Repos\ora\CreateSequences.sql
+[2015-06-03 14:11:33] Connecting to Oracle - @loree.minotstateu.edu...
 CREATE SEQUENCE seq_departments
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-06-01 21:15:57] 0 row(s) affected in 20 ms
+[2015-06-03 14:11:33] 0 row(s) affected in 26 ms
 CREATE SEQUENCE seq_courses
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-06-01 21:15:57] 0 row(s) affected in 16 ms
+[2015-06-03 14:11:33] 0 row(s) affected in 15 ms
 CREATE SEQUENCE seq_semesters
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-06-01 21:15:57] 0 row(s) affected in 17 ms
+[2015-06-03 14:11:33] 0 row(s) affected in 15 ms
 CREATE SEQUENCE seq_semesters_years
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-06-01 21:15:57] 0 row(s) affected in 16 ms
+[2015-06-03 14:11:33] 0 row(s) affected in 16 ms
 CREATE SEQUENCE seq_classes
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-06-01 21:15:57] 0 row(s) affected in 15 ms
+[2015-06-03 14:11:33] 0 row(s) affected in 15 ms
 CREATE SEQUENCE seq_events
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-06-01 21:15:57] 0 row(s) affected in 16 ms
+[2015-06-03 14:11:33] 0 row(s) affected in 16 ms
 CREATE SEQUENCE seq_repeat_events
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-06-01 21:15:57] 0 row(s) affected in 16 ms
+[2015-06-03 14:11:33] 0 row(s) affected in 20 ms
 CREATE SEQUENCE seq_repeat_days
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-06-01 21:15:57] 0 row(s) affected in 15 ms
+[2015-06-03 14:11:33] 0 row(s) affected in 15 ms
 CREATE SEQUENCE seq_assignments
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-06-01 21:15:57] 0 row(s) affected in 16 ms
+[2015-06-03 14:11:33] 0 row(s) affected in 15 ms
 CREATE SEQUENCE seq_grade_scales
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-06-01 21:15:57] 0 row(s) affected in 16 ms
+[2015-06-03 14:11:33] 0 row(s) affected in 17 ms
 CREATE SEQUENCE seq_assignment_categories
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-06-01 21:15:57] 0 row(s) affected in 16 ms
+[2015-06-03 14:11:33] 0 row(s) affected in 15 ms
 CREATE SEQUENCE seq_textbooks
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-06-01 21:15:57] 0 row(s) affected in 16 ms
+[2015-06-03 14:11:33] 0 row(s) affected in 15 ms
 CREATE SEQUENCE seq_syllabus_info
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-06-01 21:15:57] 0 row(s) affected in 15 ms
+[2015-06-03 14:11:33] 0 row(s) affected in 16 ms
 CREATE SEQUENCE seq_publishers
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-06-01 21:15:57] 0 row(s) affected in 15 ms
+[2015-06-03 14:11:33] 0 row(s) affected in 16 ms
 CREATE SEQUENCE seq_articles
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-06-01 21:15:57] 0 row(s) affected in 16 ms
+[2015-06-03 14:11:33] 0 row(s) affected in 15 ms
 CREATE SEQUENCE seq_authors
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-06-01 21:15:57] 0 row(s) affected in 15 ms
+[2015-06-03 14:11:33] 0 row(s) affected in 16 ms
 CREATE SEQUENCE seq_author_articles
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-06-01 21:15:57] 0 row(s) affected in 16 ms
+[2015-06-03 14:11:33] 0 row(s) affected in 16 ms
 CREATE SEQUENCE seq_users
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-06-01 21:15:57] 0 row(s) affected in 16 ms
+[2015-06-03 14:11:33] 0 row(s) affected in 16 ms
 
-[2015-06-01 21:15:57] Summary: 18 of 18 statements executed in 345 ms (1198 chars in file)
-[2015-06-01 21:16:05] Run C:\Users\minot_000\Source\Repos\ora\InsertData.sql
-[2015-06-01 21:16:05] Connecting to Oracle - @loree.minotstateu.edu...
+[2015-06-03 14:11:33] Summary: 18 of 18 statements executed in 354 ms (1198 chars in file)
+[2015-06-03 14:11:45] Run C:\Users\minot_000\Source\Repos\ora\InsertData.sql
+[2015-06-03 14:11:45] Connecting to Oracle - @loree.minotstateu.edu...
 INSERT INTO DEPARTMENTS
 (ID, NAME) VALUES (SEQ_DEPARTMENTS.nextval, 'CSCI')
-[2015-06-01 21:16:05] 1 row(s) affected in 24 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 25 ms
 INSERT INTO DEPARTMENTS
 (ID, NAME) VALUES (SEQ_DEPARTMENTS.nextval, 'MATH')
-[2015-06-01 21:16:05] 1 row(s) affected in 15 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 16 ms
 INSERT INTO SEMESTERS (ID, NAME) VALUES (SEQ_SEMESTERS.nextval, 'Fall')
-[2015-06-01 21:16:05] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 16 ms
 INSERT INTO SEMESTERS (ID, NAME) VALUES (SEQ_SEMESTERS.nextval, 'Spring')
-[2015-06-01 21:16:05] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 16 ms
 INSERT INTO SEMESTERS (ID, NAME) VALUES (SEQ_SEMESTERS.nextval, 'Summer')
-[2015-06-01 21:16:05] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 15 ms
 INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 1, '2010')
-[2015-06-01 21:16:05] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 15 ms
 INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 2, '2011')
-[2015-06-01 21:16:05] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 16 ms
 INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 1, '2011')
-[2015-06-01 21:16:05] 1 row(s) affected in 15 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 16 ms
 INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 2, '2012')
-[2015-06-01 21:16:05] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 15 ms
 INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 1, '2013')
-[2015-06-01 21:16:05] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 16 ms
 INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 2, '2014')
-[2015-06-01 21:16:05] 1 row(s) affected in 15 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 16 ms
 INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 1, '2014')
-[2015-06-01 21:16:05] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 15 ms
 INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 2, '2015')
-[2015-06-01 21:16:05] 1 row(s) affected in 15 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 16 ms
 INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 3, '2015')
-[2015-06-01 21:16:05] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 16 ms
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '000', 'Office Hours', 'These are office hours.')
-[2015-06-01 21:16:05] 1 row(s) affected in 15 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 15 ms
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '111', 'Introduction to Web Languages',
                                               'Basic tools and principles of programming with focus on development of web applications using the PHP programming language. This course will cover the following topics: HTML, CSS, PHP, file handling, database management, logic, repetition, UNIX commands, and software design')
-[2015-06-01 21:16:05] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 16 ms
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '160', 'Computer Science I',
                                               'Basic tools and principles of programming with focus on developing software using the C++ programming language. This course will cover the following topics: Data Types, Assignments, Selection, Repetition, Functions and Procedures, Arrays and Pointers')
-[2015-06-01 21:16:05] 1 row(s) affected in 17 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 15 ms
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '161', 'Computer Science II',
                                               'Basic tools and principles of programming with focus on developing software using the C++ programming language. This course will cover the following topics: Classes, Inheritance, Polymorphism, Operator overloading Templates Hierarchy, Exceptions and object oriented programming in the microsoft foundation classes')
-[2015-06-01 21:16:05] 1 row(s) affected in 15 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 16 ms
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '221', 'Web and Internet Programming',
                                               'Introduction to web and internet programming. Topics covered will be web application development using HTML, CSS, PHP, JavaScript, AJAX, JQuery, JSON, XML, SQL, and web application and server security. ASP .NET website development using C# may also be introduced if time allows during the semester.')
-[2015-06-01 21:16:05] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 16 ms
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '260', 'UNIX Environment',
                                               'UNIX')
-[2015-06-01 21:16:05] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 15 ms
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '321', 'Windows Programming',
                                               'Introduction to Windows programming in Visual C# .NET Windows Forms and WPF development, icons, controls, dialogs, threads, sockets, DLL''s')
-[2015-06-01 21:16:05] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 17 ms
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '340', 'Local Area Networks',
                                               'Introduction to basic networking including the layered OSI and TCP models, IPv4, IPv6 addressing, CIDR addressing, Network Address Translation, routing algorithms, common network protocols such as the IEEE 802.1x protocols, IP, TCP, UDP, FTP, HTTP, SMTP, etc. Additionally, an introduction to network security and network organization concepts will be covered such as local area networks (LANs), wide area networks (WANs), and ad hoc networking.')
-[2015-06-01 21:16:05] 1 row(s) affected in 14 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 15 ms
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '356', 'Database Management',
                                               'Introduction of database management systems including relational, hierarchical, and network models. Usage of tools and procedures for designing relational database models for provided datasets. Implementation of database models into a database management system (DBMS). Managing data using the SQL and PL/SQL languages. Concepts covered will include normalization, set theory, DBMS indexing, creating and deleting tables, inserting data into tables, and retrieving data from databases using select, nested select, joins, database security and other advanced SQL techniques.')
-[2015-06-01 21:16:05] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 16 ms
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '370', 'Computer Organization and Architecture',
                                               'Introduction to the internal organization of computers and computer architectures. This course will cover the following topics: representation of data, Boolean algebra and digital logic, assembly, memory organization and architecture, I/O and storage, system software, network organization and architecture, data structures')
-[2015-06-01 21:16:05] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 15 ms
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES
   (SEQ_COURSES.nextval, 1, '440', 'Data Communications - Wireless Networking and Communications',
    'Introduction to advanced networking technologies and computer security. This course will cover the following topics: fundamentals of wireless transmission, communication networks, OSI model and TCP/IP, signaling techniques, wireless routing, wireless medium error detection and correction, satellite communications, cellular networks, ad hoc networks, sensor networks, IEEE 802.11, IEEE 802.16, IEEE 802.15.4 in the first 1 month of the course. The remainder of the course will focus on network/computer security and forensics including but not limited to the following topics: security concepts, threats, attacks and assets, cryptographic tools: symmetric and public-key encryption algorithms, authentication, malicious software, DoS attacks, intrusion detection, firewalls and prevention systems, buffer overflows, email security, X.509 certificates, legal and ethical issues in computer security')
-[2015-06-01 21:16:05] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 17 ms
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '458', 'Computer Security',
                                               'This course will provide an introduction to computer and network security methods and procedures. This course will cover the following topics: security attacks, services and mechanisms, symmetric encryption, asymmetric encryption, hash functions and digital signatures, key management, Kerberos, X.509 Authentication, PHP, S/MIME, IPSec, SSL, TLS, IDS, security threats, firewalls, etc.')
-[2015-06-01 21:16:05] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 15 ms
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '460', 'Capstone Project Development', 'The Capstone Project is a substantial, semester-long endeavor allowing students to apply and or enhance the knowledge they have gained within the Computer Science curriculum. Each project is to be completed by an individual or group of students.
 Topics for projects can be based on the interests of the students, chosen from ideas submitted by CS faculty, or coordinated with needs of other departments or from organizations outside the university. Students should be involved in the project selection, but the instructor has final authority on what is considered a suitable project. There will be greater expectations for teams of two or more students.')
-[2015-06-01 21:16:05] 1 row(s) affected in 15 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 15 ms
 INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 2, '208', 'Discrete Mathematics',
                                               'Discrete Math')
-[2015-06-01 21:16:05] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 16 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '19567', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -390,7 +391,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 1 AND year = '2010' AND
                                                                           ROWNUM = 1))
-[2015-06-01 21:16:05] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 16 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '20627', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -409,7 +410,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 1 AND year = '2010' AND
                                                                           ROWNUM = 1))
-[2015-06-01 21:16:05] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 15 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '20012', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -428,7 +429,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 1 AND year = '2010' AND
                                                                           ROWNUM = 1))
-[2015-06-01 21:16:05] 1 row(s) affected in 14 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 8 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '6132', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -447,7 +448,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2011' AND
                                                                           ROWNUM = 1))
-[2015-06-01 21:16:05] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 15 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '19667', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -466,7 +467,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2011' AND
                                                                           ROWNUM = 1))
-[2015-06-01 21:16:06] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 15 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '3645', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -485,7 +486,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2011' AND
                                                                           ROWNUM = 1))
-[2015-06-01 21:16:06] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 16 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '19670', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -504,7 +505,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2011' AND
                                                                           ROWNUM = 1))
-[2015-06-01 21:16:06] 1 row(s) affected in 17 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 16 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '6630', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -523,7 +524,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 1 AND year = '2011' AND
                                                                           ROWNUM = 1))
-[2015-06-01 21:16:06] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 15 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '7055', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -542,7 +543,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 1 AND year = '2011' AND
                                                                           ROWNUM = 1))
-[2015-06-01 21:16:06] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 16 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '6863', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -561,7 +562,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 1 AND year = '2011' AND
                                                                           ROWNUM = 1))
-[2015-06-01 21:16:06] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 16 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4668', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -580,7 +581,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2012' AND
                                                                           ROWNUM = 1))
-[2015-06-01 21:16:06] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 14 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4458', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -599,7 +600,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2012' AND
                                                                           ROWNUM = 1))
-[2015-06-01 21:16:06] 1 row(s) affected in 15 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 16 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4457', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -618,7 +619,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2012' AND
                                                                           ROWNUM = 1))
-[2015-06-01 21:16:06] 1 row(s) affected in 15 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 15 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4876', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -637,7 +638,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2012' AND
                                                                           ROWNUM = 1))
-[2015-06-01 21:16:06] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 16 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '13416', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -656,7 +657,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 1 AND year = '2013' AND
                                                                           ROWNUM = 1))
-[2015-06-01 21:16:06] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 15 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '13414', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -675,7 +676,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 1 AND year = '2013' AND
                                                                           ROWNUM = 1))
-[2015-06-01 21:16:06] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 13 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '13412', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -694,7 +695,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 1 AND year = '2013' AND
                                                                           ROWNUM = 1))
-[2015-06-01 21:16:06] 1 row(s) affected in 15 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 18 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '5286', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -713,7 +714,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2014' AND
                                                                           ROWNUM = 1))
-[2015-06-01 21:16:06] 1 row(s) affected in 17 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 15 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '5518', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -732,7 +733,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2014' AND
                                                                           ROWNUM = 1))
-[2015-06-01 21:16:06] 1 row(s) affected in 15 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 16 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '5285', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -751,7 +752,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2014' AND
                                                                           ROWNUM = 1))
-[2015-06-01 21:16:06] 1 row(s) affected in 17 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 18 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '5132', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -770,7 +771,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2014' AND
                                                                           ROWNUM = 1))
-[2015-06-01 21:16:06] 1 row(s) affected in 15 ms
+[2015-06-03 14:11:45] 1 row(s) affected in 26 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '12104', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -789,7 +790,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 1 AND year = '2014' AND
                                                                           ROWNUM = 1))
-[2015-06-01 21:16:06] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 19 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '12102', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -808,7 +809,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 1 AND year = '2014' AND
                                                                           ROWNUM = 1))
-[2015-06-01 21:16:06] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 16 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '12317', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -827,7 +828,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 1 AND year = '2014' AND
                                                                           ROWNUM = 1))
-[2015-06-01 21:16:06] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 16 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4295', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -846,7 +847,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2015' AND
                                                                           ROWNUM = 1))
-[2015-06-01 21:16:06] 1 row(s) affected in 15 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 15 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4431', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -865,7 +866,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2015' AND
                                                                           ROWNUM = 1))
-[2015-06-01 21:16:06] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 16 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4294', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -884,7 +885,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2015' AND
                                                                           ROWNUM = 1))
-[2015-06-01 21:16:06] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 16 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '26115', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -903,7 +904,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2015' AND
                                                                           ROWNUM = 1))
-[2015-06-01 21:16:06] 1 row(s) affected in 15 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 15 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4154', (SELECT ID
                                                                                                  FROM COURSES
                                                                                                  WHERE
@@ -922,7 +923,7 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 2 AND year = '2015' AND
                                                                           ROWNUM = 1))
-[2015-06-01 21:16:06] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 21 ms
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '10930', (SELECT ID
                                                                                                   FROM COURSES
                                                                                                   WHERE
@@ -941,70 +942,70 @@ INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.n
                                                                     FROM semesters_years
                                                                     WHERE SEMESTER_ID = 3 AND year = '2015' AND
                                                                           ROWNUM = 1))
-[2015-06-01 21:16:06] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 16 ms
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'P. Loree')
-[2015-06-01 21:16:06] 1 row(s) affected in 15 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 21 ms
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'K. Nygard')
-[2015-06-01 21:16:06] 1 row(s) affected in 15 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 19 ms
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'X. Du')
-[2015-06-01 21:16:06] 1 row(s) affected in 15 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 15 ms
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'K.K. Gagneja')
-[2015-06-01 21:16:06] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 15 ms
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'F. Ranganathan')
-[2015-06-01 21:16:06] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 16 ms
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'S.B. Ghosn')
-[2015-06-01 21:16:06] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 14 ms
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'L.M. Alnemer')
-[2015-06-01 21:16:06] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 18 ms
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'R.I. Seetan')
-[2015-06-01 21:16:06] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 14 ms
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'F.M. Bassi')
-[2015-06-01 21:16:06] 1 row(s) affected in 17 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 16 ms
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'C. Chitraranjan')
-[2015-06-01 21:16:06] 1 row(s) affected in 15 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 15 ms
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'A. Helsene')
-[2015-06-01 21:16:06] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 16 ms
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'Y.Q. Gu')
-[2015-06-01 21:16:06] 1 row(s) affected in 7 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 15 ms
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'M.C. Luo')
-[2015-06-01 21:16:06] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 15 ms
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'M.J. Iqbqal')
-[2015-06-01 21:16:06] 1 row(s) affected in 15 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 16 ms
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'G.R. Lazo')
-[2015-06-01 21:16:06] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 7 ms
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'A.M. Denton')
-[2015-06-01 21:16:06] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 24 ms
 INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'S.F. Kianin')
-[2015-06-01 21:16:06] 1 row(s) affected in 15 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 17 ms
 INSERT INTO PUBLISHERS (ID, TITLE, LOCATION, YEAR)
 VALUES (SEQ_PUBLISHERS.nextval, '2009 IEEE GLOBECOM', 'Honolulu, HI', '1999')
-[2015-06-01 21:16:06] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 15 ms
 INSERT INTO PUBLISHERS (ID, TITLE, LOCATION, YEAR) VALUES
   (SEQ_PUBLISHERS.nextval, 'Electro/Information Technology (EIT), 2012 IEEE Int''l Conference', 'Indianapolis, IN',
    '2012')
-[2015-06-01 21:16:06] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 16 ms
 INSERT INTO PUBLISHERS (ID, TITLE, LOCATION, YEAR)
 VALUES (SEQ_PUBLISHERS.nextval, 'Functional & Integrative Geonomics', 'New York City, NY', '2013')
-[2015-06-01 21:16:06] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 16 ms
 INSERT INTO ARTICLES (ID, TITLE, RELATIVEFILELOCATION, PUBLISHER_ID, PAGEREFERENCE) VALUES
   (SEQ_ARTICLES.nextval, 'Efficient Post-Deployment Key Establishment Scheme for Heterogeneous Sensor Networks',
    'PID969207.pdf', (SELECT ID
                      FROM PUBLISHERS
                      WHERE TITLE = '2009 IEEE GLOBECOM' AND ROWNUM = 1), NULL)
-[2015-06-01 21:16:06] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 15 ms
 INSERT INTO ARTICLES (ID, TITLE, RELATIVEFILELOCATION, PUBLISHER_ID, PAGEREFERENCE) VALUES
   (SEQ_ARTICLES.nextval, 'Limiting transmit power of antennas in Heterogeneous Sensor Networks', 'PID969207.pdf',
    (SELECT ID
     FROM PUBLISHERS
     WHERE TITLE = 'Electro/Information Technology (EIT), 2012 IEEE Int''l Conference' AND ROWNUM = 1), NULL)
-[2015-06-01 21:16:06] 1 row(s) affected in 17 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 16 ms
 INSERT INTO ARTICLES (ID, TITLE, RELATIVEFILELOCATION, PUBLISHER_ID, PAGEREFERENCE) VALUES
   (SEQ_ARTICLES.nextval, 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes',
    'PID06220775.pdf', (SELECT ID
                        FROM PUBLISHERS
                        WHERE TITLE = 'Functional & Integrative Geonomics' AND ROWNUM = 1),
    'Springer-Verlag, 2013, pp. 11-17')
-[2015-06-01 21:16:06] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 16 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1013,7 +1014,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Efficient Post-Deployment Key Establishment Scheme for Heterogeneous Sensor Networks'),
   seq_author_articles.nextval)
-[2015-06-01 21:16:06] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 15 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1022,7 +1023,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Efficient Post-Deployment Key Establishment Scheme for Heterogeneous Sensor Networks'),
   seq_author_articles.nextval)
-[2015-06-01 21:16:06] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 16 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1031,7 +1032,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Efficient Post-Deployment Key Establishment Scheme for Heterogeneous Sensor Networks'),
   seq_author_articles.nextval)
-[2015-06-01 21:16:06] 1 row(s) affected in 15 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 16 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1040,7 +1041,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Limiting transmit power of antennas in Heterogeneous Sensor Networks'),
   seq_author_articles.nextval)
-[2015-06-01 21:16:06] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 15 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1049,7 +1050,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Limiting transmit power of antennas in Heterogeneous Sensor Networks'),
   SEQ_AUTHOR_ARTICLES.nextval)
-[2015-06-01 21:16:06] 1 row(s) affected in 17 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 16 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1058,7 +1059,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Limiting transmit power of antennas in Heterogeneous Sensor Networks'),
   seq_author_articles.nextval)
-[2015-06-01 21:16:06] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 16 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1067,7 +1068,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Limiting transmit power of antennas in Heterogeneous Sensor Networks'),
   seq_author_articles.nextval)
-[2015-06-01 21:16:06] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 15 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1076,7 +1077,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Limiting transmit power of antennas in Heterogeneous Sensor Networks'),
   seq_author_articles.nextval)
-[2015-06-01 21:16:06] 1 row(s) affected in 66 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 17 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1085,7 +1086,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
   seq_author_articles.nextval)
-[2015-06-01 21:16:07] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 14 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1094,7 +1095,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
   seq_author_articles.nextval)
-[2015-06-01 21:16:07] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 15 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1103,7 +1104,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
   seq_author_articles.nextval)
-[2015-06-01 21:16:07] 1 row(s) affected in 8 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 32 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1112,7 +1113,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
   seq_author_articles.nextval)
-[2015-06-01 21:16:07] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 16 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1121,7 +1122,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
   seq_author_articles.nextval)
-[2015-06-01 21:16:07] 1 row(s) affected in 15 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 16 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1130,7 +1131,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
   seq_author_articles.nextval)
-[2015-06-01 21:16:07] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 24 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1139,7 +1140,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
   seq_author_articles.nextval)
-[2015-06-01 21:16:07] 1 row(s) affected in 15 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 15 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1148,7 +1149,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
   seq_author_articles.nextval)
-[2015-06-01 21:16:07] 1 row(s) affected in 17 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 16 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1157,7 +1158,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
   seq_author_articles.nextval)
-[2015-06-01 21:16:07] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 24 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1166,7 +1167,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
   seq_author_articles.nextval)
-[2015-06-01 21:16:07] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 15 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1175,7 +1176,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
   seq_author_articles.nextval)
-[2015-06-01 21:16:07] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 16 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1184,7 +1185,7 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
   seq_author_articles.nextval)
-[2015-06-01 21:16:07] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 24 ms
 INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
   (SELECT ID
    FROM AUTHORS
@@ -1193,17 +1194,17 @@ INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
    FROM ARTICLES
    WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
   seq_author_articles.nextval)
-[2015-06-01 21:16:07] 1 row(s) affected in 15 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 15 ms
 INSERT INTO GRADE_SCALES (ID, LOW, HIGH, LETTER) VALUES (SEQ_GRADE_SCALES.nextval, 90, 100, 'A')
-[2015-06-01 21:16:07] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 16 ms
 INSERT INTO GRADE_SCALES (ID, LOW, HIGH, LETTER) VALUES (SEQ_GRADE_SCALES.nextval, 80, 89, 'B')
-[2015-06-01 21:16:07] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 24 ms
 INSERT INTO GRADE_SCALES (ID, LOW, HIGH, LETTER) VALUES (SEQ_GRADE_SCALES.nextval, 70, 79, 'C')
-[2015-06-01 21:16:07] 1 row(s) affected in 15 ms
+[2015-06-03 14:11:46] 1 row(s) affected in 8 ms
 INSERT INTO GRADE_SCALES (ID, LOW, HIGH, LETTER) VALUES (SEQ_GRADE_SCALES.nextval, 60, 69, 'D')
-[2015-06-01 21:16:07] 1 row(s) affected in 15 ms
+[2015-06-03 14:11:47] 1 row(s) affected in 15 ms
 INSERT INTO GRADE_SCALES (ID, LOW, HIGH, LETTER) VALUES (SEQ_GRADE_SCALES.nextval, 0, 59, 'F')
-[2015-06-01 21:16:07] 1 row(s) affected in 16 ms
+[2015-06-03 14:11:47] 1 row(s) affected in 16 ms
 INSERT INTO SYLLABUS_INFO (ID, COURSE_ID, OFFICEHOUR_ID, COURSEOBJECTIVE, PREREQUISITECOURSE, COMPUTERLABS, SOFTWAREREQUIREMENTS, HOMEWORKINFO, ISACTIVE)
 VALUES (SEQ_SYLLABUS_INFO.nextval, (SELECT ID
                                     FROM COURSES
@@ -1219,6 +1220,6 @@ VALUES (SEQ_SYLLABUS_INFO.nextval, (SELECT ID
         ' Introduction to Windows programming in Visual C# .NET Windows Forms and WPF development, icons, controls, dialogs, threads, sockets, DLL''s',
         'CSCI 161 or dept. approval', 'Model Hall 119', 'Visual Studio 2013, SFTP/SCP client (FileZilla or WinSCP)',
         'Instructions for submitting assignments and authentication information will be provided in class.', TRUE)
-[2015-06-01 21:16:07] [42000][984] ORA-00984: column not allowed here
+[2015-06-03 14:11:47] [42000][984] ORA-00984: column not allowed here
 
-[2015-06-01 21:16:07] Summary: 108 of 108 statements executed, 1 failed in 1879 ms (78902 chars in file)
+[2015-06-03 14:11:47] Summary: 108 of 108 statements executed, 1 failed in 1946 ms (78902 chars in file)

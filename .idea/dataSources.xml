@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="2619656500">
+  <component name="DataSourceManagerImpl" format="xml" hash="1752997877">
     <data-source source="LOCAL" name="Oracle - @loree.minotstateu.edu" uuid="979324d8-7a6e-466b-8ee3-06e5e77392c4">
       <driver-ref>oracle</driver-ref>
       <auto-commit>false</auto-commit>
@@ -13,6 +13,13 @@
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://babar.elephantsql.com:5432/ccmkxjmg</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="SQL Server - @165.234.213.133" uuid="db9b8c9b-bd1d-4f31-a39c-5a88a6392973">
+      <driver-ref>sqlserver.ms</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://165.234.213.133:1433</jdbc-url>
       <libraries />
     </data-source>
   </component>
