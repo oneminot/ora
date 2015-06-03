@@ -861,4 +861,4 @@ VALUES (SEQ_SYLLABUS_INFO.nextval,
          WHERE NAME = 'Office Hours' AND ROWNUM = 1),
         'Introduction to Windows programming in Visual C# .NET Windows Forms and WPF development, icons, controls, dialogs, threads, sockets, DLL''s',
         'CSCI 161 or dept. approval', 'Model Hall 119', 'Visual Studio 2013, SFTP/SCP client (FileZilla or WinSCP)',
-        'Instructions for submitting assignments and authentication information will be provided in class.', TRUE);
+        'Instructions for submitting assignments and authentication information will be provided in class.', 1);
