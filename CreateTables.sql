@@ -116,6 +116,8 @@ CREATE TABLE syllabus_info
   OfficeHour_ID        NUMBER(5)      NOT NULL,
   CourseObjective VARCHAR2(2000) NOT NULL,
   PrerequisiteCourse   VARCHAR2(2000) NOT NULL,
+  Assignments     VARCHAR2(4000) NOT NULL,
+  Exams           VARCHAR2(4000) NOT NULL,
   ComputerLabs         VARCHAR2(2000) NOT NULL,
   SoftwareRequirements VARCHAR2(2000) NOT NULL,
   HomeworkInfo         VARCHAR2(2000) NOT NULL,

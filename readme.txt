@@ -1,5 +1,5 @@
-[2015-06-03 14:50:23] Run C:\Users\minot_000\Source\Repos\ora\CreateTables.sql
-[2015-06-03 14:50:23] Connecting to Oracle - @loree.minotstateu.edu...
+[2015-06-03 16:04:15] Run C:\Users\minot_000\Source\Repos\ora\CreateTables.sql
+[2015-06-03 16:04:15] Connecting to Oracle - @loree.minotstateu.edu...
 CREATE TABLE departments
 (
   ID   NUMBER(5),
@@ -7,7 +7,7 @@ CREATE TABLE departments
   CONSTRAINT pk_departments PRIMARY KEY (ID),
   CONSTRAINT unq_departments UNIQUE (Name)
 )
-[2015-06-03 14:50:23] 0 row(s) affected in 132 ms
+[2015-06-03 16:04:15] 0 row(s) affected in 125 ms
 CREATE TABLE courses
 (
   ID          NUMBER(5),
@@ -19,7 +19,7 @@ CREATE TABLE courses
   CONSTRAINT unq_courses UNIQUE (Dept_ID, Num),
   CONSTRAINT fk_courses_departments FOREIGN KEY (Dept_ID) REFERENCES departments (ID)
 )
-[2015-06-03 14:50:23] 0 row(s) affected in 124 ms
+[2015-06-03 16:04:15] 0 row(s) affected in 108 ms
 CREATE TABLE semesters
 (
   ID   NUMBER(5),
@@ -27,7 +27,7 @@ CREATE TABLE semesters
   CONSTRAINT pk_semesters PRIMARY KEY (ID),
   CONSTRAINT unq_semesters UNIQUE (Name)
 )
-[2015-06-03 14:50:23] 0 row(s) affected in 116 ms
+[2015-06-03 16:04:15] 0 row(s) affected in 107 ms
 CREATE TABLE semesters_years (
   ID          NUMBER(5),
   Semester_ID NUMBER(5),
@@ -36,7 +36,7 @@ CREATE TABLE semesters_years (
   CONSTRAINT unq_semesters_years UNIQUE (Semester_ID, Year),
   CONSTRAINT fk_semesters_years_semesters FOREIGN KEY (Semester_ID) REFERENCES semesters (ID)
 )
-[2015-06-03 14:50:23] 0 row(s) affected in 83 ms
+[2015-06-03 16:04:16] 0 row(s) affected in 116 ms
 CREATE TABLE classes
 (
   ID               NUMBER(5),
@@ -48,7 +48,7 @@ CREATE TABLE classes
   CONSTRAINT fk_classes_courses FOREIGN KEY (Course_ID) REFERENCES courses (ID),
   CONSTRAINT fk_classes_semesters_years FOREIGN KEY (Semester_Year_ID) REFERENCES semesters_years (ID)
 )
-[2015-06-03 14:50:24] 0 row(s) affected in 125 ms
+[2015-06-03 16:04:16] 0 row(s) affected in 151 ms
 CREATE TABLE events
 (
   ID        NUMBER(5),
@@ -61,7 +61,7 @@ CREATE TABLE events
   CONSTRAINT unq_events UNIQUE (StartDate, EndDate, Class_ID),
   CONSTRAINT fk_events_classes FOREIGN KEY (Class_ID) REFERENCES classes (ID)
 )
-[2015-06-03 14:50:24] 0 row(s) affected in 110 ms
+[2015-06-03 16:04:16] 0 row(s) affected in 98 ms
 CREATE TABLE repeat_events
 (
   ID            NUMBER(5),
@@ -71,7 +71,7 @@ CREATE TABLE repeat_events
   CONSTRAINT pk_repeat_events PRIMARY KEY (ID),
   CONSTRAINT fk_repeat_events_events FOREIGN KEY (Event_ID) REFERENCES events (ID)
 )
-[2015-06-03 14:50:24] 0 row(s) affected in 98 ms
+[2015-06-03 16:04:16] 0 row(s) affected in 140 ms
 CREATE TABLE repeat_days
 (
   RepeatEvent_ID  NUMBER(5),
@@ -79,7 +79,7 @@ CREATE TABLE repeat_days
   CONSTRAINT pk_repeat_days PRIMARY KEY (RepeatEvent_ID, DayNumberOfWeek),
   CONSTRAINT fk_repeat_days_repeat_events FOREIGN KEY (RepeatEvent_ID) REFERENCES repeat_events (ID)
 )
-[2015-06-03 14:50:24] 0 row(s) affected in 83 ms
+[2015-06-03 16:04:16] 0 row(s) affected in 91 ms
 CREATE TABLE assignments
 (
   ID               NUMBER(5),
@@ -94,7 +94,7 @@ CREATE TABLE assignments
   CONSTRAINT pk_assignments PRIMARY KEY (ID),
   CONSTRAINT fk_assignments_courses FOREIGN KEY (Course_ID) REFERENCES courses (ID)
 )
-[2015-06-03 14:50:24] 0 row(s) affected in 192 ms
+[2015-06-03 16:04:16] 0 row(s) affected in 109 ms
 CREATE TABLE grade_scales
 (
   ID     NUMBER(5),
@@ -104,7 +104,7 @@ CREATE TABLE grade_scales
   CONSTRAINT pk_grade_scales PRIMARY KEY (ID),
   CONSTRAINT unq_grade_scales UNIQUE (Low, High, Letter)
 )
-[2015-06-03 14:50:24] 0 row(s) affected in 101 ms
+[2015-06-03 16:04:16] 0 row(s) affected in 150 ms
 CREATE TABLE assignment_categories
 (
   ID       NUMBER(5),
@@ -113,7 +113,7 @@ CREATE TABLE assignment_categories
   CONSTRAINT pk_assignment_categories PRIMARY KEY (ID),
   CONSTRAINT unq_assignment_categories UNIQUE (Category, Weight)
 )
-[2015-06-03 14:50:24] 0 row(s) affected in 150 ms
+[2015-06-03 16:04:16] 0 row(s) affected in 81 ms
 CREATE TABLE textbooks (
   ID     NUMBER(5),
   Title  VARCHAR2(80) NOT NULL,
@@ -122,7 +122,7 @@ CREATE TABLE textbooks (
   CONSTRAINT pk_textbook PRIMARY KEY (ID),
   CONSTRAINT unq_textbook_isbn UNIQUE (ISBN)
 )
-[2015-06-03 14:50:24] 0 row(s) affected in 108 ms
+[2015-06-03 16:04:17] 0 row(s) affected in 168 ms
 CREATE TABLE syllabus_info
 (
   ID                   NUMBER(5),
@@ -130,6 +130,8 @@ CREATE TABLE syllabus_info
   OfficeHour_ID        NUMBER(5)      NOT NULL,
   CourseObjective VARCHAR2(2000) NOT NULL,
   PrerequisiteCourse   VARCHAR2(2000) NOT NULL,
+  Assignments VARCHAR2(4000) NOT NULL,
+  Exams VARCHAR2(4000) NOT NULL,
   ComputerLabs         VARCHAR2(2000) NOT NULL,
   SoftwareRequirements VARCHAR2(2000) NOT NULL,
   HomeworkInfo         VARCHAR2(2000) NOT NULL,
@@ -139,14 +141,14 @@ CREATE TABLE syllabus_info
   CONSTRAINT fk_syllabus_info_courses FOREIGN KEY (Course_ID) REFERENCES courses (ID),
   CONSTRAINT fk_syllabus_info_courses2 FOREIGN KEY (OfficeHour_ID) REFERENCES courses (ID)
 )
-[2015-06-03 14:50:24] 0 row(s) affected in 100 ms
+[2015-06-03 16:04:17] 0 row(s) affected in 91 ms
 CREATE TABLE syllabus_info_textbooks (
   Textbook_ID      NUMBER(5) NOT NULL,
   Syllabus_Info_ID NUMBER(5) NOT NULL,
   CONSTRAINT fk_syllabus_info_textbooks FOREIGN KEY (Textbook_ID) REFERENCES textbooks (ID),
   CONSTRAINT fk_textbooks_syllabus_info FOREIGN KEY (Syllabus_Info_ID) REFERENCES syllabus_info (ID)
 )
-[2015-06-03 14:50:24] 0 row(s) affected in 41 ms
+[2015-06-03 16:04:17] 0 row(s) affected in 24 ms
 CREATE TABLE syllabus_assign_categories
 (
   Syllabus_ID             NUMBER(5),
@@ -155,7 +157,7 @@ CREATE TABLE syllabus_assign_categories
   CONSTRAINT fk_sac_syllabus_info FOREIGN KEY (Syllabus_ID) REFERENCES syllabus_info (ID),
   CONSTRAINT fk_sac_assign_cat FOREIGN KEY (AssignmentCategories_ID) REFERENCES assignment_categories (ID)
 )
-[2015-06-03 14:50:25] 0 row(s) affected in 83 ms
+[2015-06-03 16:04:17] 0 row(s) affected in 92 ms
 CREATE TABLE publishers
 (
   ID       NUMBER(5),
@@ -165,7 +167,7 @@ CREATE TABLE publishers
   CONSTRAINT pk_publishers PRIMARY KEY (ID),
   CONSTRAINT unq_publishers UNIQUE (Title, Location, Year)
 )
-[2015-06-03 14:50:25] 0 row(s) affected in 117 ms
+[2015-06-03 16:04:17] 0 row(s) affected in 109 ms
 CREATE TABLE articles
 (
   ID                   NUMBER(5),
@@ -177,7 +179,7 @@ CREATE TABLE articles
   CONSTRAINT unq_articles UNIQUE (Title, RelativeFileLocation, Publisher_ID, PageReference),
   CONSTRAINT fk_articles_publisher FOREIGN KEY (Publisher_ID) REFERENCES publishers (ID)
 )
-[2015-06-03 14:50:25] 0 row(s) affected in 116 ms
+[2015-06-03 16:04:17] 0 row(s) affected in 109 ms
 CREATE TABLE authors
 (
   ID   NUMBER(5),
@@ -185,7 +187,7 @@ CREATE TABLE authors
   CONSTRAINT pk_authors PRIMARY KEY (ID),
   CONSTRAINT unq_authors UNIQUE (Name)
 )
-[2015-06-03 14:50:25] 0 row(s) affected in 109 ms
+[2015-06-03 16:04:17] 0 row(s) affected in 107 ms
 CREATE TABLE author_articles
 (
   Author_ID  NUMBER(5) NOT NULL,
@@ -195,7 +197,7 @@ CREATE TABLE author_articles
   CONSTRAINT fk_author_articles_authors FOREIGN KEY (Author_ID) REFERENCES authors (ID),
   CONSTRAINT fk_author_articles_articles FOREIGN KEY (Article_ID) REFERENCES articles (ID)
 )
-[2015-06-03 14:50:25] 0 row(s) affected in 157 ms
+[2015-06-03 16:04:17] 0 row(s) affected in 108 ms
 CREATE TABLE users
 (
   ID           NUMBER(5)      NOT NULL,
@@ -205,1019 +207,174 @@ CREATE TABLE users
   LastAttempt  TIMESTAMP      NOT NULL,
   CONSTRAINT pk_users PRIMARY KEY (ID)
 )
-[2015-06-03 14:50:25] 0 row(s) affected in 67 ms
+[2015-06-03 16:04:17] 0 row(s) affected in 51 ms
 
-[2015-06-03 14:50:25] Summary: 20 of 20 statements executed in 2267 ms (6608 chars in file)
-[2015-06-03 14:50:36] Run C:\Users\minot_000\Source\Repos\ora\CreateSequences.sql
-[2015-06-03 14:50:36] Connecting to Oracle - @loree.minotstateu.edu...
+[2015-06-03 16:04:17] Summary: 20 of 20 statements executed in 2195 ms (6680 chars in file)
+[2015-06-03 16:21:42] Run C:\Users\minot_000\Source\Repos\ora\CreateSequences.sql
+[2015-06-03 16:21:42] Connecting to Oracle - @loree.minotstateu.edu...
 CREATE SEQUENCE seq_departments
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-06-03 14:50:36] 0 row(s) affected in 16 ms
+[2015-06-03 16:21:42] 0 row(s) affected in 18 ms
 CREATE SEQUENCE seq_courses
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-06-03 14:50:36] 0 row(s) affected in 16 ms
+[2015-06-03 16:21:42] 0 row(s) affected in 15 ms
 CREATE SEQUENCE seq_semesters
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-06-03 14:50:36] 0 row(s) affected in 15 ms
+[2015-06-03 16:21:42] 0 row(s) affected in 18 ms
 CREATE SEQUENCE seq_semesters_years
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-06-03 14:50:36] 0 row(s) affected in 16 ms
+[2015-06-03 16:21:42] 0 row(s) affected in 15 ms
 CREATE SEQUENCE seq_classes
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-06-03 14:50:37] 0 row(s) affected in 16 ms
+[2015-06-03 16:21:42] 0 row(s) affected in 16 ms
 CREATE SEQUENCE seq_events
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-06-03 14:50:37] 0 row(s) affected in 15 ms
+[2015-06-03 16:21:42] 0 row(s) affected in 15 ms
 CREATE SEQUENCE seq_repeat_events
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-06-03 14:50:37] 0 row(s) affected in 15 ms
+[2015-06-03 16:21:42] 0 row(s) affected in 16 ms
 CREATE SEQUENCE seq_repeat_days
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-06-03 14:50:37] 0 row(s) affected in 16 ms
+[2015-06-03 16:21:42] 0 row(s) affected in 15 ms
 CREATE SEQUENCE seq_assignments
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-06-03 14:50:37] 0 row(s) affected in 15 ms
+[2015-06-03 16:21:42] 0 row(s) affected in 20 ms
 CREATE SEQUENCE seq_grade_scales
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-06-03 14:50:37] 0 row(s) affected in 16 ms
+[2015-06-03 16:21:42] 0 row(s) affected in 23 ms
 CREATE SEQUENCE seq_assignment_categories
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-06-03 14:50:37] 0 row(s) affected in 16 ms
+[2015-06-03 16:21:42] 0 row(s) affected in 13 ms
 CREATE SEQUENCE seq_textbooks
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-06-03 14:50:37] 0 row(s) affected in 16 ms
+[2015-06-03 16:21:42] 0 row(s) affected in 15 ms
 CREATE SEQUENCE seq_syllabus_info
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-06-03 14:50:37] 0 row(s) affected in 15 ms
+[2015-06-03 16:21:42] 0 row(s) affected in 16 ms
 CREATE SEQUENCE seq_publishers
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-06-03 14:50:37] 0 row(s) affected in 16 ms
+[2015-06-03 16:21:42] 0 row(s) affected in 16 ms
 CREATE SEQUENCE seq_articles
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-06-03 14:50:37] 0 row(s) affected in 16 ms
+[2015-06-03 16:21:42] 0 row(s) affected in 15 ms
 CREATE SEQUENCE seq_authors
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-06-03 14:50:37] 0 row(s) affected in 15 ms
+[2015-06-03 16:21:42] 0 row(s) affected in 16 ms
 CREATE SEQUENCE seq_author_articles
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-06-03 14:50:37] 0 row(s) affected in 16 ms
+[2015-06-03 16:21:42] 0 row(s) affected in 16 ms
 CREATE SEQUENCE seq_users
 START WITH 1
 INCREMENT BY 1 NOCACHE
-[2015-06-03 14:50:37] 0 row(s) affected in 18 ms
+[2015-06-03 16:21:42] 0 row(s) affected in 22 ms
 
-[2015-06-03 14:50:37] Summary: 18 of 18 statements executed in 336 ms (1198 chars in file)
-[2015-06-03 14:50:54] Run C:\Users\minot_000\Source\Repos\ora\InsertData.sql
-[2015-06-03 14:50:54] Connecting to Oracle - @loree.minotstateu.edu...
-INSERT INTO DEPARTMENTS
-(ID, NAME) VALUES (SEQ_DEPARTMENTS.nextval, 'CSCI')
-[2015-06-03 14:50:54] 1 row(s) affected in 19 ms
-INSERT INTO DEPARTMENTS
-(ID, NAME) VALUES (SEQ_DEPARTMENTS.nextval, 'MATH')
-[2015-06-03 14:50:54] 1 row(s) affected in 16 ms
-INSERT INTO SEMESTERS (ID, NAME) VALUES (SEQ_SEMESTERS.nextval, 'Fall')
-[2015-06-03 14:50:54] 1 row(s) affected in 16 ms
-INSERT INTO SEMESTERS (ID, NAME) VALUES (SEQ_SEMESTERS.nextval, 'Spring')
-[2015-06-03 14:50:54] 1 row(s) affected in 15 ms
-INSERT INTO SEMESTERS (ID, NAME) VALUES (SEQ_SEMESTERS.nextval, 'Summer')
-[2015-06-03 14:50:54] 1 row(s) affected in 16 ms
-INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 1, '2010')
-[2015-06-03 14:50:54] 1 row(s) affected in 16 ms
-INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 2, '2011')
-[2015-06-03 14:50:54] 1 row(s) affected in 16 ms
-INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 1, '2011')
-[2015-06-03 14:50:54] 1 row(s) affected in 15 ms
-INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 2, '2012')
-[2015-06-03 14:50:54] 1 row(s) affected in 16 ms
-INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 1, '2013')
-[2015-06-03 14:50:54] 1 row(s) affected in 16 ms
-INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 2, '2014')
-[2015-06-03 14:50:54] 1 row(s) affected in 14 ms
-INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 1, '2014')
-[2015-06-03 14:50:54] 1 row(s) affected in 18 ms
-INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 2, '2015')
-[2015-06-03 14:50:54] 1 row(s) affected in 14 ms
-INSERT INTO SEMESTERS_YEARS (ID, SEMESTER_ID, YEAR) VALUES (SEQ_SEMESTERS_YEARS.nextval, 3, '2015')
-[2015-06-03 14:50:54] 1 row(s) affected in 15 ms
-INSERT INTO COURSES
-(ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '000', 'Office Hours', 'These are office hours.')
-[2015-06-03 14:50:54] 1 row(s) affected in 16 ms
-INSERT INTO COURSES
-(ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '111', 'Introduction to Web Languages',
-                                              'Basic tools and principles of programming with focus on development of web applications using the PHP programming language. This course will cover the following topics: HTML, CSS, PHP, file handling, database management, logic, repetition, UNIX commands, and software design')
-[2015-06-03 14:50:54] 1 row(s) affected in 16 ms
-INSERT INTO COURSES
-(ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '160', 'Computer Science I',
-                                              'Basic tools and principles of programming with focus on developing software using the C++ programming language. This course will cover the following topics: Data Types, Assignments, Selection, Repetition, Functions and Procedures, Arrays and Pointers')
-[2015-06-03 14:50:54] 1 row(s) affected in 15 ms
-INSERT INTO COURSES
-(ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '161', 'Computer Science II',
-                                              'Basic tools and principles of programming with focus on developing software using the C++ programming language. This course will cover the following topics: Classes, Inheritance, Polymorphism, Operator overloading Templates Hierarchy, Exceptions and object oriented programming in the microsoft foundation classes')
-[2015-06-03 14:50:54] 1 row(s) affected in 16 ms
-INSERT INTO COURSES
-(ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '221', 'Web and Internet Programming',
-                                              'Introduction to web and internet programming. Topics covered will be web application development using HTML, CSS, PHP, JavaScript, AJAX, JQuery, JSON, XML, SQL, and web application and server security. ASP .NET website development using C# may also be introduced if time allows during the semester.')
-[2015-06-03 14:50:55] 1 row(s) affected in 14 ms
-INSERT INTO COURSES
-(ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '260', 'UNIX Environment',
-                                              'UNIX')
-[2015-06-03 14:50:55] 1 row(s) affected in 16 ms
-INSERT INTO COURSES
-(ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '321', 'Windows Programming',
-                                              'Introduction to Windows programming in Visual C# .NET Windows Forms and WPF development, icons, controls, dialogs, threads, sockets, DLL''s')
-[2015-06-03 14:50:55] 1 row(s) affected in 17 ms
-INSERT INTO COURSES
-(ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '340', 'Local Area Networks',
-                                              'Introduction to basic networking including the layered OSI and TCP models, IPv4, IPv6 addressing, CIDR addressing, Network Address Translation, routing algorithms, common network protocols such as the IEEE 802.1x protocols, IP, TCP, UDP, FTP, HTTP, SMTP, etc. Additionally, an introduction to network security and network organization concepts will be covered such as local area networks (LANs), wide area networks (WANs), and ad hoc networking.')
-[2015-06-03 14:50:55] 1 row(s) affected in 16 ms
-INSERT INTO COURSES
-(ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '356', 'Database Management',
-                                              'Introduction of database management systems including relational, hierarchical, and network models. Usage of tools and procedures for designing relational database models for provided datasets. Implementation of database models into a database management system (DBMS). Managing data using the SQL and PL/SQL languages. Concepts covered will include normalization, set theory, DBMS indexing, creating and deleting tables, inserting data into tables, and retrieving data from databases using select, nested select, joins, database security and other advanced SQL techniques.')
-[2015-06-03 14:50:55] 1 row(s) affected in 16 ms
-INSERT INTO COURSES
-(ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '370', 'Computer Organization and Architecture',
-                                              'Introduction to the internal organization of computers and computer architectures. This course will cover the following topics: representation of data, Boolean algebra and digital logic, assembly, memory organization and architecture, I/O and storage, system software, network organization and architecture, data structures')
-[2015-06-03 14:50:55] 1 row(s) affected in 15 ms
-INSERT INTO COURSES
-(ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES
-  (SEQ_COURSES.nextval, 1, '440', 'Data Communications - Wireless Networking and Communications',
-   'Introduction to advanced networking technologies and computer security. This course will cover the following topics: fundamentals of wireless transmission, communication networks, OSI model and TCP/IP, signaling techniques, wireless routing, wireless medium error detection and correction, satellite communications, cellular networks, ad hoc networks, sensor networks, IEEE 802.11, IEEE 802.16, IEEE 802.15.4 in the first 1 month of the course. The remainder of the course will focus on network/computer security and forensics including but not limited to the following topics: security concepts, threats, attacks and assets, cryptographic tools: symmetric and public-key encryption algorithms, authentication, malicious software, DoS attacks, intrusion detection, firewalls and prevention systems, buffer overflows, email security, X.509 certificates, legal and ethical issues in computer security')
-[2015-06-03 14:50:55] 1 row(s) affected in 18 ms
-INSERT INTO COURSES
-(ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '458', 'Computer Security',
-                                              'This course will provide an introduction to computer and network security methods and procedures. This course will cover the following topics: security attacks, services and mechanisms, symmetric encryption, asymmetric encryption, hash functions and digital signatures, key management, Kerberos, X.509 Authentication, PHP, S/MIME, IPSec, SSL, TLS, IDS, security threats, firewalls, etc.')
-[2015-06-03 14:50:55] 1 row(s) affected in 14 ms
-INSERT INTO COURSES
-(ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 1, '460', 'Capstone Project Development', 'The Capstone Project is a substantial, semester-long endeavor allowing students to apply and or enhance the knowledge they have gained within the Computer Science curriculum. Each project is to be completed by an individual or group of students.
-Topics for projects can be based on the interests of the students, chosen from ideas submitted by CS faculty, or coordinated with needs of other departments or from organizations outside the university. Students should be involved in the project selection, but the instructor has final authority on what is considered a suitable project. There will be greater expectations for teams of two or more students.')
-[2015-06-03 14:50:55] 1 row(s) affected in 16 ms
-INSERT INTO COURSES
-(ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 2, '208', 'Discrete Mathematics',
-                                              'Discrete Math')
-[2015-06-03 14:50:55] 1 row(s) affected in 16 ms
-INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '19567', (SELECT ID
-                                                                                                  FROM COURSES
-                                                                                                  WHERE
-                                                                                                    DEPT_ID = (SELECT ID
-                                                                                                               FROM
-                                                                                                                 DEPARTMENTS
-                                                                                                               WHERE
-                                                                                                                 NAME =
-                                                                                                                 'CSCI'
-                                                                                                                 AND
-                                                                                                                 ROWNUM
-                                                                                                                 = 1)
-                                                                                                    AND NUM = '160' AND
-                                                                                                    ROWNUM = 1),
-                                                                   (SELECT ID
-                                                                    FROM semesters_years
-                                                                    WHERE SEMESTER_ID = 1 AND year = '2010' AND
-                                                                          ROWNUM = 1))
-[2015-06-03 14:50:55] 1 row(s) affected in 16 ms
-INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '20627', (SELECT ID
-                                                                                                  FROM COURSES
-                                                                                                  WHERE
-                                                                                                    DEPT_ID = (SELECT ID
-                                                                                                               FROM
-                                                                                                                 DEPARTMENTS
-                                                                                                               WHERE
-                                                                                                                 NAME =
-                                                                                                                 'CSCI'
-                                                                                                                 AND
-                                                                                                                 ROWNUM
-                                                                                                                 = 1)
-                                                                                                    AND NUM = '111' AND
-                                                                                                    ROWNUM = 1),
-                                                                   (SELECT ID
-                                                                    FROM semesters_years
-                                                                    WHERE SEMESTER_ID = 1 AND year = '2010' AND
-                                                                          ROWNUM = 1))
-[2015-06-03 14:50:55] 1 row(s) affected in 15 ms
-INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '20012', (SELECT ID
-                                                                                                  FROM COURSES
-                                                                                                  WHERE
-                                                                                                    DEPT_ID = (SELECT ID
-                                                                                                               FROM
-                                                                                                                 DEPARTMENTS
-                                                                                                               WHERE
-                                                                                                                 NAME =
-                                                                                                                 'CSCI'
-                                                                                                                 AND
-                                                                                                                 ROWNUM
-                                                                                                                 = 1)
-                                                                                                    AND NUM = '111' AND
-                                                                                                    ROWNUM = 1),
-                                                                   (SELECT ID
-                                                                    FROM semesters_years
-                                                                    WHERE SEMESTER_ID = 1 AND year = '2010' AND
-                                                                          ROWNUM = 1))
-[2015-06-03 14:50:55] 1 row(s) affected in 16 ms
-INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '6132', (SELECT ID
-                                                                                                 FROM COURSES
-                                                                                                 WHERE
-                                                                                                   DEPT_ID = (SELECT ID
-                                                                                                              FROM
-                                                                                                                DEPARTMENTS
-                                                                                                              WHERE
-                                                                                                                NAME =
-                                                                                                                'CSCI'
-                                                                                                                AND
-                                                                                                                ROWNUM =
-                                                                                                                1) AND
-                                                                                                   NUM = '458' AND
-                                                                                                   ROWNUM = 1),
-                                                                   (SELECT ID
-                                                                    FROM semesters_years
-                                                                    WHERE SEMESTER_ID = 2 AND year = '2011' AND
-                                                                          ROWNUM = 1))
-[2015-06-03 14:50:55] 1 row(s) affected in 15 ms
-INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '19667', (SELECT ID
-                                                                                                  FROM COURSES
-                                                                                                  WHERE
-                                                                                                    DEPT_ID = (SELECT ID
-                                                                                                               FROM
-                                                                                                                 DEPARTMENTS
-                                                                                                               WHERE
-                                                                                                                 NAME =
-                                                                                                                 'CSCI'
-                                                                                                                 AND
-                                                                                                                 ROWNUM
-                                                                                                                 = 1)
-                                                                                                    AND NUM = '440' AND
-                                                                                                    ROWNUM = 1),
-                                                                   (SELECT ID
-                                                                    FROM semesters_years
-                                                                    WHERE SEMESTER_ID = 2 AND year = '2011' AND
-                                                                          ROWNUM = 1))
-[2015-06-03 14:50:55] 1 row(s) affected in 8 ms
-INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '3645', (SELECT ID
-                                                                                                 FROM COURSES
-                                                                                                 WHERE
-                                                                                                   DEPT_ID = (SELECT ID
-                                                                                                              FROM
-                                                                                                                DEPARTMENTS
-                                                                                                              WHERE
-                                                                                                                NAME =
-                                                                                                                'CSCI'
-                                                                                                                AND
-                                                                                                                ROWNUM =
-                                                                                                                1) AND
-                                                                                                   NUM = '370' AND
-                                                                                                   ROWNUM = 1),
-                                                                   (SELECT ID
-                                                                    FROM semesters_years
-                                                                    WHERE SEMESTER_ID = 2 AND year = '2011' AND
-                                                                          ROWNUM = 1))
-[2015-06-03 14:50:55] 1 row(s) affected in 8 ms
-INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '19670', (SELECT ID
-                                                                                                  FROM COURSES
-                                                                                                  WHERE
-                                                                                                    DEPT_ID = (SELECT ID
-                                                                                                               FROM
-                                                                                                                 DEPARTMENTS
-                                                                                                               WHERE
-                                                                                                                 NAME =
-                                                                                                                 'CSCI'
-                                                                                                                 AND
-                                                                                                                 ROWNUM
-                                                                                                                 = 1)
-                                                                                                    AND NUM = '160' AND
-                                                                                                    ROWNUM = 1),
-                                                                   (SELECT ID
-                                                                    FROM semesters_years
-                                                                    WHERE SEMESTER_ID = 2 AND year = '2011' AND
-                                                                          ROWNUM = 1))
-[2015-06-03 14:50:55] 1 row(s) affected in 16 ms
-INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '6630', (SELECT ID
-                                                                                                 FROM COURSES
-                                                                                                 WHERE
-                                                                                                   DEPT_ID = (SELECT ID
-                                                                                                              FROM
-                                                                                                                DEPARTMENTS
-                                                                                                              WHERE
-                                                                                                                NAME =
-                                                                                                                'CSCI'
-                                                                                                                AND
-                                                                                                                ROWNUM =
-                                                                                                                1) AND
-                                                                                                   NUM = '160' AND
-                                                                                                   ROWNUM = 1),
-                                                                   (SELECT ID
-                                                                    FROM semesters_years
-                                                                    WHERE SEMESTER_ID = 1 AND year = '2011' AND
-                                                                          ROWNUM = 1))
-[2015-06-03 14:50:55] 1 row(s) affected in 15 ms
-INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '7055', (SELECT ID
-                                                                                                 FROM COURSES
-                                                                                                 WHERE
-                                                                                                   DEPT_ID = (SELECT ID
-                                                                                                              FROM
-                                                                                                                DEPARTMENTS
-                                                                                                              WHERE
-                                                                                                                NAME =
-                                                                                                                'CSCI'
-                                                                                                                AND
-                                                                                                                ROWNUM =
-                                                                                                                1) AND
-                                                                                                   NUM = '111' AND
-                                                                                                   ROWNUM = 1),
-                                                                   (SELECT ID
-                                                                    FROM semesters_years
-                                                                    WHERE SEMESTER_ID = 1 AND year = '2011' AND
-                                                                          ROWNUM = 1))
-[2015-06-03 14:50:55] 1 row(s) affected in 16 ms
-INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '6863', (SELECT ID
-                                                                                                 FROM COURSES
-                                                                                                 WHERE
-                                                                                                   DEPT_ID = (SELECT ID
-                                                                                                              FROM
-                                                                                                                DEPARTMENTS
-                                                                                                              WHERE
-                                                                                                                NAME =
-                                                                                                                'CSCI'
-                                                                                                                AND
-                                                                                                                ROWNUM =
-                                                                                                                1) AND
-                                                                                                   NUM = '111' AND
-                                                                                                   ROWNUM = 1),
-                                                                   (SELECT ID
-                                                                    FROM semesters_years
-                                                                    WHERE SEMESTER_ID = 1 AND year = '2011' AND
-                                                                          ROWNUM = 1))
-[2015-06-03 14:50:55] 1 row(s) affected in 15 ms
-INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4668', (SELECT ID
-                                                                                                 FROM COURSES
-                                                                                                 WHERE
-                                                                                                   DEPT_ID = (SELECT ID
-                                                                                                              FROM
-                                                                                                                DEPARTMENTS
-                                                                                                              WHERE
-                                                                                                                NAME =
-                                                                                                                'CSCI'
-                                                                                                                AND
-                                                                                                                ROWNUM =
-                                                                                                                1) AND
-                                                                                                   NUM = '160' AND
-                                                                                                   ROWNUM = 1),
-                                                                   (SELECT ID
-                                                                    FROM semesters_years
-                                                                    WHERE SEMESTER_ID = 2 AND year = '2012' AND
-                                                                          ROWNUM = 1))
-[2015-06-03 14:50:55] 1 row(s) affected in 16 ms
-INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4458', (SELECT ID
-                                                                                                 FROM COURSES
-                                                                                                 WHERE
-                                                                                                   DEPT_ID = (SELECT ID
-                                                                                                              FROM
-                                                                                                                DEPARTMENTS
-                                                                                                              WHERE
-                                                                                                                NAME =
-                                                                                                                'CSCI'
-                                                                                                                AND
-                                                                                                                ROWNUM =
-                                                                                                                1) AND
-                                                                                                   NUM = '370' AND
-                                                                                                   ROWNUM = 1),
-                                                                   (SELECT ID
-                                                                    FROM semesters_years
-                                                                    WHERE SEMESTER_ID = 2 AND year = '2012' AND
-                                                                          ROWNUM = 1))
-[2015-06-03 14:50:55] 1 row(s) affected in 8 ms
-INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4457', (SELECT ID
-                                                                                                 FROM COURSES
-                                                                                                 WHERE
-                                                                                                   DEPT_ID = (SELECT ID
-                                                                                                              FROM
-                                                                                                                DEPARTMENTS
-                                                                                                              WHERE
-                                                                                                                NAME =
-                                                                                                                'CSCI'
-                                                                                                                AND
-                                                                                                                ROWNUM =
-                                                                                                                1) AND
-                                                                                                   NUM = '161' AND
-                                                                                                   ROWNUM = 1),
-                                                                   (SELECT ID
-                                                                    FROM semesters_years
-                                                                    WHERE SEMESTER_ID = 2 AND year = '2012' AND
-                                                                          ROWNUM = 1))
-[2015-06-03 14:50:55] 1 row(s) affected in 10 ms
-INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4876', (SELECT ID
-                                                                                                 FROM COURSES
-                                                                                                 WHERE
-                                                                                                   DEPT_ID = (SELECT ID
-                                                                                                              FROM
-                                                                                                                DEPARTMENTS
-                                                                                                              WHERE
-                                                                                                                NAME =
-                                                                                                                'CSCI'
-                                                                                                                AND
-                                                                                                                ROWNUM =
-                                                                                                                1) AND
-                                                                                                   NUM = '160' AND
-                                                                                                   ROWNUM = 1),
-                                                                   (SELECT ID
-                                                                    FROM semesters_years
-                                                                    WHERE SEMESTER_ID = 2 AND year = '2012' AND
-                                                                          ROWNUM = 1))
-[2015-06-03 14:50:55] 1 row(s) affected in 16 ms
-INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '13416', (SELECT ID
-                                                                                                  FROM COURSES
-                                                                                                  WHERE
-                                                                                                    DEPT_ID = (SELECT ID
-                                                                                                               FROM
-                                                                                                                 DEPARTMENTS
-                                                                                                               WHERE
-                                                                                                                 NAME =
-                                                                                                                 'CSCI'
-                                                                                                                 AND
-                                                                                                                 ROWNUM
-                                                                                                                 = 1)
-                                                                                                    AND NUM = '356' AND
-                                                                                                    ROWNUM = 1),
-                                                                   (SELECT ID
-                                                                    FROM semesters_years
-                                                                    WHERE SEMESTER_ID = 1 AND year = '2013' AND
-                                                                          ROWNUM = 1))
-[2015-06-03 14:50:55] 1 row(s) affected in 22 ms
-INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '13414', (SELECT ID
-                                                                                                  FROM COURSES
-                                                                                                  WHERE
-                                                                                                    DEPT_ID = (SELECT ID
-                                                                                                               FROM
-                                                                                                                 DEPARTMENTS
-                                                                                                               WHERE
-                                                                                                                 NAME =
-                                                                                                                 'CSCI'
-                                                                                                                 AND
-                                                                                                                 ROWNUM
-                                                                                                                 = 1)
-                                                                                                    AND NUM = '340' AND
-                                                                                                    ROWNUM = 1),
-                                                                   (SELECT ID
-                                                                    FROM semesters_years
-                                                                    WHERE SEMESTER_ID = 1 AND year = '2013' AND
-                                                                          ROWNUM = 1))
-[2015-06-03 14:50:55] 1 row(s) affected in 16 ms
-INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '13412', (SELECT ID
-                                                                                                  FROM COURSES
-                                                                                                  WHERE
-                                                                                                    DEPT_ID = (SELECT ID
-                                                                                                               FROM
-                                                                                                                 DEPARTMENTS
-                                                                                                               WHERE
-                                                                                                                 NAME =
-                                                                                                                 'CSCI'
-                                                                                                                 AND
-                                                                                                                 ROWNUM
-                                                                                                                 = 1)
-                                                                                                    AND NUM = '260' AND
-                                                                                                    ROWNUM = 1),
-                                                                   (SELECT ID
-                                                                    FROM semesters_years
-                                                                    WHERE SEMESTER_ID = 1 AND year = '2013' AND
-                                                                          ROWNUM = 1))
-[2015-06-03 14:50:55] 1 row(s) affected in 15 ms
-INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '5286', (SELECT ID
-                                                                                                 FROM COURSES
-                                                                                                 WHERE
-                                                                                                   DEPT_ID = (SELECT ID
-                                                                                                              FROM
-                                                                                                                DEPARTMENTS
-                                                                                                              WHERE
-                                                                                                                NAME =
-                                                                                                                'CSCI'
-                                                                                                                AND
-                                                                                                                ROWNUM =
-                                                                                                                1) AND
-                                                                                                   NUM = '460' AND
-                                                                                                   ROWNUM = 1),
-                                                                   (SELECT ID
-                                                                    FROM semesters_years
-                                                                    WHERE SEMESTER_ID = 2 AND year = '2014' AND
-                                                                          ROWNUM = 1))
-[2015-06-03 14:50:55] 1 row(s) affected in 16 ms
-INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '5518', (SELECT ID
-                                                                                                 FROM COURSES
-                                                                                                 WHERE
-                                                                                                   DEPT_ID = (SELECT ID
-                                                                                                              FROM
-                                                                                                                DEPARTMENTS
-                                                                                                              WHERE
-                                                                                                                NAME =
-                                                                                                                'CSCI'
-                                                                                                                AND
-                                                                                                                ROWNUM =
-                                                                                                                1) AND
-                                                                                                   NUM = '440' AND
-                                                                                                   ROWNUM = 1),
-                                                                   (SELECT ID
-                                                                    FROM semesters_years
-                                                                    WHERE SEMESTER_ID = 2 AND year = '2014' AND
-                                                                          ROWNUM = 1))
-[2015-06-03 14:50:55] 1 row(s) affected in 16 ms
-INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '5285', (SELECT ID
-                                                                                                 FROM COURSES
-                                                                                                 WHERE
-                                                                                                   DEPT_ID = (SELECT ID
-                                                                                                              FROM
-                                                                                                                DEPARTMENTS
-                                                                                                              WHERE
-                                                                                                                NAME =
-                                                                                                                'CSCI'
-                                                                                                                AND
-                                                                                                                ROWNUM =
-                                                                                                                1) AND
-                                                                                                   NUM = '370' AND
-                                                                                                   ROWNUM = 1),
-                                                                   (SELECT ID
-                                                                    FROM semesters_years
-                                                                    WHERE SEMESTER_ID = 2 AND year = '2014' AND
-                                                                          ROWNUM = 1))
-[2015-06-03 14:50:55] 1 row(s) affected in 16 ms
-INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '5132', (SELECT ID
-                                                                                                 FROM COURSES
-                                                                                                 WHERE
-                                                                                                   DEPT_ID = (SELECT ID
-                                                                                                              FROM
-                                                                                                                DEPARTMENTS
-                                                                                                              WHERE
-                                                                                                                NAME =
-                                                                                                                'CSCI'
-                                                                                                                AND
-                                                                                                                ROWNUM =
-                                                                                                                1) AND
-                                                                                                   NUM = '321' AND
-                                                                                                   ROWNUM = 1),
-                                                                   (SELECT ID
-                                                                    FROM semesters_years
-                                                                    WHERE SEMESTER_ID = 2 AND year = '2014' AND
-                                                                          ROWNUM = 1))
-[2015-06-03 14:50:55] 1 row(s) affected in 16 ms
-INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '12104', (SELECT ID
-                                                                                                  FROM COURSES
-                                                                                                  WHERE
-                                                                                                    DEPT_ID = (SELECT ID
-                                                                                                               FROM
-                                                                                                                 DEPARTMENTS
-                                                                                                               WHERE
-                                                                                                                 NAME =
-                                                                                                                 'CSCI'
-                                                                                                                 AND
-                                                                                                                 ROWNUM
-                                                                                                                 = 1)
-                                                                                                    AND NUM = '356' AND
-                                                                                                    ROWNUM = 1),
-                                                                   (SELECT ID
-                                                                    FROM semesters_years
-                                                                    WHERE SEMESTER_ID = 1 AND year = '2014' AND
-                                                                          ROWNUM = 1))
-[2015-06-03 14:50:55] 1 row(s) affected in 17 ms
-INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '12102', (SELECT ID
-                                                                                                  FROM COURSES
-                                                                                                  WHERE
-                                                                                                    DEPT_ID = (SELECT ID
-                                                                                                               FROM
-                                                                                                                 DEPARTMENTS
-                                                                                                               WHERE
-                                                                                                                 NAME =
-                                                                                                                 'CSCI'
-                                                                                                                 AND
-                                                                                                                 ROWNUM
-                                                                                                                 = 1)
-                                                                                                    AND NUM = '340' AND
-                                                                                                    ROWNUM = 1),
-                                                                   (SELECT ID
-                                                                    FROM semesters_years
-                                                                    WHERE SEMESTER_ID = 1 AND year = '2014' AND
-                                                                          ROWNUM = 1))
-[2015-06-03 14:50:55] 1 row(s) affected in 16 ms
-INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '12317', (SELECT ID
-                                                                                                  FROM COURSES
-                                                                                                  WHERE
-                                                                                                    DEPT_ID = (SELECT ID
-                                                                                                               FROM
-                                                                                                                 DEPARTMENTS
-                                                                                                               WHERE
-                                                                                                                 NAME =
-                                                                                                                 'CSCI'
-                                                                                                                 AND
-                                                                                                                 ROWNUM
-                                                                                                                 = 1)
-                                                                                                    AND NUM = '221' AND
-                                                                                                    ROWNUM = 1),
-                                                                   (SELECT ID
-                                                                    FROM semesters_years
-                                                                    WHERE SEMESTER_ID = 1 AND year = '2014' AND
-                                                                          ROWNUM = 1))
-[2015-06-03 14:50:55] 1 row(s) affected in 15 ms
-INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4295', (SELECT ID
-                                                                                                 FROM COURSES
-                                                                                                 WHERE
-                                                                                                   DEPT_ID = (SELECT ID
-                                                                                                              FROM
-                                                                                                                DEPARTMENTS
-                                                                                                              WHERE
-                                                                                                                NAME =
-                                                                                                                'CSCI'
-                                                                                                                AND
-                                                                                                                ROWNUM =
-                                                                                                                1) AND
-                                                                                                   NUM = '460' AND
-                                                                                                   ROWNUM = 1),
-                                                                   (SELECT ID
-                                                                    FROM semesters_years
-                                                                    WHERE SEMESTER_ID = 2 AND year = '2015' AND
-                                                                          ROWNUM = 1))
-[2015-06-03 14:50:55] 1 row(s) affected in 15 ms
-INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4431', (SELECT ID
-                                                                                                 FROM COURSES
-                                                                                                 WHERE
-                                                                                                   DEPT_ID = (SELECT ID
-                                                                                                              FROM
-                                                                                                                DEPARTMENTS
-                                                                                                              WHERE
-                                                                                                                NAME =
-                                                                                                                'CSCI'
-                                                                                                                AND
-                                                                                                                ROWNUM =
-                                                                                                                1) AND
-                                                                                                   NUM = '440' AND
-                                                                                                   ROWNUM = 1),
-                                                                   (SELECT ID
-                                                                    FROM semesters_years
-                                                                    WHERE SEMESTER_ID = 2 AND year = '2015' AND
-                                                                          ROWNUM = 1))
-[2015-06-03 14:50:55] 1 row(s) affected in 15 ms
-INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4294', (SELECT ID
-                                                                                                 FROM COURSES
-                                                                                                 WHERE
-                                                                                                   DEPT_ID = (SELECT ID
-                                                                                                              FROM
-                                                                                                                DEPARTMENTS
-                                                                                                              WHERE
-                                                                                                                NAME =
-                                                                                                                'CSCI'
-                                                                                                                AND
-                                                                                                                ROWNUM =
-                                                                                                                1) AND
-                                                                                                   NUM = '370' AND
-                                                                                                   ROWNUM = 1),
-                                                                   (SELECT ID
-                                                                    FROM semesters_years
-                                                                    WHERE SEMESTER_ID = 2 AND year = '2015' AND
-                                                                          ROWNUM = 1))
-[2015-06-03 14:50:55] 1 row(s) affected in 17 ms
-INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '26115', (SELECT ID
-                                                                                                  FROM COURSES
-                                                                                                  WHERE
-                                                                                                    DEPT_ID = (SELECT ID
-                                                                                                               FROM
-                                                                                                                 DEPARTMENTS
-                                                                                                               WHERE
-                                                                                                                 NAME =
-                                                                                                                 'CSCI'
-                                                                                                                 AND
-                                                                                                                 ROWNUM
-                                                                                                                 = 1)
-                                                                                                    AND NUM = '356' AND
-                                                                                                    ROWNUM = 1),
-                                                                   (SELECT ID
-                                                                    FROM semesters_years
-                                                                    WHERE SEMESTER_ID = 2 AND year = '2015' AND
-                                                                          ROWNUM = 1))
-[2015-06-03 14:50:55] 1 row(s) affected in 17 ms
-INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '4154', (SELECT ID
-                                                                                                 FROM COURSES
-                                                                                                 WHERE
-                                                                                                   DEPT_ID = (SELECT ID
-                                                                                                              FROM
-                                                                                                                DEPARTMENTS
-                                                                                                              WHERE
-                                                                                                                NAME =
-                                                                                                                'CSCI'
-                                                                                                                AND
-                                                                                                                ROWNUM =
-                                                                                                                1) AND
-                                                                                                   NUM = '321' AND
-                                                                                                   ROWNUM = 1),
-                                                                   (SELECT ID
-                                                                    FROM semesters_years
-                                                                    WHERE SEMESTER_ID = 2 AND year = '2015' AND
-                                                                          ROWNUM = 1))
-[2015-06-03 14:50:55] 1 row(s) affected in 16 ms
-INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '10930', (SELECT ID
-                                                                                                  FROM COURSES
-                                                                                                  WHERE
-                                                                                                    DEPT_ID = (SELECT ID
-                                                                                                               FROM
-                                                                                                                 DEPARTMENTS
-                                                                                                               WHERE
-                                                                                                                 NAME =
-                                                                                                                 'MATH'
-                                                                                                                 AND
-                                                                                                                 ROWNUM
-                                                                                                                 = 1)
-                                                                                                    AND NUM = '208' AND
-                                                                                                    ROWNUM = 1),
-                                                                   (SELECT ID
-                                                                    FROM semesters_years
-                                                                    WHERE SEMESTER_ID = 3 AND year = '2015' AND
-                                                                          ROWNUM = 1))
-[2015-06-03 14:50:55] 1 row(s) affected in 14 ms
-INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'P. Loree')
-[2015-06-03 14:50:55] 1 row(s) affected in 16 ms
-INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'K. Nygard')
-[2015-06-03 14:50:55] 1 row(s) affected in 18 ms
-INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'X. Du')
-[2015-06-03 14:50:55] 1 row(s) affected in 13 ms
-INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'K.K. Gagneja')
-[2015-06-03 14:50:55] 1 row(s) affected in 16 ms
-INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'F. Ranganathan')
-[2015-06-03 14:50:55] 1 row(s) affected in 16 ms
-INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'S.B. Ghosn')
-[2015-06-03 14:50:55] 1 row(s) affected in 15 ms
-INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'L.M. Alnemer')
-[2015-06-03 14:50:55] 1 row(s) affected in 16 ms
-INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'R.I. Seetan')
-[2015-06-03 14:50:55] 1 row(s) affected in 17 ms
-INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'F.M. Bassi')
-[2015-06-03 14:50:55] 1 row(s) affected in 16 ms
-INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'C. Chitraranjan')
-[2015-06-03 14:50:55] 1 row(s) affected in 15 ms
-INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'A. Helsene')
-[2015-06-03 14:50:55] 1 row(s) affected in 16 ms
-INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'Y.Q. Gu')
-[2015-06-03 14:50:55] 1 row(s) affected in 7 ms
-INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'M.C. Luo')
-[2015-06-03 14:50:55] 1 row(s) affected in 18 ms
-INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'M.J. Iqbqal')
-[2015-06-03 14:50:55] 1 row(s) affected in 14 ms
-INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'G.R. Lazo')
-[2015-06-03 14:50:55] 1 row(s) affected in 16 ms
-INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'A.M. Denton')
-[2015-06-03 14:50:55] 1 row(s) affected in 15 ms
-INSERT INTO AUTHORS (ID, NAME) VALUES (SEQ_AUTHORS.nextval, 'S.F. Kianin')
-[2015-06-03 14:50:55] 1 row(s) affected in 16 ms
-INSERT INTO PUBLISHERS (ID, TITLE, LOCATION, YEAR)
-VALUES (SEQ_PUBLISHERS.nextval, '2009 IEEE GLOBECOM', 'Honolulu, HI', '1999')
-[2015-06-03 14:50:55] 1 row(s) affected in 15 ms
-INSERT INTO PUBLISHERS (ID, TITLE, LOCATION, YEAR) VALUES
-  (SEQ_PUBLISHERS.nextval, 'Electro/Information Technology (EIT), 2012 IEEE Int''l Conference', 'Indianapolis, IN',
-   '2012')
-[2015-06-03 14:50:55] 1 row(s) affected in 15 ms
-INSERT INTO PUBLISHERS (ID, TITLE, LOCATION, YEAR)
-VALUES (SEQ_PUBLISHERS.nextval, 'Functional & Integrative Geonomics', 'New York City, NY', '2013')
-[2015-06-03 14:50:55] 1 row(s) affected in 16 ms
-INSERT INTO ARTICLES (ID, TITLE, RELATIVEFILELOCATION, PUBLISHER_ID, PAGEREFERENCE) VALUES
-  (SEQ_ARTICLES.nextval, 'Efficient Post-Deployment Key Establishment Scheme for Heterogeneous Sensor Networks',
-   'PID969207.pdf', (SELECT ID
-                     FROM PUBLISHERS
-                     WHERE TITLE = '2009 IEEE GLOBECOM' AND ROWNUM = 1), NULL)
-[2015-06-03 14:50:55] 1 row(s) affected in 16 ms
-INSERT INTO ARTICLES (ID, TITLE, RELATIVEFILELOCATION, PUBLISHER_ID, PAGEREFERENCE) VALUES
-  (SEQ_ARTICLES.nextval, 'Limiting transmit power of antennas in Heterogeneous Sensor Networks', 'PID969207.pdf',
-   (SELECT ID
-    FROM PUBLISHERS
-    WHERE TITLE = 'Electro/Information Technology (EIT), 2012 IEEE Int''l Conference' AND ROWNUM = 1), NULL)
-[2015-06-03 14:50:55] 1 row(s) affected in 16 ms
-INSERT INTO ARTICLES (ID, TITLE, RELATIVEFILELOCATION, PUBLISHER_ID, PAGEREFERENCE) VALUES
-  (SEQ_ARTICLES.nextval, 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes',
-   'PID06220775.pdf', (SELECT ID
-                       FROM PUBLISHERS
-                       WHERE TITLE = 'Functional & Integrative Geonomics' AND ROWNUM = 1),
-   'Springer-Verlag, 2013, pp. 11-17')
-[2015-06-03 14:50:56] 1 row(s) affected in 15 ms
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
-  (SELECT ID
-   FROM AUTHORS
-   WHERE NAME = 'P. Loree'),
-  (SELECT ID
-   FROM ARTICLES
-   WHERE TITLE = 'Efficient Post-Deployment Key Establishment Scheme for Heterogeneous Sensor Networks'),
-  seq_author_articles.nextval)
-[2015-06-03 14:50:56] 1 row(s) affected in 16 ms
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
-  (SELECT ID
-   FROM AUTHORS
-   WHERE NAME = 'K. Nygard'),
-  (SELECT ID
-   FROM ARTICLES
-   WHERE TITLE = 'Efficient Post-Deployment Key Establishment Scheme for Heterogeneous Sensor Networks'),
-  seq_author_articles.nextval)
-[2015-06-03 14:50:56] 1 row(s) affected in 16 ms
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
-  (SELECT ID
-   FROM AUTHORS
-   WHERE NAME = 'X. Du'),
-  (SELECT ID
-   FROM ARTICLES
-   WHERE TITLE = 'Efficient Post-Deployment Key Establishment Scheme for Heterogeneous Sensor Networks'),
-  seq_author_articles.nextval)
-[2015-06-03 14:50:56] 1 row(s) affected in 15 ms
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
-  (SELECT ID
-   FROM AUTHORS
-   WHERE NAME = 'K.K. Gagneja'),
-  (SELECT ID
-   FROM ARTICLES
-   WHERE TITLE = 'Limiting transmit power of antennas in Heterogeneous Sensor Networks'),
-  seq_author_articles.nextval)
-[2015-06-03 14:50:56] 1 row(s) affected in 15 ms
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
-  (SELECT ID
-   FROM AUTHORS
-   WHERE NAME = 'F. Ranganathan'),
-  (SELECT ID
-   FROM ARTICLES
-   WHERE TITLE = 'Limiting transmit power of antennas in Heterogeneous Sensor Networks'),
-  SEQ_AUTHOR_ARTICLES.nextval)
-[2015-06-03 14:50:56] 1 row(s) affected in 16 ms
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
-  (SELECT ID
-   FROM AUTHORS
-   WHERE NAME = 'S.B. Ghosn'),
-  (SELECT ID
-   FROM ARTICLES
-   WHERE TITLE = 'Limiting transmit power of antennas in Heterogeneous Sensor Networks'),
-  seq_author_articles.nextval)
-[2015-06-03 14:50:56] 1 row(s) affected in 17 ms
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
-  (SELECT ID
-   FROM AUTHORS
-   WHERE NAME = 'P. Loree'),
-  (SELECT ID
-   FROM ARTICLES
-   WHERE TITLE = 'Limiting transmit power of antennas in Heterogeneous Sensor Networks'),
-  seq_author_articles.nextval)
-[2015-06-03 14:50:56] 1 row(s) affected in 15 ms
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
-  (SELECT ID
-   FROM AUTHORS
-   WHERE NAME = 'K. Nygard'),
-  (SELECT ID
-   FROM ARTICLES
-   WHERE TITLE = 'Limiting transmit power of antennas in Heterogeneous Sensor Networks'),
-  seq_author_articles.nextval)
-[2015-06-03 14:50:56] 1 row(s) affected in 31 ms
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
-  (SELECT ID
-   FROM AUTHORS
-   WHERE NAME = 'L.M. Alnemer'),
-  (SELECT ID
-   FROM ARTICLES
-   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
-  seq_author_articles.nextval)
-[2015-06-03 14:50:56] 1 row(s) affected in 16 ms
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
-  (SELECT ID
-   FROM AUTHORS
-   WHERE NAME = 'R.I. Seetan'),
-  (SELECT ID
-   FROM ARTICLES
-   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
-  seq_author_articles.nextval)
-[2015-06-03 14:50:56] 1 row(s) affected in 17 ms
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
-  (SELECT ID
-   FROM AUTHORS
-   WHERE NAME = 'F.M. Bassi'),
-  (SELECT ID
-   FROM ARTICLES
-   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
-  seq_author_articles.nextval)
-[2015-06-03 14:50:56] 1 row(s) affected in 23 ms
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
-  (SELECT ID
-   FROM AUTHORS
-   WHERE NAME = 'C. Chitraranjan'),
-  (SELECT ID
-   FROM ARTICLES
-   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
-  seq_author_articles.nextval)
-[2015-06-03 14:50:56] 1 row(s) affected in 16 ms
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
-  (SELECT ID
-   FROM AUTHORS
-   WHERE NAME = 'A. Helsene'),
-  (SELECT ID
-   FROM ARTICLES
-   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
-  seq_author_articles.nextval)
-[2015-06-03 14:50:56] 1 row(s) affected in 7 ms
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
-  (SELECT ID
-   FROM AUTHORS
-   WHERE NAME = 'P. Loree'),
-  (SELECT ID
-   FROM ARTICLES
-   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
-  seq_author_articles.nextval)
-[2015-06-03 14:50:56] 1 row(s) affected in 8 ms
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
-  (SELECT ID
-   FROM AUTHORS
-   WHERE NAME = 'S.B. Ghosn'),
-  (SELECT ID
-   FROM ARTICLES
-   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
-  seq_author_articles.nextval)
-[2015-06-03 14:50:56] 1 row(s) affected in 32 ms
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
-  (SELECT ID
-   FROM AUTHORS
-   WHERE NAME = 'Y.Q. Gu'),
-  (SELECT ID
-   FROM ARTICLES
-   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
-  seq_author_articles.nextval)
-[2015-06-03 14:50:56] 1 row(s) affected in 8 ms
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
-  (SELECT ID
-   FROM AUTHORS
-   WHERE NAME = 'M.C. Luo'),
-  (SELECT ID
-   FROM ARTICLES
-   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
-  seq_author_articles.nextval)
-[2015-06-03 14:50:56] 1 row(s) affected in 15 ms
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
-  (SELECT ID
-   FROM AUTHORS
-   WHERE NAME = 'M.J. Iqbqal'),
-  (SELECT ID
-   FROM ARTICLES
-   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
-  seq_author_articles.nextval)
-[2015-06-03 14:50:56] 1 row(s) affected in 24 ms
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
-  (SELECT ID
-   FROM AUTHORS
-   WHERE NAME = 'G.R. Lazo'),
-  (SELECT ID
-   FROM ARTICLES
-   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
-  seq_author_articles.nextval)
-[2015-06-03 14:50:56] 1 row(s) affected in 8 ms
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
-  (SELECT ID
-   FROM AUTHORS
-   WHERE NAME = 'A.M. Denton'),
-  (SELECT ID
-   FROM ARTICLES
-   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
-  seq_author_articles.nextval)
-[2015-06-03 14:50:56] 1 row(s) affected in 8 ms
-INSERT INTO AUTHOR_ARTICLES (AUTHOR_ID, ARTICLE_ID, SEQUENCE_NUMBER) VALUES (
-  (SELECT ID
-   FROM AUTHORS
-   WHERE NAME = 'S.F. Kianin'),
-  (SELECT ID
-   FROM ARTICLES
-   WHERE TITLE = 'Wheat Zapper: a flexible online tool for colinearity studies in grass genomes'),
-  seq_author_articles.nextval)
-[2015-06-03 14:50:56] 1 row(s) affected in 16 ms
-INSERT INTO GRADE_SCALES (ID, LOW, HIGH, LETTER) VALUES (SEQ_GRADE_SCALES.nextval, 90, 100, 'A')
-[2015-06-03 14:50:56] 1 row(s) affected in 23 ms
-INSERT INTO GRADE_SCALES (ID, LOW, HIGH, LETTER) VALUES (SEQ_GRADE_SCALES.nextval, 80, 89, 'B')
-[2015-06-03 14:50:56] 1 row(s) affected in 17 ms
-INSERT INTO GRADE_SCALES (ID, LOW, HIGH, LETTER) VALUES (SEQ_GRADE_SCALES.nextval, 70, 79, 'C')
-[2015-06-03 14:50:56] 1 row(s) affected in 16 ms
-INSERT INTO GRADE_SCALES (ID, LOW, HIGH, LETTER) VALUES (SEQ_GRADE_SCALES.nextval, 60, 69, 'D')
-[2015-06-03 14:50:56] 1 row(s) affected in 15 ms
-INSERT INTO GRADE_SCALES (ID, LOW, HIGH, LETTER) VALUES (SEQ_GRADE_SCALES.nextval, 0, 59, 'F')
-[2015-06-03 14:50:56] 1 row(s) affected in 16 ms
-INSERT INTO SYLLABUS_INFO (ID, COURSE_ID, OFFICEHOUR_ID, COURSEOBJECTIVE, PREREQUISITECOURSE, COMPUTERLABS, SOFTWAREREQUIREMENTS, HOMEWORKINFO, ISACTIVE)
-VALUES (SEQ_SYLLABUS_INFO.nextval,
-        (SELECT ID
-         FROM COURSES
-         WHERE NUM = '321'
-               AND DEPT_ID = (SELECT ID
-                              FROM DEPARTMENTS
-                              WHERE NAME = 'CSCI') AND ROWNUM = 1),
-        (SELECT ID
-         FROM COURSES
-         WHERE NAME = 'Office Hours' AND ROWNUM = 1),
-        'Introduction to Windows programming in Visual C# .NET Windows Forms and WPF development, icons, controls, dialogs, threads, sockets, DLL''s',
-        'CSCI 161 or dept. approval', 'Model Hall 119', 'Visual Studio 2013, SFTP/SCP client (FileZilla or WinSCP)',
-        'Instructions for submitting assignments and authentication information will be provided in class.', 1)
-[2015-06-03 14:50:56] 1 row(s) affected in 17 ms
+[2015-06-03 16:21:42] Summary: 18 of 18 statements executed in 358 ms (1198 chars in file)
 
-[2015-06-03 14:50:56] Summary: 108 of 108 statements executed in 1844 ms (78143 chars in file)
+Section 1
+Introduction to *nix
+System Basics
+Shells and Commands
+
+Section 2
+File Systems
+Managing Files
+System Utilities
+Text File Utilities
+Vim Editor
+
+Section 1 & 2	Exam 1
+
+Section 3
+BASH Scripting
+Perl Scripting
+Python Scripting (if time allows)
+
+Section 3	Exam 2
+
+Section 4
+CentOS Setup
+System Management Utilities
+Web Env. Setup (mail server if time)
+Web-based Application Dev. (PHP/JScript/MySQL/etc.)
+System Security (IPTables/SELinux/Kerberos)
+
+Section 4	Exam 3
+
+0	Office Hours
+111	Introduction to Web Languages
+160	Computer Science I
+161	Computer Science II
+221	Web and Internet Programming
+260	UNIX Environment
+321	Windows Programming
+340	Local Area Networks
+356	Database Management
+370	Computer Organization and Architecture
+440	Data Communications - Wireless Networking and Communications
+458	Computer Security
+460	Capstone Project Development
+
+208	Discrete Mathematics
+
+Expected Course Schedule
+Ch. 1	Introduction to Networks
+Ch. 2	Physical Layer
+Ch. 3	Data Link Layer
+Ch. 1 - 3	Exam 1
+Ch. 4	Medium Access Control Sublayer
+Ch. 5	Network Layer
+Ch. 4, 5	Exam 2
+Ch. 6	Transport Layer
+Ch. 7	Application Layer
+Ch. 7, 8	Exam 3
+Ch. 8 (if time)	Network Security
+Ch. 1 - 7	Final Exam
+
+Expected Course Schedule
+Ch. 1, 2	Introduction to Databases
+Ch. 3	Relational Model
+Ch. 6	Relational Algebra
+Ch. 15	FD, MVD, Normalization
+Ch. 16	FD, MVD, Normalization cont.
+Ch 1, 2, 3, 6, 15, 16	Exam 1
+Ch. 7, 8	ER, EER, UML Models
+Ch. 7, 8	ER, EER, UML Models cont.
+Ch. 9	ER-, EER-to-Relational
+Ch. 10	DB Design, UML
+Ch 7, 8, 9, 10	Exam 2
+Ch. 17, 18	File Organization, Indexing
+Ch. 4, 5	SQL
+Ch. 4, 5	SQL
+Ch. 4, 5, 17, 18	Exam 3
+Ch 1 - 10, 15 - 18	Final Exam
+
+Project: Students will be required to complete a research project on a choosen topic in network or computer security.  Several possible topics will be covered in class but students are allowed to come up with their own topics. Students will be expected to do an in-depth survey of recently published research and propose new approaches to solving the problem on the topic. Students will also be required to provide at least analytical evaluation of the proposed solution to the problem to either prove or disprove their method. Experimental evaluation may also be conducted if time permits, such as through simulations.
+
+Students may work individually or in small groups on the project. If working in a group, tasks of each member must be clearly identified. Students will submit a project proposal outlining the objectives of their project and a plan which includes tasks to be completed by each member of the group. Proposals will be due prior to spring break week. However, students are strongly encouraged to complete their proposal as soon as possible to allow more time to investigate their ideas.
+
+Project groups will be required to present their work at the end of the semester and write a report on their work. Each student or group will be given 25 minutes to present their project at the end. Presentation order will be determined near the end of the semester. Project papers should provide an introduction to the problem, a short survey of related work previously published, the students' approach to solving the problem and a brief analytical evaluation of their approach. Reports will be due by the last lecture day before final exam week.
+
+Project guidelines will be covered in class. Access to papers found on the IEEE and ACM digital libraries will be given during class, office hours or by appointment only.
+
+Project proposal
+Weekly progress reports
+Project research/work
+Project presentation
+Project report/paper
