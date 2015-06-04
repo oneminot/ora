@@ -1469,7 +1469,7 @@ INSERT INTO SYLLABUS_INFO_TEXTBOOKS (TEXTBOOK_ID, SYLLABUS_INFO_ID) VALUES
             (
               SELECT ID
               FROM COURSES
-              WHERE NUM = 458
+              WHERE NUM = 208
                     AND DEPT_ID =
                         (
                           SELECT id
@@ -1494,7 +1494,7 @@ INSERT INTO SYLLABUS_INFO_TEXTBOOKS (TEXTBOOK_ID, SYLLABUS_INFO_ID) VALUES
             (
               SELECT ID
               FROM COURSES
-              WHERE NUM = 458
+              WHERE NUM = 208
                     AND DEPT_ID =
                         (
                           SELECT id
