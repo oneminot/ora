@@ -1210,7 +1210,8 @@ INSERT INTO SYLLABUS_INFO_TEXTBOOKS (TEXTBOOK_ID, SYLLABUS_INFO_ID) VALUES
     (
       SELECT ID
       FROM TEXTBOOKS
-      WHERE ISBN = 9781594608445),
+      WHERE ISBN = 9781594608445
+    ),
     (
       SELECT ID
       FROM SYLLABUS_INFO
@@ -1219,7 +1220,12 @@ INSERT INTO SYLLABUS_INFO_TEXTBOOKS (TEXTBOOK_ID, SYLLABUS_INFO_ID) VALUES
               SELECT ID
               FROM COURSES
               WHERE NUM = 111
-                    AND DEPT_ID = 'CSCI'
+                    AND DEPT_ID =
+                        (
+                          SELECT id
+                          FROM departments
+                          WHERE name = 'CSCI'
+                        )
             )
     )
   );
@@ -1229,7 +1235,8 @@ INSERT INTO SYLLABUS_INFO_TEXTBOOKS (TEXTBOOK_ID, SYLLABUS_INFO_ID) VALUES
     (
       SELECT ID
       FROM TEXTBOOKS
-      WHERE ISBN = 9780619216771),
+      WHERE ISBN = 9780619216771
+    ),
     (
       SELECT ID
       FROM SYLLABUS_INFO
@@ -1238,7 +1245,12 @@ INSERT INTO SYLLABUS_INFO_TEXTBOOKS (TEXTBOOK_ID, SYLLABUS_INFO_ID) VALUES
               SELECT ID
               FROM COURSES
               WHERE NUM = 160
-                    AND DEPT_ID = 'CSCI'
+                    AND DEPT_ID =
+                        (
+                          SELECT id
+                          FROM departments
+                          WHERE name = 'CSCI'
+                        )
             )
     )
   );
@@ -1248,7 +1260,8 @@ INSERT INTO SYLLABUS_INFO_TEXTBOOKS (TEXTBOOK_ID, SYLLABUS_INFO_ID) VALUES
     (
       SELECT ID
       FROM TEXTBOOKS
-      WHERE ISBN = 9780130158857),
+      WHERE ISBN = 9780130158857
+    ),
     (
       SELECT ID
       FROM SYLLABUS_INFO
@@ -1257,7 +1270,12 @@ INSERT INTO SYLLABUS_INFO_TEXTBOOKS (TEXTBOOK_ID, SYLLABUS_INFO_ID) VALUES
               SELECT ID
               FROM COURSES
               WHERE NUM = 161
-                    AND DEPT_ID = 'CSCI'
+                    AND DEPT_ID =
+                        (
+                          SELECT id
+                          FROM departments
+                          WHERE name = 'CSCI'
+                        )
             )
     )
   );
@@ -1267,7 +1285,8 @@ INSERT INTO SYLLABUS_INFO_TEXTBOOKS (TEXTBOOK_ID, SYLLABUS_INFO_ID) VALUES
     (
       SELECT ID
       FROM TEXTBOOKS
-      WHERE ISBN = 9780131480056),
+      WHERE ISBN = 9780131480056
+    ),
     (
       SELECT ID
       FROM SYLLABUS_INFO
@@ -1276,7 +1295,12 @@ INSERT INTO SYLLABUS_INFO_TEXTBOOKS (TEXTBOOK_ID, SYLLABUS_INFO_ID) VALUES
               SELECT ID
               FROM COURSES
               WHERE NUM = 260
-                    AND DEPT_ID = 'CSCI'
+                    AND DEPT_ID =
+                        (
+                          SELECT id
+                          FROM departments
+                          WHERE name = 'CSCI'
+                        )
             )
     )
   );
@@ -1286,7 +1310,8 @@ INSERT INTO SYLLABUS_INFO_TEXTBOOKS (TEXTBOOK_ID, SYLLABUS_INFO_ID) VALUES
     (
       SELECT ID
       FROM TEXTBOOKS
-      WHERE ISBN = 9780471586845),
+      WHERE ISBN = 9780471586845
+    ),
     (
       SELECT ID
       FROM SYLLABUS_INFO
@@ -1295,7 +1320,12 @@ INSERT INTO SYLLABUS_INFO_TEXTBOOKS (TEXTBOOK_ID, SYLLABUS_INFO_ID) VALUES
               SELECT ID
               FROM COURSES
               WHERE NUM = 260
-                    AND DEPT_ID = 'CSCI'
+                    AND DEPT_ID =
+                        (
+                          SELECT id
+                          FROM departments
+                          WHERE name = 'CSCI'
+                        )
             )
     )
   );
@@ -1305,7 +1335,8 @@ INSERT INTO SYLLABUS_INFO_TEXTBOOKS (TEXTBOOK_ID, SYLLABUS_INFO_ID) VALUES
     (
       SELECT ID
       FROM TEXTBOOKS
-      WHERE ISBN = 9780132126953),
+      WHERE ISBN = 9780132126953
+    ),
     (
       SELECT ID
       FROM SYLLABUS_INFO
@@ -1314,7 +1345,12 @@ INSERT INTO SYLLABUS_INFO_TEXTBOOKS (TEXTBOOK_ID, SYLLABUS_INFO_ID) VALUES
               SELECT ID
               FROM COURSES
               WHERE NUM = 340
-                    AND DEPT_ID = 'CSCI'
+                    AND DEPT_ID =
+                        (
+                          SELECT id
+                          FROM departments
+                          WHERE name = 'CSCI'
+                        )
             )
     )
   );
@@ -1324,7 +1360,8 @@ INSERT INTO SYLLABUS_INFO_TEXTBOOKS (TEXTBOOK_ID, SYLLABUS_INFO_ID) VALUES
     (
       SELECT ID
       FROM TEXTBOOKS
-      WHERE ISBN = 9780136086208),
+      WHERE ISBN = 9780136086208
+    ),
     (
       SELECT ID
       FROM SYLLABUS_INFO
@@ -1333,7 +1370,12 @@ INSERT INTO SYLLABUS_INFO_TEXTBOOKS (TEXTBOOK_ID, SYLLABUS_INFO_ID) VALUES
               SELECT ID
               FROM COURSES
               WHERE NUM = 356
-                    AND DEPT_ID = 'CSCI'
+                    AND DEPT_ID =
+                        (
+                          SELECT id
+                          FROM departments
+                          WHERE name = 'CSCI'
+                        )
             )
     )
   );
@@ -1343,7 +1385,8 @@ INSERT INTO SYLLABUS_INFO_TEXTBOOKS (TEXTBOOK_ID, SYLLABUS_INFO_ID) VALUES
     (
       SELECT ID
       FROM TEXTBOOKS
-      WHERE ISBN = 9780132936330),
+      WHERE ISBN = 9780132936330
+    ),
     (
       SELECT ID
       FROM SYLLABUS_INFO
@@ -1352,7 +1395,12 @@ INSERT INTO SYLLABUS_INFO_TEXTBOOKS (TEXTBOOK_ID, SYLLABUS_INFO_ID) VALUES
               SELECT ID
               FROM COURSES
               WHERE NUM = 370
-                    AND DEPT_ID = 'CSCI'
+                    AND DEPT_ID =
+                        (
+                          SELECT id
+                          FROM departments
+                          WHERE name = 'CSCI'
+                        )
             )
     )
   );
@@ -1362,7 +1410,8 @@ INSERT INTO SYLLABUS_INFO_TEXTBOOKS (TEXTBOOK_ID, SYLLABUS_INFO_ID) VALUES
     (
       SELECT ID
       FROM TEXTBOOKS
-      WHERE ISBN = 9780132126973),
+      WHERE ISBN = 9780132126973
+    ),
     (
       SELECT ID
       FROM SYLLABUS_INFO
@@ -1371,7 +1420,12 @@ INSERT INTO SYLLABUS_INFO_TEXTBOOKS (TEXTBOOK_ID, SYLLABUS_INFO_ID) VALUES
               SELECT ID
               FROM COURSES
               WHERE NUM = 440
-                    AND DEPT_ID = 'CSCI'
+                    AND DEPT_ID =
+                        (
+                          SELECT id
+                          FROM departments
+                          WHERE name = 'CSCI'
+                        )
             )
     )
   );
@@ -1381,7 +1435,8 @@ INSERT INTO SYLLABUS_INFO_TEXTBOOKS (TEXTBOOK_ID, SYLLABUS_INFO_ID) VALUES
     (
       SELECT ID
       FROM TEXTBOOKS
-      WHERE ISBN = 9780132775069),
+      WHERE ISBN = 9780132775069
+    ),
     (
       SELECT ID
       FROM SYLLABUS_INFO
@@ -1390,7 +1445,12 @@ INSERT INTO SYLLABUS_INFO_TEXTBOOKS (TEXTBOOK_ID, SYLLABUS_INFO_ID) VALUES
               SELECT ID
               FROM COURSES
               WHERE NUM = 440
-                    AND DEPT_ID = 'CSCI'
+                    AND DEPT_ID =
+                        (
+                          SELECT id
+                          FROM departments
+                          WHERE name = 'CSCI'
+                        )
             )
     )
   );
@@ -1400,7 +1460,8 @@ INSERT INTO SYLLABUS_INFO_TEXTBOOKS (TEXTBOOK_ID, SYLLABUS_INFO_ID) VALUES
     (
       SELECT ID
       FROM TEXTBOOKS
-      WHERE ISBN = 9780136108054),
+      WHERE ISBN = 9780136108054
+    ),
     (
       SELECT ID
       FROM SYLLABUS_INFO
@@ -1409,7 +1470,12 @@ INSERT INTO SYLLABUS_INFO_TEXTBOOKS (TEXTBOOK_ID, SYLLABUS_INFO_ID) VALUES
               SELECT ID
               FROM COURSES
               WHERE NUM = 458
-                    AND DEPT_ID = 'CSCI'
+                    AND DEPT_ID =
+                        (
+                          SELECT id
+                          FROM departments
+                          WHERE name = 'MATH'
+                        )
             )
     )
   );
@@ -1419,7 +1485,8 @@ INSERT INTO SYLLABUS_INFO_TEXTBOOKS (TEXTBOOK_ID, SYLLABUS_INFO_ID) VALUES
     (
       SELECT ID
       FROM TEXTBOOKS
-      WHERE ISBN = 9780495391326),
+      WHERE ISBN = 9780495391326
+    ),
     (
       SELECT ID
       FROM SYLLABUS_INFO
@@ -1428,7 +1495,12 @@ INSERT INTO SYLLABUS_INFO_TEXTBOOKS (TEXTBOOK_ID, SYLLABUS_INFO_ID) VALUES
               SELECT ID
               FROM COURSES
               WHERE NUM = 458
-                    AND DEPT_ID = 'CSCI'
+                    AND DEPT_ID =
+                        (
+                          SELECT id
+                          FROM departments
+                          WHERE name = 'MATH'
+                        )
             )
     )
   );
