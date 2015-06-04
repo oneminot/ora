@@ -74,7 +74,28 @@ INSERT INTO COURSES
 (ID, DEPT_ID, NUM, NAME, DESCRIPTION) VALUES (SEQ_COURSES.nextval, 2, '208', 'Discrete Mathematics',
                                               'Discrete Math');
 
--- INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_ID) VALUES ();
+INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES
+  (
+    SEQ_CLASSES.nextval,
+    '000',
+    (
+      SELECT ID
+      FROM COURSES
+      WHERE NAME = 'Office Hours'
+    ),
+    (
+      SELECT ID
+      FROM SEMESTERS_YEARS
+      WHERE SEMESTER_ID =
+            (
+              SELECT ID
+              FROM SEMESTERS
+              WHERE NAME = 'Summer'
+            )
+            AND YEAR = '2015'
+            AND ROWNUM = 1
+    )
+  );
 
 INSERT INTO CLASSES (ID, NUM, COURSE_ID, SEMESTER_YEAR_ID) VALUES (SEQ_CLASSES.nextval, '19567', (SELECT ID
                                                                                                   FROM COURSES
@@ -1503,4 +1524,42 @@ INSERT INTO SYLLABUS_INFO_TEXTBOOKS (TEXTBOOK_ID, SYLLABUS_INFO_ID) VALUES
                         )
             )
     )
+  );
+
+INSERT INTO EVENTS (ID, CLASS_ID, STARTDATE, ENDDATE, STARTTIME, ENDTIME) VALUES
+  (
+    SEQ_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM CLASSES
+      WHERE SEMESTER_YEAR_ID =
+            (
+              SELECT ID
+              FROM SEMESTERS_YEARS
+              WHERE YEAR = 2015
+                    AND SEMESTER_ID =
+                        (
+                          SELECT ID
+                          FROM SEMESTERS
+                          WHERE NAME = 'Summer'
+                        )
+            )
+            AND COURSE_ID =
+                (
+                  SELECT ID
+                  FROM COURSES
+                  WHERE NUM = '208'
+                        AND DEPT_ID =
+                            (
+                              SELECT ID
+                              FROM DEPARTMENTS
+                              WHERE NAME = 'MATH'
+                            )
+                )
+            AND ROWNUM = 1
+    ),
+    TO_DATE('2015/06/02 00:00:00', 'yyyy/mm/dd hh24:mi:ss'),
+    TO_DATE('2015/07/30 00:00:00', 'yyyy/mm/dd hh24:mi:ss'),
+    TO_DATE('2015/06/02 09:00:00', 'yyyy/mm/dd hh24:mi:ss'),
+    TO_DATE('2015/06/02 13:00:00', 'yyyy/mm/dd hh24:mi:ss')
   );
