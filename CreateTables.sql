@@ -27,6 +27,8 @@ CREATE TABLE semesters_years (
   ID          NUMBER(5),
   Semester_ID NUMBER(5),
   Year        VARCHAR2(4),
+  StartDate DATE,
+  EndDate   DATE,
   CONSTRAINT pk_semesters_years PRIMARY KEY (ID),
   CONSTRAINT unq_semesters_years UNIQUE (Semester_ID, Year),
   CONSTRAINT fk_semesters_years_semesters FOREIGN KEY (Semester_ID) REFERENCES semesters (ID)
@@ -46,12 +48,9 @@ CREATE TABLE events
 (
   ID        NUMBER(5),
   Class_ID  NUMBER(5) NOT NULL,
-  StartDate DATE      NOT NULL,
-  EndDate   DATE      NOT NULL,
   StartTime DATE      NOT NULL,
   EndTime   DATE      NOT NULL,
   CONSTRAINT pk_events PRIMARY KEY (ID),
-  CONSTRAINT unq_events UNIQUE (StartDate, EndDate, Class_ID),
   CONSTRAINT fk_events_classes FOREIGN KEY (Class_ID) REFERENCES classes (ID)
 );
 CREATE TABLE repeat_events
