@@ -1745,6 +1745,13 @@ INSERT INTO ASSIGNMENT_CATEGORIES (ID, CATEGORY, WEIGHT) VALUES
   (
     SEQ_ASSIGNMENT_CATEGORIES.nextval,
     'Project research/work',
+    50
+  );
+
+INSERT INTO ASSIGNMENT_CATEGORIES (ID, CATEGORY, WEIGHT) VALUES
+  (
+    SEQ_ASSIGNMENT_CATEGORIES.nextval,
+    'Project research/work',
     60
   );
 
