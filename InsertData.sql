@@ -1761,3 +1761,992 @@ INSERT INTO ASSIGNMENT_CATEGORIES (ID, CATEGORY, WEIGHT) VALUES
     'Project Paper/report',
     15
   );
+
+INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              FROM COURSES
+              WHERE DEPT_ID =
+                    (
+                      SELECT ID
+                      FROM DEPARTMENTS
+                      WHERE name = 'CSCI'
+                    )
+                    AND num = '111'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Exams'
+            AND WEIGHT = 60
+    )
+  );
+
+INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              FROM COURSES
+              WHERE DEPT_ID =
+                    (
+                      SELECT ID
+                      FROM DEPARTMENTS
+                      WHERE name = 'CSCI'
+                    )
+                    AND num = '111'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Assignments'
+            AND WEIGHT = 40
+    )
+  );
+
+INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              FROM COURSES
+              WHERE DEPT_ID =
+                    (
+                      SELECT ID
+                      FROM DEPARTMENTS
+                      WHERE name = 'CSCI'
+                    )
+                    AND num = '160'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Exams'
+            AND WEIGHT = 60
+    )
+  );
+
+INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              FROM COURSES
+              WHERE DEPT_ID =
+                    (
+                      SELECT ID
+                      FROM DEPARTMENTS
+                      WHERE name = 'CSCI'
+                    )
+                    AND num = '160'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Assignments'
+            AND WEIGHT = 40
+    )
+  );
+
+INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              FROM COURSES
+              WHERE DEPT_ID =
+                    (
+                      SELECT ID
+                      FROM DEPARTMENTS
+                      WHERE name = 'CSCI'
+                    )
+                    AND num = '161'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Exams'
+            AND WEIGHT = 40
+    )
+  );
+
+INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              FROM COURSES
+              WHERE DEPT_ID =
+                    (
+                      SELECT ID
+                      FROM DEPARTMENTS
+                      WHERE name = 'CSCI'
+                    )
+                    AND num = '161'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Assignments'
+            AND WEIGHT = 60
+    )
+  );
+
+INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              FROM COURSES
+              WHERE DEPT_ID =
+                    (
+                      SELECT ID
+                      FROM DEPARTMENTS
+                      WHERE name = 'CSCI'
+                    )
+                    AND num = '221'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Exams'
+            AND WEIGHT = 35
+    )
+  );
+
+INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              FROM COURSES
+              WHERE DEPT_ID =
+                    (
+                      SELECT ID
+                      FROM DEPARTMENTS
+                      WHERE name = 'CSCI'
+                    )
+                    AND num = '221'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Assignments'
+            AND WEIGHT = 60
+    )
+  );
+
+INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              FROM COURSES
+              WHERE DEPT_ID =
+                    (
+                      SELECT ID
+                      FROM DEPARTMENTS
+                      WHERE name = 'CSCI'
+                    )
+                    AND num = '221'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Discussion Participation'
+            AND WEIGHT = 5
+    )
+  );
+
+INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              FROM COURSES
+              WHERE DEPT_ID =
+                    (
+                      SELECT ID
+                      FROM DEPARTMENTS
+                      WHERE name = 'CSCI'
+                    )
+                    AND num = '260'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Exams'
+            AND WEIGHT = 60
+    )
+  );
+
+INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              FROM COURSES
+              WHERE DEPT_ID =
+                    (
+                      SELECT ID
+                      FROM DEPARTMENTS
+                      WHERE name = 'CSCI'
+                    )
+                    AND num = '260'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Assignments'
+            AND WEIGHT = 35
+    )
+  );
+
+INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              FROM COURSES
+              WHERE DEPT_ID =
+                    (
+                      SELECT ID
+                      FROM DEPARTMENTS
+                      WHERE name = 'CSCI'
+                    )
+                    AND num = '260'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Discussion Participation'
+            AND WEIGHT = 5
+    )
+  );
+
+INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              FROM COURSES
+              WHERE DEPT_ID =
+                    (
+                      SELECT ID
+                      FROM DEPARTMENTS
+                      WHERE name = 'CSCI'
+                    )
+                    AND num = '321'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Assignments'
+            AND WEIGHT = 90
+    )
+  );
+
+INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              FROM COURSES
+              WHERE DEPT_ID =
+                    (
+                      SELECT ID
+                      FROM DEPARTMENTS
+                      WHERE name = 'CSCI'
+                    )
+                    AND num = '221'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Discussion Participation'
+            AND WEIGHT = 10
+    )
+  );
+
+INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              FROM COURSES
+              WHERE DEPT_ID =
+                    (
+                      SELECT ID
+                      FROM DEPARTMENTS
+                      WHERE name = 'CSCI'
+                    )
+                    AND num = '340'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Exams'
+            AND WEIGHT = 50
+    )
+  );
+
+INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              FROM COURSES
+              WHERE DEPT_ID =
+                    (
+                      SELECT ID
+                      FROM DEPARTMENTS
+                      WHERE name = 'CSCI'
+                    )
+                    AND num = '340'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Assignments'
+            AND WEIGHT = 35
+    )
+  );
+
+INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              FROM COURSES
+              WHERE DEPT_ID =
+                    (
+                      SELECT ID
+                      FROM DEPARTMENTS
+                      WHERE name = 'CSCI'
+                    )
+                    AND num = '340'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Discussion Participation'
+            AND WEIGHT = 5
+    )
+  );
+
+INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              FROM COURSES
+              WHERE DEPT_ID =
+                    (
+                      SELECT ID
+                      FROM DEPARTMENTS
+                      WHERE name = 'CSCI'
+                    )
+                    AND num = '340'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Labs'
+            AND WEIGHT = 10
+    )
+  );
+
+INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              FROM COURSES
+              WHERE DEPT_ID =
+                    (
+                      SELECT ID
+                      FROM DEPARTMENTS
+                      WHERE name = 'CSCI'
+                    )
+                    AND num = '356'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Exams'
+            AND WEIGHT = 60
+    )
+  );
+
+INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              FROM COURSES
+              WHERE DEPT_ID =
+                    (
+                      SELECT ID
+                      FROM DEPARTMENTS
+                      WHERE name = 'CSCI'
+                    )
+                    AND num = '356'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Assignments'
+            AND WEIGHT = 35
+    )
+  );
+
+INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              FROM COURSES
+              WHERE DEPT_ID =
+                    (
+                      SELECT ID
+                      FROM DEPARTMENTS
+                      WHERE name = 'CSCI'
+                    )
+                    AND num = '356'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Discussion Participation'
+            AND WEIGHT = 5
+    )
+  );
+
+INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              FROM COURSES
+              WHERE DEPT_ID =
+                    (
+                      SELECT ID
+                      FROM DEPARTMENTS
+                      WHERE name = 'CSCI'
+                    )
+                    AND num = '370'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Exams'
+            AND WEIGHT = 50
+    )
+  );
+
+INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              FROM COURSES
+              WHERE DEPT_ID =
+                    (
+                      SELECT ID
+                      FROM DEPARTMENTS
+                      WHERE name = 'CSCI'
+                    )
+                    AND num = '370'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Assignments'
+            AND WEIGHT = 40
+    )
+  );
+
+INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              FROM COURSES
+              WHERE DEPT_ID =
+                    (
+                      SELECT ID
+                      FROM DEPARTMENTS
+                      WHERE name = 'CSCI'
+                    )
+                    AND num = '370'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Discussion Participation'
+            AND WEIGHT = 10
+    )
+  );
+
+
+INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              FROM COURSES
+              WHERE DEPT_ID =
+                    (
+                      SELECT ID
+                      FROM DEPARTMENTS
+                      WHERE name = 'CSCI'
+                    )
+                    AND num = '440'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Exams'
+            AND WEIGHT = 40
+    )
+  );
+
+INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              FROM COURSES
+              WHERE DEPT_ID =
+                    (
+                      SELECT ID
+                      FROM DEPARTMENTS
+                      WHERE name = 'CSCI'
+                    )
+                    AND num = '440'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Assignments'
+            AND WEIGHT = 25
+    )
+  );
+
+INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              FROM COURSES
+              WHERE DEPT_ID =
+                    (
+                      SELECT ID
+                      FROM DEPARTMENTS
+                      WHERE name = 'CSCI'
+                    )
+                    AND num = '440'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Discussion Participation'
+            AND WEIGHT = 10
+    )
+  );
+
+INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              FROM COURSES
+              WHERE DEPT_ID =
+                    (
+                      SELECT ID
+                      FROM DEPARTMENTS
+                      WHERE name = 'CSCI'
+                    )
+                    AND num = '440'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Labs'
+            AND WEIGHT = 25
+    )
+  );
+
+INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              FROM COURSES
+              WHERE DEPT_ID =
+                    (
+                      SELECT ID
+                      FROM DEPARTMENTS
+                      WHERE name = 'CSCI'
+                    )
+                    AND num = '458'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Exams'
+            AND WEIGHT = 40
+    )
+  );
+
+INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              FROM COURSES
+              WHERE DEPT_ID =
+                    (
+                      SELECT ID
+                      FROM DEPARTMENTS
+                      WHERE name = 'CSCI'
+                    )
+                    AND num = '458'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Assignments'
+            AND WEIGHT = 10
+    )
+  );
+
+INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              FROM COURSES
+              WHERE DEPT_ID =
+                    (
+                      SELECT ID
+                      FROM DEPARTMENTS
+                      WHERE name = 'CSCI'
+                    )
+                    AND num = '458'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Project research/work'
+            AND WEIGHT = 50
+    )
+  );
+
+INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              FROM COURSES
+              WHERE DEPT_ID =
+                    (
+                      SELECT ID
+                      FROM DEPARTMENTS
+                      WHERE name = 'CSCI'
+                    )
+                    AND num = '460'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Project Proposal'
+            AND WEIGHT = 10
+    )
+  );
+
+INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              FROM COURSES
+              WHERE DEPT_ID =
+                    (
+                      SELECT ID
+                      FROM DEPARTMENTS
+                      WHERE name = 'CSCI'
+                    )
+                    AND num = '460'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Weekly Progress Reports'
+            AND WEIGHT = 5
+    )
+  );
+
+INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              FROM COURSES
+              WHERE DEPT_ID =
+                    (
+                      SELECT ID
+                      FROM DEPARTMENTS
+                      WHERE name = 'CSCI'
+                    )
+                    AND num = '460'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Project research/work'
+            AND WEIGHT = 60
+    )
+  );
+
+INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              FROM COURSES
+              WHERE DEPT_ID =
+                    (
+                      SELECT ID
+                      FROM DEPARTMENTS
+                      WHERE name = 'CSCI'
+                    )
+                    AND num = '460'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Project Presentation'
+            AND WEIGHT = 10
+    )
+  );
+
+INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              FROM COURSES
+              WHERE DEPT_ID =
+                    (
+                      SELECT ID
+                      FROM DEPARTMENTS
+                      WHERE name = 'CSCI'
+                    )
+                    AND num = '460'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Project Paper/report'
+            AND WEIGHT = 15
+    )
+  );
+
+INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              FROM COURSES
+              WHERE DEPT_ID =
+                    (
+                      SELECT ID
+                      FROM DEPARTMENTS
+                      WHERE name = 'MATH'
+                    )
+                    AND num = '208'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Exams'
+            AND WEIGHT = 90
+    )
+  );
+
+INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              FROM COURSES
+              WHERE DEPT_ID =
+                    (
+                      SELECT ID
+                      FROM DEPARTMENTS
+                      WHERE name = 'MATH'
+                    )
+                    AND num = '208'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Discussion Participation'
+            AND WEIGHT = 10
+    )
+  );
