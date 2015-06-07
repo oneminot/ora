@@ -48,8 +48,8 @@ CREATE TABLE events
 (
   ID        NUMBER(5),
   Class_ID  NUMBER(5) NOT NULL,
-  StartTime DATE      NOT NULL,
-  EndTime   DATE      NOT NULL,
+  StartDate DATE NOT NULL,
+  EndDate   DATE NOT NULL,
   CONSTRAINT pk_events PRIMARY KEY (ID),
   CONSTRAINT fk_events_classes FOREIGN KEY (Class_ID) REFERENCES classes (ID)
 );
