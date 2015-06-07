@@ -3121,3 +3121,168 @@ INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VA
 [2015-06-06 08:20:32] 1 row(s) affected in 24 ms
 
 [2015-06-06 08:20:32] Summary: 205 of 205 statements executed in 7254 ms (138796 chars in file)
+sql> alter session set current_schema = KHADA
+[2015-06-05 16:50:52] completed in 19ms
+sql> select * from SYLLABUS_ASSIGN_CATEGORIES
+[2015-06-05 16:51:05] 0 rows retrieved in 10ms (20ms total)
+sql> select * from ASSIGNMENT_CATEGORIES
+[2015-06-05 16:51:25] 20 row(s) retrieved starting from 1 in 9ms (16ms total)
+sql> select * from ASSIGNMENT_CATEGORIES ORDER BY WEIGHT ASC
+[2015-06-05 16:51:47] 20 row(s) retrieved starting from 1 in 8ms (15ms total)
+sql> select * from ASSIGNMENT_CATEGORIES ORDER BY CATEGORY asc
+[2015-06-05 16:52:28] 20 row(s) retrieved starting from 1 in 6ms (11ms total)
+sql> INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VALUES
+  (
+    (
+      SELECT ID
+      FROM SYLLABUS_INFO
+      WHERE COURSE_ID =
+            (
+              SELECT ID
+              from COURSES
+              where DEPT_ID =
+                    (
+                      select ID
+                      from DEPARTMENTS
+                      where name = 'CSCI'
+                    )
+                    AND num = '111'
+            )
+    ),
+    (
+      SELECT ID
+      FROM ASSIGNMENT_CATEGORIES
+      WHERE CATEGORY = 'Exams'
+            AND WEIGHT = 60
+    )
+  )
+
+  -- select * from SYLLABUS_ASSIGN_CATEGORIES where SYLLABUS_ID = (select ID from SYLLABUS_INFO WHERE COURSE_ID = (select ID from COURSES where NUM = '458'))
+  select * from ARTICLES;
+  select * from ASSIGNMENT_CATEGORIES;
+  select * from AUTHOR_ARTICLES;
+  select * from authors;
+  select * from classes;
+  select * from courses;
+  select * from DEPARTMENTS;
+  select * from events;
+  select * from GRADE_SCALES;
+  select * from PUBLISHERS;
+  SELECT * FROM REPEAT_DAYS;
+  SELECT * FROM REPEAT_EVENTS;
+  SELECT * FROM SEMESTERS;
+  SELECT * FROM SEMESTERS_YEARS;
+  SELECT * FROM SYLLABUS_ASSIGN_CATEGORIES;
+  SELECT * FROM SYLLABUS_INFO;
+  SELECT * FROM TEXTBOOKS;
+  SELECT * FROM USERS;
+[2015-06-05 17:56:07] 1 row(s) affected in 24ms
+sql> select * from SYLLABUS_ASSIGN_CATEGORIES
+[2015-06-06 08:09:33] 0 rows retrieved in 655ms (688ms total)
+sql> select * from SYLLABUS_ASSIGN_CATEGORIES
+[2015-06-06 08:09:52] 0 rows retrieved in 29ms (33ms total)
+sql> select * from SYLLABUS_ASSIGN_CATEGORIES
+[2015-06-06 08:12:24] 37 row(s) retrieved starting from 1 in 33ms (148ms total)
+sql> select * from SYLLABUS_INFO WHERE COURSE_ID = '458'
+[2015-06-06 08:13:14] 0 rows retrieved in 26ms (32ms total)
+sql> select * from SYLLABUS_INFO WHERE COURSE_ID = (select ID from COURSES where NUM = '458')
+[2015-06-06 08:13:40] 1 row(s) retrieved starting from 1 in 30ms (36ms total)
+sql> select * from SYLLABUS_ASSIGN_CATEGORIES where SYLLABUS_ID = (select ID from SYLLABUS_INFO WHERE COURSE_ID = (select ID from COURSES where NUM = '458'))
+[2015-06-06 08:14:26] 2 row(s) retrieved starting from 1 in 30ms (33ms total)
+sql> select * from SYLLABUS_ASSIGN_CATEGORIES where SYLLABUS_ID = (select ID from SYLLABUS_INFO WHERE COURSE_ID = (select ID from COURSES where NUM = '458'))
+[2015-06-07 09:12:36] 3 row(s) retrieved starting from 1 in 35ms (46ms total)
+sql> select * from SYLLABUS_ASSIGN_CATEGORIES where SYLLABUS_ID = (select ID from SYLLABUS_INFO WHERE COURSE_ID = (select ID from COURSES where NUM = '458'))
+[2015-06-07 09:12:40] 3 row(s) retrieved starting from 1 in 25ms (50ms total)
+[2015-06-07 09:12:50] transaction committed: @console:Oracle - @loree.minotstateu.edu
+[2015-06-07 09:12:54] auto-commit mode ON
+[2015-06-07 09:12:55] auto-commit mode OFF
+sql> select * from SYLLABUS_ASSIGN_CATEGORIES where SYLLABUS_ID = (select ID from SYLLABUS_INFO WHERE COURSE_ID = (select ID from COURSES where NUM = '458'))
+[2015-06-07 09:13:00] 3 row(s) retrieved starting from 1 in 22ms (25ms total)
+sql> select * from SYLLABUS_ASSIGN_CATEGORIES where SYLLABUS_ID = (select ID from SYLLABUS_INFO WHERE COURSE_ID = (select ID from COURSES where NUM = '458'))
+[2015-06-07 09:13:18] 3 row(s) retrieved starting from 1 in 40ms (42ms total)
+sql> select * from ARTICLES
+[2015-06-07 09:13:53] 3 row(s) retrieved starting from 1 in 70ms (92ms total)
+sql> select * from ASSIGNMENT_CATEGORIES
+[2015-06-07 09:14:03] 21 row(s) retrieved starting from 1 in 81ms (143ms total)
+sql> select * from AUTHOR_ARTICLES
+[2015-06-07 09:14:17] 21 row(s) retrieved starting from 1 in 23ms (63ms total)
+sql> select * from authors
+[2015-06-07 09:14:24] 17 row(s) retrieved starting from 1 in 43ms (64ms total)
+sql> select * from classes
+[2015-06-07 09:14:32] 31 row(s) retrieved starting from 1 in 31ms (91ms total)
+sql> select * from AUTHOR_ARTICLES
+[2015-06-07 09:14:33] 21 row(s) retrieved starting from 1 in 26ms (66ms total)
+sql> select * from classes
+[2015-06-07 09:14:36] 31 row(s) retrieved starting from 1 in 67ms (135ms total)
+sql> select * from courses
+[2015-06-07 09:14:44] 14 row(s) retrieved starting from 1 in 34ms (57ms total)
+sql> select * from DEPARTMENTS
+[2015-06-07 09:14:56] 2 row(s) retrieved starting from 1 in 23ms (25ms total)
+sql> select * from courses
+[2015-06-07 09:14:59] 14 row(s) retrieved starting from 1 in 24ms (47ms total)
+sql> select * from classes
+[2015-06-07 09:15:00] 31 row(s) retrieved starting from 1 in 23ms (83ms total)
+sql> select * from courses
+[2015-06-07 09:15:01] 14 row(s) retrieved starting from 1 in 40ms (67ms total)
+sql> select * from events
+[2015-06-07 09:15:10] 1 row(s) retrieved starting from 1 in 39ms (296ms total)
+sql> select * from events
+[2015-06-07 09:52:11] 1 row(s) retrieved starting from 1 in 38ms (48ms total)
+sql> select * from GRADE_SCALES
+[2015-06-07 09:54:37] 5 row(s) retrieved starting from 1 in 32ms (80ms total)
+sql> select * from PUBLISHERS
+[2015-06-07 09:54:53] 3 row(s) retrieved starting from 1 in 24ms (28ms total)
+sql> SELECT * FROM REPEAT_DAYS
+[2015-06-07 09:55:11] 0 rows retrieved in 25ms (27ms total)
+sql> SELECT * FROM REPEAT_EVENTS
+[2015-06-07 09:55:20] 0 rows retrieved in 27ms (31ms total)
+sql> SELECT * FROM SEMESTERS
+[2015-06-07 09:55:26] 3 row(s) retrieved starting from 1 in 23ms (26ms total)
+sql> SELECT * FROM SEMESTERS_YEARS
+[2015-06-07 09:55:32] 9 row(s) retrieved starting from 1 in 24ms (32ms total)
+sql> SELECT * FROM SYLLABUS_ASSIGN_CATEGORIES
+[2015-06-07 09:55:45] 38 row(s) retrieved starting from 1 in 24ms (92ms total)
+sql> SELECT * FROM SYLLABUS_INFO
+[2015-06-07 09:55:53] 13 row(s) retrieved starting from 1 in 39ms (64ms total)
+sql> SELECT * FROM TEXTBOOKS
+[2015-06-07 09:56:06] 12 row(s) retrieved starting from 1 in 26ms (49ms total)
+sql> SELECT * FROM USERS
+[2015-06-07 09:56:17] 0 rows retrieved in 39ms (42ms total)
+sql> SELECT * FROM USERS
+[2015-06-07 09:56:27] 0 rows retrieved in 23ms (26ms total)
+sql> select * from ARTICLES
+[2015-06-07 09:56:28] 3 row(s) retrieved starting from 1 in 22ms (26ms total)
+sql> select * from ASSIGNMENT_CATEGORIES
+[2015-06-07 09:56:28] 21 row(s) retrieved starting from 1 in 30ms (74ms total)
+sql> select * from AUTHOR_ARTICLES
+[2015-06-07 09:56:28] 21 row(s) retrieved starting from 1 in 36ms (76ms total)
+sql> select * from authors
+[2015-06-07 09:56:28] 17 row(s) retrieved starting from 1 in 25ms (45ms total)
+sql> select * from classes
+[2015-06-07 09:56:28] 31 row(s) retrieved starting from 1 in 23ms (91ms total)
+sql> select * from courses
+[2015-06-07 09:56:28] 14 row(s) retrieved starting from 1 in 28ms (64ms total)
+sql> select * from DEPARTMENTS
+[2015-06-07 09:56:28] 2 row(s) retrieved starting from 1 in 23ms (25ms total)
+sql> select * from events
+[2015-06-07 09:56:28] 1 row(s) retrieved starting from 1 in 41ms (46ms total)
+sql> select * from GRADE_SCALES
+[2015-06-07 09:56:28] 5 row(s) retrieved starting from 1 in 26ms (28ms total)
+sql> select * from PUBLISHERS
+[2015-06-07 09:56:28] 3 row(s) retrieved starting from 1 in 22ms (25ms total)
+sql> SELECT * FROM REPEAT_DAYS
+[2015-06-07 09:56:28] 0 rows retrieved in 43ms (45ms total)
+sql> SELECT * FROM REPEAT_EVENTS
+[2015-06-07 09:56:29] 0 rows retrieved in 24ms (26ms total)
+sql> SELECT * FROM SEMESTERS
+[2015-06-07 09:56:29] 3 row(s) retrieved starting from 1 in 21ms (24ms total)
+sql> SELECT * FROM SEMESTERS_YEARS
+[2015-06-07 09:56:29] 9 row(s) retrieved starting from 1 in 20ms (24ms total)
+sql> SELECT * FROM SYLLABUS_ASSIGN_CATEGORIES
+[2015-06-07 09:56:29] 38 row(s) retrieved starting from 1 in 28ms (90ms total)
+sql> SELECT * FROM SYLLABUS_INFO
+[2015-06-07 09:56:29] 13 row(s) retrieved starting from 1 in 28ms (102ms total)
+sql> SELECT * FROM TEXTBOOKS
+[2015-06-07 09:56:29] 12 row(s) retrieved starting from 1 in 22ms (44ms total)
+sql> SELECT * FROM USERS
+[2015-06-07 09:56:29] 0 rows retrieved in 21ms (24ms total)
