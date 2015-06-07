@@ -1589,7 +1589,7 @@ INSERT INTO SYLLABUS_INFO_TEXTBOOKS (TEXTBOOK_ID, SYLLABUS_INFO_ID) VALUES
     )
   );
 
-INSERT INTO EVENTS (ID, CLASS_ID, STARTTIME, ENDTIME) VALUES
+INSERT INTO EVENTS (ID, CLASS_ID, STARTDATE, ENDDATE) VALUES
   (
     SEQ_EVENTS.nextval,
     (
@@ -2757,3 +2757,903 @@ INSERT INTO SYLLABUS_ASSIGN_CATEGORIES (SYLLABUS_ID, ASSIGNMENTCATEGORIES_ID) VA
             AND WEIGHT = 10
     )
   );
+
+INSERT INTO EVENTS
+(
+  ID,
+  CLASS_ID,
+  STARTDATE,
+  ENDDATE
+)
+VALUES
+  (
+    SEQ_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM CLASSES
+      WHERE NUM = '20012'
+    ),
+    (
+      SELECT STARTDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2010
+            AND SEMESTER_ID = 1
+    ),
+    (
+      SELECT ENDDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2010
+            AND SEMESTER_ID = 1
+    )
+  );
+
+INSERT INTO EVENTS
+(
+  ID,
+  CLASS_ID,
+  STARTDATE,
+  ENDDATE
+)
+VALUES
+  (
+    SEQ_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM CLASSES
+      WHERE NUM = '20627'
+    ),
+    (
+      SELECT STARTDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2010
+            AND SEMESTER_ID = 1
+    ),
+    (
+      SELECT ENDDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2010
+            AND SEMESTER_ID = 1
+    )
+  );
+
+INSERT INTO EVENTS
+(
+  ID,
+  CLASS_ID,
+  STARTDATE,
+  ENDDATE
+)
+VALUES
+  (
+    SEQ_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM CLASSES
+      WHERE NUM = '19567'
+    ),
+    (
+      SELECT STARTDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2010
+            AND SEMESTER_ID = 1
+    ),
+    (
+      SELECT ENDDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2010
+            AND SEMESTER_ID = 1
+    )
+  );
+
+INSERT INTO EVENTS
+(
+  ID,
+  CLASS_ID,
+  STARTDATE,
+  ENDDATE
+)
+VALUES
+  (
+    SEQ_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM CLASSES
+      WHERE NUM = '19670'
+    ),
+    (
+      SELECT STARTDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2011
+            AND SEMESTER_ID = 2
+    ),
+    (
+      SELECT ENDDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2011
+            AND SEMESTER_ID = 2
+    )
+  );
+
+INSERT INTO EVENTS
+(
+  ID,
+  CLASS_ID,
+  STARTDATE,
+  ENDDATE
+)
+VALUES
+  (
+    SEQ_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM CLASSES
+      WHERE NUM = '3645'
+    ),
+    (
+      SELECT STARTDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2011
+            AND SEMESTER_ID = 2
+    ),
+    (
+      SELECT ENDDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2011
+            AND SEMESTER_ID = 2
+    )
+  );
+
+INSERT INTO EVENTS
+(
+  ID,
+  CLASS_ID,
+  STARTDATE,
+  ENDDATE
+)
+VALUES
+  (
+    SEQ_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM CLASSES
+      WHERE NUM = '19667'
+    ),
+    (
+      SELECT STARTDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2011
+            AND SEMESTER_ID = 2
+    ),
+    (
+      SELECT ENDDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2011
+            AND SEMESTER_ID = 2
+    )
+  );
+
+INSERT INTO EVENTS
+(
+  ID,
+  CLASS_ID,
+  STARTDATE,
+  ENDDATE
+)
+VALUES
+  (
+    SEQ_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM CLASSES
+      WHERE NUM = '6132'
+    ),
+    (
+      SELECT STARTDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2011
+            AND SEMESTER_ID = 2
+    ),
+    (
+      SELECT ENDDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2011
+            AND SEMESTER_ID = 2
+    )
+  );
+
+INSERT INTO EVENTS
+(
+  ID,
+  CLASS_ID,
+  STARTDATE,
+  ENDDATE
+)
+VALUES
+  (
+    SEQ_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM CLASSES
+      WHERE NUM = '6863'
+    ),
+    (
+      SELECT STARTDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2011
+            AND SEMESTER_ID = 1
+    ),
+    (
+      SELECT ENDDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2011
+            AND SEMESTER_ID = 1
+    )
+  );
+
+INSERT INTO EVENTS
+(
+  ID,
+  CLASS_ID,
+  STARTDATE,
+  ENDDATE
+)
+VALUES
+  (
+    SEQ_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM CLASSES
+      WHERE NUM = '7055'
+    ),
+    (
+      SELECT STARTDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2011
+            AND SEMESTER_ID = 1
+    ),
+    (
+      SELECT ENDDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2011
+            AND SEMESTER_ID = 1
+    )
+  );
+
+INSERT INTO EVENTS
+(
+  ID,
+  CLASS_ID,
+  STARTDATE,
+  ENDDATE
+)
+VALUES
+  (
+    SEQ_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM CLASSES
+      WHERE NUM = '6630'
+    ),
+    (
+      SELECT STARTDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2011
+            AND SEMESTER_ID = 1
+    ),
+    (
+      SELECT ENDDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2011
+            AND SEMESTER_ID = 1
+    )
+  );
+
+INSERT INTO EVENTS
+(
+  ID,
+  CLASS_ID,
+  STARTDATE,
+  ENDDATE
+)
+VALUES
+  (
+    SEQ_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM CLASSES
+      WHERE NUM = '4876'
+    ),
+    (
+      SELECT STARTDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2012
+            AND SEMESTER_ID = 2
+    ),
+    (
+      SELECT ENDDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2012
+            AND SEMESTER_ID = 2
+    )
+  );
+
+INSERT INTO EVENTS
+(
+  ID,
+  CLASS_ID,
+  STARTDATE,
+  ENDDATE
+)
+VALUES
+  (
+    SEQ_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM CLASSES
+      WHERE NUM = '4457'
+    ),
+    (
+      SELECT STARTDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2012
+            AND SEMESTER_ID = 2
+    ),
+    (
+      SELECT ENDDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2012
+            AND SEMESTER_ID = 2
+    )
+  );
+
+INSERT INTO EVENTS
+(
+  ID,
+  CLASS_ID,
+  STARTDATE,
+  ENDDATE
+)
+VALUES
+  (
+    SEQ_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM CLASSES
+      WHERE NUM = '4458'
+    ),
+    (
+      SELECT STARTDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2012
+            AND SEMESTER_ID = 2
+    ),
+    (
+      SELECT ENDDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2012
+            AND SEMESTER_ID = 2
+    )
+  );
+
+INSERT INTO EVENTS
+(
+  ID,
+  CLASS_ID,
+  STARTDATE,
+  ENDDATE
+)
+VALUES
+  (
+    SEQ_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM CLASSES
+      WHERE NUM = '4668'
+    ),
+    (
+      SELECT STARTDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2012
+            AND SEMESTER_ID = 2
+    ),
+    (
+      SELECT ENDDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2012
+            AND SEMESTER_ID = 2
+    )
+  );
+
+INSERT INTO EVENTS
+(
+  ID,
+  CLASS_ID,
+  STARTDATE,
+  ENDDATE
+)
+VALUES
+  (
+    SEQ_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM CLASSES
+      WHERE NUM = '13412'
+    ),
+    (
+      SELECT STARTDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2013
+            AND SEMESTER_ID = 1
+    ),
+    (
+      SELECT ENDDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2013
+            AND SEMESTER_ID = 1
+    )
+  );
+
+INSERT INTO EVENTS
+(
+  ID,
+  CLASS_ID,
+  STARTDATE,
+  ENDDATE
+)
+VALUES
+  (
+    SEQ_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM CLASSES
+      WHERE NUM = '13414'
+    ),
+    (
+      SELECT STARTDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2013
+            AND SEMESTER_ID = 1
+    ),
+    (
+      SELECT ENDDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2013
+            AND SEMESTER_ID = 1
+    )
+  );
+
+INSERT INTO EVENTS
+(
+  ID,
+  CLASS_ID,
+  STARTDATE,
+  ENDDATE
+)
+VALUES
+  (
+    SEQ_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM CLASSES
+      WHERE NUM = '13416'
+    ),
+    (
+      SELECT STARTDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2013
+            AND SEMESTER_ID = 1
+    ),
+    (
+      SELECT ENDDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2013
+            AND SEMESTER_ID = 1
+    )
+  );
+
+INSERT INTO EVENTS
+(
+  ID,
+  CLASS_ID,
+  STARTDATE,
+  ENDDATE
+)
+VALUES
+  (
+    SEQ_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM CLASSES
+      WHERE NUM = '5132'
+    ),
+    (
+      SELECT STARTDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2014
+            AND SEMESTER_ID = 2
+    ),
+    (
+      SELECT ENDDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2014
+            AND SEMESTER_ID = 2
+    )
+  );
+
+INSERT INTO EVENTS
+(
+  ID,
+  CLASS_ID,
+  STARTDATE,
+  ENDDATE
+)
+VALUES
+  (
+    SEQ_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM CLASSES
+      WHERE NUM = '5285'
+    ),
+    (
+      SELECT STARTDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2014
+            AND SEMESTER_ID = 2
+    ),
+    (
+      SELECT ENDDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2014
+            AND SEMESTER_ID = 2
+    )
+  );
+
+INSERT INTO EVENTS
+(
+  ID,
+  CLASS_ID,
+  STARTDATE,
+  ENDDATE
+)
+VALUES
+  (
+    SEQ_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM CLASSES
+      WHERE NUM = '5518'
+    ),
+    (
+      SELECT STARTDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2014
+            AND SEMESTER_ID = 2
+    ),
+    (
+      SELECT ENDDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2014
+            AND SEMESTER_ID = 2
+    )
+  );
+
+INSERT INTO EVENTS
+(
+  ID,
+  CLASS_ID,
+  STARTDATE,
+  ENDDATE
+)
+VALUES
+  (
+    SEQ_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM CLASSES
+      WHERE NUM = '5286'
+    ),
+    (
+      SELECT STARTDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2014
+            AND SEMESTER_ID = 2
+    ),
+    (
+      SELECT ENDDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2014
+            AND SEMESTER_ID = 2
+    )
+  );
+
+INSERT INTO EVENTS
+(
+  ID,
+  CLASS_ID,
+  STARTDATE,
+  ENDDATE
+)
+VALUES
+  (
+    SEQ_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM CLASSES
+      WHERE NUM = ''
+    ),
+    (
+      SELECT STARTDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2014
+            AND SEMESTER_ID = 1
+    ),
+    (
+      SELECT ENDDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2014
+            AND SEMESTER_ID = 1
+    )
+  );
+
+INSERT INTO EVENTS
+(
+  ID,
+  CLASS_ID,
+  STARTDATE,
+  ENDDATE
+)
+VALUES
+  (
+    SEQ_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM CLASSES
+      WHERE NUM = '12317'
+    ),
+    (
+      SELECT STARTDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2014
+            AND SEMESTER_ID = 1
+    ),
+    (
+      SELECT ENDDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2014
+            AND SEMESTER_ID = 1
+    )
+  );
+
+INSERT INTO EVENTS
+(
+  ID,
+  CLASS_ID,
+  STARTDATE,
+  ENDDATE
+)
+VALUES
+  (
+    SEQ_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM CLASSES
+      WHERE NUM = '12102'
+    ),
+    (
+      SELECT STARTDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2014
+            AND SEMESTER_ID = 1
+    ),
+    (
+      SELECT ENDDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2014
+            AND SEMESTER_ID = 1
+    )
+  );
+
+INSERT INTO EVENTS
+(
+  ID,
+  CLASS_ID,
+  STARTDATE,
+  ENDDATE
+)
+VALUES
+  (
+    SEQ_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM CLASSES
+      WHERE NUM = '12104'
+    ),
+    (
+      SELECT STARTDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2014
+            AND SEMESTER_ID = 1
+    ),
+    (
+      SELECT ENDDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2014
+            AND SEMESTER_ID = 1
+    )
+  );
+
+INSERT INTO EVENTS
+(
+  ID,
+  CLASS_ID,
+  STARTDATE,
+  ENDDATE
+)
+VALUES
+  (
+    SEQ_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM CLASSES
+      WHERE NUM = '4154'
+    ),
+    (
+      SELECT STARTDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2015
+            AND SEMESTER_ID = 2
+    ),
+    (
+      SELECT ENDDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2015
+            AND SEMESTER_ID = 2
+    )
+  );
+
+INSERT INTO EVENTS
+(
+  ID,
+  CLASS_ID,
+  STARTDATE,
+  ENDDATE
+)
+VALUES
+  (
+    SEQ_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM CLASSES
+      WHERE NUM = '26115'
+    ),
+    (
+      SELECT STARTDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2015
+            AND SEMESTER_ID = 2
+    ),
+    (
+      SELECT ENDDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2015
+            AND SEMESTER_ID = 2
+    )
+  );
+
+INSERT INTO EVENTS
+(
+  ID,
+  CLASS_ID,
+  STARTDATE,
+  ENDDATE
+)
+VALUES
+  (
+    SEQ_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM CLASSES
+      WHERE NUM = '4294'
+    ),
+    (
+      SELECT STARTDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2015
+            AND SEMESTER_ID = 2
+    ),
+    (
+      SELECT ENDDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2015
+            AND SEMESTER_ID = 2
+    )
+  );
+
+INSERT INTO EVENTS
+(
+  ID,
+  CLASS_ID,
+  STARTDATE,
+  ENDDATE
+)
+VALUES
+  (
+    SEQ_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM CLASSES
+      WHERE NUM = '4431'
+    ),
+    (
+      SELECT STARTDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2015
+            AND SEMESTER_ID = 2
+    ),
+    (
+      SELECT ENDDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2015
+            AND SEMESTER_ID = 2
+    )
+  );
+
+INSERT INTO EVENTS
+(
+  ID,
+  CLASS_ID,
+  STARTDATE,
+  ENDDATE
+)
+VALUES
+  (
+    SEQ_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM CLASSES
+      WHERE NUM = '4295'
+    ),
+    (
+      SELECT STARTDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2015
+            AND SEMESTER_ID = 2
+    ),
+    (
+      SELECT ENDDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2015
+            AND SEMESTER_ID = 2
+    )
+  );
+
+INSERT INTO EVENTS
+(
+  ID,
+  CLASS_ID,
+  STARTDATE,
+  ENDDATE
+)
+VALUES
+  (
+    SEQ_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM CLASSES
+      WHERE NUM = '10930'
+    ),
+    (
+      SELECT STARTDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2015
+            AND SEMESTER_ID = 3
+    ),
+    (
+      SELECT ENDDATE
+      FROM SEMESTERS_YEARS
+      WHERE year = 2015
+            AND SEMESTER_ID = 3
+    )
+  );
+
