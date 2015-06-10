@@ -3380,35 +3380,6 @@ VALUES
     (
       SELECT ID
       FROM CLASSES
-      WHERE NUM = ''
-    ),
-    (
-      SELECT STARTDATE
-      FROM SEMESTERS_YEARS
-      WHERE year = 2014
-            AND SEMESTER_ID = 1
-    ),
-    (
-      SELECT ENDDATE
-      FROM SEMESTERS_YEARS
-      WHERE year = 2014
-            AND SEMESTER_ID = 1
-    )
-  );
-
-INSERT INTO EVENTS
-(
-  ID,
-  CLASS_ID,
-  STARTDATE,
-  ENDDATE
-)
-VALUES
-  (
-    SEQ_EVENTS.nextval,
-    (
-      SELECT ID
-      FROM CLASSES
       WHERE NUM = '12317'
     ),
     (
