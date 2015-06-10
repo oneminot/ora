@@ -4477,3 +4477,249 @@ VALUES
 [2015-06-10 14:52:58] 1 row(s) affected in 25 ms
 
 [2015-06-10 14:52:58] Summary: 263 of 263 statements executed in 4674 ms (160879 chars in file)
+sql> INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (
+      SELECT ID
+      FROM REPEAT_EVENTS
+      WHERE REPEATEVENT_ID =
+            (
+              SELECT ID
+              FROM EVENTS
+              WHERE CLASS_ID = '10930'
+            )
+    ),
+    2
+  )
+[2015-06-10 15:38:01] [42000][904] ORA-00904: "REPEATEVENT_ID": invalid identifier
+sql> INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (
+      SELECT ID
+      FROM REPEAT_EVENTS
+      WHERE EVENT_ID =
+            (
+              SELECT ID
+              FROM EVENTS
+              WHERE CLASS_ID = '10930'
+            )
+    ),
+    1
+  )
+[2015-06-10 15:39:04] [23000][1400] ORA-01400: cannot insert NULL into ("KHADA"."REPEAT_DAYS"."REPEATEVENT_ID")
+sql> SELECT ID
+FROM REPEAT_EVENTS
+WHERE EVENT_ID =
+      (
+        SELECT ID
+        FROM EVENTS
+        WHERE CLASS_ID = '10930'
+      )
+[2015-06-10 15:39:34] 0 rows retrieved in 24ms (45ms total)
+sql> SELECT ID
+FROM REPEAT_EVENTS
+WHERE EVENT_ID =
+      (
+        SELECT ID
+        FROM EVENTS
+        WHERE CLASS_ID = '10930'
+      )
+[2015-06-10 15:49:34] 0 rows retrieved in 15ms (25ms total)
+sql> SELECT ID
+FROM REPEAT_EVENTS
+WHERE EVENT_ID =
+      (
+        SELECT ID
+        FROM EVENTS
+        WHERE CLASS_ID = '10930'
+      )
+[2015-06-10 15:49:37] 0 rows retrieved in 11ms (18ms total)
+sql> SELECT ID
+FROM EVENTS
+WHERE CLASS_ID = '10930'
+[2015-06-10 15:49:56] 0 rows retrieved in 7ms (10ms total)
+sql> SELECT ID
+FROM CLASSES
+WHERE CLASS_ID = '10930'
+[2015-06-10 16:03:24] [42000][904] ORA-00904: "CLASS_ID": invalid identifier
+sql> SELECT ID
+FROM CLASSES
+WHERE ID = '10930'
+[2015-06-10 16:03:30] 0 rows retrieved in 15ms (20ms total)
+sql> SELECT ID
+FROM CLASSES
+WHERE ID = '10930'
+[2015-06-10 16:03:34] 0 rows retrieved in 5ms (7ms total)
+sql> SELECT ID
+FROM CLASSES
+WHERE NUM = '10930'
+[2015-06-10 16:04:11] 1 row(s) retrieved starting from 1 in 11ms (27ms total)
+sql> SELECT ID
+FROM REPEAT_EVENTS
+WHERE EVENT_ID =
+      (
+        SELECT ID
+        FROM EVENTS
+        WHERE CLASS_ID =
+              (
+                SELECT ID
+                FROM CLASSES
+                WHERE NUM = '10930'
+              )
+      )
+[2015-06-10 16:05:24] 1 row(s) retrieved starting from 1 in 8ms (25ms total)
+sql> INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '10930'
+                   )
+           )
+    ),
+    2
+  )
+[2015-06-10 16:06:53] 1 row(s) affected in 13ms
+sql> INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (
+      SELECT ID
+      FROM REPEAT_EVENTS
+      WHERE REPEATEVENT_ID =
+            (
+              SELECT ID
+              FROM EVENTS
+              WHERE CLASS_ID = '10930'
+            )
+    ),
+    2
+  )
+[2015-06-10 15:38:01] [42000][904] ORA-00904: "REPEATEVENT_ID": invalid identifier
+sql> INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (
+      SELECT ID
+      FROM REPEAT_EVENTS
+      WHERE EVENT_ID =
+            (
+              SELECT ID
+              FROM EVENTS
+              WHERE CLASS_ID = '10930'
+            )
+    ),
+    1
+  )
+[2015-06-10 15:39:04] [23000][1400] ORA-01400: cannot insert NULL into ("KHADA"."REPEAT_DAYS"."REPEATEVENT_ID")
+sql> SELECT ID
+FROM REPEAT_EVENTS
+WHERE EVENT_ID =
+      (
+        SELECT ID
+        FROM EVENTS
+        WHERE CLASS_ID = '10930'
+      )
+[2015-06-10 15:39:34] 0 rows retrieved in 24ms (45ms total)
+sql> SELECT ID
+FROM REPEAT_EVENTS
+WHERE EVENT_ID =
+      (
+        SELECT ID
+        FROM EVENTS
+        WHERE CLASS_ID = '10930'
+      )
+[2015-06-10 15:49:34] 0 rows retrieved in 15ms (25ms total)
+sql> SELECT ID
+FROM REPEAT_EVENTS
+WHERE EVENT_ID =
+      (
+        SELECT ID
+        FROM EVENTS
+        WHERE CLASS_ID = '10930'
+      )
+[2015-06-10 15:49:37] 0 rows retrieved in 11ms (18ms total)
+sql> SELECT ID
+FROM EVENTS
+WHERE CLASS_ID = '10930'
+[2015-06-10 15:49:56] 0 rows retrieved in 7ms (10ms total)
+sql> SELECT ID
+FROM CLASSES
+WHERE CLASS_ID = '10930'
+[2015-06-10 16:03:24] [42000][904] ORA-00904: "CLASS_ID": invalid identifier
+sql> SELECT ID
+FROM CLASSES
+WHERE ID = '10930'
+[2015-06-10 16:03:30] 0 rows retrieved in 15ms (20ms total)
+sql> SELECT ID
+FROM CLASSES
+WHERE ID = '10930'
+[2015-06-10 16:03:34] 0 rows retrieved in 5ms (7ms total)
+sql> SELECT ID
+FROM CLASSES
+WHERE NUM = '10930'
+[2015-06-10 16:04:11] 1 row(s) retrieved starting from 1 in 11ms (27ms total)
+sql> SELECT ID
+FROM REPEAT_EVENTS
+WHERE EVENT_ID =
+      (
+        SELECT ID
+        FROM EVENTS
+        WHERE CLASS_ID =
+              (
+                SELECT ID
+                FROM CLASSES
+                WHERE NUM = '10930'
+              )
+      )
+[2015-06-10 16:05:24] 1 row(s) retrieved starting from 1 in 8ms (25ms total)
+sql> INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '10930'
+                   )
+           )
+    ),
+    2
+  )
+[2015-06-10 16:06:53] 1 row(s) affected in 13ms
+sql> INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '10930'
+                   )
+           )
+    ),
+    1
+  )
+[2015-06-10 16:07:06] 1 row(s) affected in 9ms

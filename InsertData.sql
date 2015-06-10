@@ -4113,3 +4113,43 @@ VALUES
     TO_DATE('13:00:00', 'hh24:mi:ss'),
     TO_DATE('13:50:00', 'hh24:mi:ss')
   );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '10930'
+                   )
+           )
+    ),
+    1
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '10930'
+                   )
+           )
+    ),
+    2
+  );
