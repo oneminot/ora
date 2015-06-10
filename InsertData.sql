@@ -4153,3 +4153,2299 @@ VALUES
     ),
     2
   );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '4154'
+                   )
+           )
+    ),
+    1
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '4154'
+                   )
+           )
+    ),
+    2
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '4154'
+                   )
+           )
+    ),
+    3
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '4154'
+                   )
+           )
+    ),
+    4
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '4294'
+                   )
+           )
+    ),
+    1
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '4294'
+                   )
+           )
+    ),
+    2
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '4294'
+                   )
+           )
+    ),
+    3
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '4294'
+                   )
+           )
+    ),
+    4
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '4431'
+                   )
+           )
+    ),
+    1
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '4431'
+                   )
+           )
+    ),
+    2
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '4431'
+                   )
+           )
+    ),
+    3
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '4431'
+                   )
+           )
+    ),
+    4
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '4295'
+                   )
+           )
+    ),
+    1
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '4295'
+                   )
+           )
+    ),
+    2
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '4295'
+                   )
+           )
+    ),
+    3
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '4295'
+                   )
+           )
+    ),
+    4
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '12317'
+                   )
+           )
+    ),
+    1
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '12317'
+                   )
+           )
+    ),
+    2
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '12317'
+                   )
+           )
+    ),
+    3
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '12317'
+                   )
+           )
+    ),
+    5
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '12102'
+                   )
+           )
+    ),
+    1
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '12102'
+                   )
+           )
+    ),
+    2
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '12102'
+                   )
+           )
+    ),
+    3
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '12102'
+                   )
+           )
+    ),
+    5
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '12104'
+                   )
+           )
+    ),
+    1
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '12104'
+                   )
+           )
+    ),
+    2
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '12104'
+                   )
+           )
+    ),
+    3
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '12104'
+                   )
+           )
+    ),
+    5
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '5132'
+                   )
+           )
+    ),
+    1
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '5132'
+                   )
+           )
+    ),
+    2
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '5132'
+                   )
+           )
+    ),
+    3
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '5132'
+                   )
+           )
+    ),
+    4
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '5285'
+                   )
+           )
+    ),
+    1
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '5285'
+                   )
+           )
+    ),
+    2
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '5285'
+                   )
+           )
+    ),
+    3
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '5285'
+                   )
+           )
+    ),
+    4
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '5518'
+                   )
+           )
+    ),
+    1
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '5518'
+                   )
+           )
+    ),
+    2
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '5518'
+                   )
+           )
+    ),
+    3
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '5518'
+                   )
+           )
+    ),
+    4
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '5286'
+                   )
+           )
+    ),
+    1
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '5286'
+                   )
+           )
+    ),
+    2
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '5286'
+                   )
+           )
+    ),
+    3
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '5286'
+                   )
+           )
+    ),
+    4
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '13412'
+                   )
+           )
+    ),
+    1
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '13412'
+                   )
+           )
+    ),
+    2
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '13412'
+                   )
+           )
+    ),
+    3
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '13412'
+                   )
+           )
+    ),
+    5
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '13412'
+                   )
+           )
+    ),
+    1
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '13412'
+                   )
+           )
+    ),
+    2
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '13412'
+                   )
+           )
+    ),
+    3
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '13414'
+                   )
+           )
+    ),
+    5
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '13416'
+                   )
+           )
+    ),
+    1
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '13416'
+                   )
+           )
+    ),
+    2
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '13416'
+                   )
+           )
+    ),
+    3
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '13416'
+                   )
+           )
+    ),
+    5
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '4876'
+                   )
+           )
+    ),
+    1
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '4876'
+                   )
+           )
+    ),
+    2
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '4876'
+                   )
+           )
+    ),
+    3
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '4876'
+                   )
+           )
+    ),
+    4
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '4457'
+                   )
+           )
+    ),
+    1
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '4457'
+                   )
+           )
+    ),
+    2
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '4457'
+                   )
+           )
+    ),
+    3
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '4457'
+                   )
+           )
+    ),
+    4
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '4458'
+                   )
+           )
+    ),
+    1
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '4458'
+                   )
+           )
+    ),
+    2
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '4458'
+                   )
+           )
+    ),
+    3
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '4458'
+                   )
+           )
+    ),
+    4
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '4668'
+                   )
+           )
+    ),
+    1
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '4668'
+                   )
+           )
+    ),
+    2
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '4668'
+                   )
+           )
+    ),
+    3
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '4668'
+                   )
+           )
+    ),
+    4
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '6863'
+                   )
+           )
+    ),
+    1
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '6863'
+                   )
+           )
+    ),
+    2
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '6863'
+                   )
+           )
+    ),
+    3
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '6863'
+                   )
+           )
+    ),
+    4
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '7055'
+                   )
+           )
+    ),
+    1
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '7055'
+                   )
+           )
+    ),
+    2
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '7055'
+                   )
+           )
+    ),
+    3
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '7055'
+                   )
+           )
+    ),
+    4
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '6630'
+                   )
+           )
+    ),
+    1
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '6630'
+                   )
+           )
+    ),
+    2
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '6630'
+                   )
+           )
+    ),
+    3
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '6630'
+                   )
+           )
+    ),
+    4
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '19670'
+                   )
+           )
+    ),
+    1
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '19670'
+                   )
+           )
+    ),
+    2
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '19670'
+                   )
+           )
+    ),
+    3
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '19670'
+                   )
+           )
+    ),
+    4
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '3645'
+                   )
+           )
+    ),
+    1
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '3645'
+                   )
+           )
+    ),
+    2
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '3645'
+                   )
+           )
+    ),
+    3
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '3645'
+                   )
+           )
+    ),
+    4
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '19667'
+                   )
+           )
+    ),
+    1
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '19667'
+                   )
+           )
+    ),
+    2
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '19667'
+                   )
+           )
+    ),
+    3
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '19667'
+                   )
+           )
+    ),
+    4
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '6132'
+                   )
+           )
+    ),
+    1
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '6132'
+                   )
+           )
+    ),
+    2
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '6132'
+                   )
+           )
+    ),
+    3
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '6132'
+                   )
+           )
+    ),
+    4
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '20012'
+                   )
+           )
+    ),
+    1
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '20012'
+                   )
+           )
+    ),
+    2
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '20012'
+                   )
+           )
+    ),
+    3
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '20012'
+                   )
+           )
+    ),
+    4
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '20627'
+                   )
+           )
+    ),
+    1
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '20627'
+                   )
+           )
+    ),
+    2
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '20627'
+                   )
+           )
+    ),
+    3
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '20627'
+                   )
+           )
+    ),
+    4
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '19567'
+                   )
+           )
+    ),
+    1
+  );
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '19567'
+                   )
+           )
+    ),
+    2
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '19567'
+                   )
+           )
+    ),
+    3
+  );
+
+
+INSERT INTO REPEAT_DAYS (REPEATEVENT_ID, DAYNUMBEROFWEEK)
+VALUES
+  (
+    (SELECT ID
+     FROM REPEAT_EVENTS
+     WHERE EVENT_ID =
+           (
+             SELECT ID
+             FROM EVENTS
+             WHERE CLASS_ID =
+                   (
+                     SELECT ID
+                     FROM CLASSES
+                     WHERE NUM = '19567'
+                   )
+           )
+    ),
+    5
+  );
