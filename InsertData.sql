@@ -3591,3 +3591,525 @@ VALUES
             AND SEMESTER_ID = 3
     )
   );
+
+INSERT INTO REPEAT_EVENTS (ID, EVENT_ID, STARTDATETIME, ENDDATETIME)
+VALUES
+  (
+    SEQ_REPEAT_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM EVENTS
+      WHERE CLASS_ID =
+            (
+              SELECT ID
+              FROM CLASSES
+              WHERE NUM = '10930'
+            )
+    ),
+    TO_DATE('09:00:00', 'hh24:mi:ss'),
+    TO_DATE('13:00:00', 'hh24:mi:ss')
+  );
+
+INSERT INTO REPEAT_EVENTS (ID, EVENT_ID, STARTDATETIME, ENDDATETIME)
+VALUES
+  (
+    SEQ_REPEAT_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM EVENTS
+      WHERE CLASS_ID =
+            (
+              SELECT ID
+              FROM CLASSES
+              WHERE NUM = '4154'
+            )
+    ),
+    TO_DATE('14:00:00', 'hh24:mi:ss'),
+    TO_DATE('14:50:00', 'hh24:mi:ss')
+  );
+
+INSERT INTO REPEAT_EVENTS (ID, EVENT_ID, STARTDATETIME, ENDDATETIME)
+VALUES
+  (
+    SEQ_REPEAT_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM EVENTS
+      WHERE CLASS_ID =
+            (
+              SELECT ID
+              FROM CLASSES
+              WHERE NUM = '4294'
+            )
+    ),
+    TO_DATE('12:00:00', 'hh24:mi:ss'),
+    TO_DATE('12:50:00', 'hh24:mi:ss')
+  );
+
+INSERT INTO REPEAT_EVENTS (ID, EVENT_ID, STARTDATETIME, ENDDATETIME)
+VALUES
+  (
+    SEQ_REPEAT_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM EVENTS
+      WHERE CLASS_ID =
+            (
+              SELECT ID
+              FROM CLASSES
+              WHERE NUM = '4431'
+            )
+    ),
+    TO_DATE('8:00:00', 'hh24:mi:ss'),
+    TO_DATE('8:50:00', 'hh24:mi:ss')
+  );
+
+INSERT INTO REPEAT_EVENTS (ID, EVENT_ID, STARTDATETIME, ENDDATETIME)
+VALUES
+  (
+    SEQ_REPEAT_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM EVENTS
+      WHERE CLASS_ID =
+            (
+              SELECT ID
+              FROM CLASSES
+              WHERE NUM = '4295'
+            )
+    ),
+    TO_DATE('15:00:00', 'hh24:mi:ss'),
+    TO_DATE('15:50:00', 'hh24:mi:ss')
+  );
+
+INSERT INTO REPEAT_EVENTS (ID, EVENT_ID, STARTDATETIME, ENDDATETIME)
+VALUES
+  (
+    SEQ_REPEAT_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM EVENTS
+      WHERE CLASS_ID =
+            (
+              SELECT ID
+              FROM CLASSES
+              WHERE NUM = '12317'
+            )
+    ),
+    TO_DATE('14:00:00', 'hh24:mi:ss'),
+    TO_DATE('14:50:00', 'hh24:mi:ss')
+  );
+
+INSERT INTO REPEAT_EVENTS (ID, EVENT_ID, STARTDATETIME, ENDDATETIME)
+VALUES
+  (
+    SEQ_REPEAT_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM EVENTS
+      WHERE CLASS_ID =
+            (
+              SELECT ID
+              FROM CLASSES
+              WHERE NUM = '12102'
+            )
+    ),
+    TO_DATE('8:00:00', 'hh24:mi:ss'),
+    TO_DATE('8:50:00', 'hh24:mi:ss')
+  );
+
+INSERT INTO REPEAT_EVENTS (ID, EVENT_ID, STARTDATETIME, ENDDATETIME)
+VALUES
+  (
+    SEQ_REPEAT_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM EVENTS
+      WHERE CLASS_ID =
+            (
+              SELECT ID
+              FROM CLASSES
+              WHERE NUM = '12104'
+            )
+    ),
+    TO_DATE('13:00:00', 'hh24:mi:ss'),
+    TO_DATE('13:50:00', 'hh24:mi:ss')
+  );
+
+INSERT INTO REPEAT_EVENTS (ID, EVENT_ID, STARTDATETIME, ENDDATETIME)
+VALUES
+  (
+    SEQ_REPEAT_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM EVENTS
+      WHERE CLASS_ID =
+            (
+              SELECT ID
+              FROM CLASSES
+              WHERE NUM = '5132'
+            )
+    ),
+    TO_DATE('9:00:00', 'hh24:mi:ss'),
+    TO_DATE('9:50:00', 'hh24:mi:ss')
+  );
+
+INSERT INTO REPEAT_EVENTS (ID, EVENT_ID, STARTDATETIME, ENDDATETIME)
+VALUES
+  (
+    SEQ_REPEAT_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM EVENTS
+      WHERE CLASS_ID =
+            (
+              SELECT ID
+              FROM CLASSES
+              WHERE NUM = '5285'
+            )
+    ),
+    TO_DATE('12:00:00', 'hh24:mi:ss'),
+    TO_DATE('12:50:00', 'hh24:mi:ss')
+  );
+
+INSERT INTO REPEAT_EVENTS (ID, EVENT_ID, STARTDATETIME, ENDDATETIME)
+VALUES
+  (
+    SEQ_REPEAT_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM EVENTS
+      WHERE CLASS_ID =
+            (
+              SELECT ID
+              FROM CLASSES
+              WHERE NUM = '5518'
+            )
+    ),
+    TO_DATE('11:00:00', 'hh24:mi:ss'),
+    TO_DATE('11:50:00', 'hh24:mi:ss')
+  );
+
+INSERT INTO REPEAT_EVENTS (ID, EVENT_ID, STARTDATETIME, ENDDATETIME)
+VALUES
+  (
+    SEQ_REPEAT_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM EVENTS
+      WHERE CLASS_ID =
+            (
+              SELECT ID
+              FROM CLASSES
+              WHERE NUM = '5286'
+            )
+    ),
+    TO_DATE('14:00:00', 'hh24:mi:ss'),
+    TO_DATE('14:50:00', 'hh24:mi:ss')
+  );
+
+INSERT INTO REPEAT_EVENTS (ID, EVENT_ID, STARTDATETIME, ENDDATETIME)
+VALUES
+  (
+    SEQ_REPEAT_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM EVENTS
+      WHERE CLASS_ID =
+            (
+              SELECT ID
+              FROM CLASSES
+              WHERE NUM = '13412'
+            )
+    ),
+    TO_DATE('14:00:00', 'hh24:mi:ss'),
+    TO_DATE('14:50:00', 'hh24:mi:ss')
+  );
+
+INSERT INTO REPEAT_EVENTS (ID, EVENT_ID, STARTDATETIME, ENDDATETIME)
+VALUES
+  (
+    SEQ_REPEAT_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM EVENTS
+      WHERE CLASS_ID =
+            (
+              SELECT ID
+              FROM CLASSES
+              WHERE NUM = '13414'
+            )
+    ),
+    TO_DATE('8:00:00', 'hh24:mi:ss'),
+    TO_DATE('8:50:00', 'hh24:mi:ss')
+  );
+
+INSERT INTO REPEAT_EVENTS (ID, EVENT_ID, STARTDATETIME, ENDDATETIME)
+VALUES
+  (
+    SEQ_REPEAT_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM EVENTS
+      WHERE CLASS_ID =
+            (
+              SELECT ID
+              FROM CLASSES
+              WHERE NUM = '13416'
+            )
+    ),
+    TO_DATE('13:00:00', 'hh24:mi:ss'),
+    TO_DATE('13:50:00', 'hh24:mi:ss')
+  );
+
+INSERT INTO REPEAT_EVENTS (ID, EVENT_ID, STARTDATETIME, ENDDATETIME)
+VALUES
+  (
+    SEQ_REPEAT_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM EVENTS
+      WHERE CLASS_ID =
+            (
+              SELECT ID
+              FROM CLASSES
+              WHERE NUM = '4876'
+            )
+    ),
+    TO_DATE('13:00:00', 'hh24:mi:ss'),
+    TO_DATE('13:50:00', 'hh24:mi:ss')
+  );
+
+INSERT INTO REPEAT_EVENTS (ID, EVENT_ID, STARTDATETIME, ENDDATETIME)
+VALUES
+  (
+    SEQ_REPEAT_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM EVENTS
+      WHERE CLASS_ID =
+            (
+              SELECT ID
+              FROM CLASSES
+              WHERE NUM = '4457'
+            )
+    ),
+    TO_DATE('11:00:00', 'hh24:mi:ss'),
+    TO_DATE('11:50:00', 'hh24:mi:ss')
+  );
+
+INSERT INTO REPEAT_EVENTS (ID, EVENT_ID, STARTDATETIME, ENDDATETIME)
+VALUES
+  (
+    SEQ_REPEAT_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM EVENTS
+      WHERE CLASS_ID =
+            (
+              SELECT ID
+              FROM CLASSES
+              WHERE NUM = '4458'
+            )
+    ),
+    TO_DATE('9:00:00', 'hh24:mi:ss'),
+    TO_DATE('9:50:00', 'hh24:mi:ss')
+  );
+
+INSERT INTO REPEAT_EVENTS (ID, EVENT_ID, STARTDATETIME, ENDDATETIME)
+VALUES
+  (
+    SEQ_REPEAT_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM EVENTS
+      WHERE CLASS_ID =
+            (
+              SELECT ID
+              FROM CLASSES
+              WHERE NUM = '4668'
+            )
+    ),
+    TO_DATE('12:00:00', 'hh24:mi:ss'),
+    TO_DATE('12:50:00', 'hh24:mi:ss')
+  );
+
+INSERT INTO REPEAT_EVENTS (ID, EVENT_ID, STARTDATETIME, ENDDATETIME)
+VALUES
+  (
+    SEQ_REPEAT_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM EVENTS
+      WHERE CLASS_ID =
+            (
+              SELECT ID
+              FROM CLASSES
+              WHERE NUM = '6863'
+            )
+    ),
+    TO_DATE('10:00:00', 'hh24:mi:ss'),
+    TO_DATE('10:50:00', 'hh24:mi:ss')
+  );
+
+INSERT INTO REPEAT_EVENTS (ID, EVENT_ID, STARTDATETIME, ENDDATETIME)
+VALUES
+  (
+    SEQ_REPEAT_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM EVENTS
+      WHERE CLASS_ID =
+            (
+              SELECT ID
+              FROM CLASSES
+              WHERE NUM = '7055'
+            )
+    ),
+    TO_DATE('11:00:00', 'hh24:mi:ss'),
+    TO_DATE('11:50:00', 'hh24:mi:ss')
+  );
+
+INSERT INTO REPEAT_EVENTS (ID, EVENT_ID, STARTDATETIME, ENDDATETIME)
+VALUES
+  (
+    SEQ_REPEAT_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM EVENTS
+      WHERE CLASS_ID =
+            (
+              SELECT ID
+              FROM CLASSES
+              WHERE NUM = '6630'
+            )
+    ),
+    TO_DATE('13:00:00', 'hh24:mi:ss'),
+    TO_DATE('13:50:00', 'hh24:mi:ss')
+  );
+
+INSERT INTO REPEAT_EVENTS (ID, EVENT_ID, STARTDATETIME, ENDDATETIME)
+VALUES
+  (
+    SEQ_REPEAT_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM EVENTS
+      WHERE CLASS_ID =
+            (
+              SELECT ID
+              FROM CLASSES
+              WHERE NUM = '19670'
+            )
+    ),
+    TO_DATE('13:00:00', 'hh24:mi:ss'),
+    TO_DATE('13:50:00', 'hh24:mi:ss')
+  );
+
+INSERT INTO REPEAT_EVENTS (ID, EVENT_ID, STARTDATETIME, ENDDATETIME)
+VALUES
+  (
+    SEQ_REPEAT_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM EVENTS
+      WHERE CLASS_ID =
+            (
+              SELECT ID
+              FROM CLASSES
+              WHERE NUM = '3645'
+            )
+    ),
+    TO_DATE('12:00:00', 'hh24:mi:ss'),
+    TO_DATE('12:50:00', 'hh24:mi:ss')
+  );
+
+INSERT INTO REPEAT_EVENTS (ID, EVENT_ID, STARTDATETIME, ENDDATETIME)
+VALUES
+  (
+    SEQ_REPEAT_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM EVENTS
+      WHERE CLASS_ID =
+            (
+              SELECT ID
+              FROM CLASSES
+              WHERE NUM = '19667'
+            )
+    ),
+    TO_DATE('8:00:00', 'hh24:mi:ss'),
+    TO_DATE('8:50:00', 'hh24:mi:ss')
+  );
+
+INSERT INTO REPEAT_EVENTS (ID, EVENT_ID, STARTDATETIME, ENDDATETIME)
+VALUES
+  (
+    SEQ_REPEAT_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM EVENTS
+      WHERE CLASS_ID =
+            (
+              SELECT ID
+              FROM CLASSES
+              WHERE NUM = '6132'
+            )
+    ),
+    TO_DATE('11:00:00', 'hh24:mi:ss'),
+    TO_DATE('11:50:00', 'hh24:mi:ss')
+  );
+
+INSERT INTO REPEAT_EVENTS (ID, EVENT_ID, STARTDATETIME, ENDDATETIME)
+VALUES
+  (
+    SEQ_REPEAT_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM EVENTS
+      WHERE CLASS_ID =
+            (
+              SELECT ID
+              FROM CLASSES
+              WHERE NUM = '20012'
+            )
+    ),
+    TO_DATE('10:00:00', 'hh24:mi:ss'),
+    TO_DATE('10:50:00', 'hh24:mi:ss')
+  );
+
+INSERT INTO REPEAT_EVENTS (ID, EVENT_ID, STARTDATETIME, ENDDATETIME)
+VALUES
+  (
+    SEQ_REPEAT_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM EVENTS
+      WHERE CLASS_ID =
+            (
+              SELECT ID
+              FROM CLASSES
+              WHERE NUM = '20627'
+            )
+    ),
+    TO_DATE('11:00:00', 'hh24:mi:ss'),
+    TO_DATE('11:50:00', 'hh24:mi:ss')
+  );
+
+INSERT INTO REPEAT_EVENTS (ID, EVENT_ID, STARTDATETIME, ENDDATETIME)
+VALUES
+  (
+    SEQ_REPEAT_EVENTS.nextval,
+    (
+      SELECT ID
+      FROM EVENTS
+      WHERE CLASS_ID =
+            (
+              SELECT ID
+              FROM CLASSES
+              WHERE NUM = '19567'
+            )
+    ),
+    TO_DATE('13:00:00', 'hh24:mi:ss'),
+    TO_DATE('13:50:00', 'hh24:mi:ss')
+  );
