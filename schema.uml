@@ -3,26 +3,26 @@
   <ID>DATABASE</ID>
   <OriginalElement>979324d8-7a6e-466b-8ee3-06e5e77392c4.schema:KHADA</OriginalElement>
   <nodes>
-    <node x="847.0" y="404.0">979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.ASSIGNMENT_CATEGORIES</node>
-    <node x="1047.0" y="338.0">979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.ASSIGNMENTS</node>
-    <node x="0.0" y="1298.0">979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.AUTHORS</node>
+    <node x="591.0" y="404.0">979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.ASSIGNMENT_CATEGORIES</node>
+    <node x="275.0" y="338.0">979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.ASSIGNMENTS</node>
+    <node x="236.0" y="1298.0">979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.AUTHORS</node>
     <node x="698.0" y="1096.0">979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.GRADE_SCALES</node>
     <node x="59.0" y="393.0">979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.CLASSES</node>
     <node x="30.0" y="0.0">979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.SEMESTERS</node>
-    <node x="186.0" y="1096.0">979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.PUBLISHERS</node>
-    <node x="59.0" y="639.0">979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.EVENTS</node>
+    <node x="10.0" y="1096.0">979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.PUBLISHERS</node>
     <node x="59.0" y="808.0">979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.REPEAT_EVENTS</node>
-    <node x="551.0" y="125.0">979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.COURSES</node>
-    <node x="491.0" y="316.0">979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.SYLLABUS_INFO</node>
+    <node x="59.0" y="639.0">979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.EVENTS</node>
+    <node x="791.0" y="316.0">979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.SYLLABUS_INFO</node>
+    <node x="541.0" y="125.0">979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.COURSES</node>
     <node x="37.5" y="977.0">979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.REPEAT_DAYS</node>
     <node x="0.0" y="125.0">979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.SEMESTERS_YEARS</node>
-    <node x="176.0" y="1265.0">979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.ARTICLES</node>
-    <node x="581.0" y="0.0">979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.DEPARTMENTS</node>
-    <node x="275.0" y="393.0">979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.TEXTBOOKS</node>
-    <node x="702.6428571428571" y="661.5">979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.SYLLABUS_ASSIGN_CATEGORIES</node>
+    <node x="0.0" y="1265.0">979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.ARTICLES</node>
+    <node x="571.0" y="0.0">979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.DEPARTMENTS</node>
+    <node x="660.9285714285713" y="661.5">979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.SYLLABUS_ASSIGN_CATEGORIES</node>
+    <node x="95.5" y="1456.0">979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.AUTHOR_ARTICLES</node>
+    <node x="1147.0" y="393.0">979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.TEXTBOOKS</node>
     <node x="437.0" y="1096.0">979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.USERS</node>
-    <node x="65.5" y="1456.0">979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.AUTHOR_ARTICLES</node>
-    <node x="334.07142857142856" y="661.5">979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.SYLLABUS_INFO_TEXTBOOKS</node>
+    <node x="1024.3571428571427" y="661.5">979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.SYLLABUS_INFO_TEXTBOOKS</node>
   </nodes>
   <notes />
   <edges>
@@ -31,9 +31,9 @@
       <point x="0.0" y="59.5" />
     </edge>
     <edge source="979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.AUTHOR_ARTICLES" target="979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.AUTHORS">
-      <point x="-57.75" y="-48.5" />
-      <point x="123.25" y="1431.0" />
-      <point x="78.0" y="1431.0" />
+      <point x="57.75" y="-48.5" />
+      <point x="268.75" y="1431.0" />
+      <point x="314.0" y="1431.0" />
       <point x="0.0" y="37.5" />
     </edge>
     <edge source="979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.SEMESTERS_YEARS" target="979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.SEMESTERS">
@@ -49,33 +49,33 @@
       <point x="0.0" y="37.5" />
     </edge>
     <edge source="979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.SYLLABUS_ASSIGN_CATEGORIES" target="979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.ASSIGNMENT_CATEGORIES">
-      <point x="54.75" y="-37.0" />
-      <point x="866.8928571428571" y="614.0" />
-      <point x="937.0" y="614.0" />
+      <point x="-54.75" y="-37.0" />
+      <point x="715.6785714285713" y="614.0" />
+      <point x="681.0" y="614.0" />
       <point x="0.0" y="48.5" />
     </edge>
     <edge source="979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.CLASSES" target="979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.COURSES">
       <point x="49.0" y="-59.5" />
       <point x="206.0" y="286.0" />
-      <point x="578.0" y="286.0" />
+      <point x="568.0" y="286.0" />
       <point x="-81.0" y="70.5" />
     </edge>
     <edge source="979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.ASSIGNMENTS" target="979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.COURSES">
       <point x="0.0" y="-114.5" />
-      <point x="1195.0" y="286.0" />
-      <point x="740.0" y="286.0" />
-      <point x="81.0" y="70.5" />
+      <point x="423.0" y="296.0" />
+      <point x="622.0" y="296.0" />
+      <point x="-27.0" y="70.5" />
     </edge>
     <edge source="979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.SYLLABUS_ASSIGN_CATEGORIES" target="979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.SYLLABUS_INFO">
-      <point x="-54.75" y="-37.0" />
-      <point x="757.3928571428571" y="614.0" />
-      <point x="743.0" y="614.0" />
-      <point x="84.0" y="136.5" />
+      <point x="54.75" y="-37.0" />
+      <point x="825.1785714285713" y="614.0" />
+      <point x="875.0" y="614.0" />
+      <point x="-84.0" y="136.5" />
     </edge>
     <edge source="979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.AUTHOR_ARTICLES" target="979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.ARTICLES">
-      <point x="57.75" y="-48.5" />
-      <point x="238.75" y="1431.0" />
-      <point x="284.0" y="1431.0" />
+      <point x="-57.75" y="-48.5" />
+      <point x="153.25" y="1431.0" />
+      <point x="108.0" y="1431.0" />
       <point x="0.0" y="70.5" />
     </edge>
     <edge source="979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.REPEAT_EVENTS" target="979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.EVENTS">
@@ -83,33 +83,33 @@
       <point x="0.0" y="59.5" />
     </edge>
     <edge source="979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.SYLLABUS_INFO_TEXTBOOKS" target="979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.TEXTBOOKS">
-      <point x="-55.75" y="-37.0" />
-      <point x="389.82142857142856" y="614.0" />
-      <point x="373.0" y="614.0" />
+      <point x="55.75" y="-37.0" />
+      <point x="1191.6071428571427" y="614.0" />
+      <point x="1245.0" y="614.0" />
       <point x="0.0" y="59.5" />
     </edge>
     <edge source="979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.CLASSES" target="979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.SEMESTERS_YEARS">
       <point x="-49.0" y="-59.5" />
       <point x="0.0" y="70.5" />
     </edge>
-    <edge source="979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.SYLLABUS_INFO" target="979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.COURSES">
-      <point x="-84.0" y="-136.5" />
-      <point x="575.0" y="296.0" />
-      <point x="632.0" y="296.0" />
-      <point x="-27.0" y="70.5" />
-    </edge>
-    <edge source="979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.SYLLABUS_INFO_TEXTBOOKS" target="979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.SYLLABUS_INFO">
-      <point x="55.75" y="-37.0" />
-      <point x="501.32142857142856" y="614.0" />
-      <point x="575.0" y="614.0" />
-      <point x="-84.0" y="136.5" />
-    </edge>
     <edge source="979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.REPEAT_DAYS" target="979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.REPEAT_EVENTS">
       <point x="0.0" y="-37.0" />
       <point x="0.0" y="59.5" />
     </edge>
+    <edge source="979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.SYLLABUS_INFO_TEXTBOOKS" target="979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.SYLLABUS_INFO">
+      <point x="-55.75" y="-37.0" />
+      <point x="1080.1071428571427" y="614.0" />
+      <point x="1043.0" y="614.0" />
+      <point x="84.0" y="136.5" />
+    </edge>
+    <edge source="979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.SYLLABUS_INFO" target="979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.COURSES">
+      <point x="-84.0" y="-136.5" />
+      <point x="875.0" y="296.0" />
+      <point x="676.0" y="296.0" />
+      <point x="27.0" y="70.5" />
+    </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.35727908455181184" x="671.5" y="776.5" />
+  <settings layout="Hierarchic Group" zoom="0.364907819453274" x="671.5" y="776.5" />
   <SelectedNodes>
     <node>979324d8-7a6e-466b-8ee3-06e5e77392c4.table:KHADA.SYLLABUS_INFO_TEXTBOOKS</node>
   </SelectedNodes>
