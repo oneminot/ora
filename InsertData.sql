@@ -6393,3 +6393,12 @@ VALUES
     ),
     5
   );
+
+INSERT INTO USERS (ID, NAME, PASSWORD, ATTEMPTCOUNT, LASTATTEMPT) VALUES
+  (
+    SEQ_USERS.nextval,
+    'Abigail',
+    'cameron_diaz',
+    2,
+    TO_DATE('2010/08/24 00:00:00', 'yyyy/mm/dd hh24:mi:ss')
+  );

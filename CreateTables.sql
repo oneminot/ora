@@ -183,5 +183,6 @@ CREATE TABLE users
   Password     VARCHAR2(2000) NOT NULL,
   AttemptCount NUMBER(5)      NOT NULL,
   LastAttempt  TIMESTAMP      NOT NULL,
-  CONSTRAINT pk_users PRIMARY KEY (ID)
+  CONSTRAINT pk_users PRIMARY KEY (ID),
+  CONSTRAINT unq_users UNIQUE (Name)
 );
